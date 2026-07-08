@@ -36,52 +36,45 @@
 
 <div style="--as-red:#CC0001; --as-red-600:#B00001; --as-black:#000; --as-ink:#141414; --as-g700:#333; --as-g500:#8A8A8A; --as-g300:#CCC; --as-g200:#EDEDED; --as-g100:#F7F7F7; font-family:var(--font-sans,'Inter',sans-serif); color:var(--as-ink); background:#fff; -webkit-font-smoothing:antialiased;">
 
-  <!-- Utility bar -->
-  <div style="background:var(--as-black); color:#CFCFCF; font-size:13px;">
-    <div class="as-container" style="height:40px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-      <div style="display:flex; align-items:center; gap:20px;">
-        <span class="as-hidesm" style="display:inline-flex; gap:8px; align-items:center;"><i class="fa-solid fa-location-dot" style="color:var(--as-red)"></i> Hövelstr. 151–153, 45326 Essen</span>
-        <span class="as-hidesm" style="display:inline-flex; gap:8px; align-items:center;"><i class="fa-solid fa-clock" style="color:var(--as-red)"></i> Mo–Fr 08:30–18:30</span>
-      </div>
-      <a href="tel:+492018314830" style="color:#fff; text-decoration:none; font-weight:700; display:inline-flex; gap:8px; align-items:center;"><i class="fa-solid fa-phone" style="color:var(--as-red)"></i> 0201 831483-0</a>
-    </div>
-  </div>
+  <!-- Hero (full-bleed, blurred Autohaus-Foto, überlagerter Header) -->
+  <section style="position:relative; min-height:clamp(560px,86vh,760px); display:flex; flex-direction:column; color:#fff; overflow:hidden;">
+    <div style="position:absolute; inset:0; background-image:url('assets/img/autohaus-hero.jpg'); background-size:cover; background-position:center; filter:blur(5px) saturate(1.05) brightness(0.9); transform:scale(1.08);"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(8,8,8,0.74) 0%, rgba(8,8,8,0.52) 42%, rgba(8,8,8,0.82) 100%);"></div>
 
-  <!-- Header -->
-  <header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--as-g200); box-shadow:0 1px 2px rgba(0,0,0,0.06);">
-    <div class="as-container" style="height:72px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
-      <a href="#" style="text-decoration:none; font-weight:800; font-size:clamp(20px,3.5vw,26px); letter-spacing:-.02em; color:var(--as-ink);">AS<span style="color:var(--as-red)">.</span>Automobile</a>
-      <nav class="as-hidesm" style="display:flex; align-items:center; gap:4px;">
-        <a href="#angebote" style="text-decoration:none; font-size:15px; font-weight:600; padding:10px 14px; border-radius:4px; color:var(--as-ink);" style-hover="color:var(--as-red);">Angebote</a>
-        <a href="#marken" style="text-decoration:none; font-size:15px; font-weight:600; padding:10px 14px; border-radius:4px; color:var(--as-ink);" style-hover="color:var(--as-red);">Marken</a>
-        <a href="#service" style="text-decoration:none; font-size:15px; font-weight:600; padding:10px 14px; border-radius:4px; color:var(--as-ink);" style-hover="color:var(--as-red);">Service</a>
-        <a href="tel:+492018314830" style="text-decoration:none; font-size:15px; font-weight:700; padding:11px 20px; margin-left:6px; border-radius:6px; background:var(--as-red); color:#fff;" style-hover="background:var(--as-red-600);">Kontakt</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section style="background:var(--as-g100); border-bottom:1px solid var(--as-g200);">
-    <div class="as-container" style="padding-top:clamp(40px,6vw,68px); padding-bottom:clamp(40px,6vw,68px);">
-      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--as-red); margin-bottom:16px;">
-        <span style="width:26px; height:2px; background:var(--as-red);"></span> Aktuelle Angebote
+    <!-- Header (overlaid) -->
+    <header style="position:relative; z-index:3;">
+      <div class="as-container" style="height:clamp(74px,10vw,92px); display:flex; align-items:center; justify-content:space-between; gap:14px;">
+        <a href="#" style="display:inline-flex; align-items:center;"><img src="assets/img/logo-as-white.png" alt="AS Automobile" style="height:clamp(38px,6vw,54px); width:auto; display:block;" /></a>
+        <nav class="as-hidesm" style="display:flex; align-items:center; gap:6px;">
+          <a href="#angebote" style="text-decoration:none; font-size:15px; font-weight:600; padding:10px 14px; border-radius:4px; color:#fff;" style-hover="color:var(--as-red);">Angebote</a>
+          <a href="#marken" style="text-decoration:none; font-size:15px; font-weight:600; padding:10px 14px; border-radius:4px; color:#fff;" style-hover="color:var(--as-red);">Marken</a>
+          <a href="#service" style="text-decoration:none; font-size:15px; font-weight:600; padding:10px 14px; border-radius:4px; color:#fff;" style-hover="color:var(--as-red);">Service</a>
+          <a href="tel:+492018314830" style="text-decoration:none; font-size:15px; font-weight:700; padding:11px 20px; margin-left:6px; border-radius:6px; background:var(--as-red); color:#fff;" style-hover="background:var(--as-red-600);"><i class="fa-solid fa-phone" style="margin-right:8px;"></i>0201 831483-0</a>
+        </nav>
       </div>
-      <h1 style="margin:0; max-width:820px; font-size:clamp(32px,6vw,54px); line-height:1.03; letter-spacing:-.02em; font-weight:800; color:var(--as-ink); text-wrap:balance;">Ihr Autohaus für <span style="color:var(--as-red)">SEAT, CUPRA &amp; Škoda</span> in Essen</h1>
-      <p style="margin:18px 0 0; max-width:620px; font-size:clamp(16px,2.4vw,18px); line-height:1.6; color:var(--as-g700);">Neu- und Gebrauchtwagen, attraktive Leasing- &amp; Finanzierungsangebote und ein starker Werkstattservice — persönlich beraten, direkt vor Ort.</p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:26px;">
-        <a href="#angebote" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--as-red); color:#fff; font-weight:700; font-size:16px; padding:15px 28px; border-radius:6px;" style-hover="background:var(--as-red-600);">Angebote ansehen <i class="fa-solid fa-arrow-down"></i></a>
-        <a href="tel:+492018314830" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:var(--as-ink); border:1px solid var(--as-ink); font-weight:700; font-size:16px; padding:15px 26px; border-radius:6px;" style-hover="background:var(--as-ink); color:#fff;"><i class="fa-solid fa-phone"></i> Anrufen</a>
+    </header>
+
+    <!-- Hero content -->
+    <div class="as-container" style="position:relative; z-index:3; flex:1; display:flex; flex-direction:column; justify-content:center; padding-top:clamp(24px,4vw,44px); padding-bottom:clamp(36px,5vw,56px);">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#fff; margin-bottom:18px;">
+        <span style="width:26px; height:2px; background:var(--as-red);"></span> Aktuelle Angebote in Essen
+      </div>
+      <h1 style="margin:0; max-width:840px; font-size:clamp(34px,6.4vw,58px); line-height:1.02; letter-spacing:-.02em; font-weight:800; color:#fff; text-wrap:balance; text-shadow:0 2px 20px rgba(0,0,0,0.35);">Ihr Autohaus für SEAT, CUPRA &amp; Škoda</h1>
+      <p style="margin:20px 0 0; max-width:600px; font-size:clamp(16px,2.4vw,19px); line-height:1.6; color:rgba(255,255,255,0.9);">Neu- und Gebrauchtwagen, attraktive Leasing- &amp; Finanzierungsangebote und ein starker Werkstattservice — persönlich beraten, direkt vor Ort.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:28px;">
+        <a href="#angebote" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--as-red); color:#fff; font-weight:700; font-size:16px; padding:16px 30px; border-radius:6px;" style-hover="background:var(--as-red-600);">Angebote ansehen <i class="fa-solid fa-arrow-down"></i></a>
+        <a href="tel:+492018314830" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.55); font-weight:700; font-size:16px; padding:16px 26px; border-radius:6px;" style-hover="background:#fff; color:var(--as-ink);"><i class="fa-solid fa-phone"></i> Anrufen</a>
       </div>
     </div>
   </section>
 
-  <!-- Brand strip -->
+  <!-- Partner-Strip (Marken-Logos) -->
   <div id="marken" style="background:#fff; border-bottom:1px solid var(--as-g200);">
-    <div class="as-container" style="padding-top:26px; padding-bottom:26px; display:flex; align-items:center; justify-content:center; gap:clamp(24px,5vw,48px); flex-wrap:wrap;">
-      <span class="as-hidesm" style="font-size:13px; font-weight:600; color:var(--as-g500); letter-spacing:.04em;">Marken &amp; Hersteller</span>
-      <span style="font-size:clamp(18px,3vw,22px); font-weight:800; letter-spacing:.14em; color:var(--as-ink);">SEAT</span>
-      <span style="font-size:clamp(18px,3vw,22px); font-weight:800; letter-spacing:.14em; color:var(--as-ink);">CUPRA</span>
-      <span style="font-size:clamp(18px,3vw,22px); font-weight:800; letter-spacing:.14em; color:var(--as-ink);">ŠKODA</span>
+    <div class="as-container" style="padding-top:26px; padding-bottom:26px; display:flex; align-items:center; justify-content:center; gap:clamp(22px,5vw,52px); flex-wrap:wrap;">
+      <span class="as-hidesm" style="font-size:13px; font-weight:700; color:var(--as-g500); letter-spacing:.06em; text-transform:uppercase;">Offizieller Partner für</span>
+      <img src="assets/img/brand-seat.png" alt="SEAT" style="height:clamp(20px,3vw,26px); width:auto; opacity:0.85;" />
+      <img src="assets/img/brand-cupra.png" alt="CUPRA" style="height:clamp(28px,4vw,38px); width:auto; opacity:0.85;" />
+      <img src="assets/img/brand-skoda.png" alt="Škoda" style="height:clamp(17px,2.6vw,22px); width:auto; opacity:0.85;" />
     </div>
   </div>
 
@@ -174,7 +167,7 @@
   <footer style="background:var(--as-black); color:#B9B9B9; font-size:14px;">
     <div class="as-container as-foot" style="padding-top:56px; padding-bottom:32px; align-items:start;">
       <div>
-        <div style="font-weight:800; font-size:22px; color:#fff; letter-spacing:-.02em; margin-bottom:16px;">AS<span style="color:var(--as-red)">.</span>Automobile</div>
+        <img src="assets/img/logo-as-white.png" alt="AS Automobile" style="height:44px; width:auto; display:block; margin-bottom:16px;" />
         <p style="margin:0; line-height:1.7;">AS-Automobile GmbH<br>Hövelstr. 151–153<br>45326 Essen</p>
         <p style="margin:14px 0 0; line-height:1.7;">Tel: <a href="tel:+492018314830" style="color:#fff; text-decoration:none;">0201 831483-0</a></p>
       </div>
