@@ -7,7 +7,7 @@
 </head>
 <body>
 <x-dc>
-<!-- Sub-page of the "Škoda Angebots-Landingpage" template (entry: SkodaFabiaAngebot.dc.html). Anfrage/lead form — reached from the landing-page CTAs, submits to SkodaFabiaDanke.dc.html. -->
+<!-- Sub-page of the "Škoda Angebots-Landingpage" template (entry: index.html). Anfrage/lead form — reached from the landing-page CTAs, submits to danke.html. -->
 <helmet>
 <script src="../../assets/ds-base.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -31,7 +31,7 @@
   <!-- Header -->
   <header style="background:#fff; border-bottom:1px solid #E7ECE9;">
     <div class="sk-container" style="max-width:980px; height:64px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
-      <a href="SkodaFabiaAngebot.dc.html" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:#5B6863; font-weight:600; font-size:14px;" style-hover="color:var(--sk-green);"><i class="fa-solid fa-arrow-left"></i> Zurück zum Angebot</a>
+      <a href="index.html" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:#5B6863; font-weight:600; font-size:14px;" style-hover="color:var(--sk-green);"><i class="fa-solid fa-arrow-left"></i> Zurück zum Angebot</a>
       <span style="font-weight:800; font-size:20px; letter-spacing:-.02em; color:var(--sk-ink);">AS<span style="color:var(--sk-green)">.</span>Automobile</span>
     </div>
   </header>
@@ -234,7 +234,7 @@ class Component extends DCLogic {
       vorname: s.vorname, mode: s.mode, color: s.color,
       rate: String(this.computeRate()),
     });
-    window.location.href = 'SkodaFabiaDanke.dc.html?' + p.toString();
+    window.location.href = 'danke.html?' + p.toString();
   }
 
   renderVals() {
