@@ -23,6 +23,9 @@
   .sk-field { width:100%; font-family:inherit; font-size:15px; padding:13px 14px; border:1px solid #D5DDD9; border-radius:9px; outline:none; background:#fff; color:var(--sk-ink); }
   .sk-field:focus { border-color:#0E3A2F; }
   .sk-label { display:block; font-size:13px; font-weight:700; color:#3C4A44; margin-bottom:6px; }
+  input[type=range] { -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; background:#DCE5E0; outline:none; accent-color:#0E3A2F; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:999px; background:#0E3A2F; border:3px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,0.25); cursor:pointer; }
+  input[type=range]::-moz-range-thumb { width:20px; height:20px; border-radius:999px; background:#0E3A2F; border:3px solid #fff; cursor:pointer; }
 </style>
 </helmet>
 
@@ -76,44 +79,60 @@
           </div>
         </div>
 
-        <div class="sk-grid2" style="margin-bottom:14px;">
-          <div>
-            <span class="sk-label">{{ anzLabel }} (€)</span>
-            <input value="{{ anzahlung }}" onChange="{{ onAnz }}" type="number" min="0" step="50" class="sk-field" />
+        <!-- Interaktives Raten-Modul -->
+        <div style="background:var(--sk-paper); border:1px solid #E7ECE9; border-radius:14px; padding:clamp(16px,3vw,22px); margin-bottom:18px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:14px; border-bottom:1px solid #E1E8E4;">
+            <span style="font-size:13px; color:#6B776F; font-weight:700;">{{ rateLabel }}</span>
+            <span style="font-size:clamp(26px,5vw,32px); font-weight:800; color:var(--sk-green); letter-spacing:-.02em; line-height:1;">{{ rateFmt }} €<span style="font-size:14px; font-weight:700;"> {{ rateSuffix }}</span></span>
           </div>
-          <div>
-            <span class="sk-label">Laufzeit (Monate)</span>
-            <select value="{{ laufzeit }}" onChange="{{ onLaufzeit }}" class="sk-field">
-              <option value="24">24 Monate</option>
-              <option value="36">36 Monate</option>
-              <option value="42">42 Monate</option>
-              <option value="48">48 Monate</option>
-              <option value="60">60 Monate</option>
-            </select>
-          </div>
+
+          <sc-if value="{{ showFinance }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <div style="margin-top:16px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span class="sk-label" style="margin:0;">{{ anzLabel }}</span><span style="font-weight:800; color:var(--sk-green); font-size:15px;">{{ anzahlungFmt }} €</span></div>
+                <input type="range" min="0" max="6000" step="50" value="{{ anzahlung }}" onChange="{{ onAnz }}" />
+                <div style="display:flex; justify-content:space-between; font-size:11px; color:#9AA8A1; margin-top:4px;"><span>0 €</span><span>6.000 €</span></div>
+              </div>
+              <div style="margin-top:16px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span class="sk-label" style="margin:0;">Laufzeit</span><span style="font-weight:800; color:var(--sk-green); font-size:15px;">{{ laufzeit }} Monate</span></div>
+                <input type="range" min="24" max="60" step="6" value="{{ laufzeit }}" onChange="{{ onLaufzeit }}" />
+                <div style="display:flex; justify-content:space-between; font-size:11px; color:#9AA8A1; margin-top:4px;"><span>24</span><span>60 Monate</span></div>
+              </div>
+              <sc-if value="{{ isLeasing }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:16px;">
+                  <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span class="sk-label" style="margin:0;">Fahrleistung / Jahr</span><span style="font-weight:800; color:var(--sk-green); font-size:15px;">{{ kmFmt }} km</span></div>
+                  <input type="range" min="5000" max="25000" step="2500" value="{{ km }}" onChange="{{ onKm }}" />
+                  <div style="display:flex; justify-content:space-between; font-size:11px; color:#9AA8A1; margin-top:4px;"><span>5.000</span><span>25.000 km</span></div>
+                </div>
+              </sc-if>
+
+              <!-- Wunschrate -->
+              <div style="margin-top:18px; padding-top:16px; border-top:1px dashed #CFDAD4;">
+                <span class="sk-label"><i class="fa-solid fa-bullseye" style="color:var(--sk-green); margin-right:7px;"></i>Ihre Wunschrate (optional)</span>
+                <div style="display:flex; gap:10px; align-items:center;">
+                  <input value="{{ wunschrate }}" onChange="{{ onWunschrate }}" type="number" min="0" step="10" placeholder="z. B. 150" class="sk-field" style="max-width:170px;" />
+                  <span style="font-size:14px; color:#6B776F;">€ / Monat</span>
+                </div>
+                <sc-if value="{{ wunschOk }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:10px; font-size:13px; font-weight:700; color:#0E7A3F; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-check"></i> Passt in Ihr Budget — wir bestätigen die Kondition im Termin.</div>
+                </sc-if>
+                <sc-if value="{{ wunschOver }}" hint-placeholder-val="{{ false }}">
+                  <div style="margin-top:10px; font-size:13px; font-weight:700; color:#B45309; display:flex; align-items:flex-start; gap:8px;"><i class="fa-solid fa-circle-info" style="margin-top:2px;"></i> <span>Aktuell {{ wunschDiff }} € über Ihrer Wunschrate. Tipp: Sonderzahlung erhöhen oder Laufzeit verlängern — den Rest lösen wir gemeinsam.</span></div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-if>
         </div>
 
-        <div class="sk-grid2" style="margin-bottom:14px;">
-          <div>
-            <span class="sk-label">Fahrleistung / Jahr (km)</span>
-            <select value="{{ km }}" onChange="{{ onKm }}" class="sk-field">
-              <option value="5000">5.000 km</option>
-              <option value="10000">10.000 km</option>
-              <option value="15000">15.000 km</option>
-              <option value="20000">20.000 km</option>
-              <option value="25000">25.000 km</option>
-            </select>
-          </div>
-          <div>
-            <span class="sk-label">Wunschfarbe</span>
-            <select value="{{ color }}" onChange="{{ onColor }}" class="sk-field">
-              <option value="Race-Blau">Race-Blau</option>
-              <option value="Velvet-Rot">Velvet-Rot</option>
-              <option value="Brillant-Grau">Brillant-Grau</option>
-              <option value="Candy-Weiß">Candy-Weiß</option>
-              <option value="Magic-Schwarz">Magic-Schwarz</option>
-            </select>
-          </div>
+        <div style="margin-bottom:14px;">
+          <span class="sk-label">Wunschfarbe</span>
+          <select value="{{ color }}" onChange="{{ onColor }}" class="sk-field">
+            <option value="Race-Blau">Race-Blau</option>
+            <option value="Velvet-Rot">Velvet-Rot</option>
+            <option value="Brillant-Grau">Brillant-Grau</option>
+            <option value="Candy-Weiß">Candy-Weiß</option>
+            <option value="Magic-Schwarz">Magic-Schwarz</option>
+          </select>
         </div>
 
         <div style="margin-bottom:26px;">
@@ -199,6 +218,7 @@ class Component extends DCLogic {
       laufzeit: Number(q('laufzeit', 48)) || 48,
       km: Number(q('km', 10000)) || 10000,
       color: q('color', 'Race-Blau'),
+      wunschrate: '',
       configCode: '',
       vorname: '', nachname: '', phone: '', email: '',
       wunsch: 'Probefahrt', message: '', consent: false,
@@ -233,6 +253,7 @@ class Component extends DCLogic {
     const p = new URLSearchParams({
       vorname: s.vorname, mode: s.mode, color: s.color,
       rate: String(this.computeRate()),
+      wunschrate: String(s.wunschrate || ''),
     });
     window.location.href = 'danke.html?' + p.toString();
   }
@@ -244,8 +265,19 @@ class Component extends DCLogic {
     const isLeasing = s.mode === 'leasing', isFin = s.mode === 'finanzierung', isKauf = s.mode === 'kauf';
     const modeLabel = isKauf ? 'Kauf' : (isFin ? 'Finanzierung' : 'Leasing');
     const rateNum = this.computeRate();
+    const wr = Number(s.wunschrate);
+    const hasWunschrate = s.wunschrate !== '' && wr > 0;
+    const wunschOk = hasWunschrate && rateNum <= wr;
+    const wunschOver = hasWunschrate && rateNum > wr;
 
     return {
+      showFinance: !isKauf,
+      kmFmt: this.fmt(s.km),
+      rateSuffix: isKauf ? '' : 'mtl.',
+      wunschrate: s.wunschrate,
+      onWunschrate: txt('wunschrate'),
+      wunschOk, wunschOver,
+      wunschDiff: this.fmt(Math.max(0, rateNum - (wr || 0))),
       isLeasing, isFin, isKauf,
       notLeasing: !isLeasing, notFin: !isFin, notKauf: !isKauf,
       setLeasing: () => this.setState({ mode: 'leasing' }),
