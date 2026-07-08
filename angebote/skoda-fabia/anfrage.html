@@ -527,6 +527,7 @@ class Component extends DCLogic {
         window.dataLayer.push({
           event: 'lead_submit', event_id: eventId,
           lead: {
+            marke: 'Škoda',
             fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen',
             erwerbsart: modeLabel, kundentyp: s.kundentyp,
             berechnete_rate: rate, currency: 'EUR', value: rate,
@@ -540,6 +541,7 @@ class Component extends DCLogic {
     const lead = new URLSearchParams({
       event_name: 'Lead', event_id: eventId,
       event_source_url: (typeof window !== 'undefined' ? window.location.href : ''),
+      marke: 'Škoda',
       fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen',
       erwerbsart: modeLabel, kundentyp: s.kundentyp,
       sonderzahlung: String(s.anzahlung), laufzeit_monate: String(s.laufzeit),
