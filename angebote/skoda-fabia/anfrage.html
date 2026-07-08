@@ -7,7 +7,7 @@
 </head>
 <body>
 <x-dc>
-<!-- Sub-page of the "Škoda Angebots-Landingpage" template (entry: index.html). Anfrage/lead form — reached from the landing-page CTAs, submits to danke.html. -->
+<!-- Sub-page of the "Škoda Angebots-Landingpage" template (entry: index.html). Anfrage/lead form — 4-Schritt-Wizard, reached from the landing-page CTAs, submits to danke.html. -->
 <helmet>
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Tag Manager -->
@@ -32,7 +32,7 @@
 fbq('init','1422851823195089');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
-<!-- Interaktions-Events: Contact (Anruf/E-Mail) & Schedule (Termin-CTA) -->
+<!-- Interaktions-Event: Contact (Anruf/E-Mail) -->
 <script>
 (function(){
   function genId(p){return p+'-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);}
@@ -54,17 +54,27 @@ fbq('init','1422851823195089');fbq('track','PageView');
   html { scroll-behavior: smooth; }
   body { margin: 0; }
   * { box-sizing: border-box; }
-  .sk-container { max-width: 980px; margin: 0 auto; padding-left: clamp(16px,4vw,24px); padding-right: clamp(16px,4vw,24px); }
+  .sk-container { max-width: 1020px; margin: 0 auto; padding-left: clamp(16px,4vw,24px); padding-right: clamp(16px,4vw,24px); }
   .sk-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .sk-main  { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 32px; align-items: start; }
-  @media (max-width: 820px) { .sk-main { grid-template-columns: 1fr; } }
+  .sk-main  { display: grid; grid-template-columns: 1.5fr 0.7fr; gap: 28px; align-items: start; }
+  @media (max-width: 860px) { .sk-main { grid-template-columns: 1fr; } .sk-aside-top { order: -1; } }
   @media (max-width: 520px) { .sk-grid2 { grid-template-columns: 1fr; } }
   .sk-field { width:100%; font-family:inherit; font-size:15px; padding:13px 14px; border:1px solid #D5DDD9; border-radius:9px; outline:none; background:#fff; color:var(--sk-ink); }
   .sk-field:focus { border-color:#0E3A2F; }
   .sk-label { display:block; font-size:13px; font-weight:700; color:#3C4A44; margin-bottom:6px; }
   input[type=range] { -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; background:#DCE5E0; outline:none; accent-color:#0E3A2F; }
-  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:999px; background:#0E3A2F; border:3px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,0.25); cursor:pointer; }
-  input[type=range]::-moz-range-thumb { width:20px; height:20px; border-radius:999px; background:#0E3A2F; border:3px solid #fff; cursor:pointer; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:999px; background:#0E3A2F; border:3px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,0.28); cursor:pointer; }
+  input[type=range]::-moz-range-thumb { width:22px; height:22px; border-radius:999px; background:#0E3A2F; border:3px solid #fff; cursor:pointer; }
+  .sk-mode { cursor:pointer; font-family:inherit; text-align:left; padding:16px; border:1.5px solid #D5DDD9; border-radius:12px; background:#fff; display:flex; gap:13px; align-items:flex-start; width:100%; transition:border-color .15s, background .15s; }
+  .sk-mode:hover { border-color:var(--sk-green); }
+  .sk-mode.on { border-color:var(--sk-green); background:var(--sk-paper); }
+  .sk-mode .ic { flex:none; width:42px; height:42px; border-radius:10px; background:var(--sk-paper); display:grid; place-items:center; font-size:18px; color:var(--sk-green); }
+  .sk-mode.on .ic { background:var(--sk-green); color:#fff; }
+  .sk-mode b { display:block; font-size:16px; font-weight:800; margin-bottom:3px; color:var(--sk-ink); }
+  .sk-mode em { font-style:normal; font-size:13px; color:#6B776F; line-height:1.45; }
+  .sk-seg { display:grid; grid-auto-flow:column; gap:8px; background:var(--sk-paper); padding:6px; border-radius:11px; }
+  .sk-segbtn { cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px; border:none; border-radius:7px; background:transparent; color:#5B6863; }
+  .sk-segbtn.on { background:var(--sk-green); color:#fff; }
   .sk-days { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:thin; }
   .sk-day { flex:0 0 auto; min-width:66px; cursor:pointer; font-family:inherit; text-align:center; padding:10px 8px; border:1px solid #D5DDD9; border-radius:10px; background:#fff; color:var(--sk-ink); line-height:1.3; transition:border-color .15s; }
   .sk-day:hover { border-color:var(--sk-green); }
@@ -77,6 +87,14 @@ fbq('init','1422851823195089');fbq('track','PageView');
   .sk-slot { cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px 8px; border:1px solid #D5DDD9; border-radius:9px; background:#fff; color:var(--sk-ink); transition:border-color .15s; }
   .sk-slot:hover { border-color:var(--sk-green); }
   .sk-slot.on { background:var(--sk-green); border-color:var(--sk-green); color:#fff; }
+  .sk-primary { width:100%; font-family:inherit; cursor:pointer; background:var(--sk-green); color:#fff; font-weight:800; font-size:16px; padding:16px; border:none; border-radius:11px; display:inline-flex; align-items:center; justify-content:center; gap:10px; }
+  .sk-primary:hover { background:var(--sk-green-700); }
+  .sk-ghost { flex:0 0 auto; font-family:inherit; cursor:pointer; background:#fff; color:var(--sk-green); font-weight:700; font-size:15px; padding:16px 20px; border:1px solid var(--sk-green); border-radius:11px; display:inline-flex; align-items:center; gap:8px; }
+  .sk-ghost:hover { background:var(--sk-paper); }
+  .sk-pstep { display:inline-flex; align-items:center; gap:7px; color:#8A968F; }
+  .sk-pnum { width:24px; height:24px; border-radius:999px; background:#E1E8E4; color:#8A968F; display:grid; place-items:center; font-size:12px; }
+  .sk-pstep.act { color:var(--sk-green); }
+  .sk-pstep.act .sk-pnum { background:var(--sk-green); color:#fff; }
 </style>
 </helmet>
 
@@ -86,209 +104,202 @@ fbq('init','1422851823195089');fbq('track','PageView');
 
   <!-- Header -->
   <header style="background:#fff; border-bottom:1px solid #E7ECE9;">
-    <div class="sk-container" style="max-width:980px; height:64px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+    <div class="sk-container" style="height:64px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
       <a href="index.html" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:#5B6863; font-weight:600; font-size:14px;" style-hover="color:var(--sk-green);"><i class="fa-solid fa-arrow-left"></i> Zurück zum Angebot</a>
-      <span style="font-weight:800; font-size:20px; letter-spacing:-.02em; color:var(--sk-ink);">AS<span style="color:var(--sk-green)">.</span>Automobile</span>
+      <img src="img/logo-as-dark.png" alt="AS Automobile" style="height:clamp(28px,5vw,36px); width:auto; display:block;" />
     </div>
   </header>
 
-  <!-- Progress -->
+  <!-- Fortschritt (Wizard) -->
   <div style="background:#fff; border-bottom:1px solid #E7ECE9;">
-    <div class="sk-container" style="padding:16px 24px; display:flex; align-items:center; gap:10px; justify-content:center; font-size:13px; font-weight:700; flex-wrap:wrap;">
-      <span style="display:inline-flex; align-items:center; gap:7px; color:#8A968F;"><span style="width:22px; height:22px; border-radius:999px; background:#E1E8E4; color:#8A968F; display:grid; place-items:center; font-size:12px;">1</span> Angebot</span>
-      <span style="width:24px; height:1px; background:#D5DDD9;"></span>
-      <span style="display:inline-flex; align-items:center; gap:7px; color:var(--sk-green);"><span style="width:22px; height:22px; border-radius:999px; background:var(--sk-green); color:#fff; display:grid; place-items:center; font-size:12px;">2</span> Anfrage</span>
-      <span style="width:24px; height:1px; background:#D5DDD9;"></span>
-      <span style="display:inline-flex; align-items:center; gap:7px; color:#8A968F;"><span style="width:22px; height:22px; border-radius:999px; background:#E1E8E4; color:#8A968F; display:grid; place-items:center; font-size:12px;">3</span> Bestätigung</span>
+    <div class="sk-container" style="padding:16px 24px; display:flex; align-items:center; gap:8px; justify-content:center; font-size:13px; font-weight:700; flex-wrap:wrap;">
+      <span class="sk-pstep {{ p1 }}"><span class="sk-pnum">1</span> Erwerbsart</span>
+      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
+      <span class="sk-pstep {{ p2 }}"><span class="sk-pnum">2</span> Konditionen</span>
+      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
+      <span class="sk-pstep {{ p3 }}"><span class="sk-pnum">3</span> Termin</span>
+      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
+      <span class="sk-pstep {{ p4 }}"><span class="sk-pnum">4</span> Kontakt</span>
     </div>
   </div>
 
-  <div class="sk-container sk-main" style="padding-top:clamp(28px,5vw,44px); padding-bottom:clamp(40px,6vw,64px);">
+  <div class="sk-container sk-main" style="padding-top:clamp(24px,5vw,40px); padding-bottom:clamp(40px,6vw,64px);">
 
-    <!-- Form -->
+    <!-- Formular -->
     <div style="background:#fff; border:1px solid #E7ECE9; border-radius:18px; padding:clamp(22px,4vw,34px);">
-      <h1 style="margin:0 0 6px; font-size:clamp(24px,4vw,30px); font-weight:800; letter-spacing:-.02em;">Ihre Terminanfrage</h1>
-      <p style="margin:0 0 24px; font-size:15px; color:#5B6863;">Škoda Fabia Essence · Vorführwagen. Wir melden uns kurzfristig zur Bestätigung.</p>
-
       <form onSubmit="{{ onSubmit }}">
-      <!-- ============ SCHRITT 1: Konfiguration & Termin ============ -->
-      <sc-if value="{{ step1 }}" hint-placeholder-val="{{ true }}">
-      <div>
-        <div style="display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:#8A968F; margin-bottom:16px;"><span style="background:var(--sk-green); color:#fff; border-radius:999px; padding:3px 9px;">Schritt 1 von 2</span> Konfiguration &amp; Wunschtermin</div>
-        <!-- Finanzierung -->
-        <div style="font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-green); margin-bottom:14px;">Finanzierung</div>
 
-        <div style="margin-bottom:18px;">
-          <span class="sk-label">Erwerbsart</span>
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; background:var(--sk-paper); padding:6px; border-radius:11px;">
-            <div>
-              <sc-if value="{{ isLeasing }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ setLeasing }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px; border:none; border-radius:7px; background:var(--sk-green); color:#fff;">Leasing</button></sc-if>
-              <sc-if value="{{ notLeasing }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ setLeasing }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px; border:none; border-radius:7px; background:transparent; color:#5B6863;">Leasing</button></sc-if>
-            </div>
-            <div>
-              <sc-if value="{{ isFin }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ setFin }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px; border:none; border-radius:7px; background:var(--sk-green); color:#fff;">Finanzierung</button></sc-if>
-              <sc-if value="{{ notFin }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ setFin }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px; border:none; border-radius:7px; background:transparent; color:#5B6863;">Finanzierung</button></sc-if>
-            </div>
-            <div>
-              <sc-if value="{{ isKauf }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ setKauf }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px; border:none; border-radius:7px; background:var(--sk-green); color:#fff;">Kauf</button></sc-if>
-              <sc-if value="{{ notKauf }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ setKauf }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px; border:none; border-radius:7px; background:transparent; color:#5B6863;">Kauf</button></sc-if>
-            </div>
+        <!-- ===== SCHRITT 1: Erwerbsart ===== -->
+        <sc-if value="{{ step1 }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Wie möchten Sie Ihren Fabia?</h1>
+          <p style="margin:0 0 22px; font-size:15px; color:#5B6863;">Wählen Sie Ihre gewünschte Erwerbsart — die Konditionen stellen wir im nächsten Schritt ein.</p>
+          <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:26px;">
+            <button type="button" onClick="{{ setLeasing }}" class="sk-mode {{ leasingCls }}"><span class="ic"><i class="fa-solid fa-repeat"></i></span><span><b>Leasing</b><em>Kleine monatliche Rate, planbar, ideal für Privat &amp; Gewerbe.</em></span></button>
+            <button type="button" onClick="{{ setFin }}" class="sk-mode {{ finCls }}"><span class="ic"><i class="fa-solid fa-building-columns"></i></span><span><b>Finanzierung</b><em>In Raten kaufen — am Ende gehört das Fahrzeug Ihnen.</em></span></button>
+            <button type="button" onClick="{{ setKauf }}" class="sk-mode {{ kaufCls }}"><span class="ic"><i class="fa-solid fa-sack-euro"></i></span><span><b>Barkauf</b><em>Einmalig bezahlen, keine Laufzeit, bester Gesamtpreis.</em></span></button>
           </div>
+          <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
         </div>
+        </sc-if>
 
-        <!-- Interaktives Raten-Modul -->
-        <div style="background:var(--sk-paper); border:1px solid #E7ECE9; border-radius:14px; padding:clamp(16px,3vw,22px); margin-bottom:18px;">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:14px; border-bottom:1px solid #E1E8E4;">
-            <span style="font-size:13px; color:#6B776F; font-weight:700;">{{ rateLabel }}</span>
-            <span style="font-size:clamp(26px,5vw,32px); font-weight:800; color:var(--sk-green); letter-spacing:-.02em; line-height:1;">{{ rateFmt }} €<span style="font-size:14px; font-weight:700;"> {{ rateSuffix }}</span></span>
-          </div>
+        <!-- ===== SCHRITT 2: Konditionen ===== -->
+        <sc-if value="{{ step2 }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihre Konditionen</h1>
+          <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">{{ modeLabel }} · passen Sie die Werte an — Ihre Rate rechnet live mit.</p>
 
-          <sc-if value="{{ showFinance }}" hint-placeholder-val="{{ true }}">
+          <div style="background:var(--sk-paper); border:1px solid #E7ECE9; border-radius:14px; padding:clamp(16px,3vw,22px); margin-bottom:22px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:14px; border-bottom:1px solid #E1E8E4;">
+              <span style="font-size:13px; color:#6B776F; font-weight:700;">{{ rateLabel }}</span>
+              <span style="font-size:clamp(28px,5vw,34px); font-weight:800; color:var(--sk-green); letter-spacing:-.02em; line-height:1;">{{ rateFmt }} €<span style="font-size:14px; font-weight:700;"> {{ rateSuffix }}</span></span>
+            </div>
+
+            <sc-if value="{{ showFinance }}" hint-placeholder-val="{{ true }}">
             <div>
-              <div style="margin-top:16px;">
+              <!-- Sonderzahlung: Slider -->
+              <div style="margin-top:18px;">
                 <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span class="sk-label" style="margin:0;">{{ anzLabel }}</span><span style="font-weight:800; color:var(--sk-green); font-size:15px;">{{ anzahlungFmt }} €</span></div>
                 <input type="range" min="0" max="6000" step="50" value="{{ anzahlung }}" onChange="{{ onAnz }}" />
                 <div style="display:flex; justify-content:space-between; font-size:11px; color:#9AA8A1; margin-top:4px;"><span>0 €</span><span>6.000 €</span></div>
               </div>
-              <div style="margin-top:16px;">
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span class="sk-label" style="margin:0;">Laufzeit</span><span style="font-weight:800; color:var(--sk-green); font-size:15px;">{{ laufzeit }} Monate</span></div>
-                <input type="range" min="24" max="60" step="6" value="{{ laufzeit }}" onChange="{{ onLaufzeit }}" />
-                <div style="display:flex; justify-content:space-between; font-size:11px; color:#9AA8A1; margin-top:4px;"><span>24</span><span>60 Monate</span></div>
+              <!-- Laufzeit: Dropdown -->
+              <div style="margin-top:18px;">
+                <span class="sk-label">Laufzeit</span>
+                <select value="{{ laufzeit }}" onChange="{{ onLaufzeit }}" class="sk-field">
+                  <option value="24">24 Monate</option>
+                  <option value="36">36 Monate</option>
+                  <option value="42">42 Monate</option>
+                  <option value="48">48 Monate</option>
+                  <option value="60">60 Monate</option>
+                </select>
               </div>
+              <!-- Fahrleistung: Dropdown (nur Leasing) -->
               <sc-if value="{{ isLeasing }}" hint-placeholder-val="{{ true }}">
-                <div style="margin-top:16px;">
-                  <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span class="sk-label" style="margin:0;">Fahrleistung / Jahr</span><span style="font-weight:800; color:var(--sk-green); font-size:15px;">{{ kmFmt }} km</span></div>
-                  <input type="range" min="5000" max="25000" step="2500" value="{{ km }}" onChange="{{ onKm }}" />
-                  <div style="display:flex; justify-content:space-between; font-size:11px; color:#9AA8A1; margin-top:4px;"><span>5.000</span><span>25.000 km</span></div>
+                <div style="margin-top:18px;">
+                  <span class="sk-label">Fahrleistung / Jahr</span>
+                  <select value="{{ km }}" onChange="{{ onKm }}" class="sk-field">
+                    <option value="5000">5.000 km</option>
+                    <option value="10000">10.000 km</option>
+                    <option value="15000">15.000 km</option>
+                    <option value="20000">20.000 km</option>
+                    <option value="25000">25.000 km</option>
+                  </select>
                 </div>
               </sc-if>
+            </div>
+            </sc-if>
+            <sc-if value="{{ isKauf }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:16px 0 0; font-size:14px; color:#6B776F; line-height:1.6;">Barkauf zum Fahrzeugpreis inkl. MwSt. Gerne besprechen wir Inzahlungnahme &amp; Sofort-Rabatte persönlich im Termin.</p>
+            </sc-if>
+          </div>
 
-              <!-- Wunschrate -->
-              <div style="margin-top:18px; padding-top:16px; border-top:1px dashed #CFDAD4;">
-                <span class="sk-label"><i class="fa-solid fa-bullseye" style="color:var(--sk-green); margin-right:7px;"></i>Ihre Wunschrate (optional)</span>
-                <div style="display:flex; gap:10px; align-items:center;">
-                  <input value="{{ wunschrate }}" onChange="{{ onWunschrate }}" type="number" min="0" step="10" placeholder="z. B. 150" class="sk-field" style="max-width:170px;" />
-                  <span style="font-size:14px; color:#6B776F;">€ / Monat</span>
-                </div>
-                <sc-if value="{{ wunschOk }}" hint-placeholder-val="{{ false }}">
-                  <div style="margin-top:10px; font-size:13px; font-weight:700; color:#0E7A3F; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-check"></i> Passt in Ihr Budget — wir bestätigen die Kondition im Termin.</div>
-                </sc-if>
-                <sc-if value="{{ wunschOver }}" hint-placeholder-val="{{ false }}">
-                  <div style="margin-top:10px; font-size:13px; font-weight:700; color:#B45309; display:flex; align-items:flex-start; gap:8px;"><i class="fa-solid fa-circle-info" style="margin-top:2px;"></i> <span>Aktuell {{ wunschDiff }} € über Ihrer Wunschrate. Tipp: Sonderzahlung erhöhen oder Laufzeit verlängern — den Rest lösen wir gemeinsam.</span></div>
-                </sc-if>
+          <div style="display:flex; gap:12px;">
+            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
+            <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== SCHRITT 3: Termin ===== -->
+        <sc-if value="{{ step3 }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihr Wunschtermin</h1>
+          <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">Möchten Sie zur Besichtigung, Beratung &amp; Probefahrt vorbeikommen?</p>
+
+          <div class="sk-seg" style="max-width:320px; margin-bottom:22px;">
+            <button type="button" onClick="{{ setProbeJa }}" class="sk-segbtn {{ probeJaCls }}">Ja, gerne</button>
+            <button type="button" onClick="{{ setProbeNein }}" class="sk-segbtn {{ probeNeinCls }}">Nein, nur Kontakt</button>
+          </div>
+
+          <sc-if value="{{ probeJa }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <p style="margin:0 0 14px; font-size:13px; color:#6B776F;"><i class="fa-solid fa-circle-info" style="color:var(--sk-green); margin-right:7px;"></i>Termindauer ca. 45 Minuten · persönlich bei Martin Kedzierski · innerhalb der Öffnungszeiten.</p>
+            <div style="margin-bottom:14px;">
+              <span class="sk-label">Tag wählen</span>
+              <div class="sk-days">
+                <sc-for list="{{ days }}" as="d" hint-placeholder-count="6">
+                  <button type="button" class="sk-day {{ d.cls }}" onClick="{{ d.onClick }}"><small>{{ d.wd }}</small><b>{{ d.dm }}</b></button>
+                </sc-for>
               </div>
             </div>
+            <sc-if value="{{ hasDay }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:14px;">
+                <span class="sk-label">Uhrzeit wählen · {{ dayLabel }}</span>
+                <div class="sk-slots">
+                  <sc-for list="{{ slots }}" as="sl" hint-placeholder-count="8">
+                    <button type="button" class="sk-slot {{ sl.cls }}" onClick="{{ sl.onClick }}">{{ sl.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ noDay }}" hint-placeholder-val="{{ true }}">
+              <div style="margin-bottom:14px; font-size:13px; color:#8A968F; background:var(--sk-paper); border-radius:9px; padding:12px 14px;">Bitte zuerst einen Tag wählen — danach zeigen wir die freien Uhrzeiten.</div>
+            </sc-if>
+            <sc-if value="{{ terminMissing }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-bottom:14px; font-size:13px; font-weight:700; color:#B45309; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-info"></i> Bitte wählen Sie Tag und Uhrzeit.</div>
+            </sc-if>
+          </div>
           </sc-if>
-        </div>
+          <sc-if value="{{ probeNein }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-bottom:8px; font-size:14px; color:#5B6863; background:var(--sk-paper); border-radius:10px; padding:16px;">Kein Problem — wir melden uns telefonisch bei Ihnen und klären alles Weitere persönlich.</div>
+          </sc-if>
 
-        <div style="margin-bottom:14px;">
-          <span class="sk-label">Wunschfarbe</span>
-          <select value="{{ color }}" onChange="{{ onColor }}" class="sk-field">
-            <option value="Race-Blau">Race-Blau</option>
-            <option value="Velvet-Rot">Velvet-Rot</option>
-            <option value="Brillant-Grau">Brillant-Grau</option>
-            <option value="Candy-Weiß">Candy-Weiß</option>
-            <option value="Magic-Schwarz">Magic-Schwarz</option>
-          </select>
-        </div>
-
-        <div style="margin-bottom:24px;">
-          <span class="sk-label">Konfigurations-Code (optional)</span>
-          <input value="{{ configCode }}" onChange="{{ onConfigCode }}" placeholder="z. B. CMCVSXR6" class="sk-field" style="letter-spacing:.06em;" />
-        </div>
-
-        <!-- Wunschtermin -->
-        <div style="font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-green); margin-bottom:6px;">Wunschtermin</div>
-        <p style="margin:0 0 14px; font-size:13px; color:#6B776F;">Termindauer ca. 45 Minuten · persönlich bei Martin Kedzierski · innerhalb der Öffnungszeiten.</p>
-
-        <div style="margin-bottom:14px;">
-          <span class="sk-label">Tag wählen</span>
-          <div class="sk-days">
-            <sc-for list="{{ days }}" as="d" hint-placeholder-count="6">
-              <button type="button" class="sk-day {{ d.cls }}" onClick="{{ d.onClick }}"><small>{{ d.wd }}</small><b>{{ d.dm }}</b></button>
-            </sc-for>
+          <div style="display:flex; gap:12px; margin-top:14px;">
+            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
+            <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
           </div>
         </div>
+        </sc-if>
 
-        <sc-if value="{{ hasDay }}" hint-placeholder-val="{{ false }}">
+        <!-- ===== SCHRITT 4: Kontakt ===== -->
+        <sc-if value="{{ step4 }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihre Kontaktdaten</h1>
+          <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">Fast geschafft — wir bestätigen Ihre Anfrage kurzfristig.</p>
+
           <div style="margin-bottom:18px;">
-            <span class="sk-label">Uhrzeit wählen · {{ dayLabel }}</span>
-            <div class="sk-slots">
-              <sc-for list="{{ slots }}" as="sl" hint-placeholder-count="8">
-                <button type="button" class="sk-slot {{ sl.cls }}" onClick="{{ sl.onClick }}">{{ sl.label }}</button>
-              </sc-for>
+            <span class="sk-label">Ich bin …</span>
+            <div class="sk-seg" style="max-width:320px;">
+              <button type="button" onClick="{{ setPrivat }}" class="sk-segbtn {{ privatCls }}">Privatkunde</button>
+              <button type="button" onClick="{{ setGewerbe }}" class="sk-segbtn {{ gewerbeCls }}">Gewerbe</button>
             </div>
           </div>
+
+          <div class="sk-grid2" style="margin-bottom:14px;">
+            <div><span class="sk-label">Vorname *</span><input value="{{ vorname }}" onChange="{{ onVorname }}" required class="sk-field" /></div>
+            <div><span class="sk-label">Nachname *</span><input value="{{ nachname }}" onChange="{{ onNachname }}" required class="sk-field" /></div>
+          </div>
+          <div class="sk-grid2" style="margin-bottom:14px;">
+            <div><span class="sk-label">Telefon *</span><input value="{{ phone }}" onChange="{{ onPhone }}" required type="tel" class="sk-field" /></div>
+            <div><span class="sk-label">E-Mail *</span><input value="{{ email }}" onChange="{{ onEmail }}" required type="email" class="sk-field" /></div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <span class="sk-label">Konfigurations-Code (optional)</span>
+            <input value="{{ configCode }}" onChange="{{ onConfigCode }}" placeholder="z. B. CMCVSXR6" class="sk-field" style="letter-spacing:.06em;" />
+          </div>
+          <div style="margin-bottom:20px;">
+            <span class="sk-label">Nachricht (optional)</span>
+            <textarea value="{{ message }}" onChange="{{ onMessage }}" rows="3" class="sk-field" style="resize:vertical; min-height:84px;" placeholder="Ihre Fragen oder Wünsche …"></textarea>
+          </div>
+
+          <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:20px; font-size:13px; color:#5B6863; line-height:1.5;">
+            <input type="checkbox" checked="{{ consent }}" onChange="{{ onConsent }}" required style="margin-top:2px; width:16px; height:16px; accent-color:var(--sk-green);" />
+            <span>Ich stimme zu, dass AS-Automobile mich zur Bearbeitung meiner Anfrage kontaktiert. Es gelten die Datenschutzhinweise.</span>
+          </label>
+
+          <div style="display:flex; gap:12px;">
+            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
+            <button type="submit" class="sk-primary"><i class="fa-solid fa-paper-plane"></i> Anfrage absenden</button>
+          </div>
+        </div>
         </sc-if>
-        <sc-if value="{{ noDay }}" hint-placeholder-val="{{ true }}">
-          <div style="margin-bottom:18px; font-size:13px; color:#8A968F; background:var(--sk-paper); border-radius:9px; padding:12px 14px;">Bitte zuerst einen Tag wählen — danach zeigen wir die freien Uhrzeiten.</div>
-        </sc-if>
 
-        <div style="margin-bottom:22px;">
-          <span class="sk-label">Anliegen</span>
-          <select value="{{ wunsch }}" onChange="{{ onWunsch }}" class="sk-field">
-            <option value="Probefahrt">Probefahrt vereinbaren</option>
-            <option value="Beratung">Persönliche Beratung</option>
-            <option value="Rückruf">Rückruf gewünscht</option>
-          </select>
-        </div>
-
-        <sc-if value="{{ terminMissing }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-bottom:14px; font-size:13px; font-weight:700; color:#B45309; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-info"></i> Bitte wählen Sie Tag und Uhrzeit für Ihren Termin.</div>
-        </sc-if>
-
-        <button type="button" onClick="{{ onNext }}" style="width:100%; font-family:inherit; cursor:pointer; background:var(--sk-green); color:#fff; font-weight:800; font-size:16px; padding:16px; border:none; border-radius:11px; display:inline-flex; align-items:center; justify-content:center; gap:10px;" style-hover="background:var(--sk-green-700);">
-          Weiter zu den Kontaktdaten <i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
-      </sc-if>
-
-      <!-- ============ SCHRITT 2: Kontaktdaten ============ -->
-      <sc-if value="{{ step2 }}" hint-placeholder-val="{{ false }}">
-      <div>
-        <div style="display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:700; color:#8A968F; margin-bottom:16px;"><span style="background:var(--sk-green); color:#fff; border-radius:999px; padding:3px 9px;">Schritt 2 von 2</span> Ihre Kontaktdaten</div>
-
-        <!-- Gewählter Termin -->
-        <div style="background:var(--sk-paper); border:1px solid #E7ECE9; border-radius:12px; padding:14px 16px; margin-bottom:22px; display:flex; align-items:center; gap:13px;">
-          <span style="flex:none; width:40px; height:40px; border-radius:999px; background:var(--sk-green); color:#fff; display:grid; place-items:center;"><i class="fa-solid fa-calendar-check"></i></span>
-          <div style="font-size:14px; line-height:1.45;"><strong>{{ terminText }}</strong><br><span style="color:#6B776F;">Termindauer ca. 45 Min. · Martin Kedzierski</span></div>
-        </div>
-
-        <!-- Kontakt -->
-        <div style="font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-green); margin-bottom:14px;">Ihre Kontaktdaten</div>
-
-        <div class="sk-grid2" style="margin-bottom:14px;">
-          <div><span class="sk-label">Vorname *</span><input value="{{ vorname }}" onChange="{{ onVorname }}" required class="sk-field" /></div>
-          <div><span class="sk-label">Nachname *</span><input value="{{ nachname }}" onChange="{{ onNachname }}" required class="sk-field" /></div>
-        </div>
-        <div class="sk-grid2" style="margin-bottom:14px;">
-          <div><span class="sk-label">Telefon *</span><input value="{{ phone }}" onChange="{{ onPhone }}" required type="tel" class="sk-field" /></div>
-          <div><span class="sk-label">E-Mail *</span><input value="{{ email }}" onChange="{{ onEmail }}" required type="email" class="sk-field" /></div>
-        </div>
-
-        <div style="margin-bottom:20px;">
-          <span class="sk-label">Nachricht (optional)</span>
-          <textarea value="{{ message }}" onChange="{{ onMessage }}" rows="3" class="sk-field" style="resize:vertical; min-height:84px;" placeholder="Ihre Fragen oder Terminwünsche …"></textarea>
-        </div>
-
-        <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:20px; font-size:13px; color:#5B6863; line-height:1.5;">
-          <input type="checkbox" checked="{{ consent }}" onChange="{{ onConsent }}" required style="margin-top:2px; width:16px; height:16px; accent-color:var(--sk-green);" />
-          <span>Ich stimme zu, dass AS-Automobile mich zur Bearbeitung meiner Anfrage kontaktiert. Es gelten die Datenschutzhinweise.</span>
-        </label>
-
-        <div style="display:flex; gap:12px;">
-          <button type="button" onClick="{{ onBack }}" style="flex:0 0 auto; font-family:inherit; cursor:pointer; background:#fff; color:var(--sk-green); font-weight:700; font-size:15px; padding:16px 20px; border:1px solid var(--sk-green); border-radius:11px; display:inline-flex; align-items:center; gap:8px;" style-hover="background:var(--sk-paper);"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
-          <button type="submit" style="flex:1; font-family:inherit; cursor:pointer; background:var(--sk-green); color:#fff; font-weight:800; font-size:16px; padding:16px; border:none; border-radius:11px; display:inline-flex; align-items:center; justify-content:center; gap:10px;" style-hover="background:var(--sk-green-700);">
-            <i class="fa-solid fa-paper-plane"></i> Anfrage absenden
-          </button>
-        </div>
-      </div>
-      </sc-if>
       </form>
     </div>
 
-    <!-- Summary -->
-    <aside style="position:sticky; top:20px; background:#fff; border:1px solid #E7ECE9; border-radius:18px; overflow:hidden;">
+    <!-- Zusammenfassung / Fahrzeug -->
+    <aside class="sk-aside-top" style="position:sticky; top:20px; background:#fff; border:1px solid #E7ECE9; border-radius:18px; overflow:hidden;">
       <div style="aspect-ratio:16/10; background:var(--sk-paper); display:grid; place-items:center;">
         <img src="{{ colorImg }}" alt="Škoda Fabia" style="width:92%; height:92%; object-fit:contain;" />
       </div>
@@ -299,7 +310,6 @@ fbq('init','1422851823195089');fbq('track','PageView');
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Erwerbsart</span><strong>{{ modeLabel }}</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschfarbe</span><strong>{{ color }}</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">{{ anzLabel }}</span><strong>{{ anzahlungFmt }} €</strong></div>
-          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Laufzeit</span><strong>{{ laufzeit }} Mon.</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschtermin</span><strong style="text-align:right;">{{ terminShort }}</strong></div>
         </div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:baseline; justify-content:space-between;">
@@ -315,7 +325,7 @@ fbq('init','1422851823195089');fbq('track','PageView');
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 980, &quot;height&quot;: 820}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1020, &quot;height&quot;: 860}}">
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -329,55 +339,13 @@ class Component extends DCLogic {
       laufzeit: Number(q('laufzeit', 48)) || 48,
       km: Number(q('km', 10000)) || 10000,
       color: q('color', 'Race-Blau'),
-      wunschrate: '',
       configCode: '',
-      vorname: '', nachname: '', phone: '', email: '',
-      wunsch: 'Probefahrt', message: '', consent: false,
+      kundentyp: 'privat',
+      probefahrt: 'ja',
+      vorname: '', nachname: '', phone: '', email: '', message: '', consent: false,
       formStep: 1,
       terminDatum: '', terminUhrzeit: '', terminMissing: false,
     };
-  }
-
-  // Öffnungszeiten: Mo–Fr 08:30–18:30, Sa 09:00–14:00 (So geschlossen).
-  // Termindauer 45 Min → letzter Start so, dass er in den Zeiten endet.
-  WD = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
-  MON = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
-
-  buildDays() {
-    const out = [];
-    const d = new Date(); d.setHours(0, 0, 0, 0);
-    let added = 0, guard = 0;
-    while (added < 12 && guard < 40) {
-      guard++;
-      d.setDate(d.getDate() + 1); // ab morgen
-      const wd = d.getDay();
-      if (wd === 0) continue; // Sonntag zu
-      const iso = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-      out.push({ iso, wd: this.WD[wd], dm: String(d.getDate()).padStart(2, '0') + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.', weekday: wd });
-      added++;
-    }
-    return out;
-  }
-
-  slotsFor(iso) {
-    if (!iso) return [];
-    const wd = new Date(iso + 'T00:00:00').getDay();
-    const sat = wd === 6;
-    const startMin = sat ? 9 * 60 : 8 * 60 + 30;
-    const endMin = sat ? 14 * 60 : 18 * 60 + 30; // letzter Termin muss bis hier enden
-    const out = [];
-    for (let t = startMin; t + 45 <= endMin; t += 45) {
-      const hh = String(Math.floor(t / 60)).padStart(2, '0');
-      const mm = String(t % 60).padStart(2, '0');
-      out.push(hh + ':' + mm);
-    }
-    return out;
-  }
-
-  dayLabelFor(iso) {
-    if (!iso) return '';
-    const dt = new Date(iso + 'T00:00:00');
-    return this.WD[dt.getDay()] + '. ' + dt.getDate() + '. ' + this.MON[dt.getMonth()];
   }
 
   fmt(n) { return Math.round(n).toLocaleString('de-DE'); }
@@ -409,107 +377,124 @@ class Component extends DCLogic {
     } catch (e) { return ''; }
   }
 
+  WD = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+  MON = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+
+  buildDays() {
+    const out = [];
+    const d = new Date(); d.setHours(0, 0, 0, 0);
+    let added = 0, guard = 0;
+    while (added < 12 && guard < 40) {
+      guard++;
+      d.setDate(d.getDate() + 1);
+      const wd = d.getDay();
+      if (wd === 0) continue;
+      const iso = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+      out.push({ iso, wd: this.WD[wd], dm: String(d.getDate()).padStart(2, '0') + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.' });
+      added++;
+    }
+    return out;
+  }
+
+  slotsFor(iso) {
+    if (!iso) return [];
+    const wd = new Date(iso + 'T00:00:00').getDay();
+    const sat = wd === 6;
+    const startMin = sat ? 9 * 60 : 8 * 60 + 30;
+    const endMin = sat ? 14 * 60 : 18 * 60 + 30;
+    const out = [];
+    for (let t = startMin; t + 45 <= endMin; t += 45) {
+      out.push(String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'));
+    }
+    return out;
+  }
+
+  dayLabelFor(iso) {
+    if (!iso) return '';
+    const dt = new Date(iso + 'T00:00:00');
+    return this.WD[dt.getDay()] + '. ' + dt.getDate() + '. ' + this.MON[dt.getMonth()];
+  }
+
+  next() {
+    const st = this.state;
+    if (st.formStep === 3 && st.probefahrt === 'ja' && (!st.terminDatum || !st.terminUhrzeit)) {
+      this.setState({ terminMissing: true });
+      return;
+    }
+    this.setState({ formStep: Math.min(4, st.formStep + 1) });
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+
+  back() {
+    this.setState({ formStep: Math.max(1, this.state.formStep - 1) });
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+
   submit(e) {
     e.preventDefault();
     const s = this.state;
     const rate = this.computeRate();
     const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
-    const terminText = (s.terminDatum && s.terminUhrzeit) ? (this.dayLabelFor(s.terminDatum) + ' · ' + s.terminUhrzeit + ' Uhr') : '';
+    const probe = s.probefahrt === 'ja';
+    const terminText = (probe && s.terminDatum && s.terminUhrzeit) ? (this.dayLabelFor(s.terminDatum) + ' · ' + s.terminUhrzeit + ' Uhr') : '';
+    const anliegen = probe ? 'Besichtigung / Beratung / Probefahrt' : 'Nur Kontakt / Rückruf';
 
-    // Attribution (UTM / Klick-IDs) aus dem localStorage lesen
     let attr = {};
     try { attr = JSON.parse(localStorage.getItem('as_attribution') || '{}'); } catch (err) {}
-
-    // Meta-Identifikatoren für die Conversions API
     const fbp = this.getCookie('_fbp');
     let fbc = this.getCookie('_fbc');
     if (!fbc && attr.fbclid) fbc = 'fb.1.' + Date.now() + '.' + attr.fbclid;
-
-    // Eindeutige Event-ID → Dedup zwischen Pixel (Browser) und CAPI (Server)
     const eventId = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
 
-    // Meta Pixel: Lead-Event feuern (mit eventID für Deduplizierung)
     try {
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
         window.fbq('track', 'Lead', {
           content_name: 'Škoda Fabia Essence – Vorführwagen',
           content_category: modeLabel,
-          value: rate,
-          currency: 'EUR',
+          value: rate, currency: 'EUR',
         }, { eventID: eventId });
       }
     } catch (err) {}
 
-    // Google Tag Manager: Lead in den dataLayer schieben
-    // → GTM feuert daraus Meta Conversions API (server-side) + Google-Ads-Conversion.
-    //   event_id wird für die Pixel/CAPI-Deduplizierung mitgegeben.
     try {
       if (typeof window !== 'undefined') {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
-          event: 'lead_submit',
-          event_id: eventId,
+          event: 'lead_submit', event_id: eventId,
           lead: {
             fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen',
-            erwerbsart: modeLabel,
-            wunschrate: s.wunschrate || '',
-            berechnete_rate: rate,
-            currency: 'EUR',
-            value: rate,
-            vorname: s.vorname, nachname: s.nachname,
-            email: s.email, telefon: s.phone,
-            terminwunsch: s.wunsch,
-            termin_datum: s.terminDatum, termin_uhrzeit: s.terminUhrzeit,
-            termin: terminText,
+            erwerbsart: modeLabel, kundentyp: s.kundentyp,
+            berechnete_rate: rate, currency: 'EUR', value: rate,
+            vorname: s.vorname, nachname: s.nachname, email: s.email, telefon: s.phone,
+            anliegen: anliegen, termin_datum: s.terminDatum, termin_uhrzeit: s.terminUhrzeit, termin: terminText,
           },
         });
       }
     } catch (err) {}
 
-    // Alle Daten an Zapier-Webhook (form-encoded → kein CORS-Preflight).
-    // Zapier kann daraus die Meta Conversions API + euer CRM bedienen.
     const lead = new URLSearchParams({
-      // Event / Dedup
-      event_name: 'Lead',
-      event_id: eventId,
+      event_name: 'Lead', event_id: eventId,
       event_source_url: (typeof window !== 'undefined' ? window.location.href : ''),
-      // Fahrzeug & Konfiguration
       fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen',
-      erwerbsart: modeLabel,
-      sonderzahlung: String(s.anzahlung),
-      laufzeit_monate: String(s.laufzeit),
-      fahrleistung_km: String(s.km),
-      wunschfarbe: s.color,
-      konfigurationscode: s.configCode,
-      wunschrate: String(s.wunschrate || ''),
-      berechnete_rate: String(rate),
-      waehrung: 'EUR',
-      // Kontakt
-      vorname: s.vorname, nachname: s.nachname,
-      telefon: s.phone, email: s.email,
-      terminwunsch: s.wunsch, nachricht: s.message,
-      einwilligung: s.consent ? 'ja' : 'nein',
-      // Wunschtermin
-      termin_datum: s.terminDatum, termin_uhrzeit: s.terminUhrzeit,
-      termin: terminText, termin_dauer_min: '45',
-      // Attribution / Werbe-Tracking
+      erwerbsart: modeLabel, kundentyp: s.kundentyp,
+      sonderzahlung: String(s.anzahlung), laufzeit_monate: String(s.laufzeit),
+      fahrleistung_km: String(s.km), wunschfarbe: s.color,
+      konfigurationscode: s.configCode, berechnete_rate: String(rate), waehrung: 'EUR',
+      vorname: s.vorname, nachname: s.nachname, telefon: s.phone, email: s.email,
+      anliegen: anliegen, nachricht: s.message, einwilligung: s.consent ? 'ja' : 'nein',
+      termin: terminText, termin_datum: (probe ? s.terminDatum : ''), termin_uhrzeit: (probe ? s.terminUhrzeit : ''), termin_dauer_min: '45',
       utm_source: attr.utm_source || '', utm_medium: attr.utm_medium || '',
-      utm_campaign: attr.utm_campaign || '', utm_term: attr.utm_term || '',
-      utm_content: attr.utm_content || '',
-      fbclid: attr.fbclid || '', gclid: attr.gclid || '',
-      ttclid: attr.ttclid || '', msclkid: attr.msclkid || '',
+      utm_campaign: attr.utm_campaign || '', utm_term: attr.utm_term || '', utm_content: attr.utm_content || '',
+      fbclid: attr.fbclid || '', gclid: attr.gclid || '', ttclid: attr.ttclid || '', msclkid: attr.msclkid || '',
       fbp: fbp || '', fbc: fbc || '',
-      landing_page: attr.landing_page || '',
-      referrer: attr.first_referrer || '',
+      landing_page: attr.landing_page || '', referrer: attr.first_referrer || '',
       user_agent: (typeof navigator !== 'undefined' ? navigator.userAgent : ''),
       zeitstempel: new Date().toISOString(),
     });
 
     const goDanke = () => {
       const p = new URLSearchParams({
-        vorname: s.vorname, mode: s.mode, color: s.color,
-        rate: String(rate), wunschrate: String(s.wunschrate || ''),
-        termin: terminText,
+        vorname: s.vorname, mode: s.mode, color: s.color, rate: String(rate), termin: terminText,
       });
       window.location.href = 'danke.html?' + p.toString();
     };
@@ -518,12 +503,9 @@ class Component extends DCLogic {
       fetch('https://hooks.zapier.com/hooks/catch/18583379/4uri1g8/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: lead.toString(),
-        keepalive: true,
+        body: lead.toString(), keepalive: true,
       }).then(goDanke).catch(goDanke);
-    } catch (err) {
-      goDanke();
-    }
+    } catch (err) { goDanke(); }
   }
 
   renderVals() {
@@ -533,10 +515,13 @@ class Component extends DCLogic {
     const isLeasing = s.mode === 'leasing', isFin = s.mode === 'finanzierung', isKauf = s.mode === 'kauf';
     const modeLabel = isKauf ? 'Kauf' : (isFin ? 'Finanzierung' : 'Leasing');
     const rateNum = this.computeRate();
-    const wr = Number(s.wunschrate);
-    const hasWunschrate = s.wunschrate !== '' && wr > 0;
-    const wunschOk = hasWunschrate && rateNum <= wr;
-    const wunschOver = hasWunschrate && rateNum > wr;
+    const step = s.formStep;
+
+    // Fortschritts-Indikator: Schritte bis zum aktuellen sind grün
+    const prog = {
+      p1: step >= 1 ? 'act' : '', p2: step >= 2 ? 'act' : '',
+      p3: step >= 3 ? 'act' : '', p4: step >= 4 ? 'act' : '',
+    };
 
     // Termin-Kalender
     const days = this.buildDays().map((d) => ({
@@ -549,54 +534,54 @@ class Component extends DCLogic {
     }));
     const dayLabel = this.dayLabelFor(s.terminDatum);
     const dm = s.terminDatum ? (s.terminDatum.split('-')[2] + '.' + s.terminDatum.split('-')[1] + '.') : '';
-    const terminChosen = !!(s.terminDatum && s.terminUhrzeit);
-    const terminText = terminChosen ? (dayLabel + ' · ' + s.terminUhrzeit + ' Uhr') : 'Noch kein Termin gewählt';
-    const terminShort = terminChosen ? (dm + ' ' + s.terminUhrzeit) : '—';
+    const probe = s.probefahrt === 'ja';
+    const terminChosen = probe && !!(s.terminDatum && s.terminUhrzeit);
+    const terminShort = terminChosen ? (dm + ' ' + s.terminUhrzeit) : (probe ? '—' : 'ohne Termin');
 
-    return {
-      step1: s.formStep === 1, step2: s.formStep === 2,
-      days, slots: slotList,
-      hasDay: !!s.terminDatum, noDay: !s.terminDatum,
-      dayLabel, terminMissing: s.terminMissing,
-      terminText, terminShort,
-      onNext: () => {
-        if (!this.state.terminDatum || !this.state.terminUhrzeit) { this.setState({ terminMissing: true }); return; }
-        this.setState({ formStep: 2 });
-        try { window.scrollTo(0, 0); } catch (e) {}
-      },
-      onBack: () => this.setState({ formStep: 1 }),
-      showFinance: !isKauf,
-      kmFmt: this.fmt(s.km),
-      rateSuffix: isKauf ? '' : 'mtl.',
-      wunschrate: s.wunschrate,
-      onWunschrate: txt('wunschrate'),
-      wunschOk, wunschOver,
-      wunschDiff: this.fmt(Math.max(0, rateNum - (wr || 0))),
+    return Object.assign({}, prog, {
+      step1: step === 1, step2: step === 2, step3: step === 3, step4: step === 4,
+
       isLeasing, isFin, isKauf,
-      notLeasing: !isLeasing, notFin: !isFin, notKauf: !isKauf,
+      leasingCls: isLeasing ? 'on' : '', finCls: isFin ? 'on' : '', kaufCls: isKauf ? 'on' : '',
       setLeasing: () => this.setState({ mode: 'leasing' }),
       setFin: () => this.setState({ mode: 'finanzierung' }),
       setKauf: () => this.setState({ mode: 'kauf' }),
       modeLabel,
       anzLabel: isLeasing ? 'Sonderzahlung' : 'Anzahlung',
+      showFinance: !isKauf,
 
       anzahlung: s.anzahlung, anzahlungFmt: this.fmt(s.anzahlung),
-      laufzeit: s.laufzeit, km: s.km, color: s.color, configCode: s.configCode,
+      laufzeit: s.laufzeit, km: s.km, color: s.color,
       onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
-      onColor: txt('color'), onConfigCode: txt('configCode'),
 
-      vorname: s.vorname, nachname: s.nachname, phone: s.phone, email: s.email,
-      wunsch: s.wunsch, message: s.message, consent: s.consent,
-      onVorname: txt('vorname'), onNachname: txt('nachname'),
-      onPhone: txt('phone'), onEmail: txt('email'),
-      onWunsch: txt('wunsch'), onMessage: txt('message'),
+      rateFmt: this.fmt(rateNum),
+      rateLabel: isKauf ? 'Kaufpreis' : 'Rate ca.',
+      rateSuffix: isKauf ? '' : 'mtl.',
+
+      probeJa: probe, probeNein: !probe,
+      probeJaCls: probe ? 'on' : '', probeNeinCls: !probe ? 'on' : '',
+      setProbeJa: () => this.setState({ probefahrt: 'ja' }),
+      setProbeNein: () => this.setState({ probefahrt: 'nein', terminMissing: false }),
+
+      days, slots: slotList,
+      hasDay: !!s.terminDatum, noDay: !s.terminDatum,
+      dayLabel, terminMissing: s.terminMissing, terminShort,
+
+      kundentyp: s.kundentyp,
+      privatCls: s.kundentyp === 'privat' ? 'on' : '', gewerbeCls: s.kundentyp === 'gewerbe' ? 'on' : '',
+      setPrivat: () => this.setState({ kundentyp: 'privat' }),
+      setGewerbe: () => this.setState({ kundentyp: 'gewerbe' }),
+
+      configCode: s.configCode, onConfigCode: txt('configCode'),
+      vorname: s.vorname, nachname: s.nachname, phone: s.phone, email: s.email, message: s.message, consent: s.consent,
+      onVorname: txt('vorname'), onNachname: txt('nachname'), onPhone: txt('phone'), onEmail: txt('email'), onMessage: txt('message'),
       onConsent: (e) => this.setState({ consent: e.target.checked }),
 
       colorImg: this.colorImg(),
-      rateFmt: this.fmt(rateNum),
-      rateLabel: isKauf ? 'Kaufpreis' : 'Rate ca.',
+      onNext: () => this.next(),
+      onBack: () => this.back(),
       onSubmit: (e) => this.submit(e),
-    };
+    });
   }
 }
 </script>
