@@ -85,6 +85,12 @@ fbq('init','1422851823195089');fbq('track','PageView');
   .sk-day.on { background:var(--sk-green); border-color:var(--sk-green); }
   .sk-day.on small, .sk-day.on em { color:rgba(255,255,255,0.8); }
   .sk-day.on b { color:#fff; }
+  .sk-day.off { opacity:.4; cursor:not-allowed; }
+  .sk-day.off:hover { border-color:#D5DDD9; }
+  .sk-wk { cursor:pointer; font-family:inherit; width:34px; height:34px; border-radius:9px; border:1px solid #D5DDD9; background:#fff; color:var(--sk-green); display:grid; place-items:center; font-size:13px; }
+  .sk-wk:hover { border-color:var(--sk-green); background:var(--sk-paper); }
+  .sk-wk.off { opacity:.35; cursor:not-allowed; }
+  .sk-wk.off:hover { border-color:#D5DDD9; background:#fff; }
   .sk-slots { display:grid; grid-template-columns:repeat(auto-fill,minmax(84px,1fr)); gap:8px; }
   .sk-slot { cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px 8px; border:1px solid #D5DDD9; border-radius:9px; background:#fff; color:var(--sk-ink); transition:border-color .15s; }
   .sk-slot:hover { border-color:var(--sk-green); }
@@ -223,9 +229,16 @@ fbq('init','1422851823195089');fbq('track','PageView');
 
           <!-- Kalender-Karte -->
           <div style="border:1px solid #E7ECE9; border-radius:14px; padding:18px; margin-bottom:16px;">
-            <span class="sk-label">1. Tag wählen</span>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;">
+              <span class="sk-label" style="margin:0;">1. Tag wählen</span>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button type="button" onClick="{{ onPrevWeek }}" class="sk-wk {{ prevOff }}" aria-label="Woche zurück"><i class="fa-solid fa-chevron-left"></i></button>
+                <span style="font-size:13px; font-weight:700; min-width:104px; text-align:center; color:var(--sk-ink);">{{ weekLabel }}</span>
+                <button type="button" onClick="{{ onNextWeek }}" class="sk-wk {{ nextOff }}" aria-label="Woche vor"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
             <div class="sk-days">
-              <sc-for list="{{ days }}" as="d" hint-placeholder-count="7">
+              <sc-for list="{{ days }}" as="d" hint-placeholder-count="6">
                 <button type="button" class="sk-day {{ d.cls }}" onClick="{{ d.onClick }}"><small>{{ d.wd }}</small><b>{{ d.day }}</b><em>{{ d.mo }}</em></button>
               </sc-for>
             </div>
@@ -358,7 +371,33 @@ class Component extends DCLogic {
       formStep: 1,
       terminDatum: this.firstDayIso(), terminUhrzeit: '', terminMissing: false,
       consentMissing: false,
+      weekOffset: 0,
     };
+  }
+
+  weekStart(offset) {
+    const base = new Date(); base.setHours(0, 0, 0, 0);
+    const dow = base.getDay();
+    const mondayDelta = (dow === 0 ? -6 : 1 - dow);
+    const m = new Date(base); m.setDate(base.getDate() + mondayDelta + offset * 7);
+    return m;
+  }
+
+  weekDays(offset) {
+    const base = new Date(); base.setHours(0, 0, 0, 0);
+    const m = this.weekStart(offset);
+    const out = [];
+    for (let i = 0; i < 6; i++) {
+      const t = new Date(m); t.setDate(m.getDate() + i);
+      const iso = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+      out.push({ iso, wd: this.WD[t.getDay()], day: String(t.getDate()), mo: this.MON[t.getMonth()], disabled: t.getTime() <= base.getTime() });
+    }
+    return out;
+  }
+
+  weekLabel(offset) {
+    const s = this.weekStart(offset); const e = new Date(s); e.setDate(s.getDate() + 5);
+    return s.getDate() + '.–' + e.getDate() + '. ' + this.MON[e.getMonth()];
   }
 
   firstDayIso() {
@@ -550,10 +589,17 @@ class Component extends DCLogic {
     };
 
     // Termin-Kalender
-    const days = this.buildDays().map((d) => ({
-      wd: d.wd, day: d.day, mo: d.mo, cls: s.terminDatum === d.iso ? 'on' : '',
-      onClick: () => this.setState({ terminDatum: d.iso, terminUhrzeit: '', terminMissing: false }),
+    const MAXW = 8;
+    const days = this.weekDays(s.weekOffset).map((d) => ({
+      wd: d.wd, day: d.day, mo: d.mo,
+      cls: (s.terminDatum === d.iso ? 'on' : '') + (d.disabled ? ' off' : ''),
+      onClick: d.disabled ? (() => {}) : (() => this.setState({ terminDatum: d.iso, terminUhrzeit: '', terminMissing: false })),
     }));
+    const weekLabel = this.weekLabel(s.weekOffset);
+    const prevOff = s.weekOffset <= 0 ? 'off' : '';
+    const nextOff = s.weekOffset >= MAXW ? 'off' : '';
+    const onPrevWeek = () => this.setState({ weekOffset: Math.max(0, this.state.weekOffset - 1) });
+    const onNextWeek = () => this.setState({ weekOffset: Math.min(MAXW, this.state.weekOffset + 1) });
     const slotList = this.slotsFor(s.terminDatum).map((t) => ({
       label: t, cls: s.terminUhrzeit === t ? 'on' : '',
       onClick: () => this.setState({ terminUhrzeit: t, terminMissing: false }),
@@ -590,6 +636,7 @@ class Component extends DCLogic {
       setProbeNein: () => this.setState({ probefahrt: 'nein', terminMissing: false }),
 
       days, slots: slotList,
+      weekLabel, prevOff, nextOff, onPrevWeek, onNextWeek,
       hasDay: !!s.terminDatum, noDay: !s.terminDatum,
       dayLabel, terminMissing: s.terminMissing, terminShort,
 
