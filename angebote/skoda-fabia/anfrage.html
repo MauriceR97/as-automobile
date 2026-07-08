@@ -251,12 +251,47 @@ class Component extends DCLogic {
   submit(e) {
     e.preventDefault();
     const s = this.state;
-    const p = new URLSearchParams({
-      vorname: s.vorname, mode: s.mode, color: s.color,
-      rate: String(this.computeRate()),
+    const rate = this.computeRate();
+    const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
+
+    // Lead-Daten an Zapier-Webhook übertragen (form-encoded → kein CORS-Preflight).
+    const lead = new URLSearchParams({
+      fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen',
+      vorname: s.vorname, nachname: s.nachname,
+      telefon: s.phone, email: s.email,
+      erwerbsart: modeLabel,
+      sonderzahlung: String(s.anzahlung),
+      laufzeit_monate: String(s.laufzeit),
+      fahrleistung_km: String(s.km),
+      wunschfarbe: s.color,
+      konfigurationscode: s.configCode,
       wunschrate: String(s.wunschrate || ''),
+      berechnete_rate: String(rate),
+      terminwunsch: s.wunsch,
+      nachricht: s.message,
+      einwilligung: s.consent ? 'ja' : 'nein',
+      quelle: (typeof window !== 'undefined' ? window.location.href : ''),
+      zeitstempel: new Date().toISOString(),
     });
-    window.location.href = 'danke.html?' + p.toString();
+
+    const goDanke = () => {
+      const p = new URLSearchParams({
+        vorname: s.vorname, mode: s.mode, color: s.color,
+        rate: String(rate), wunschrate: String(s.wunschrate || ''),
+      });
+      window.location.href = 'danke.html?' + p.toString();
+    };
+
+    try {
+      fetch('https://hooks.zapier.com/hooks/catch/18583379/4uri1g8/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: lead.toString(),
+        keepalive: true,
+      }).then(goDanke).catch(goDanke);
+    } catch (err) {
+      goDanke();
+    }
   }
 
   renderVals() {
