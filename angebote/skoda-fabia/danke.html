@@ -44,10 +44,6 @@ fbq('init','1422851823195089');fbq('track','PageView');
       var m=href.indexOf('tel:')===0?'phone':'email', id=genId('contact');
       try{fbq('track','Contact',{contact_method:m},{eventID:id});}catch(_){}
       push('contact_click',id,{method:m});
-    } else if(/anfrage(\.html)?(\?|$)|#termin/i.test(href)){
-      var id2=genId('schedule');
-      try{fbq('track','Schedule',{content_name:'Termin/Probefahrt'},{eventID:id2});}catch(_){}
-      push('schedule_click',id2,{});
     }
   },true);
 })();
@@ -81,6 +77,13 @@ fbq('init','1422851823195089');fbq('track','PageView');
         <h1 style="margin:0 0 10px; font-size:clamp(26px,5vw,34px); font-weight:800; letter-spacing:-.02em;">Vielen Dank{{ nameSuffix }}!</h1>
         <p style="margin:0 auto 8px; font-size:clamp(15px,2.5vw,17px); color:#5B6863; line-height:1.6; max-width:440px;">Ihre Anfrage für den <strong style="color:var(--sk-ink)">Škoda Fabia Essence</strong> ({{ modeLabel }}{{ colorSuffix }}) ist bei uns eingegangen.</p>
         <p style="margin:0 auto 26px; font-size:15px; color:#5B6863; line-height:1.6; max-width:440px;">Ihr persönlicher Berater <strong style="color:var(--sk-ink)">Martin Kedzierski</strong> meldet sich kurzfristig zur Terminbestätigung bei Ihnen.</p>
+
+        <sc-if value="{{ hasTermin }}" hint-placeholder-val="{{ false }}">
+          <div style="background:var(--sk-green); color:#fff; border-radius:14px; padding:16px 18px; display:flex; align-items:center; gap:13px; text-align:left; margin-bottom:24px;">
+            <span style="flex:none; width:44px; height:44px; border-radius:999px; background:rgba(255,255,255,0.15); display:grid; place-items:center; color:var(--sk-mint); font-size:18px;"><i class="fa-solid fa-calendar-check"></i></span>
+            <div><div style="font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--sk-mint); font-weight:700; margin-bottom:2px;">Ihr Wunschtermin</div><div style="font-weight:800; font-size:16px;">{{ termin }}</div><div style="font-size:12px; color:rgba(255,255,255,0.75); margin-top:2px;">Termindauer ca. 45 Min. · wir bestätigen kurzfristig</div></div>
+          </div>
+        </sc-if>
 
         <div class="sk-steps" style="margin-bottom:28px; text-align:left;">
           <div style="background:var(--sk-paper); border-radius:12px; padding:16px;">
@@ -127,7 +130,7 @@ class Component extends DCLogic {
       try { const v = new URLSearchParams(window.location.search).get(k); return v == null || v === '' ? d : v; }
       catch (e) { return d; }
     };
-    this.state = { vorname: q('vorname', ''), mode: q('mode', 'leasing'), color: q('color', '') };
+    this.state = { vorname: q('vorname', ''), mode: q('mode', 'leasing'), color: q('color', ''), termin: q('termin', '') };
   }
 
   renderVals() {
@@ -137,6 +140,8 @@ class Component extends DCLogic {
       nameSuffix: s.vorname ? ', ' + s.vorname : '',
       modeLabel,
       colorSuffix: s.color ? ' · ' + s.color : '',
+      termin: s.termin,
+      hasTermin: !!s.termin,
     };
   }
 }

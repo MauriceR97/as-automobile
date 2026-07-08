@@ -44,10 +44,6 @@ fbq('init','1422851823195089');fbq('track','PageView');
       var m=href.indexOf('tel:')===0?'phone':'email', id=genId('contact');
       try{fbq('track','Contact',{contact_method:m},{eventID:id});}catch(_){}
       push('contact_click',id,{method:m});
-    } else if(/anfrage(\.html)?(\?|$)|#termin/i.test(href)){
-      var id2=genId('schedule');
-      try{fbq('track','Schedule',{content_name:'Termin/Probefahrt'},{eventID:id2});}catch(_){}
-      push('schedule_click',id2,{});
     }
   },true);
 })();
