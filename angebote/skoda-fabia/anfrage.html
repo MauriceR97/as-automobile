@@ -32,6 +32,26 @@
 fbq('init','1422851823195089');fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
+<!-- Interaktions-Events: Contact (Anruf/E-Mail) & Schedule (Termin-CTA) -->
+<script>
+(function(){
+  function genId(p){return p+'-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);}
+  function push(ev,id,extra){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:ev,event_id:id},extra||{}));}catch(e){}}
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var href=a.getAttribute('href')||'';
+    if(href.indexOf('tel:')===0||href.indexOf('mailto:')===0){
+      var m=href.indexOf('tel:')===0?'phone':'email', id=genId('contact');
+      try{fbq('track','Contact',{contact_method:m},{eventID:id});}catch(_){}
+      push('contact_click',id,{method:m});
+    } else if(/anfrage(\.html)?(\?|$)|#termin/i.test(href)){
+      var id2=genId('schedule');
+      try{fbq('track','Schedule',{content_name:'Termin/Probefahrt'},{eventID:id2});}catch(_){}
+      push('schedule_click',id2,{});
+    }
+  },true);
+})();
+</script>
 <script src="../../assets/ds-base.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
