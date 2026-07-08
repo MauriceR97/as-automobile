@@ -10,6 +10,25 @@
 <!-- Sub-page of the "Škoda Angebots-Landingpage" template (entry: index.html). Danke/confirmation page — reached after the Anfrage form is submitted. -->
 <helmet>
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Attribution: UTM / Klick-IDs erfassen und über die Sub-Seiten hinweg speichern -->
+<script>
+(function(){try{
+  var qs=new URLSearchParams(location.search);
+  var keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid','gclid','ttclid','msclkid'];
+  var store={}; try{store=JSON.parse(localStorage.getItem('as_attribution')||'{}');}catch(e){}
+  var changed=false;
+  keys.forEach(function(k){var v=qs.get(k); if(v){store[k]=v; changed=true;}});
+  if(!store.landing_page){store.landing_page=location.href; changed=true;}
+  if(!store.first_referrer){store.first_referrer=document.referrer||''; changed=true;}
+  if(changed){store.updated=new Date().toISOString(); try{localStorage.setItem('as_attribution',JSON.stringify(store));}catch(e){}}
+}catch(e){}})();
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1422851823195089');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
 <script src="../../assets/ds-base.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>

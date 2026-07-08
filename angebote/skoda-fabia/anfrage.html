@@ -10,6 +10,25 @@
 <!-- Sub-page of the "Škoda Angebots-Landingpage" template (entry: index.html). Anfrage/lead form — reached from the landing-page CTAs, submits to danke.html. -->
 <helmet>
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Attribution: UTM / Klick-IDs erfassen und über die Sub-Seiten hinweg speichern -->
+<script>
+(function(){try{
+  var qs=new URLSearchParams(location.search);
+  var keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid','gclid','ttclid','msclkid'];
+  var store={}; try{store=JSON.parse(localStorage.getItem('as_attribution')||'{}');}catch(e){}
+  var changed=false;
+  keys.forEach(function(k){var v=qs.get(k); if(v){store[k]=v; changed=true;}});
+  if(!store.landing_page){store.landing_page=location.href; changed=true;}
+  if(!store.first_referrer){store.first_referrer=document.referrer||''; changed=true;}
+  if(changed){store.updated=new Date().toISOString(); try{localStorage.setItem('as_attribution',JSON.stringify(store));}catch(e){}}
+}catch(e){}})();
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1422851823195089');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
 <script src="../../assets/ds-base.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
@@ -248,17 +267,52 @@ class Component extends DCLogic {
     return map[this.state.color] || 'img/fabia-side.png';
   }
 
+  getCookie(name) {
+    try {
+      const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
+    } catch (e) { return ''; }
+  }
+
   submit(e) {
     e.preventDefault();
     const s = this.state;
     const rate = this.computeRate();
     const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
 
-    // Lead-Daten an Zapier-Webhook übertragen (form-encoded → kein CORS-Preflight).
+    // Attribution (UTM / Klick-IDs) aus dem localStorage lesen
+    let attr = {};
+    try { attr = JSON.parse(localStorage.getItem('as_attribution') || '{}'); } catch (err) {}
+
+    // Meta-Identifikatoren für die Conversions API
+    const fbp = this.getCookie('_fbp');
+    let fbc = this.getCookie('_fbc');
+    if (!fbc && attr.fbclid) fbc = 'fb.1.' + Date.now() + '.' + attr.fbclid;
+
+    // Eindeutige Event-ID → Dedup zwischen Pixel (Browser) und CAPI (Server)
+    const eventId = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+
+    // Meta Pixel: Lead-Event feuern (mit eventID für Deduplizierung)
+    try {
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead', {
+          content_name: 'Škoda Fabia Essence – Vorführwagen',
+          content_category: modeLabel,
+          value: rate,
+          currency: 'EUR',
+        }, { eventID: eventId });
+      }
+    } catch (err) {}
+
+    // Alle Daten an Zapier-Webhook (form-encoded → kein CORS-Preflight).
+    // Zapier kann daraus die Meta Conversions API + euer CRM bedienen.
     const lead = new URLSearchParams({
+      // Event / Dedup
+      event_name: 'Lead',
+      event_id: eventId,
+      event_source_url: (typeof window !== 'undefined' ? window.location.href : ''),
+      // Fahrzeug & Konfiguration
       fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen',
-      vorname: s.vorname, nachname: s.nachname,
-      telefon: s.phone, email: s.email,
       erwerbsart: modeLabel,
       sonderzahlung: String(s.anzahlung),
       laufzeit_monate: String(s.laufzeit),
@@ -267,10 +321,22 @@ class Component extends DCLogic {
       konfigurationscode: s.configCode,
       wunschrate: String(s.wunschrate || ''),
       berechnete_rate: String(rate),
-      terminwunsch: s.wunsch,
-      nachricht: s.message,
+      waehrung: 'EUR',
+      // Kontakt
+      vorname: s.vorname, nachname: s.nachname,
+      telefon: s.phone, email: s.email,
+      terminwunsch: s.wunsch, nachricht: s.message,
       einwilligung: s.consent ? 'ja' : 'nein',
-      quelle: (typeof window !== 'undefined' ? window.location.href : ''),
+      // Attribution / Werbe-Tracking
+      utm_source: attr.utm_source || '', utm_medium: attr.utm_medium || '',
+      utm_campaign: attr.utm_campaign || '', utm_term: attr.utm_term || '',
+      utm_content: attr.utm_content || '',
+      fbclid: attr.fbclid || '', gclid: attr.gclid || '',
+      ttclid: attr.ttclid || '', msclkid: attr.msclkid || '',
+      fbp: fbp || '', fbc: fbc || '',
+      landing_page: attr.landing_page || '',
+      referrer: attr.first_referrer || '',
+      user_agent: (typeof navigator !== 'undefined' ? navigator.userAgent : ''),
       zeitstempel: new Date().toISOString(),
     });
 
