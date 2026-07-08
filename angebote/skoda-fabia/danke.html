@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../assets/support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- Sub-page of the "Škoda Angebots-Landingpage" template (entry: index.html). Danke/confirmation page — reached after the Anfrage form is submitted. -->
+<helmet>
+<script src="../../assets/ds-base.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  body { margin: 0; }
+  * { box-sizing: border-box; }
+  @keyframes skPop { 0% { transform: scale(0.6); opacity: 0; } 60% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
+  @keyframes skRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  .sk-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 620px) { .sk-steps { grid-template-columns: 1fr; } }
+</style>
+</helmet>
+
+<div style="--sk-green:#0E3A2F; --sk-green-700:#0A2C24; --sk-mint:#78FAAF; --sk-mint-600:#5FE39A; --sk-ink:#0B1512; --sk-paper:#F4F7F5; font-family:var(--font-sans,'Inter',sans-serif); color:var(--sk-ink); min-height:100vh; background:linear-gradient(160deg, var(--sk-green) 0%, var(--sk-green-700) 100%); display:flex; flex-direction:column;">
+
+  <header style="padding:20px 24px; text-align:center;">
+    <span style="font-weight:800; font-size:22px; letter-spacing:-.02em; color:#fff;">AS<span style="color:var(--sk-mint)">.</span>Automobile</span>
+  </header>
+
+  <main style="flex:1; display:flex; align-items:center; justify-content:center; padding:24px 20px 56px;">
+    <div style="width:100%; max-width:640px;">
+      <div style="background:#fff; border-radius:22px; box-shadow:0 30px 70px rgba(0,0,0,0.3); padding:clamp(28px,5vw,46px); text-align:center; animation:skRise .5s ease both;">
+        <div style="width:88px; height:88px; margin:0 auto 22px; border-radius:999px; background:var(--sk-mint); display:grid; place-items:center; color:var(--sk-green); font-size:40px; animation:skPop .6s ease both;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h1 style="margin:0 0 10px; font-size:clamp(26px,5vw,34px); font-weight:800; letter-spacing:-.02em;">Vielen Dank{{ nameSuffix }}!</h1>
+        <p style="margin:0 auto 8px; font-size:clamp(15px,2.5vw,17px); color:#5B6863; line-height:1.6; max-width:440px;">Ihre Anfrage für den <strong style="color:var(--sk-ink)">Škoda Fabia Essence</strong> ({{ modeLabel }}{{ colorSuffix }}) ist bei uns eingegangen.</p>
+        <p style="margin:0 auto 26px; font-size:15px; color:#5B6863; line-height:1.6; max-width:440px;">Ihr persönlicher Berater <strong style="color:var(--sk-ink)">Martin Kedzierski</strong> meldet sich kurzfristig zur Terminbestätigung bei Ihnen.</p>
+
+        <div class="sk-steps" style="margin-bottom:28px; text-align:left;">
+          <div style="background:var(--sk-paper); border-radius:12px; padding:16px;">
+            <div style="width:34px; height:34px; border-radius:9px; background:#fff; display:grid; place-items:center; color:var(--sk-green); margin-bottom:10px;"><i class="fa-solid fa-1"></i></div>
+            <div style="font-weight:700; font-size:14px; margin-bottom:2px;">Wir prüfen</div>
+            <div style="font-size:13px; color:#6B776F; line-height:1.5;">Verfügbarkeit &amp; Ihre Konditionen.</div>
+          </div>
+          <div style="background:var(--sk-paper); border-radius:12px; padding:16px;">
+            <div style="width:34px; height:34px; border-radius:9px; background:#fff; display:grid; place-items:center; color:var(--sk-green); margin-bottom:10px;"><i class="fa-solid fa-2"></i></div>
+            <div style="font-weight:700; font-size:14px; margin-bottom:2px;">Wir melden uns</div>
+            <div style="font-size:13px; color:#6B776F; line-height:1.5;">Telefonisch oder per E-Mail.</div>
+          </div>
+          <div style="background:var(--sk-paper); border-radius:12px; padding:16px;">
+            <div style="width:34px; height:34px; border-radius:9px; background:#fff; display:grid; place-items:center; color:var(--sk-green); margin-bottom:10px;"><i class="fa-solid fa-3"></i></div>
+            <div style="font-weight:700; font-size:14px; margin-bottom:2px;">Probefahrt</div>
+            <div style="font-size:13px; color:#6B776F; line-height:1.5;">Termin &amp; Probefahrt vor Ort.</div>
+          </div>
+        </div>
+
+        <div style="background:var(--sk-paper); border-radius:14px; padding:18px; display:flex; align-items:center; gap:14px; text-align:left; margin-bottom:24px;">
+          <img src="https://onecdn.io/media/039648d0-bf62-46ea-b1d7-6424bc868767/full" alt="Martin Kedzierski" style="width:56px; height:56px; border-radius:999px; object-fit:cover; flex:none;" />
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:800; font-size:15px;">Martin Kedzierski</div>
+            <div style="font-size:13px; color:#6B776F;">Ihr ŠKODA Berater bei AS-Automobile</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:700; font-size:15px; padding:14px 22px; border-radius:10px;" style-hover="background:var(--sk-green-700);"><i class="fa-solid fa-phone"></i> 0201 83 14 83 24</a>
+          <a href="index.html" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:15px; padding:14px 22px; border-radius:10px;" style-hover="background:var(--sk-mint);"><i class="fa-solid fa-arrow-left"></i> Zurück zum Angebot</a>
+        </div>
+      </div>
+
+      <p style="margin:22px auto 0; text-align:center; font-size:12px; color:rgba(255,255,255,0.6); max-width:440px; line-height:1.6;">AS-Automobile GmbH · Hövelstr. 151–153 · 45326 Essen. Eine Kopie Ihrer Anfrage geht an die angegebene E-Mail-Adresse.</p>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 760, &quot;height&quot;: 820}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const q = (k, d) => {
+      try { const v = new URLSearchParams(window.location.search).get(k); return v == null || v === '' ? d : v; }
+      catch (e) { return d; }
+    };
+    this.state = { vorname: q('vorname', ''), mode: q('mode', 'leasing'), color: q('color', '') };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
+    return {
+      nameSuffix: s.vorname ? ', ' + s.vorname : '',
+      modeLabel,
+      colorSuffix: s.color ? ' · ' + s.color : '',
+    };
+  }
+}
+</script>
+</body>
+</html>

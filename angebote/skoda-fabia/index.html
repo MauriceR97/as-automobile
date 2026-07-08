@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../assets/support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Škoda Angebots-Landingpage" description="Conversion-optimierte, voll responsive Angebots-Landingpage (Škoda-Farbkonzept) mit Farb-Konfigurator, Effizienzklasse, Leasing-/Finanzierungs-/Kauf-Rechner, Garantie, Karte & Berater — verlinkt auf eine separate Anfrage- und Danke-Seite. Vorbefüllt: Škoda PJ Fabia." -->
+<helmet>
+<script src="../../assets/ds-base.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  * { box-sizing: border-box; }
+  input[type=range] { accent-color: #0E3A2F; }
+  @keyframes skRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+  .sk-container { max-width: 1140px; margin: 0 auto; padding-left: clamp(16px, 4vw, 24px); padding-right: clamp(16px, 4vw, 24px); }
+  .sk-sect { padding-top: clamp(44px, 7vw, 72px); padding-bottom: clamp(44px, 7vw, 72px); }
+
+  .sk-hero      { display: grid; gap: clamp(28px, 4vw, 48px); grid-template-columns: 1.05fr 0.95fr; align-items: center; }
+  .sk-showcase  { display: grid; gap: clamp(28px, 4vw, 48px); grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+  .sk-calc      { display: grid; grid-template-columns: 1.25fr 0.75fr; }
+  .sk-advisor   { display: grid; gap: 32px; grid-template-columns: auto 1fr auto; align-items: center; }
+  .sk-map       { display: grid; grid-template-columns: 1fr 1fr; }
+  .sk-foot      { display: grid; gap: 36px; grid-template-columns: 1.4fr 1fr; }
+  .sk-facts     { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+  .sk-equip     { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
+  .sk-colors    { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sk-gallery   { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .sk-haus3     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .sk-mobilebar { display: none; }
+
+  @media (max-width: 920px) {
+    .sk-hero, .sk-showcase, .sk-calc, .sk-map, .sk-foot { grid-template-columns: 1fr; }
+    .sk-advisor { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+    .sk-facts   { grid-template-columns: repeat(3, 1fr); }
+    .sk-haus3   { grid-template-columns: 1fr 1fr; }
+    .sk-map iframe { min-height: 300px; }
+    .sk-navcta { display: none; }
+  }
+  @media (max-width: 600px) {
+    .sk-facts   { grid-template-columns: repeat(2, 1fr); }
+    .sk-equip   { grid-template-columns: 1fr; }
+    .sk-gallery { grid-template-columns: repeat(3, 1fr); }
+    .sk-colors  { grid-template-columns: repeat(3, 1fr); }
+    .sk-haus3   { grid-template-columns: 1fr; }
+    .sk-hidesm  { display: none !important; }
+    .sk-page    { padding-bottom: 74px; }
+    .sk-mobilebar { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: #fff; border-top: 1px solid #E7ECE9; padding: 10px 14px; box-shadow: 0 -6px 20px rgba(0,0,0,0.10); }
+  }
+</style>
+</helmet>
+
+<div class="sk-page" style="--sk-green:#0E3A2F; --sk-green-600:#12463A; --sk-green-700:#0A2C24; --sk-mint:#78FAAF; --sk-mint-600:#5FE39A; --sk-ink:#0B1512; --sk-paper:#F4F7F5; font-family:var(--font-sans, 'Inter', sans-serif); color:var(--sk-ink); background:#fff; -webkit-font-smoothing:antialiased;">
+
+  <!-- Announcement -->
+  <div style="background:var(--sk-green-700); color:var(--sk-mint); font-size:13px; font-weight:600; letter-spacing:.03em; text-align:center; padding:9px 16px; line-height:1.4;">
+    <i class="fa-solid fa-bolt" style="margin-right:8px"></i> ŠKODA Vorführwagen-Aktion · nur dieses Fahrzeug · <span style="color:#fff">jetzt Termin sichern</span>
+  </div>
+
+  <!-- Header -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.94); backdrop-filter:blur(10px); border-bottom:1px solid #E7ECE9;">
+    <div class="sk-container" style="height:66px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
+      <div style="display:flex; align-items:center; gap:12px; min-width:0;">
+        <span style="font-weight:800; font-size:clamp(18px,3.5vw,22px); letter-spacing:-.02em; color:var(--sk-ink); white-space:nowrap;">AS<span style="color:var(--sk-green)">.</span>Automobile</span>
+        <span class="sk-hidesm" style="height:22px; width:1px; background:#D8E0DC;"></span>
+        <span class="sk-hidesm" style="font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green);">ŠKODA · Essen</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <a href="tel:+4920183148324" class="sk-hidesm" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--sk-ink); font-weight:700; font-size:15px; white-space:nowrap;">
+          <i class="fa-solid fa-phone" style="color:var(--sk-green)"></i> 0201 83 14 83 24
+        </a>
+        <a href="anfrage.html" class="sk-navcta" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:700; font-size:15px; padding:11px 18px; border-radius:8px; white-space:nowrap;" style-hover="background:var(--sk-green-700);">
+          Termin vereinbaren
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section style="position:relative; background:linear-gradient(160deg, var(--sk-green) 0%, var(--sk-green-700) 100%); color:#fff; overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute; right:-60px; bottom:-40px; color:rgba(120,250,175,0.06); font-size:clamp(220px,40vw,420px); line-height:1;"><i class="fa-solid fa-car-side"></i></div>
+    <div class="sk-container sk-hero" style="position:relative; padding-top:clamp(40px,6vw,60px); padding-bottom:clamp(44px,6vw,64px);">
+
+      <!-- Copy -->
+      <div style="animation:skRise .6s ease both;">
+        <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-mint); margin-bottom:16px;">
+          <span style="width:26px; height:2px; background:var(--sk-mint);"></span> Vorführwagen · sofort verfügbar
+        </div>
+        <h1 style="margin:0; font-size:clamp(32px,6vw,52px); line-height:1.03; letter-spacing:-.02em; font-weight:800;">Škoda Fabia<br>Essence 1.0 MPI</h1>
+        <p style="margin:14px 0 0; font-size:clamp(15px,2.4vw,18px); color:rgba(255,255,255,0.82); font-weight:500;">59 kW (80 PS) · 5-Gang · EZ 06/2026 · in vielen Farben konfigurierbar</p>
+
+        <div style="display:flex; align-items:flex-end; gap:16px; margin:26px 0 20px; flex-wrap:wrap;">
+          <div style="background:var(--sk-mint); color:var(--sk-green); border-radius:14px; padding:14px 22px; display:flex; align-items:baseline; gap:8px;">
+            <span style="font-size:15px; font-weight:700;">ab</span>
+            <span style="font-size:clamp(34px,6vw,46px); font-weight:800; letter-spacing:-.02em; line-height:1;">139&nbsp;€</span>
+            <span style="font-size:16px; font-weight:700;">mtl.*</span>
+          </div>
+          <div style="font-size:14px; color:rgba(255,255,255,0.8); line-height:1.6;">
+            990&nbsp;€ Sonderzahlung<br>48 Monate · 10.000&nbsp;km/Jahr
+          </div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:26px;">
+          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.18); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> inkl. 19% MwSt</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.18); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> Leasing · Finanzierung · Kauf</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.18); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> nur 50 km</span>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a href="anfrage.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:15px 28px; border-radius:10px;" style-hover="background:var(--sk-mint-600);">
+            <i class="fa-solid fa-calendar-check"></i> Termin &amp; Probefahrt
+          </a>
+          <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:16px; padding:15px 24px; border-radius:10px;" style-hover="background:rgba(255,255,255,0.10);">
+            <i class="fa-solid fa-phone"></i> Anrufen
+          </a>
+        </div>
+      </div>
+
+      <!-- Photo gallery -->
+      <div style="animation:skRise .7s ease both;">
+        <div style="position:relative; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:#0b241d; box-shadow:0 30px 60px rgba(0,0,0,0.35);">
+          <img src="{{ activeImg }}" alt="Škoda Fabia" style="width:100%; height:100%; object-fit:cover; display:block;" />
+          <div style="position:absolute; top:14px; left:14px; background:var(--sk-mint); color:var(--sk-green); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">Vorführwagen</div>
+        </div>
+        <div class="sk-gallery" style="margin-top:10px;">
+          <button onClick="{{ setImg0 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#0b241d; aspect-ratio:4/3;"><img src="img/car-front.jpg" alt="Front" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
+          <button onClick="{{ setImg1 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#0b241d; aspect-ratio:4/3;"><img src="img/car-rear.jpg" alt="Heck" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
+          <button onClick="{{ setImg2 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#0b241d; aspect-ratio:4/3;"><img src="img/car-rear2.jpg" alt="Heck seitlich" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
+          <button onClick="{{ setImg3 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#0b241d; aspect-ratio:4/3;"><img src="img/car-interior.jpg" alt="Innenraum" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
+          <button onClick="{{ setImg4 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#0b241d; aspect-ratio:4/3;"><img src="img/car-trunk.jpg" alt="Kofferraum" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facts strip -->
+  <section style="background:var(--sk-paper); border-bottom:1px solid #E7ECE9;">
+    <div class="sk-container sk-facts" style="padding-top:30px; padding-bottom:30px;">
+      <div style="text-align:center;"><i class="fa-solid fa-bolt" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">59 kW / 80 PS</div><div style="font-size:12px; color:#6B776F;">Leistung</div></div>
+      <div style="text-align:center;"><i class="fa-solid fa-gears" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">5-Gang</div><div style="font-size:12px; color:#6B776F;">Schaltgetriebe</div></div>
+      <div style="text-align:center;"><i class="fa-solid fa-gas-pump" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">5,1 l/100km</div><div style="font-size:12px; color:#6B776F;">Verbrauch komb.</div></div>
+      <div style="text-align:center;"><i class="fa-solid fa-leaf" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">116 g/km</div><div style="font-size:12px; color:#6B776F;">CO₂ · Klasse D</div></div>
+      <div style="text-align:center;"><i class="fa-solid fa-gauge-high" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">50 km</div><div style="font-size:12px; color:#6B776F;">Laufleistung</div></div>
+      <div style="text-align:center;"><i class="fa-solid fa-calendar" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">06/2026</div><div style="font-size:12px; color:#6B776F;">Erstzulassung</div></div>
+    </div>
+  </section>
+
+  <!-- Configurator (clickable colors) -->
+  <section class="sk-container sk-sect">
+    <div style="text-align:center; max-width:640px; margin:0 auto 34px;">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:12px;">
+        <span style="width:26px; height:2px; background:var(--sk-green);"></span> Farbe wählen <span style="width:26px; height:2px; background:var(--sk-green);"></span>
+      </div>
+      <h2 style="margin:0 0 8px; font-size:clamp(26px,4vw,34px); font-weight:800; letter-spacing:-.02em;">In Ihrer Wunschfarbe konfigurierbar</h2>
+      <p style="margin:0; font-size:16px; color:#6B776F;">Wählen Sie eine Lackierung — Ihre Auswahl übernehmen wir in die Anfrage.</p>
+    </div>
+
+    <div style="max-width:760px; margin:0 auto;">
+      <div style="position:relative; aspect-ratio:16/9; background:var(--sk-paper); border:1px solid #E7ECE9; border-radius:18px; overflow:hidden; display:grid; place-items:center;">
+        <img src="{{ colorImg }}" alt="Škoda Fabia in {{ colorName }}" style="width:92%; height:92%; object-fit:contain; display:block;" />
+        <div style="position:absolute; bottom:14px; left:14px; background:#fff; border:1px solid #E7ECE9; border-radius:999px; padding:8px 16px; font-size:14px; font-weight:800; color:var(--sk-ink);">{{ colorName }}</div>
+      </div>
+
+      <div class="sk-colors" style="margin-top:16px;">
+        <button onClick="{{ setColorBlau }}" title="Race-Blau" style="cursor:pointer; background:#fff; border:none; padding:8px 6px; border-radius:12px; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <sc-if value="{{ selBlau }}" hint-placeholder-val="{{ true }}"><span style="width:44px; height:44px; border-radius:999px; background:#1f6fd0; box-shadow:0 0 0 3px #fff, 0 0 0 5px var(--sk-green);"></span></sc-if>
+          <sc-if value="{{ notBlau }}" hint-placeholder-val="{{ false }}"><span style="width:44px; height:44px; border-radius:999px; background:#1f6fd0; box-shadow:0 0 0 1px #d5ddd9;"></span></sc-if>
+          <span style="font-size:11px; font-weight:700; color:var(--sk-ink); text-align:center; line-height:1.2;">Race-Blau</span>
+        </button>
+        <button onClick="{{ setColorRot }}" title="Velvet-Rot" style="cursor:pointer; background:#fff; border:none; padding:8px 6px; border-radius:12px; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <sc-if value="{{ selRot }}" hint-placeholder-val="{{ false }}"><span style="width:44px; height:44px; border-radius:999px; background:#b81f2d; box-shadow:0 0 0 3px #fff, 0 0 0 5px var(--sk-green);"></span></sc-if>
+          <sc-if value="{{ notRot }}" hint-placeholder-val="{{ true }}"><span style="width:44px; height:44px; border-radius:999px; background:#b81f2d; box-shadow:0 0 0 1px #d5ddd9;"></span></sc-if>
+          <span style="font-size:11px; font-weight:700; color:var(--sk-ink); text-align:center; line-height:1.2;">Velvet-Rot</span>
+        </button>
+        <button onClick="{{ setColorGrau }}" title="Brillant-Grau" style="cursor:pointer; background:#fff; border:none; padding:8px 6px; border-radius:12px; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <sc-if value="{{ selGrau }}" hint-placeholder-val="{{ false }}"><span style="width:44px; height:44px; border-radius:999px; background:#9aa0a6; box-shadow:0 0 0 3px #fff, 0 0 0 5px var(--sk-green);"></span></sc-if>
+          <sc-if value="{{ notGrau }}" hint-placeholder-val="{{ true }}"><span style="width:44px; height:44px; border-radius:999px; background:#9aa0a6; box-shadow:0 0 0 1px #d5ddd9;"></span></sc-if>
+          <span style="font-size:11px; font-weight:700; color:var(--sk-ink); text-align:center; line-height:1.2;">Brillant-Grau</span>
+        </button>
+        <button onClick="{{ setColorWeiss }}" title="Candy-Weiß" style="cursor:pointer; background:#fff; border:none; padding:8px 6px; border-radius:12px; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <sc-if value="{{ selWeiss }}" hint-placeholder-val="{{ false }}"><span style="width:44px; height:44px; border-radius:999px; background:#e9e9e9; box-shadow:0 0 0 3px #fff, 0 0 0 5px var(--sk-green);"></span></sc-if>
+          <sc-if value="{{ notWeiss }}" hint-placeholder-val="{{ true }}"><span style="width:44px; height:44px; border-radius:999px; background:#e9e9e9; box-shadow:0 0 0 1px #d5ddd9;"></span></sc-if>
+          <span style="font-size:11px; font-weight:700; color:var(--sk-ink); text-align:center; line-height:1.2;">Candy-Weiß</span>
+        </button>
+        <button onClick="{{ setColorSchwarz }}" title="Magic-Schwarz" style="cursor:pointer; background:#fff; border:none; padding:8px 6px; border-radius:12px; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <sc-if value="{{ selSchwarz }}" hint-placeholder-val="{{ false }}"><span style="width:44px; height:44px; border-radius:999px; background:#1a1a1a; box-shadow:0 0 0 3px #fff, 0 0 0 5px var(--sk-green);"></span></sc-if>
+          <sc-if value="{{ notSchwarz }}" hint-placeholder-val="{{ true }}"><span style="width:44px; height:44px; border-radius:999px; background:#1a1a1a; box-shadow:0 0 0 1px #d5ddd9;"></span></sc-if>
+          <span style="font-size:11px; font-weight:700; color:var(--sk-ink); text-align:center; line-height:1.2;">Magic-Schwarz</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ausstattung + Effizienzklasse -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E7ECE9; border-bottom:1px solid #E7ECE9;">
+    <div class="sk-container sk-showcase sk-sect">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:14px;">
+          <span style="width:26px; height:2px; background:var(--sk-green);"></span> Ausstattung Essence
+        </div>
+        <h2 style="margin:0 0 18px; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Modern ausgestattet, sofort bereit</h2>
+        <div class="sk-equip">
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> LED-Scheinwerfer</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Touch-Infotainment</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Klimaanlage</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> DAB+ Radio</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Tempomat</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Front Assist</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Spurhalteassistent</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Metallic-Lackierung</div>
+        </div>
+        <p style="margin:22px 0 0; font-size:14px; color:#6B776F; line-height:1.65;">Fahrzeugpreis ab Werk (inkl. MwSt): <strong style="color:var(--sk-ink)">20.719,99 €</strong>. Individuelle Konfiguration in Wunschfarbe &amp; Ausstattung möglich.</p>
+      </div>
+
+      <!-- Efficiency label -->
+      <div style="background:#fff; border:1px solid #E7ECE9; border-radius:18px; padding:24px 24px 22px; box-shadow:var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));" data-om-raster="true">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px;">
+          <div style="font-weight:800; font-size:16px;">CO₂-Effizienzklasse</div>
+          <div style="font-size:12px; color:#6B776F;">nach WLTP</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:52%; background:#009a44; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">A</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:60%; background:#52ae32; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">B</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:68%; background:#c8d200; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">C</div></div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div style="height:30px; width:76%; background:#fff200; color:#1a1a1a; font-weight:800; font-size:14px; display:flex; align-items:center; padding:0 12px; border-radius:3px; outline:2px solid var(--sk-ink); clip-path:polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);">D</div>
+            <div style="background:var(--sk-ink); color:#fff; font-weight:800; font-size:15px; padding:5px 14px; border-radius:6px; white-space:nowrap;">D</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:84%; background:#f9b000; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">E</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:92%; background:#e97100; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">F</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:100%; background:#e30613; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">G</div></div>
+        </div>
+        <p style="margin:16px 0 0; font-size:12px; color:#6B776F; line-height:1.6;">Dieses Fahrzeug: <strong style="color:var(--sk-ink)">Klasse D</strong> · CO₂ komb. 116 g/km. Auf Basis der WLTP-Werte.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leasing / Finanzierung / Kauf calculator -->
+  <section style="background:linear-gradient(160deg, var(--sk-green) 0%, var(--sk-green-700) 100%); color:#fff;">
+    <div class="sk-container sk-sect">
+      <div style="text-align:center; max-width:640px; margin:0 auto 34px;">
+        <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-mint); margin-bottom:12px;">
+          <span style="width:26px; height:2px; background:var(--sk-mint);"></span> Raten-Rechner <span style="width:26px; height:2px; background:var(--sk-mint);"></span>
+        </div>
+        <h2 style="margin:0 0 10px; font-size:clamp(26px,4vw,34px); font-weight:800; letter-spacing:-.02em;">Leasing, Finanzierung oder Kauf</h2>
+        <p style="margin:0; font-size:16px; color:rgba(255,255,255,0.8);">Wählen Sie Ihre Finanzierungsart und passen Sie die Konditionen an — Ihre Rate aktualisiert sich sofort.</p>
+      </div>
+
+      <!-- Mode toggle -->
+      <div style="max-width:520px; margin:0 auto 22px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; background:rgba(255,255,255,0.1); padding:6px; border-radius:12px;">
+        <div>
+          <sc-if value="{{ isLeasing }}" hint-placeholder-val="{{ true }}"><button onClick="{{ setLeasing }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:15px; padding:12px; border:none; border-radius:8px; background:var(--sk-green); color:#fff;">Leasing</button></sc-if>
+          <sc-if value="{{ notLeasing }}" hint-placeholder-val="{{ false }}"><button onClick="{{ setLeasing }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:15px; padding:12px; border:none; border-radius:8px; background:transparent; color:rgba(255,255,255,0.85);">Leasing</button></sc-if>
+        </div>
+        <div>
+          <sc-if value="{{ isFin }}" hint-placeholder-val="{{ false }}"><button onClick="{{ setFin }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:15px; padding:12px; border:none; border-radius:8px; background:var(--sk-green); color:#fff;">Finanzierung</button></sc-if>
+          <sc-if value="{{ notFin }}" hint-placeholder-val="{{ true }}"><button onClick="{{ setFin }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:15px; padding:12px; border:none; border-radius:8px; background:transparent; color:rgba(255,255,255,0.85);">Finanzierung</button></sc-if>
+        </div>
+        <div>
+          <sc-if value="{{ isKauf }}" hint-placeholder-val="{{ false }}"><button onClick="{{ setKauf }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:15px; padding:12px; border:none; border-radius:8px; background:var(--sk-green); color:#fff;">Kauf</button></sc-if>
+          <sc-if value="{{ notKauf }}" hint-placeholder-val="{{ true }}"><button onClick="{{ setKauf }}" style="width:100%; cursor:pointer; font-family:inherit; font-weight:700; font-size:15px; padding:12px; border:none; border-radius:8px; background:transparent; color:rgba(255,255,255,0.85);">Kauf</button></sc-if>
+        </div>
+      </div>
+
+      <div class="sk-calc" style="background:#fff; color:var(--sk-ink); border-radius:20px; box-shadow:0 30px 70px rgba(0,0,0,0.3); overflow:hidden;">
+        <!-- Controls -->
+        <div style="padding:clamp(24px,4vw,36px) clamp(24px,4vw,38px);">
+          <div style="margin-bottom:28px;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+              <label style="font-weight:700; font-size:15px;">{{ anzLabel }}</label>
+              <span style="font-weight:800; font-size:16px; color:var(--sk-green);">{{ anzahlungFmt }} €</span>
+            </div>
+            <input type="range" min="0" max="6000" step="250" value="{{ anzahlung }}" onInput="{{ onAnz }}" style="width:100%;" />
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#8A968F; margin-top:4px;"><span>0 €</span><span>6.000 €</span></div>
+          </div>
+          <div style="margin-bottom:28px;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+              <label style="font-weight:700; font-size:15px;">Laufzeit</label>
+              <span style="font-weight:800; font-size:16px; color:var(--sk-green);">{{ laufzeit }} Monate</span>
+            </div>
+            <input type="range" min="24" max="60" step="6" value="{{ laufzeit }}" onInput="{{ onLaufzeit }}" style="width:100%;" />
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#8A968F; margin-top:4px;"><span>24 Mon.</span><span>60 Mon.</span></div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+              <label style="font-weight:700; font-size:15px;">Fahrleistung pro Jahr</label>
+              <span style="font-weight:800; font-size:16px; color:var(--sk-green);">{{ kmFmt }} km</span>
+            </div>
+            <input type="range" min="5000" max="25000" step="2500" value="{{ km }}" onInput="{{ onKm }}" style="width:100%;" />
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:#8A968F; margin-top:4px;"><span>5.000 km</span><span>25.000 km</span></div>
+          </div>
+        </div>
+        <!-- Result -->
+        <div style="background:var(--sk-paper); padding:clamp(28px,4vw,36px) clamp(24px,4vw,34px); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; border-left:1px solid #E7ECE9;">
+          <div style="font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#6B776F;">{{ rateLabel }}</div>
+          <div style="display:flex; align-items:baseline; gap:6px; margin:8px 0 2px;">
+            <span style="font-size:clamp(42px,8vw,56px); font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">{{ rateFmt }}</span>
+            <span style="font-size:22px; font-weight:800; color:var(--sk-green);">€</span>
+          </div>
+          <div style="font-size:14px; color:#6B776F; margin-bottom:22px;">{{ rateUnit }}</div>
+          <a href="{{ anfrageHref }}" style="width:100%; box-sizing:border-box; text-decoration:none; text-align:center; background:var(--sk-green); color:#fff; font-weight:800; font-size:15px; padding:14px 18px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; gap:9px;" style-hover="background:var(--sk-green-700);">
+            <i class="fa-solid fa-calendar-check"></i> Diese Rate anfragen
+          </a>
+          <p style="margin:14px 0 0; font-size:11px; color:#8A968F; line-height:1.5;">Unverbindliche Schätzung. Ihr verbindliches Angebot berechnen wir persönlich im Termin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Garantie -->
+  <section class="sk-container sk-sect">
+    <div style="text-align:center; max-width:640px; margin:0 auto 34px;">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:12px;">
+        <span style="width:26px; height:2px; background:var(--sk-green);"></span> ŠKODA Garantie <span style="width:26px; height:2px; background:var(--sk-green);"></span>
+      </div>
+      <h2 style="margin:0 0 8px; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Sicher unterwegs — ab Werk abgesichert</h2>
+    </div>
+    <div class="sk-haus3">
+      <div style="background:#fff; border:1px solid #E7ECE9; border-radius:16px; padding:26px;">
+        <div style="width:52px; height:52px; border-radius:12px; background:var(--sk-paper); display:grid; place-items:center; color:var(--sk-green); font-size:22px; margin-bottom:14px;"><i class="fa-solid fa-shield-halved"></i></div>
+        <div style="font-weight:800; font-size:18px; margin-bottom:6px;">2 Jahre Neuwagengarantie</div>
+        <p style="margin:0; font-size:14px; color:#6B776F; line-height:1.6;">Ohne Kilometerbegrenzung auf Fahrzeug und Werksausstattung.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E7ECE9; border-radius:16px; padding:26px;">
+        <div style="width:52px; height:52px; border-radius:12px; background:var(--sk-paper); display:grid; place-items:center; color:var(--sk-green); font-size:22px; margin-bottom:14px;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+        <div style="font-weight:800; font-size:18px; margin-bottom:6px;">Garantieverlängerung</div>
+        <p style="margin:0; font-size:14px; color:#6B776F; line-height:1.6;">Optional bis zu 5 Jahre bzw. 150.000 km — planbare Sicherheit.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E7ECE9; border-radius:16px; padding:26px;">
+        <div style="width:52px; height:52px; border-radius:12px; background:var(--sk-paper); display:grid; place-items:center; color:var(--sk-green); font-size:22px; margin-bottom:14px;"><i class="fa-solid fa-truck-medical"></i></div>
+        <div style="font-weight:800; font-size:18px; margin-bottom:6px;">Mobilitätsgarantie</div>
+        <p style="margin:0; font-size:14px; color:#6B776F; line-height:1.6;">Europaweite Pannen- &amp; Unfallhilfe bei Wartung im ŠKODA Service.</p>
+      </div>
+    </div>
+    <p style="margin:18px 0 0; font-size:12px; color:#8A968F; text-align:center;">Details zu den Garantieleistungen: skoda.at/service-und-zubehoer/service/garantie</p>
+  </section>
+
+  <!-- Advisor -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E7ECE9; border-bottom:1px solid #E7ECE9;">
+    <div class="sk-container sk-sect">
+      <div class="sk-advisor" style="background:#fff; border:1px solid #E7ECE9; border-radius:20px; padding:clamp(24px,4vw,36px);">
+        <img src="https://onecdn.io/media/039648d0-bf62-46ea-b1d7-6424bc868767/full" alt="Martin Kedzierski" style="width:112px; height:112px; border-radius:999px; object-fit:cover; border:3px solid var(--sk-mint);" />
+        <div>
+          <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--sk-green); margin-bottom:6px;">Ihr Ansprechpartner · ŠKODA</div>
+          <h3 style="margin:0 0 6px; font-size:clamp(22px,3.5vw,26px); font-weight:800; letter-spacing:-.01em;">Martin Kedzierski</h3>
+          <p style="margin:0; font-size:15px; color:#5B6863;">Berät Sie persönlich zu diesem Fabia, zur Probefahrt und zu Ihren Konditionen.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; min-width:min(240px,100%);">
+          <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:700; font-size:15px; padding:13px 18px; border-radius:10px;" style-hover="background:var(--sk-green-700);"><i class="fa-solid fa-phone"></i> 0201 83 14 83 24</a>
+          <a href="mailto:mk@skoda-as.de" style="display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:15px; padding:13px 18px; border-radius:10px;" style-hover="background:var(--sk-mint);"><i class="fa-solid fa-envelope"></i> mk@skoda-as.de</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="sk-container sk-sect">
+    <div style="text-align:center; margin-bottom:34px;">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:12px;">
+        <span style="width:26px; height:2px; background:var(--sk-green);"></span> Das sagen unsere Kunden <span style="width:26px; height:2px; background:var(--sk-green);"></span>
+      </div>
+      <h2 style="margin:0; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Bewertungen von AS-Automobile</h2>
+    </div>
+    <!-- Elfsight Google Reviews | Möbel H&w -->
+    <div class="elfsight-app-f2eeba31-ee96-4ccf-9a5a-16857c6ece15" data-elfsight-app-lazy></div>
+  </section>
+
+  <!-- Standort & Autohaus -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E7ECE9;">
+    <div class="sk-container sk-sect">
+      <div style="text-align:center; max-width:640px; margin:0 auto 30px;">
+        <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:12px;">
+          <span style="width:26px; height:2px; background:var(--sk-green);"></span> Standort &amp; Autohaus <span style="width:26px; height:2px; background:var(--sk-green);"></span>
+        </div>
+        <h2 style="margin:0; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Besuchen Sie uns in Essen</h2>
+      </div>
+
+      <div class="sk-map" style="background:#fff; border:1px solid #E7ECE9; border-radius:18px; overflow:hidden;">
+        <iframe title="Standort AS-Automobile" src="https://www.google.com/maps?q=AS-Automobile+GmbH+H%C3%B6velstra%C3%9Fe+151-153+45326+Essen&output=embed" style="width:100%; height:100%; border:0; display:block; min-height:340px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div style="padding:clamp(24px,4vw,34px); display:flex; flex-direction:column; justify-content:center; gap:16px;">
+          <div>
+            <div style="font-weight:800; font-size:20px; margin-bottom:6px;">AS-Automobile GmbH</div>
+            <p style="margin:0; font-size:15px; color:#5B6863; line-height:1.7;"><i class="fa-solid fa-location-dot" style="color:var(--sk-green); width:18px;"></i> Hövelstr. 151–153, 45326 Essen<br><i class="fa-solid fa-phone" style="color:var(--sk-green); width:18px;"></i> 0201 83 14 83 24<br><i class="fa-solid fa-clock" style="color:var(--sk-green); width:18px;"></i> Mo–Fr 08:30–18:30 · Sa 10:00–14:00</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=AS-Automobile+GmbH+H%C3%B6velstra%C3%9Fe+151-153+45326+Essen" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:700; font-size:14px; padding:11px 16px; border-radius:9px;" style-hover="background:var(--sk-green-700);"><i class="fa-solid fa-diamond-turn-right"></i> Route planen</a>
+            <a href="https://share.google/8i4HWJyCBXj3T6CCZ" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:14px; padding:11px 16px; border-radius:9px;" style-hover="background:var(--sk-mint);"><i class="fa-brands fa-google"></i> Auf Google ansehen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-haus3" style="margin-top:16px;">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img src="img/haus-building.jpg" alt="AS-Automobile Essen" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img src="img/haus-showroom.jpg" alt="Showroom" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img src="img/haus-lounge.jpg" alt="Kundenbereich" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section style="background:var(--sk-green-700); color:#fff;">
+    <div class="sk-container sk-sect" style="max-width:900px; text-align:center;">
+      <h2 style="margin:0 0 14px; font-size:clamp(28px,5vw,38px); font-weight:800; letter-spacing:-.02em; line-height:1.1;">Sichern Sie sich diesen Fabia — <span style="color:var(--sk-mint)">ab 139 € mtl.</span></h2>
+      <p style="margin:0 0 30px; font-size:clamp(15px,2.4vw,17px); color:rgba(255,255,255,0.82);">Nur ein Fahrzeug verfügbar. Vereinbaren Sie jetzt Ihren persönlichen Termin und Ihre Probefahrt.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="anfrage.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:16px 32px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-calendar-check"></i> Termin vereinbaren</a>
+        <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:16px; padding:16px 28px; border-radius:10px;" style-hover="background:rgba(255,255,255,0.1);"><i class="fa-solid fa-phone"></i> 0201 83 14 83 24</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:var(--sk-ink); color:#9FB0A8; font-size:13px;">
+    <div class="sk-container sk-foot" style="padding-top:44px; padding-bottom:20px; align-items:start;">
+      <div>
+        <img src="img/logo.png" alt="AS Automobile" style="height:36px; width:auto; display:block; margin-bottom:14px;" />
+        <p style="margin:0; line-height:1.7;">AS-Automobile GmbH · Hövelstr. 151–153 · 45326 Essen<br>Tel: 0201 83 14 83 24 · E-Mail: mk@skoda-as.de</p>
+      </div>
+      <div style="line-height:1.7;">
+        <div style="color:#fff; font-weight:700; margin-bottom:8px;">ŠKODA Vertragspartner</div>
+        Martin Kedzierski · Verkauf ŠKODA<br>Ihr Autohaus für SEAT, CUPRA &amp; Škoda in Essen.
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1);">
+      <div class="sk-container" style="padding-top:18px; padding-bottom:18px; font-size:11px; line-height:1.7; color:#7C8C84;">
+        <p style="margin:0 0 8px;">*Unverbindliches Privat-Leasingbeispiel der ŠKODA Leasing, Zweigniederlassung der Volkswagen Leasing GmbH, Braunschweig. Kalkulationsbasis: 20.719,99 €, Gesamtfahrleistung 50 km, Erstzulassung 24.06.2026, Vorführwagen. Einmalige Sonderzahlung 990,00 € (4,78 %), monatliche Leasing-Rate ohne Dienstleistungen 139,00 €, Laufzeit 48 Monate, jährliche Fahrleistung 10.000 km, ohne Gebrauchtwagenabrechnung. Mehrkilometer 19,60 ct, Minderkilometer 2,26 ct, jeweils 2.500 km berechnungsfrei. Alle Preise inkl. 19 % MwSt.</p>
+        <p style="margin:0;">Verbrauch (WLTP): kombiniert 5,1 l/100 km · innerorts 6,4 · Stadtrand 4,8 · Landstraße 4,4 · Autobahn 5,4 l/100 km · CO₂-Emissionen kombiniert 116 g/km · CO₂-Klasse D. Für dieses Fahrzeug liegen nur Verbrauchs- und Emissionswerte nach WLTP vor. Die im Rechner ermittelte Rate ist eine unverbindliche Schätzung.</p>
+        <p style="margin:12px 0 0; display:flex; gap:16px; flex-wrap:wrap;"><span>© 2026 AS Automobile</span><span>Impressum</span><span>Datenschutz</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky action bar -->
+  <div class="sk-mobilebar">
+    <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:15px; padding:13px; border-radius:10px;"><i class="fa-solid fa-phone"></i> Anrufen</a>
+    <a href="anfrage.html" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:800; font-size:15px; padding:13px; border-radius:10px;"><i class="fa-solid fa-calendar-check"></i> Termin sichern</a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1140, &quot;height&quot;: 900}}">
+class Component extends DCLogic {
+  state = {
+    anzahlung: 990, laufzeit: 48, km: 10000,
+    mode: 'leasing',                 // 'leasing' | 'finanzierung' | 'kauf'
+    activeImg: 'img/car-front.jpg',
+    color: 'Race-Blau',
+  };
+
+  fmt(n) { return Math.round(n).toLocaleString('de-DE'); }
+
+  computeLeasing() {
+    const { anzahlung, laufzeit, km } = this.state;
+    let r = 139 + (990 - anzahlung) * 0.015 + (48 - laufzeit) * 3.2 + ((km - 10000) / 1000) * 5;
+    return Math.max(69, Math.round(r));
+  }
+
+  computeFinanzierung() {
+    const { anzahlung, laufzeit } = this.state;
+    const price = 20719.99;
+    const financed = Math.max(0, price - anzahlung);
+    // simple nominal-interest amortisation approximation (~4.9% p.a.)
+    const r = financed * (1 + 0.049 * (laufzeit / 12)) / laufzeit;
+    return Math.max(0, Math.round(r));
+  }
+
+  renderVals() {
+    const s = this.state;
+    const num = (k) => (e) => this.setState({ [k]: Number(e.target.value) });
+    const pickImg = (src) => () => this.setState({ activeImg: src });
+
+    const isLeasing = s.mode === 'leasing';
+    const isFin = s.mode === 'finanzierung';
+    const isKauf = s.mode === 'kauf';
+
+    // Rate / price shown in the result panel
+    let rateNum, rateLabel, rateUnit;
+    if (isKauf) {
+      rateNum = 20720; rateLabel = 'Kaufpreis'; rateUnit = 'einmalig, inkl. MwSt';
+    } else if (isFin) {
+      rateNum = this.computeFinanzierung(); rateLabel = 'Finanzierungsrate ca.'; rateUnit = '€ / Monat*';
+    } else {
+      rateNum = this.computeLeasing(); rateLabel = 'Leasingrate ca.'; rateUnit = '€ / Monat*';
+    }
+
+    // Colour configurator
+    const imgMap = {
+      'Race-Blau': 'img/fabia-side.png', 'Velvet-Rot': 'img/color-rot.png',
+      'Brillant-Grau': 'img/color-grau.png', 'Candy-Weiß': 'img/color-weiss.png',
+      'Magic-Schwarz': 'img/color-schwarz.png',
+    };
+    const setColor = (name) => () => this.setState({ color: name });
+
+    const anfrageHref = 'anfrage.html?mode=' + s.mode +
+      '&anzahlung=' + s.anzahlung + '&laufzeit=' + s.laufzeit + '&km=' + s.km +
+      '&rate=' + rateNum + '&color=' + encodeURIComponent(s.color);
+
+    return {
+      // gallery
+      activeImg: s.activeImg,
+      setImg0: pickImg('img/car-front.jpg'),
+      setImg1: pickImg('img/car-rear.jpg'),
+      setImg2: pickImg('img/car-rear2.jpg'),
+      setImg3: pickImg('img/car-interior.jpg'),
+      setImg4: pickImg('img/car-trunk.jpg'),
+
+      // configurator
+      colorName: s.color,
+      colorImg: imgMap[s.color] || 'img/fabia-side.png',
+      selBlau: s.color === 'Race-Blau',       notBlau: s.color !== 'Race-Blau',
+      selRot: s.color === 'Velvet-Rot',       notRot: s.color !== 'Velvet-Rot',
+      selGrau: s.color === 'Brillant-Grau',   notGrau: s.color !== 'Brillant-Grau',
+      selWeiss: s.color === 'Candy-Weiß',     notWeiss: s.color !== 'Candy-Weiß',
+      selSchwarz: s.color === 'Magic-Schwarz', notSchwarz: s.color !== 'Magic-Schwarz',
+      setColorBlau: setColor('Race-Blau'),
+      setColorRot: setColor('Velvet-Rot'),
+      setColorGrau: setColor('Brillant-Grau'),
+      setColorWeiss: setColor('Candy-Weiß'),
+      setColorSchwarz: setColor('Magic-Schwarz'),
+
+      // calculator
+      mode: s.mode,
+      isLeasing, isFin, isKauf,
+      notLeasing: !isLeasing, notFin: !isFin, notKauf: !isKauf,
+      setLeasing: () => this.setState({ mode: 'leasing' }),
+      setFin: () => this.setState({ mode: 'finanzierung' }),
+      setKauf: () => this.setState({ mode: 'kauf' }),
+      anzahlung: s.anzahlung, laufzeit: s.laufzeit, km: s.km,
+      anzahlungFmt: this.fmt(s.anzahlung), kmFmt: this.fmt(s.km),
+      anzLabel: isKauf ? 'Anzahlung' : (isFin ? 'Anzahlung' : 'Sonderzahlung'),
+      onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
+      rateFmt: this.fmt(rateNum), rateLabel, rateUnit,
+      anfrageHref,
+    };
+  }
+}
+</script>
+</body>
+</html>
