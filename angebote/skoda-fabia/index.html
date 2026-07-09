@@ -145,7 +145,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <a href="tel:+4920183148324" class="sk-hidesm" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--sk-ink); font-weight:700; font-size:15px; white-space:nowrap;">
           <i class="fa-solid fa-phone" style="color:var(--sk-green)"></i> 0201 83 14 83 24
         </a>
-        <a href="anfrage/" class="sk-navcta" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:700; font-size:15px; padding:11px 18px; border-radius:8px; white-space:nowrap;" style-hover="background:var(--sk-green-700);">
+        <a href="anfrage.html" class="sk-navcta" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:700; font-size:15px; padding:11px 18px; border-radius:8px; white-space:nowrap;" style-hover="background:var(--sk-green-700);">
           Termin vereinbaren
         </a>
       </div>
@@ -186,7 +186,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:15px 28px; border-radius:10px;" style-hover="background:var(--sk-mint-600);">
+          <a href="anfrage.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:15px 28px; border-radius:10px;" style-hover="background:var(--sk-mint-600);">
             <i class="fa-solid fa-calendar-check"></i> Termin &amp; Probefahrt
           </a>
           <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:16px; padding:15px 24px; border-radius:10px;" style-hover="background:rgba(255,255,255,0.10);">
@@ -314,6 +314,29 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     </div>
   </section>
 
+  <!-- Fahrzeugbeschreibung (Verknappung / Psychologie) -->
+  <section class="sk-container sk-sect">
+    <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:14px;">
+      <span style="width:26px; height:2px; background:var(--sk-green);"></span> Fahrzeugbeschreibung
+    </div>
+    <div style="display:grid; grid-template-columns:1fr; gap:16px; max-width:820px;">
+      <div style="display:flex; gap:14px; align-items:flex-start; background:#FFF4EC; border:1px solid #F7C9A8; border-radius:14px; padding:18px 20px;">
+        <i class="fa-solid fa-triangle-exclamation" style="color:#F26419; font-size:20px; margin-top:2px;"></i>
+        <div>
+          <div style="font-weight:800; font-size:16px; color:#C2410C; margin-bottom:4px;">Nur dieses eine Fahrzeug — begrenzt verfügbar</div>
+          <p style="margin:0; font-size:15px; color:#7C3A17; line-height:1.6;">Aufgrund der hohen Nachfrage bitten wir Sie, nur dann anzufragen, wenn Sie ernsthaftes Kaufinteresse haben. Der Wagen ist als einmaliger Vorführwagen <strong>solange der Vorrat reicht</strong> verfügbar und kann jederzeit vergriffen sein.</p>
+        </div>
+      </div>
+      <p style="margin:0; font-size:15px; color:#4A564F; line-height:1.75;">Dieser <strong>Škoda Fabia Essence 1.0 MPI</strong> ist ein sofort verfügbarer Vorführwagen mit nur 50 km Laufleistung — technisch neuwertig, mit voller Neuwagengarantie und komplett schlüsselfertig. Sie erhalten ihn wahlweise per <strong>Leasing, Finanzierung oder Kauf</strong>, individuell in Ihrer Wunschfarbe. Sichern Sie sich jetzt Ihren persönlichen Termin inkl. Probefahrt bei Ihrem ŠKODA-Berater Martin Kedzierski.</p>
+      <div style="display:flex; gap:22px; flex-wrap:wrap; font-size:14px; color:#4A564F;">
+        <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>Voll schlüsselfertig</span>
+        <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>Neuwagengarantie</span>
+        <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>Inzahlungnahme möglich</span>
+        <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>Finanzierung ab 0 € Anzahlung</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Leasing / Finanzierung / Kauf calculator -->
   <section style="background:linear-gradient(160deg, var(--sk-green) 0%, var(--sk-green-700) 100%); color:#fff;">
     <div class="sk-container sk-sect">
@@ -383,6 +406,36 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           <p style="margin:14px 0 0; font-size:11px; color:#8A968F; line-height:1.5;">Unverbindliche Schätzung. Ihr verbindliches Angebot berechnen wir persönlich im Termin.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Details zum Leasing (Auflistung wie LeasingMarkt) -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E7ECE9; border-bottom:1px solid #E7ECE9;">
+    <div class="sk-container sk-sect" style="max-width:820px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+        <i class="fa-regular fa-file-lines" style="color:var(--sk-green); font-size:22px;"></i>
+        <h2 style="margin:0; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Details zum Leasing</h2>
+      </div>
+      <p style="margin:0 0 22px; font-size:14px; color:#6B776F;">Aktualisiert sich live mit Ihren Angaben im Rechner. Alle Beträge inkl. MwSt.</p>
+
+      <div style="background:#fff; border:1px solid #E7ECE9; border-radius:16px; padding:clamp(18px,3vw,26px);">
+        <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin-bottom:10px;">Monatliche Kosten</div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Leasingrate</span><strong style="font-size:18px;">{{ lRateFmt }} €</strong></div>
+
+        <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Preisübersicht</div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Fahrzeugpreis (Brutto)</span><strong>{{ lKaufpreis }} €</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Leasing-Sonderzahlung</span><strong>{{ anzahlungFmt }} €</strong></div>
+
+        <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Allgemeine Daten</div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Laufzeit</span><strong>{{ laufzeit }} Monate</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Jährliche Fahrleistung</span><strong>{{ kmFmt }} km</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Leasing-Gesamtbetrag</span><strong>{{ lGesamtFmt }} €</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Mehrkilometer</span><strong>19,60 ct/km</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0;"><span style="color:#4A564F;">Minderkilometer</span><strong>2,26 ct/km</strong></div>
+
+        <a href="{{ anfrageHref }}" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; width:100%; box-sizing:border-box; margin-top:22px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:800; font-size:15px; padding:15px; border-radius:10px;" style-hover="background:var(--sk-green-700);"><i class="fa-solid fa-calendar-check"></i> Dieses Angebot anfragen</a>
+      </div>
+      <p style="margin:14px 0 0; font-size:11px; color:#8A968F; line-height:1.55;">Unverbindliches Privatleasing-Beispiel (Kalkulationsbasis {{ lKaufpreis }} €), jeweils 2.500 km berechnungsfrei. Bonität vorausgesetzt. Verbindliches Angebot im persönlichen Termin.</p>
     </div>
   </section>
 
@@ -482,7 +535,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       <h2 style="margin:0 0 14px; font-size:clamp(28px,5vw,38px); font-weight:800; letter-spacing:-.02em; line-height:1.1;">Sichern Sie sich diesen Fabia — <span style="color:var(--sk-mint)">ab 139 € mtl.</span></h2>
       <p style="margin:0 0 30px; font-size:clamp(15px,2.4vw,17px); color:rgba(255,255,255,0.82);">Nur ein Fahrzeug verfügbar. Vereinbaren Sie jetzt Ihren persönlichen Termin und Ihre Probefahrt.</p>
       <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
-        <a href="anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:16px 32px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-calendar-check"></i> Termin vereinbaren</a>
+        <a href="anfrage.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:16px 32px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-calendar-check"></i> Termin vereinbaren</a>
         <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:16px; padding:16px 28px; border-radius:10px;" style-hover="background:rgba(255,255,255,0.1);"><i class="fa-solid fa-phone"></i> 0201 83 14 83 24</a>
       </div>
     </div>
@@ -523,7 +576,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <!-- Mobile sticky action bar -->
   <div class="sk-mobilebar">
     <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:15px; padding:13px; border-radius:10px;"><i class="fa-solid fa-phone"></i> Anrufen</a>
-    <a href="anfrage/" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:800; font-size:15px; padding:13px; border-radius:10px;"><i class="fa-solid fa-calendar-check"></i> Termin sichern</a>
+    <a href="anfrage.html" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:800; font-size:15px; padding:13px; border-radius:10px;"><i class="fa-solid fa-calendar-check"></i> Termin sichern</a>
   </div>
 
 </div>
@@ -581,7 +634,11 @@ class Component extends DCLogic {
     };
     const setColor = (name) => () => this.setState({ color: name });
 
-    const anfrageHref = 'anfrage/?mode=' + s.mode +
+    // Details zum Leasing (immer leasing-basiert, reaktiv zu den Reglern)
+    const lRate = this.computeLeasing();
+    const lGesamt = lRate * s.laufzeit + s.anzahlung;
+
+    const anfrageHref = 'anfrage.html?mode=' + s.mode +
       '&anzahlung=' + s.anzahlung + '&laufzeit=' + s.laufzeit + '&km=' + s.km +
       '&rate=' + rateNum + '&color=' + encodeURIComponent(s.color);
 
@@ -621,6 +678,11 @@ class Component extends DCLogic {
       onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
       rateFmt: this.fmt(rateNum), rateLabel, rateUnit,
       anfrageHref,
+
+      // Details zum Leasing
+      lRateFmt: this.fmt(lRate),
+      lGesamtFmt: this.fmt(lGesamt),
+      lKaufpreis: '20.719,99',
     };
   }
 }
