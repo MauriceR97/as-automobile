@@ -119,6 +119,25 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     .sk-page    { padding-bottom: 74px; }
     .sk-mobilebar { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: #fff; border-top: 1px solid #E7ECE9; padding: 10px 14px; box-shadow: 0 -6px 20px rgba(0,0,0,0.10); }
   }
+  /* Accordion-Tabs */
+  .sk-acc { max-width:820px; border:1px solid #E7ECE9; border-radius:14px; background:#fff; overflow:hidden; }
+  .sk-acc + .sk-acc { margin-top:14px; }
+  .sk-acc > summary { cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px 20px; font-weight:800; font-size:clamp(16px,2.6vw,18px); color:var(--sk-ink); }
+  .sk-acc > summary::-webkit-details-marker { display:none; }
+  .sk-acc > summary:hover { background:var(--sk-paper); }
+  .sk-acc .sk-chev { transition:transform .25s ease; color:var(--sk-green); font-size:15px; }
+  .sk-acc[open] > summary .sk-chev { transform:rotate(180deg); }
+  .sk-accbody { padding:2px 20px 22px; }
+  /* Mobile: Hero bündig oben + Foto-Galerie horizontal wischbar */
+  @media (max-width: 920px) {
+    .sk-hero { padding-top: 0 !important; }
+    .sk-heroframe { display:none !important; }
+    .sk-swipehint { display:flex !important; }
+    .sk-gallery { display:flex !important; overflow-x:auto; gap:8px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; margin:0 calc(-1*clamp(16px,4vw,24px)); padding:0 clamp(16px,4vw,24px) 2px; scrollbar-width:none; }
+    .sk-gallery::-webkit-scrollbar { display:none; }
+    .sk-gallery > button { flex:0 0 86% !important; scroll-snap-align:center; aspect-ratio:4/3; border-radius:12px !important; }
+  }
+  .sk-swipehint { display:none; align-items:center; justify-content:center; gap:8px; margin-top:10px; font-size:12px; font-weight:600; color:rgba(255,255,255,0.75); }
 </style>
 </helmet>
 
@@ -200,6 +219,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           <img src="{{ activeImg }}" alt="SEAT Ibiza FR" style="width:100%; height:100%; object-fit:cover; display:block;" />
           <div style="position:absolute; top:14px; left:14px; background:var(--sk-mint); color:var(--sk-green); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">SEAT FR</div>
         </div>
+        <div class="sk-swipehint"><i class="fa-solid fa-arrows-left-right"></i> wischen für mehr Fotos</div>
         <div class="sk-gallery" style="margin-top:10px;">
           <button onClick="{{ setImg0 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#201f1e; aspect-ratio:4/3;"><img src="img/ibiza-rot-front.webp" alt="Front" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
           <button onClick="{{ setImg1 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#201f1e; aspect-ratio:4/3;"><img src="img/ibiza-heck.avif" alt="Heck" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
@@ -306,10 +326,10 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
   <!-- Fahrzeugbeschreibung (Verknappung / Psychologie) -->
   <section class="sk-container sk-sect">
-    <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:14px;">
-      <span style="width:26px; height:2px; background:var(--sk-green);"></span> Fahrzeugbeschreibung
-    </div>
-    <div style="display:grid; grid-template-columns:1fr; gap:16px; max-width:820px;">
+    <details class="sk-acc" open="{{ descOpen }}" onToggle="{{ onDescToggle }}">
+      <summary>📋 Fahrzeugbeschreibung <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <div class="sk-accbody">
+    <div style="display:grid; grid-template-columns:1fr; gap:16px;">
       <div style="display:flex; gap:14px; align-items:flex-start; background:#FFF4EC; border:1px solid #F7C9A8; border-radius:14px; padding:18px 20px;">
         <i class="fa-solid fa-triangle-exclamation" style="color:#F26419; font-size:20px; margin-top:2px;"></i>
         <div>
@@ -325,6 +345,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>Finanzierung ab 0 € Anzahlung</span>
       </div>
     </div>
+      </div>
+    </details>
   </section>
 
   <!-- Leasing / Finanzierung / Kauf calculator -->
@@ -402,18 +424,17 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <!-- Details zum Leasing (Auflistung wie LeasingMarkt) -->
   <section style="background:var(--sk-paper); border-top:1px solid #E7ECE9; border-bottom:1px solid #E7ECE9;">
     <div class="sk-container sk-sect" style="max-width:820px;">
-      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-        <i class="fa-regular fa-file-lines" style="color:var(--sk-green); font-size:22px;"></i>
-        <h2 style="margin:0; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Details zum Leasing</h2>
-      </div>
-      <p style="margin:0 0 22px; font-size:14px; color:#6B776F;">Aktualisiert sich live mit Ihren Angaben im Rechner. Alle Beträge inkl. MwSt.</p>
+      <details class="sk-acc">
+      <summary>📄 Details zum Leasing <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <div class="sk-accbody">
+      <p style="margin:2px 0 22px; font-size:14px; color:#6B776F;">Aktualisiert sich live mit Ihren Angaben im Rechner. Alle Beträge inkl. MwSt.</p>
 
       <div style="background:#fff; border:1px solid #E7ECE9; border-radius:16px; padding:clamp(18px,3vw,26px);">
         <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin-bottom:10px;">Monatliche Kosten</div>
         <div style="display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Leasingrate</span><strong style="font-size:18px;">{{ lRateFmt }} €</strong></div>
 
         <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Preisübersicht</div>
-        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Fahrzeugpreis (Brutto)</span><strong>{{ lKaufpreis }} €</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Bruttolistenpreis</span><strong>{{ lKaufpreis }} €</strong></div>
         <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Leasing-Sonderzahlung</span><strong>{{ anzahlungFmt }} €</strong></div>
 
         <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Allgemeine Daten</div>
@@ -424,6 +445,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <a href="{{ anfrageHref }}" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; width:100%; box-sizing:border-box; margin-top:22px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:800; font-size:15px; padding:15px; border-radius:10px;" style-hover="background:var(--sk-green-700);"><i class="fa-solid fa-calendar-check"></i> Dieses Angebot anfragen</a>
       </div>
       <p style="margin:14px 0 0; font-size:11px; color:#8A968F; line-height:1.55;">Unverbindliches Privatleasing-Beispiel (Kalkulationsbasis {{ lKaufpreis }} €), jeweils 2.500 km berechnungsfrei. Bonität vorausgesetzt. Verbindliches Angebot im persönlichen Termin.</p>
+      </div>
+      </details>
     </div>
   </section>
 
@@ -636,6 +659,8 @@ class Component extends DCLogic {
     const lGesamt = lRate * s.laufzeit + s.anzahlung;
 
     return {
+      descOpen: this.state.descOpen !== false,
+      onDescToggle: (e) => { const o = e.target.open; if (o !== (this.state.descOpen !== false)) this.setState({ descOpen: o }); },
       // Details zum Leasing
       lRateFmt: this.fmt(lRate),
       lGesamtFmt: this.fmt(lGesamt),
