@@ -539,6 +539,11 @@ class Component extends DCLogic {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'lead_submit', event_id: eventId,
+          user_data: {
+            email_address: (s.email || '').trim().toLowerCase(),
+            phone_number: (function(p){p=(p||'').replace(/[^0-9+]/g,'');if(!p)return '';if(p.charAt(0)==='+')return p;if(p.slice(0,2)==='00')return '+'+p.slice(2);if(p.charAt(0)==='0')return '+49'+p.slice(1);return '+49'+p;})(s.phone),
+            address: { first_name: (s.vorname || '').trim().toLowerCase(), last_name: (s.nachname || '').trim().toLowerCase() },
+          },
           lead: {
             marke: 'SEAT',
             fahrzeug: 'SEAT Ibiza FR 1.0 TSI',
