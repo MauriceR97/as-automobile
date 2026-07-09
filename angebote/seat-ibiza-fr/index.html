@@ -138,6 +138,31 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     .sk-gallery > button { flex:0 0 86% !important; scroll-snap-align:center; aspect-ratio:4/3; border-radius:12px !important; }
   }
   .sk-swipehint { display:none; align-items:center; justify-content:center; gap:8px; margin-top:10px; font-size:12px; font-weight:600; color:rgba(255,255,255,0.75); }
+  .sk-cwrap { position:relative; width:100%; background:#201f1e; }
+  .sk-carousel { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .sk-carousel::-webkit-scrollbar { display:none; }
+  .sk-carousel > img { flex:0 0 100%; width:100%; aspect-ratio:16/9; object-fit:cover; scroll-snap-align:center; display:block; }
+  @media (min-width:921px){ .sk-carousel > img { aspect-ratio:21/9; max-height:560px; } }
+  .sk-counter { position:absolute; top:16px; right:16px; background:rgba(11,21,18,0.72); color:#fff; font-size:13px; font-weight:700; padding:6px 12px; border-radius:999px; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); letter-spacing:.02em; }
+  .sk-vfbadge { position:absolute; top:16px; left:16px; background:var(--sk-mint); color:var(--sk-green); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:6px 13px; border-radius:999px; }
+  .sk-dots { position:absolute; bottom:14px; left:0; right:0; display:flex; justify-content:center; gap:7px; }
+  .sk-dots button { width:8px; height:8px; padding:0; border:none; border-radius:999px; background:rgba(255,255,255,0.5); cursor:pointer; transition:width .2s, background .2s; }
+  .sk-dots button.on { width:22px; background:#fff; }
+  @media (min-width:921px){
+    .sk-herowrap { display:grid; grid-template-columns:1.08fr 0.92fr; gap:36px; align-items:center; max-width:1180px; margin:0 auto; padding:36px clamp(16px,4vw,24px) 20px; }
+    .sk-herowrap .sk-cwrap { border-radius:20px; overflow:hidden; box-shadow:0 24px 60px rgba(32,31,30,0.18); }
+    .sk-herowrap .sk-carousel > img { aspect-ratio:4/3; max-height:none; }
+    .sk-heroinfo { padding:0 !important; }
+  }
+  .sk-specbadges { display:flex; flex-wrap:wrap; gap:8px; }
+  .sk-sb { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:600; color:var(--sk-ink); background:var(--sk-paper); border:1px solid #E1E8E4; padding:8px 13px; border-radius:10px; }
+  .sk-sb i { color:var(--sk-green); font-size:13px; }
+  .sk-minibadge { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.02em; padding:6px 12px; border-radius:999px; }
+  .sk-datagrid { display:grid; grid-template-columns:1fr 1fr; gap:0 28px; }
+  @media (max-width:560px){ .sk-datagrid { grid-template-columns:1fr; } }
+  .sk-datarow { display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid #EEF2F0; font-size:14px; }
+  .sk-datarow span { color:#6B776F; }
+  .sk-datarow strong { color:var(--sk-ink); text-align:right; }
 </style>
 </helmet>
 
@@ -173,74 +198,93 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   </div>
 
   <!-- Hero -->
-  <section style="position:relative; background:linear-gradient(160deg, var(--sk-green) 0%, var(--sk-green-700) 100%); color:#fff; overflow:hidden;">
-    <div aria-hidden="true" style="position:absolute; right:-60px; bottom:-40px; color:rgba(235,92,55,0.06); font-size:clamp(220px,40vw,420px); line-height:1;"><i class="fa-solid fa-car-side"></i></div>
-    <div class="sk-container sk-hero" style="position:relative; padding-top:clamp(40px,6vw,60px); padding-bottom:clamp(44px,6vw,64px);">
-
-      <!-- Copy -->
-      <div style="animation:skRise .6s ease both;">
-        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
-          <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-mint);">
-            <span style="width:26px; height:2px; background:var(--sk-mint);"></span> SEAT FR · Neuwagen
-          </div>
-          <span class="sk-avail"><i class="fa-solid fa-bolt"></i> Sofort verfügbar</span>
-        </div>
-        <h1 style="margin:0; font-size:clamp(32px,6vw,52px); line-height:1.03; letter-spacing:-.02em; font-weight:800;">SEAT Ibiza FR<br>1.0 TSI DSG</h1>
-        <p style="margin:14px 0 0; font-size:clamp(15px,2.4vw,18px); color:rgba(255,255,255,0.82); font-weight:500;">85 kW (116 PS) · 7-Gang-DSG · Fiord Blau</p>
-
-        <div style="display:flex; align-items:flex-end; gap:16px; margin:26px 0 20px; flex-wrap:wrap;">
-          <div style="background:var(--sk-mint); color:var(--sk-green); border-radius:14px; padding:14px 22px; display:flex; align-items:baseline; gap:8px;">
-            <span style="font-size:15px; font-weight:700;">ab</span>
-            <span style="font-size:clamp(34px,6vw,46px); font-weight:800; letter-spacing:-.02em; line-height:1;">179&nbsp;€</span>
-            <span style="font-size:16px; font-weight:700;">mtl.*</span>
-          </div>
-          <div style="font-size:14px; color:rgba(255,255,255,0.8); line-height:1.6;">
-            990&nbsp;€ Sonderzahlung<br>36 Monate · 10.000&nbsp;km/Jahr
-          </div>
-        </div>
-
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:26px;">
-          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.24); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> Leasing · Finanzierung · Kauf</span>
-        </div>
-
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="anfrage.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:15px 28px; border-radius:10px;" style-hover="background:var(--sk-mint-600);">
-            <i class="fa-solid fa-calendar-check"></i> Termin &amp; Probefahrt
-          </a>
-          <a href="tel:+4920183148314" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:16px; padding:15px 24px; border-radius:10px;" style-hover="background:rgba(255,255,255,0.10);">
-            <i class="fa-solid fa-phone"></i> Anrufen
-          </a>
-        </div>
-      </div>
-
-      <!-- Photo gallery -->
-      <div style="animation:skRise .7s ease both;" class="sk-heromedia">
-        <div style="position:relative; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:#201f1e; box-shadow:0 30px 60px rgba(0,0,0,0.35);" class="sk-heroframe">
-          <img src="{{ activeImg }}" alt="SEAT Ibiza FR" style="width:100%; height:100%; object-fit:cover; display:block;" />
-          <div style="position:absolute; top:14px; left:14px; background:var(--sk-mint); color:var(--sk-green); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">SEAT FR</div>
-        </div>
-        <div class="sk-swipehint"><i class="fa-solid fa-arrows-left-right"></i> wischen für mehr Fotos</div>
-        <div class="sk-gallery" style="margin-top:10px;">
-          <button onClick="{{ setImg0 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#201f1e; aspect-ratio:4/3;"><img src="img/ibiza-rot-front.webp" alt="Front" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
-          <button onClick="{{ setImg1 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#201f1e; aspect-ratio:4/3;"><img src="img/ibiza-heck.avif" alt="Heck" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
-          <button onClick="{{ setImg2 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#201f1e; aspect-ratio:4/3;"><img src="img/ibiza-top.webp" alt="Heck seitlich" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
-          <button onClick="{{ setImg3 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#201f1e; aspect-ratio:4/3;"><img src="img/ibiza-innen.jpeg" alt="Innenraum" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
-          <button onClick="{{ setImg4 }}" style="cursor:pointer; padding:0; border:1px solid rgba(255,255,255,0.25); border-radius:8px; overflow:hidden; background:#201f1e; aspect-ratio:4/3;"><img src="img/ibiza-front.avif" alt="Kofferraum" style="width:100%; height:100%; object-fit:cover; display:block;" /></button>
-        </div>
-      </div>
+  <div class="sk-herowrap">
+  <section class="sk-cwrap">
+    <div class="sk-carousel" onScroll="{{ onCarouselScroll }}">
+      <img src="img/ibiza-rot-front.webp" alt="SEAT Ibiza FR Front" />
+      <img src="img/ibiza-heck.avif" alt="SEAT Ibiza FR Heck" />
+      <img src="img/ibiza-top.webp" alt="SEAT Ibiza FR Ansicht" />
+      <img src="img/ibiza-innen.jpeg" alt="SEAT Ibiza FR Innenraum" />
+      <img src="img/ibiza-front.avif" alt="SEAT Ibiza FR seitlich" />
+    </div>
+    <div class="sk-vfbadge">Neuwagen</div>
+    <div class="sk-counter">{{ imgCounter }}</div>
+    <div class="sk-dots">
+      <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+        <button class="{{ d.cls }}" onClick="{{ d.onClick }}" aria-label="Foto"></button>
+      </sc-for>
     </div>
   </section>
 
-  <!-- Facts strip -->
-  <section style="background:var(--sk-paper); border-bottom:1px solid #E7ECE9;">
-    <div class="sk-container sk-facts" style="padding-top:30px; padding-bottom:30px;">
-      <div style="text-align:center;"><i class="fa-solid fa-bolt" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">85 kW / 116 PS</div><div style="font-size:12px; color:#6B776F;">Leistung</div></div>
-      <div style="text-align:center;"><i class="fa-solid fa-gears" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">7-Gang DSG</div><div style="font-size:12px; color:#6B776F;">Getriebe</div></div>
-      <div style="text-align:center;"><i class="fa-solid fa-gas-pump" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">5,5 l/100km</div><div style="font-size:12px; color:#6B776F;">Verbrauch komb.</div></div>
-      <div style="text-align:center;"><i class="fa-solid fa-leaf" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">124 g/km</div><div style="font-size:12px; color:#6B776F;">CO₂ · Klasse D</div></div>
-      <div style="text-align:center;"><i class="fa-solid fa-gauge-high" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">990 €</div><div style="font-size:12px; color:#6B776F;">Sonderzahlung</div></div>
-      <div style="text-align:center;"><i class="fa-solid fa-calendar" style="color:var(--sk-green); font-size:20px;"></i><div style="font-weight:800; font-size:16px; margin-top:8px;">36 Mon.</div><div style="font-size:12px; color:#6B776F;">Laufzeit</div></div>
+  <section class="sk-container sk-heroinfo" style="padding-top:clamp(22px,4vw,34px); padding-bottom:6px;">
+    <h1 style="margin:0; font-size:clamp(26px,5vw,40px); line-height:1.05; letter-spacing:-.02em; font-weight:800;">SEAT Ibiza FR 1.0 TSI DSG</h1>
+    <p style="margin:10px 0 0; font-size:clamp(15px,2.4vw,18px); color:#5B6863; font-weight:500;">Sofort verfügbarer Neuwagen · 116 PS · 7-Gang DSG · Fiord Blau.</p>
+
+    <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin:18px 0 16px;">
+      <span style="font-size:14px; color:#6B776F;">Leasing ab</span>
+      <span style="font-size:clamp(28px,5vw,38px); font-weight:800; color:var(--sk-green); letter-spacing:-.02em; line-height:1;">179&nbsp;€<span style="font-size:15px; font-weight:700;"> mtl.*</span></span>
+      <span style="font-size:13px; color:#6B776F;">990&nbsp;€ Sonderzahlung · 36&nbsp;Mon. · 10.000&nbsp;km/Jahr</span>
     </div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+      <span class="sk-minibadge" style="background:var(--sk-green); color:#fff;"><i class="fa-solid fa-user-group"></i> Privat- &amp; Gewerbekunden</span>
+      <span class="sk-minibadge" style="background:rgba(235,92,55,0.16); color:var(--sk-green);"><i class="fa-solid fa-bolt"></i> Verfügbar: Sofort</span>
+    </div>
+
+    <div class="sk-specbadges">
+      <span class="sk-sb"><i class="fa-solid fa-gas-pump"></i> Benzin</span>
+      <span class="sk-sb"><i class="fa-solid fa-gears"></i> 7-Gang DSG</span>
+      <span class="sk-sb"><i class="fa-solid fa-bolt"></i> 116 PS</span>
+      <span class="sk-sb"><i class="fa-solid fa-car"></i> Neuwagen</span>
+      <span class="sk-sb"><i class="fa-solid fa-palette"></i> Fiord Blau</span>
+      <span class="sk-sb"><i class="fa-solid fa-snowflake"></i> Klimaautomatik</span>
+    </div>
+
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;">
+      <a href="anfrage.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:800; font-size:16px; padding:15px 28px; border-radius:10px;" style-hover="background:var(--sk-green-700);">
+        <i class="fa-solid fa-calendar-check"></i> Kostenlos anfragen
+      </a>
+      <a href="tel:+4920183148322" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:16px; padding:15px 24px; border-radius:10px;" style-hover="background:var(--sk-paper);">
+        <i class="fa-solid fa-phone"></i> Anrufen
+      </a>
+    </div>
+  </section>
+  </div>
+
+  <!-- Basisdaten + Ausstattung (aufklappbar) -->
+  <section class="sk-container" style="padding-top:20px; padding-bottom:6px;">
+    <details class="sk-acc">
+      <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-gauge-high"></i></span> Basisdaten</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <div class="sk-accbody">
+        <div class="sk-datagrid">
+          <div class="sk-datarow"><span>Fahrzeugart</span><strong>Neuwagen</strong></div>
+          <div class="sk-datarow"><span>Leistung</span><strong>85 kW (116 PS)</strong></div>
+          <div class="sk-datarow"><span>Getriebe</span><strong>7-Gang DSG</strong></div>
+          <div class="sk-datarow"><span>Kraftstoff</span><strong>Benzin</strong></div>
+          <div class="sk-datarow"><span>Verbrauch komb.</span><strong>5,5 l/100km</strong></div>
+          <div class="sk-datarow"><span>CO₂ komb.</span><strong>124 g/km · Klasse D</strong></div>
+          <div class="sk-datarow"><span>Außenfarbe</span><strong>Fiord Blau</strong></div>
+          <div class="sk-datarow"><span>Türen / Sitze</span><strong>5 / 5</strong></div>
+        </div>
+      </div>
+    </details>
+    <details class="sk-acc">
+      <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-list-check"></i></span> Ausstattung</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <div class="sk-accbody">
+        <div class="sk-equip">
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> BeatsAudio Soundsystem</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Navigationssystem</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Voll-LED-Scheinwerfer</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Digital Cockpit</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> FR-Sportsitze</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Klimaautomatik</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Front Assist</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Spurhalteassistent</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Parksensoren</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> 18&quot; Leichtmetallfelgen</div>
+        </div>
+      </div>
+    </details>
   </section>
 
   <!-- Ausstattungs-Highlights (Bilder) -->
@@ -327,7 +371,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <!-- Fahrzeugbeschreibung (Verknappung / Psychologie) -->
   <section class="sk-container sk-sect">
     <details class="sk-acc" open="{{ descOpen }}" onToggle="{{ onDescToggle }}">
-      <summary>📋 Fahrzeugbeschreibung <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-align-left"></i></span> Fahrzeugbeschreibung</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
       <div class="sk-accbody">
     <div style="display:grid; grid-template-columns:1fr; gap:16px;">
       <div style="display:flex; gap:14px; align-items:flex-start; background:#FFF4EC; border:1px solid #F7C9A8; border-radius:14px; padding:18px 20px;">
@@ -425,7 +469,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <section style="background:var(--sk-paper); border-top:1px solid #E7ECE9; border-bottom:1px solid #E7ECE9;">
     <div class="sk-container sk-sect" style="max-width:820px;">
       <details class="sk-acc">
-      <summary>📄 Details zum Leasing <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-file-invoice-dollar"></i></span> Details zum Leasing</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
       <div class="sk-accbody">
       <p style="margin:2px 0 22px; font-size:14px; color:#6B776F;">Aktualisiert sich live mit Ihren Angaben im Rechner. Alle Beträge inkl. MwSt.</p>
 
@@ -623,6 +667,14 @@ class Component extends DCLogic {
     const num = (k) => (e) => this.setState({ [k]: Number(e.target.value) });
     const pickImg = (src) => () => this.setState({ activeImg: src });
 
+    const total = 5;
+    const idx = Math.max(0, Math.min(total - 1, this.state.imgIdx || 0));
+    const dots = [];
+    for (let k = 0; k < total; k++) {
+      dots.push({ cls: k === idx ? 'on' : '', onClick: () => { const el = document.querySelector('.sk-carousel'); if (el) el.scrollTo({ left: el.clientWidth * k, behavior: 'smooth' }); this.setState({ imgIdx: k }); } });
+    }
+    const onCarouselScroll = (e) => { const el = e.target; const k = Math.round(el.scrollLeft / el.clientWidth); if (k !== (this.state.imgIdx || 0)) this.setState({ imgIdx: k }); };
+
     const isLeasing = s.mode === 'leasing';
     const isFin = s.mode === 'finanzierung';
     const isKauf = s.mode === 'kauf';
@@ -667,6 +719,9 @@ class Component extends DCLogic {
       lKaufpreis: '29.005,00',
 
       // gallery
+      imgCounter: (idx + 1) + '/' + total,
+      dots,
+      onCarouselScroll,
       activeImg: s.activeImg,
       setImg0: pickImg('img/ibiza-rot-front.webp'),
       setImg1: pickImg('img/ibiza-heck.avif'),
