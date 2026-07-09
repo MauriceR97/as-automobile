@@ -120,7 +120,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     .sk-annbar { position: sticky; top:0; z-index:51; }
     .sk-hidesm  { display: none !important; }
     .sk-page    { padding-bottom: 74px; }
-    .sk-mobilebar { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: #fff; border-top: 1px solid #E7ECE9; padding: 10px 14px; box-shadow: 0 -6px 20px rgba(0,0,0,0.10); }
+    .sk-mobilebar { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: #fff; border-top: 1px solid #E7ECE9; padding: 10px 14px; box-shadow: 0 -6px 20px rgba(0,0,0,0.10); }
   }
   /* Accordion-Tabs */
   .sk-acc { max-width:820px; border:1px solid #E7ECE9; border-radius:14px; background:#fff; overflow:hidden; }
@@ -667,8 +667,12 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
   <!-- Mobile sticky action bar -->
   <div class="sk-mobilebar">
-    <a href="tel:+4920183148324" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:15px; padding:13px; border-radius:10px;"><i class="fa-solid fa-phone"></i> Anrufen</a>
-    <a href="anfrage/" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:800; font-size:15px; padding:13px; border-radius:10px;"><i class="fa-solid fa-calendar-check"></i> Termin sichern</a>
+    <div style="display:flex; flex-direction:column; line-height:1.2; min-width:0;">
+      <span style="font-size:11px; color:#6B776F;">Leasing ab</span>
+      <span style="font-size:19px; font-weight:800; color:var(--sk-green); letter-spacing:-.02em;">{{ lRateFmt }}&nbsp;€<span style="font-size:11px; font-weight:700; color:#6B776F;"> mtl.</span></span>
+      <span style="font-size:10px; color:#8A968F; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ anzahlungFmt }} € Sonderz. · {{ laufzeit }} Mon.</span>
+    </div>
+    <a href="anfrage/" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:800; font-size:15px; padding:13px 18px; border-radius:10px; white-space:nowrap;"><i class="fa-solid fa-calendar-check"></i> Kostenlos anfragen</a>
   </div>
 
 </div>
