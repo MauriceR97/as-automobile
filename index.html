@@ -362,9 +362,9 @@ class Component extends DCLogic {
       { brand: 'ŠKODA', title: 'Fabia Essence 1.0 MPI', cond: 'Vorführwagen',  rateStd: 154, href: 'angebote/skoda-fabia/' },
       { brand: 'SEAT',  title: 'Ibiza Style 1.0 TSI',    cond: 'Gebrauchtwagen', rateStd: 159, href: '#angebote' },
       { brand: 'ŠKODA', title: 'Scala Essence',           cond: 'Gebrauchtwagen', rateStd: 169, href: '#angebote' },
-      { brand: 'SEAT',  title: 'Arona Xcellence',         cond: 'Gebrauchtwagen', rateStd: 189, href: '#angebote' },
+      { brand: 'SEAT',  title: 'Arona FR 1.0 TSI DSG',     cond: 'Neuwagen',       rateStd: 219, href: 'angebote/seat-arona-fr/index.html' },
       { brand: 'ŠKODA', title: 'Kamiq Selection 1.0 TSI', cond: 'Vorführwagen',   rateStd: 219, href: 'angebote/skoda-kamiq/index.html' },
-      { brand: 'SEAT',  title: 'Leon FR 1.5 eTSI',        cond: 'Tageszulassung', rateStd: 219, href: '#angebote' },
+      { brand: 'SEAT',  title: 'Ibiza FR 1.0 TSI DSG',     cond: 'Neuwagen',       rateStd: 179, href: 'angebote/seat-ibiza-fr/index.html' },
       { brand: 'ŠKODA', title: 'Octavia Combi Ambition',  cond: 'Tageszulassung', rateStd: 239, href: '#angebote' },
       { brand: 'ŠKODA', title: 'Karoq Sportline',         cond: 'Gebrauchtwagen', rateStd: 279, href: '#angebote' },
       { brand: 'CUPRA', title: 'Born 58 kWh (Elektro)',   cond: 'Neuwagen',       rateStd: 289, href: '#angebote' },
@@ -413,10 +413,10 @@ class Component extends DCLogic {
     const ICON = 'assets/img/placeholder-car.svg';
     const raw = [
       { brand: 'ŠKODA', title: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen', km: '50 km', reg: '06/2026', ps: '80 PS', price: '20.720 €', badge: 'Vorführwagen', featured: true, img: 'angebote/skoda-fabia/img/car-rear2.jpg', href: 'angebote/skoda-fabia/' },
-      { brand: 'SEAT', title: 'Seat Arona Xcellence Beats · Navi · Kamera', km: '4.500 km', reg: '01/2022', ps: '110 PS', price: '20.880 €', badge: 'Gebraucht', featured: false, img: ICON, href: '#' },
+      { brand: 'SEAT', title: 'Seat Arona FR 1.0 TSI DSG', km: 'Neuwagen', reg: '06/2026', ps: '116 PS', price: 'ab 219 € mtl.', badge: 'SEAT FR', featured: false, img: 'angebote/seat-arona-fr/img/arona-front.webp', href: 'angebote/seat-arona-fr/index.html' },
       { brand: 'ŠKODA', title: 'Škoda Scala Essence', km: '7.684 km', reg: '01/2025', ps: '95 PS', price: '18.880 €', badge: 'Gebraucht', featured: false, img: ICON, href: '#' },
       { brand: 'ŠKODA', title: 'Škoda Kamiq Selection 1.0 TSI · Vorführwagen', km: '50 km', reg: '06/2026', ps: '95 PS', price: '29.090 €', badge: 'Vorführwagen', featured: false, img: 'angebote/skoda-kamiq/img/kamiq-life1.jpg', href: 'angebote/skoda-kamiq/index.html' },
-      { brand: 'SEAT', title: 'Seat Ibiza Xcellence · SEAT Vertragshändler', km: '12.873 km', reg: '06/2022', ps: '95 PS', price: '16.880 €', badge: 'Gebraucht', featured: false, img: ICON, href: '#' },
+      { brand: 'SEAT', title: 'Seat Ibiza FR 1.0 TSI DSG', km: 'Neuwagen', reg: '06/2026', ps: '116 PS', price: 'ab 179 € mtl.', badge: 'SEAT FR', featured: false, img: 'angebote/seat-ibiza-fr/img/ibiza-rot-front.webp', href: 'angebote/seat-ibiza-fr/index.html' },
       { brand: 'ŠKODA', title: 'Škoda Karoq Sportline', km: '8.000 km', reg: '08/2025', ps: '150 PS', price: '32.880 €', badge: 'Gebraucht', featured: false, img: ICON, href: '#' },
     ];
     const offers = raw.map((o) => ({ ...o, notFeatured: !o.featured }));

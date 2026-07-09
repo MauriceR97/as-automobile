@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../../assets/support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- Sub-page of the "Škoda Angebots-Landingpage" template SEAT Ibiza FR — Anfrage-Wizard. -->
+<helmet>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Tag Manager -->
+<script data-cookieconsent="ignore">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TVC7BTS7');</script>
+<!-- End Google Tag Manager -->
+<!-- Attribution: UTM / Klick-IDs erfassen und über die Sub-Seiten hinweg speichern -->
+<script>
+(function(){try{
+  var qs=new URLSearchParams(location.search);
+  var keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid','gclid','ttclid','msclkid'];
+  var store={}; try{store=JSON.parse(localStorage.getItem('as_attribution')||'{}');}catch(e){}
+  var changed=false;
+  keys.forEach(function(k){var v=qs.get(k); if(v){store[k]=v; changed=true;}});
+  if(!store.landing_page){store.landing_page=location.href; changed=true;}
+  if(!store.first_referrer){store.first_referrer=document.referrer||''; changed=true;}
+  if(changed){store.updated=new Date().toISOString(); try{localStorage.setItem('as_attribution',JSON.stringify(store));}catch(e){}}
+}catch(e){}})();
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1422851823195089');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
+<!-- Interaktions-Event: Contact (Anruf/E-Mail) -->
+<script>
+(function(){
+  function genId(p){return p+'-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);}
+  function push(ev,id,extra){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:ev,event_id:id},extra||{}));}catch(e){}}
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var href=a.getAttribute('href')||'';
+    if(href.indexOf('tel:')===0||href.indexOf('mailto:')===0){
+      var m=href.indexOf('tel:')===0?'phone':'email', id=genId('contact');
+      try{fbq('track','Contact',{contact_method:m},{eventID:id});}catch(_){}
+      push('contact_click',id,{method:m});
+    }
+  },true);
+})();
+</script>
+<script src="../../../assets/ds-base.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  * { box-sizing: border-box; }
+  .sk-container { max-width: 1020px; margin: 0 auto; padding-left: clamp(16px,4vw,24px); padding-right: clamp(16px,4vw,24px); }
+  .sk-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .sk-main  { display: grid; grid-template-columns: minmax(0,1.5fr) 300px; gap: 28px; align-items: start; }
+  .sk-main > * { min-width: 0; }
+  @media (max-width: 860px) { .sk-main { grid-template-columns: 1fr; } .sk-aside-top { order: -1; } }
+  @media (max-width: 520px) { .sk-grid2 { grid-template-columns: 1fr; } }
+  .sk-field { width:100%; font-family:inherit; font-size:15px; padding:13px 14px; border:1px solid #D5DDD9; border-radius:9px; outline:none; background:#fff; color:var(--sk-ink); }
+  .sk-field:focus { border-color:#2E2E30; }
+  .sk-label { display:block; font-size:13px; font-weight:700; color:#3C4A44; margin-bottom:6px; }
+  input[type=range] { -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; background:#DCE5E0; outline:none; accent-color:#2E2E30; }
+  input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; appearance:none; width:24px; height:24px; border-radius:999px; background:#2E2E30; border:3px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,0.28); cursor:pointer; }
+  input[type=range]::-moz-range-thumb { width:22px; height:22px; border-radius:999px; background:#2E2E30; border:3px solid #fff; cursor:pointer; }
+  .sk-mode { cursor:pointer; font-family:inherit; text-align:left; padding:16px; border:1.5px solid #D5DDD9; border-radius:12px; background:#fff; display:flex; gap:13px; align-items:flex-start; width:100%; transition:border-color .15s, background .15s; }
+  .sk-mode:hover { border-color:var(--sk-green); }
+  .sk-mode.on { border-color:var(--sk-green); background:var(--sk-paper); }
+  .sk-mode .ic { flex:none; width:42px; height:42px; border-radius:10px; background:var(--sk-paper); display:grid; place-items:center; font-size:18px; color:var(--sk-green); }
+  .sk-mode.on .ic { background:var(--sk-green); color:#fff; }
+  .sk-mode b { display:block; font-size:16px; font-weight:800; margin-bottom:3px; color:var(--sk-ink); }
+  .sk-mode em { font-style:normal; font-size:13px; color:#6B776F; line-height:1.45; }
+  .sk-seg { display:grid; grid-auto-flow:column; gap:8px; background:var(--sk-paper); padding:6px; border-radius:11px; }
+  .sk-segbtn { cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px; border:none; border-radius:7px; background:transparent; color:#5B6863; }
+  .sk-segbtn.on { background:var(--sk-green); color:#fff; }
+  .sk-days { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:thin; }
+  .sk-day { flex:0 0 auto; min-width:60px; cursor:pointer; font-family:inherit; text-align:center; padding:9px 6px; border:1px solid #D5DDD9; border-radius:12px; background:#fff; color:var(--sk-ink); line-height:1.2; transition:border-color .15s, background .15s; }
+  .sk-day:hover { border-color:var(--sk-green); }
+  .sk-day small { display:block; font-size:11px; color:#8A968F; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+  .sk-day b { display:block; font-size:19px; font-weight:800; margin:1px 0; }
+  .sk-day em { display:block; font-style:normal; font-size:10px; color:#8A968F; font-weight:600; }
+  .sk-day.on { background:var(--sk-green); border-color:var(--sk-green); }
+  .sk-day.on small, .sk-day.on em { color:rgba(255,255,255,0.8); }
+  .sk-day.on b { color:#fff; }
+  .sk-day.off { opacity:.4; cursor:not-allowed; }
+  .sk-day.off:hover { border-color:#D5DDD9; }
+  .sk-wk { cursor:pointer; font-family:inherit; width:34px; height:34px; border-radius:9px; border:1px solid #D5DDD9; background:#fff; color:var(--sk-green); display:grid; place-items:center; font-size:13px; }
+  .sk-wk:hover { border-color:var(--sk-green); background:var(--sk-paper); }
+  .sk-wk.off { opacity:.35; cursor:not-allowed; }
+  .sk-wk.off:hover { border-color:#D5DDD9; background:#fff; }
+  .sk-slots { display:grid; grid-template-columns:repeat(auto-fill,minmax(84px,1fr)); gap:8px; }
+  .sk-slot { cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px 8px; border:1px solid #D5DDD9; border-radius:9px; background:#fff; color:var(--sk-ink); transition:border-color .15s; }
+  .sk-slot:hover { border-color:var(--sk-green); }
+  .sk-slot.on { background:var(--sk-green); border-color:var(--sk-green); color:#fff; }
+  .sk-primary { width:100%; font-family:inherit; cursor:pointer; background:var(--sk-green); color:#fff; font-weight:800; font-size:16px; padding:16px; border:none; border-radius:11px; display:inline-flex; align-items:center; justify-content:center; gap:10px; }
+  .sk-primary:hover { background:var(--sk-green-700); }
+  .sk-ghost { flex:0 0 auto; font-family:inherit; cursor:pointer; background:#fff; color:var(--sk-green); font-weight:700; font-size:15px; padding:16px 20px; border:1px solid var(--sk-green); border-radius:11px; display:inline-flex; align-items:center; gap:8px; }
+  .sk-ghost:hover { background:var(--sk-paper); }
+  .sk-pstep { display:inline-flex; align-items:center; gap:7px; color:#8A968F; }
+  .sk-pnum { width:24px; height:24px; border-radius:999px; background:#E1E8E4; color:#8A968F; display:grid; place-items:center; font-size:12px; }
+  .sk-pstep.act { color:var(--sk-green); }
+  .sk-pstep.act .sk-pnum { background:var(--sk-green); color:#fff; }
+  .sk-termingrid { display:grid; grid-template-columns:1.5fr 0.9fr; gap:20px; margin-bottom:8px; }
+  @media (max-width:640px) { .sk-termingrid { grid-template-columns:1fr; } }
+</style>
+</helmet>
+
+<div style="--sk-green:#2E2E30; --sk-green-600:#3A3A3D; --sk-green-700:#232325; --sk-mint:#EB5C37; --sk-mint-600:#D34E2C; --sk-ink:#1A1A1C; --sk-paper:#F5F4F3; font-family:var(--font-sans,'Inter',sans-serif); color:var(--sk-ink); background:var(--sk-paper); min-height:100vh; -webkit-font-smoothing:antialiased;">
+
+  <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVC7BTS7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+
+  <!-- Header -->
+  <header style="background:#fff; border-bottom:1px solid #E7ECE9;">
+    <div class="sk-container" style="height:64px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+      <a href="../" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:#5B6863; font-weight:600; font-size:14px;" style-hover="color:var(--sk-green);"><i class="fa-solid fa-arrow-left"></i> Zurück zum Angebot</a>
+      <img src="../img/logo-as-dark.png" alt="AS Automobile" style="height:clamp(28px,5vw,36px); width:auto; display:block;" />
+    </div>
+  </header>
+
+  <!-- Fortschritt (Wizard) -->
+  <div style="background:#fff; border-bottom:1px solid #E7ECE9;">
+    <div class="sk-container" style="padding:16px 24px; display:flex; align-items:center; gap:8px; justify-content:center; font-size:13px; font-weight:700; flex-wrap:wrap;">
+      <span class="sk-pstep {{ p1 }}"><span class="sk-pnum">1</span> Erwerbsart</span>
+      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
+      <span class="sk-pstep {{ p2 }}"><span class="sk-pnum">2</span> Konditionen</span>
+      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
+      <span class="sk-pstep {{ p3 }}"><span class="sk-pnum">3</span> Termin</span>
+      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
+      <span class="sk-pstep {{ p4 }}"><span class="sk-pnum">4</span> Kontakt</span>
+    </div>
+  </div>
+
+  <div class="sk-container sk-main" style="padding-top:clamp(24px,5vw,40px); padding-bottom:clamp(40px,6vw,64px);">
+
+    <!-- Formular -->
+    <div style="background:#fff; border:1px solid #E7ECE9; border-radius:18px; padding:clamp(22px,4vw,34px);">
+      <form onSubmit="{{ onSubmit }}">
+
+        <!-- ===== SCHRITT 1: Erwerbsart ===== -->
+        <sc-if value="{{ step1 }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Wie möchten Sie Ihren Ibiza FR?</h1>
+          <p style="margin:0 0 22px; font-size:15px; color:#5B6863;">Wählen Sie Ihre gewünschte Erwerbsart — die Konditionen stellen wir im nächsten Schritt ein.</p>
+          <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:26px;">
+            <button type="button" onClick="{{ setLeasing }}" class="sk-mode {{ leasingCls }}"><span class="ic"><i class="fa-solid fa-repeat"></i></span><span><b>Leasing</b><em>Kleine monatliche Rate, planbar, ideal für Privat &amp; Gewerbe.</em></span></button>
+            <button type="button" onClick="{{ setFin }}" class="sk-mode {{ finCls }}"><span class="ic"><i class="fa-solid fa-building-columns"></i></span><span><b>Finanzierung</b><em>In Raten kaufen — am Ende gehört das Fahrzeug Ihnen.</em></span></button>
+            <button type="button" onClick="{{ setKauf }}" class="sk-mode {{ kaufCls }}"><span class="ic"><i class="fa-solid fa-sack-euro"></i></span><span><b>Barkauf</b><em>Einmalig bezahlen, keine Laufzeit, bester Gesamtpreis.</em></span></button>
+          </div>
+          <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        </sc-if>
+
+        <!-- ===== SCHRITT 2: Konditionen ===== -->
+        <sc-if value="{{ step2 }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihre Konditionen</h1>
+          <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">{{ modeLabel }} · passen Sie die Werte an — Ihre Rate rechnet live mit.</p>
+
+          <div style="background:var(--sk-paper); border:1px solid #E7ECE9; border-radius:14px; padding:clamp(16px,3vw,22px); margin-bottom:22px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:14px; border-bottom:1px solid #E1E8E4;">
+              <span style="font-size:13px; color:#6B776F; font-weight:700;">{{ rateLabel }}</span>
+              <span style="font-size:clamp(28px,5vw,34px); font-weight:800; color:var(--sk-green); letter-spacing:-.02em; line-height:1;">{{ rateFmt }} €<span style="font-size:14px; font-weight:700;"> {{ rateSuffix }}</span></span>
+            </div>
+
+            <sc-if value="{{ showFinance }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <!-- Sonderzahlung: Slider -->
+              <div style="margin-top:18px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span class="sk-label" style="margin:0;">{{ anzLabel }}</span><span style="font-weight:800; color:var(--sk-green); font-size:15px;">{{ anzahlungFmt }} €</span></div>
+                <input type="range" min="0" max="6000" step="50" value="{{ anzahlung }}" onChange="{{ onAnz }}" />
+                <div style="display:flex; justify-content:space-between; font-size:11px; color:#9AA8A1; margin-top:4px;"><span>0 €</span><span>6.000 €</span></div>
+              </div>
+              <!-- Laufzeit: Dropdown -->
+              <div style="margin-top:18px;">
+                <span class="sk-label">Laufzeit</span>
+                <select value="{{ laufzeit }}" onChange="{{ onLaufzeit }}" class="sk-field">
+                  <option value="24">24 Monate</option>
+                  <option value="36">36 Monate</option>
+                  <option value="42">42 Monate</option>
+                  <option value="48">48 Monate</option>
+                  <option value="60">60 Monate</option>
+                </select>
+              </div>
+              <!-- Fahrleistung: Dropdown (nur Leasing) -->
+              <sc-if value="{{ isLeasing }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:18px;">
+                  <span class="sk-label">Fahrleistung / Jahr</span>
+                  <select value="{{ km }}" onChange="{{ onKm }}" class="sk-field">
+                    <option value="5000">5.000 km</option>
+                    <option value="10000">10.000 km</option>
+                    <option value="15000">15.000 km</option>
+                    <option value="20000">20.000 km</option>
+                    <option value="25000">25.000 km</option>
+                  </select>
+                </div>
+              </sc-if>
+            </div>
+            </sc-if>
+            <sc-if value="{{ isKauf }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:16px 0 0; font-size:14px; color:#6B776F; line-height:1.6;">Barkauf zum Fahrzeugpreis inkl. MwSt. Gerne besprechen wir Inzahlungnahme &amp; Sofort-Rabatte persönlich im Termin.</p>
+            </sc-if>
+          </div>
+
+          <div style="display:flex; gap:12px;">
+            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
+            <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== SCHRITT 3: Termin ===== -->
+        <sc-if value="{{ step3 }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihr Wunschtermin</h1>
+          <p style="margin:0 0 18px; font-size:15px; color:#5B6863;">Wählen Sie Tag und Uhrzeit — Ihr Berater bestätigt den Termin kurzfristig.</p>
+
+          <!-- Berater-Strip -->
+          <div style="display:flex; align-items:center; gap:13px; background:var(--sk-green); color:#fff; border-radius:12px; padding:13px 16px; margin-bottom:16px;">
+            <div style="width:48px; height:48px; border-radius:999px; background:rgba(255,255,255,0.15); color:#fff; display:grid; place-items:center; font-weight:800; font-size:16px; flex:none; border:2px solid rgba(255,255,255,0.35);">MB</div>
+            <div style="line-height:1.4;">
+              <div style="font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-mint);">Ihr Termin bei</div>
+              <div style="font-weight:800; font-size:15px;">Martin Braunheim</div>
+              <div style="font-size:12px; color:rgba(255,255,255,0.8);">SEAT · AS-Automobile Essen · ca. 45 Min.</div>
+            </div>
+          </div>
+
+          <!-- Kalender-Karte -->
+          <div style="border:1px solid #E7ECE9; border-radius:14px; padding:18px; margin-bottom:16px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;">
+              <span class="sk-label" style="margin:0;">1. Tag wählen</span>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <button type="button" onClick="{{ onPrevWeek }}" class="sk-wk {{ prevOff }}" aria-label="Woche zurück"><i class="fa-solid fa-chevron-left"></i></button>
+                <span style="font-size:13px; font-weight:700; min-width:104px; text-align:center; color:var(--sk-ink);">{{ weekLabel }}</span>
+                <button type="button" onClick="{{ onNextWeek }}" class="sk-wk {{ nextOff }}" aria-label="Woche vor"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+            <div class="sk-days">
+              <sc-for list="{{ days }}" as="d" hint-placeholder-count="6">
+                <button type="button" class="sk-day {{ d.cls }}" onClick="{{ d.onClick }}"><small>{{ d.wd }}</small><b>{{ d.day }}</b><em>{{ d.mo }}</em></button>
+              </sc-for>
+            </div>
+            <div style="height:1px; background:#EEF2F0; margin:16px 0;"></div>
+            <span class="sk-label">2. Uhrzeit wählen · <span style="color:var(--sk-green);">{{ dayLabel }}</span></span>
+            <div class="sk-slots">
+              <sc-for list="{{ slots }}" as="sl" hint-placeholder-count="8">
+                <button type="button" class="sk-slot {{ sl.cls }}" onClick="{{ sl.onClick }}">{{ sl.label }}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{ terminMissing }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:14px; font-size:13px; font-weight:700; color:#B45309; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-exclamation"></i> Bitte wählen Sie eine Uhrzeit.</div>
+            </sc-if>
+          </div>
+
+          <!-- Probefahrt -->
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:14px;">
+            <span style="font-weight:700; font-size:14px; color:var(--sk-ink);">Auch eine Probefahrt gewünscht?</span>
+            <div class="sk-seg" style="width:180px;">
+              <button type="button" onClick="{{ setProbeJa }}" class="sk-segbtn {{ probeJaCls }}">Ja</button>
+              <button type="button" onClick="{{ setProbeNein }}" class="sk-segbtn {{ probeNeinCls }}">Nein</button>
+            </div>
+          </div>
+          <sc-if value="{{ probeJa }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-bottom:20px; font-size:13px; font-weight:600; color:var(--sk-green); background:rgba(235,92,55,0.16); border:1px solid rgba(14,58,47,0.15); border-radius:10px; padding:13px 15px; display:flex; align-items:flex-start; gap:9px;"><i class="fa-solid fa-id-card" style="margin-top:2px;"></i> <span>Bitte bringen Sie zu Ihrem Termin Ihren <strong>Führerschein</strong> mit — dann steht der Probefahrt nichts im Wege.</span></div>
+          </sc-if>
+
+          <div style="display:flex; gap:12px; margin-top:6px;">
+            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
+            <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+        </sc-if>
+
+        <!-- ===== SCHRITT 4: Kontakt ===== -->
+        <sc-if value="{{ step4 }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihre Kontaktdaten</h1>
+          <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">Fast geschafft — wir bestätigen Ihre Anfrage kurzfristig.</p>
+
+          <div style="margin-bottom:18px;">
+            <span class="sk-label">Ich bin …</span>
+            <div class="sk-seg" style="max-width:320px;">
+              <button type="button" onClick="{{ setPrivat }}" class="sk-segbtn {{ privatCls }}">Privatkunde</button>
+              <button type="button" onClick="{{ setGewerbe }}" class="sk-segbtn {{ gewerbeCls }}">Gewerbe</button>
+            </div>
+          </div>
+
+          <div class="sk-grid2" style="margin-bottom:14px;">
+            <div><span class="sk-label">Vorname *</span><input value="{{ vorname }}" onChange="{{ onVorname }}" required class="sk-field" /></div>
+            <div><span class="sk-label">Nachname *</span><input value="{{ nachname }}" onChange="{{ onNachname }}" required class="sk-field" /></div>
+          </div>
+          <div class="sk-grid2" style="margin-bottom:14px;">
+            <div><span class="sk-label">Telefon *</span><input value="{{ phone }}" onChange="{{ onPhone }}" required type="tel" class="sk-field" /></div>
+            <div><span class="sk-label">E-Mail *</span><input value="{{ email }}" onChange="{{ onEmail }}" required type="email" class="sk-field" /></div>
+          </div>
+          <div style="margin-bottom:14px;">
+            <span class="sk-label">Konfigurations-Code (optional)</span>
+            <input value="{{ configCode }}" onChange="{{ onConfigCode }}" placeholder="z. B. SDWGGNGH" class="sk-field" style="letter-spacing:.06em;" />
+          </div>
+          <div style="margin-bottom:20px;">
+            <span class="sk-label">Nachricht (optional)</span>
+            <textarea value="{{ message }}" onChange="{{ onMessage }}" rows="3" class="sk-field" style="resize:vertical; min-height:84px;" placeholder="Ihre Fragen oder Wünsche …"></textarea>
+          </div>
+
+          <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; font-size:13px; color:#5B6863; line-height:1.5;">
+            <input type="checkbox" checked="{{ consent }}" onChange="{{ onConsent }}" required style="margin-top:2px; width:16px; height:16px; accent-color:var(--sk-green);" />
+            <span>Ich stimme zu, dass AS-Automobile mich zur Bearbeitung meiner Anfrage kontaktiert (Pflichtfeld). Es gelten die <a href="#" style="color:var(--sk-green); font-weight:600;">Datenschutzhinweise</a>.</span>
+          </label>
+          <sc-if value="{{ consentMissing }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-bottom:16px; font-size:13px; font-weight:700; color:#B45309; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-exclamation"></i> Bitte stimmen Sie den Datenschutzhinweisen zu, um Ihre Anfrage abzusenden.</div>
+          </sc-if>
+          <div style="margin-bottom:10px;"></div>
+
+          <div style="display:flex; gap:12px;">
+            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
+            <button type="submit" class="sk-primary"><i class="fa-solid fa-paper-plane"></i> Anfrage absenden</button>
+          </div>
+        </div>
+        </sc-if>
+
+      </form>
+    </div>
+
+    <!-- Zusammenfassung / Fahrzeug -->
+    <aside class="sk-aside-top" style="position:sticky; top:20px; background:#fff; border:1px solid #E7ECE9; border-radius:18px; overflow:hidden;">
+      <div style="aspect-ratio:16/10; background:var(--sk-paper); display:grid; place-items:center;">
+        <img src="{{ colorImg }}" alt="SEAT Ibiza FR" style="width:92%; height:92%; object-fit:contain;" />
+      </div>
+      <div style="padding:20px;">
+        <div style="font-weight:800; font-size:18px; margin-bottom:2px;">SEAT Ibiza FR</div>
+        <div style="font-size:13px; color:#6B776F; margin-bottom:16px;">Neuwagen · 85 kW (116 PS)</div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:14px;">
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Erwerbsart</span><strong>{{ modeLabel }}</strong></div>
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschfarbe</span><strong>{{ color }}</strong></div>
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">{{ anzLabel }}</span><strong>{{ anzahlungFmt }} €</strong></div>
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschtermin</span><strong style="text-align:right;">{{ terminShort }}</strong></div>
+        </div>
+        <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:baseline; justify-content:space-between;">
+          <span style="font-size:13px; color:#6B776F;">{{ rateLabel }}</span>
+          <span style="font-size:26px; font-weight:800; color:var(--sk-green); letter-spacing:-.02em;">{{ rateFmt }} €</span>
+        </div>
+        <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:center; gap:12px;">
+          <div style="width:44px; height:44px; border-radius:999px; background:var(--sk-green); color:#fff; display:grid; place-items:center; font-weight:800; font-size:15px; flex:none;">MB</div>
+          <div style="font-size:13px; line-height:1.4;"><strong>Martin Braunheim</strong><br><span style="color:#6B776F;">Ihr SEAT Berater</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1020, &quot;height&quot;: 860}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const q = (k, d) => {
+      try { const v = new URLSearchParams(window.location.search).get(k); return v == null || v === '' ? d : v; }
+      catch (e) { return d; }
+    };
+    this.state = {
+      mode: q('mode', 'leasing'),
+      anzahlung: Number(q('anzahlung', 990)) || 0,
+      laufzeit: Number(q('laufzeit', 36)) || 36,
+      km: Number(q('km', 10000)) || 10000,
+      color: q('color', 'Fiord Blau'),
+      configCode: '',
+      kundentyp: 'privat',
+      probefahrt: 'ja',
+      vorname: '', nachname: '', phone: '', email: '', message: '', consent: false,
+      formStep: 1,
+      terminDatum: this.firstDayIso(), terminUhrzeit: '', terminMissing: false,
+      consentMissing: false,
+      weekOffset: 0,
+    };
+  }
+
+  weekStart(offset) {
+    const base = new Date(); base.setHours(0, 0, 0, 0);
+    const dow = base.getDay();
+    const mondayDelta = (dow === 0 ? -6 : 1 - dow);
+    const m = new Date(base); m.setDate(base.getDate() + mondayDelta + offset * 7);
+    return m;
+  }
+
+  weekDays(offset) {
+    const base = new Date(); base.setHours(0, 0, 0, 0);
+    const m = this.weekStart(offset);
+    const out = [];
+    for (let i = 0; i < 6; i++) {
+      const t = new Date(m); t.setDate(m.getDate() + i);
+      const iso = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+      out.push({ iso, wd: this.WD[t.getDay()], day: String(t.getDate()), mo: this.MON[t.getMonth()], disabled: t.getTime() <= base.getTime() });
+    }
+    return out;
+  }
+
+  weekLabel(offset) {
+    const s = this.weekStart(offset); const e = new Date(s); e.setDate(s.getDate() + 5);
+    return s.getDate() + '.–' + e.getDate() + '. ' + this.MON[e.getMonth()];
+  }
+
+  firstDayIso() {
+    const dd = new Date(); dd.setHours(0, 0, 0, 0);
+    for (let i = 1; i <= 40; i++) {
+      const t = new Date(dd); t.setDate(dd.getDate() + i);
+      if (t.getDay() !== 0) {
+        return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+      }
+    }
+    return '';
+  }
+
+  fmt(n) { return Math.round(n).toLocaleString('de-DE'); }
+
+  computeRate() {
+    const { mode, anzahlung, laufzeit, km } = this.state;
+    if (mode === 'kauf') return 29005;
+    if (mode === 'finanzierung') {
+      const financed = Math.max(0, 29005.00 - anzahlung);
+      return Math.max(0, Math.round(financed * (1 + 0.049 * (laufzeit / 12)) / laufzeit));
+    }
+    let r = 179 + (990 - anzahlung) * 0.015 + (36 - laufzeit) * 3.5 + ((km - 10000) / 1000) * 5;
+    return Math.max(69, Math.round(r));
+  }
+
+  colorImg() {
+    const map = {
+      'Graphite-Grau': '../img/kamiq-graphit.avif', 'Magic-Schwarz': '../img/kamiq-schwarz.avif',
+      'Steel-Grau': '../img/kamiq-grey.avif', 'Race-Blau': '../img/kamiq-hellblau.avif',
+      'Energy-Blau': '../img/kamiq-dunkelblau.avif', 'Velvet-Rot': '../img/kamiq-rot.avif',
+      'Phoenix-Orange': '../img/kamiq-orange.avif', 'Candy-Weiß': '../img/kamiq-candy-weiss.avif',
+      'Moon-Weiß': '../img/kamiq-weiss.avif',
+    };
+    return '../img/ibiza-front.avif';
+  }
+
+  getCookie(name) {
+    try {
+      const m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return m ? m.pop() : '';
+    } catch (e) { return ''; }
+  }
+
+  WD = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+  MON = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+
+  buildDays() {
+    const out = [];
+    const d = new Date(); d.setHours(0, 0, 0, 0);
+    let added = 0, guard = 0;
+    while (added < 12 && guard < 40) {
+      guard++;
+      d.setDate(d.getDate() + 1);
+      const wd = d.getDay();
+      if (wd === 0) continue;
+      const iso = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+      out.push({ iso, wd: this.WD[wd], day: String(d.getDate()), mo: this.MON[d.getMonth()] });
+      added++;
+    }
+    return out;
+  }
+
+  slotsFor(iso) {
+    if (!iso) return [];
+    const wd = new Date(iso + 'T00:00:00').getDay();
+    const sat = wd === 6;
+    const startMin = sat ? 9 * 60 : 8 * 60 + 30;
+    const endMin = sat ? 14 * 60 : 18 * 60 + 30;
+    const out = [];
+    for (let t = startMin; t + 45 <= endMin; t += 45) {
+      out.push(String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'));
+    }
+    return out;
+  }
+
+  dayLabelFor(iso) {
+    if (!iso) return '';
+    const dt = new Date(iso + 'T00:00:00');
+    return this.WD[dt.getDay()] + '. ' + dt.getDate() + '. ' + this.MON[dt.getMonth()];
+  }
+
+  next() {
+    const st = this.state;
+    if (st.formStep === 3 && (!st.terminDatum || !st.terminUhrzeit)) {
+      this.setState({ terminMissing: true });
+      return;
+    }
+    this.setState({ formStep: Math.min(4, st.formStep + 1) });
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+
+  back() {
+    this.setState({ formStep: Math.max(1, this.state.formStep - 1) });
+    try { window.scrollTo(0, 0); } catch (e) {}
+  }
+
+  submit(e) {
+    e.preventDefault();
+    const s = this.state;
+    if (!s.consent) { this.setState({ consentMissing: true }); return; }
+    const rate = this.computeRate();
+    const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
+    const probe = s.probefahrt === 'ja';
+    const terminText = (s.terminDatum && s.terminUhrzeit) ? (this.dayLabelFor(s.terminDatum) + ' · ' + s.terminUhrzeit + ' Uhr') : '';
+    const anliegen = probe ? 'Termin inkl. Probefahrt' : 'Termin (Besichtigung / Beratung)';
+    const probefahrtLabel = probe ? 'ja' : 'nein';
+
+    let attr = {};
+    try { attr = JSON.parse(localStorage.getItem('as_attribution') || '{}'); } catch (err) {}
+    const fbp = this.getCookie('_fbp');
+    let fbc = this.getCookie('_fbc');
+    if (!fbc && attr.fbclid) fbc = 'fb.1.' + Date.now() + '.' + attr.fbclid;
+    const eventId = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10);
+
+    try {
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead', {
+          content_name: 'SEAT Ibiza FR 1.0 TSI',
+          content_category: modeLabel,
+          value: rate, currency: 'EUR',
+        }, { eventID: eventId });
+      }
+    } catch (err) {}
+
+    try {
+      if (typeof window !== 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'lead_submit', event_id: eventId,
+          lead: {
+            marke: 'SEAT',
+            fahrzeug: 'SEAT Ibiza FR 1.0 TSI',
+            erwerbsart: modeLabel, kundentyp: s.kundentyp,
+            berechnete_rate: rate, currency: 'EUR', value: rate,
+            vorname: s.vorname, nachname: s.nachname, email: s.email, telefon: s.phone,
+            anliegen: anliegen, termin_datum: s.terminDatum, termin_uhrzeit: s.terminUhrzeit, termin: terminText,
+          },
+        });
+      }
+    } catch (err) {}
+
+    const lead = new URLSearchParams({
+      event_name: 'Lead', event_id: eventId,
+      event_source_url: (typeof window !== 'undefined' ? window.location.href : ''),
+      marke: 'SEAT',
+      fahrzeug: 'SEAT Ibiza FR 1.0 TSI',
+      erwerbsart: modeLabel, kundentyp: s.kundentyp,
+      sonderzahlung: String(s.anzahlung), laufzeit_monate: String(s.laufzeit),
+      fahrleistung_km: String(s.km), wunschfarbe: s.color,
+      konfigurationscode: s.configCode, berechnete_rate: String(rate), waehrung: 'EUR',
+      vorname: s.vorname, nachname: s.nachname, telefon: s.phone, email: s.email,
+      anliegen: anliegen, probefahrt: probefahrtLabel, nachricht: s.message, einwilligung: s.consent ? 'ja' : 'nein',
+      termin: terminText, termin_datum: (probe ? s.terminDatum : ''), termin_uhrzeit: (probe ? s.terminUhrzeit : ''), termin_dauer_min: '45',
+      utm_source: attr.utm_source || '', utm_medium: attr.utm_medium || '',
+      utm_campaign: attr.utm_campaign || '', utm_term: attr.utm_term || '', utm_content: attr.utm_content || '',
+      fbclid: attr.fbclid || '', gclid: attr.gclid || '', ttclid: attr.ttclid || '', msclkid: attr.msclkid || '',
+      fbp: fbp || '', fbc: fbc || '',
+      landing_page: attr.landing_page || '', referrer: attr.first_referrer || '',
+      user_agent: (typeof navigator !== 'undefined' ? navigator.userAgent : ''),
+      zeitstempel: new Date().toISOString(),
+    });
+
+    const goDanke = () => {
+      const p = new URLSearchParams({
+        vorname: s.vorname, mode: s.mode, color: s.color, rate: String(rate), termin: terminText,
+      });
+      window.location.href = '../danke/?' + p.toString();
+    };
+
+    try {
+      fetch('https://hooks.zapier.com/hooks/catch/18583379/4uri1g8/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: lead.toString(), keepalive: true,
+      }).then(goDanke).catch(goDanke);
+    } catch (err) { goDanke(); }
+  }
+
+  renderVals() {
+    const s = this.state;
+    const txt = (k) => (e) => this.setState({ [k]: e.target.value });
+    const num = (k) => (e) => this.setState({ [k]: Number(e.target.value) });
+    const isLeasing = s.mode === 'leasing', isFin = s.mode === 'finanzierung', isKauf = s.mode === 'kauf';
+    const modeLabel = isKauf ? 'Kauf' : (isFin ? 'Finanzierung' : 'Leasing');
+    const rateNum = this.computeRate();
+    const step = s.formStep;
+
+    // Fortschritts-Indikator: Schritte bis zum aktuellen sind grün
+    const prog = {
+      p1: step >= 1 ? 'act' : '', p2: step >= 2 ? 'act' : '',
+      p3: step >= 3 ? 'act' : '', p4: step >= 4 ? 'act' : '',
+    };
+
+    // Termin-Kalender
+    const MAXW = 8;
+    const days = this.weekDays(s.weekOffset).map((d) => ({
+      wd: d.wd, day: d.day, mo: d.mo,
+      cls: (s.terminDatum === d.iso ? 'on' : '') + (d.disabled ? ' off' : ''),
+      onClick: d.disabled ? (() => {}) : (() => this.setState({ terminDatum: d.iso, terminUhrzeit: '', terminMissing: false })),
+    }));
+    const weekLabel = this.weekLabel(s.weekOffset);
+    const prevOff = s.weekOffset <= 0 ? 'off' : '';
+    const nextOff = s.weekOffset >= MAXW ? 'off' : '';
+    const onPrevWeek = () => this.setState({ weekOffset: Math.max(0, this.state.weekOffset - 1) });
+    const onNextWeek = () => this.setState({ weekOffset: Math.min(MAXW, this.state.weekOffset + 1) });
+    const slotList = this.slotsFor(s.terminDatum).map((t) => ({
+      label: t, cls: s.terminUhrzeit === t ? 'on' : '',
+      onClick: () => this.setState({ terminUhrzeit: t, terminMissing: false }),
+    }));
+    const dayLabel = this.dayLabelFor(s.terminDatum);
+    const dm = s.terminDatum ? (s.terminDatum.split('-')[2] + '.' + s.terminDatum.split('-')[1] + '.') : '';
+    const probe = s.probefahrt === 'ja';
+    const terminChosen = !!(s.terminDatum && s.terminUhrzeit);
+    const terminShort = terminChosen ? (dm + ' ' + s.terminUhrzeit) : '—';
+
+    return Object.assign({}, prog, {
+      step1: step === 1, step2: step === 2, step3: step === 3, step4: step === 4,
+
+      isLeasing, isFin, isKauf,
+      leasingCls: isLeasing ? 'on' : '', finCls: isFin ? 'on' : '', kaufCls: isKauf ? 'on' : '',
+      setLeasing: () => this.setState({ mode: 'leasing' }),
+      setFin: () => this.setState({ mode: 'finanzierung' }),
+      setKauf: () => this.setState({ mode: 'kauf' }),
+      modeLabel,
+      anzLabel: isLeasing ? 'Sonderzahlung' : 'Anzahlung',
+      showFinance: !isKauf,
+
+      anzahlung: s.anzahlung, anzahlungFmt: this.fmt(s.anzahlung),
+      laufzeit: s.laufzeit, km: s.km, color: s.color,
+      onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
+
+      rateFmt: this.fmt(rateNum),
+      rateLabel: isKauf ? 'Kaufpreis' : 'Rate ca.',
+      rateSuffix: isKauf ? '' : 'mtl.',
+
+      probeJa: probe, probeNein: !probe,
+      probeJaCls: probe ? 'on' : '', probeNeinCls: !probe ? 'on' : '',
+      setProbeJa: () => this.setState({ probefahrt: 'ja' }),
+      setProbeNein: () => this.setState({ probefahrt: 'nein', terminMissing: false }),
+
+      days, slots: slotList,
+      weekLabel, prevOff, nextOff, onPrevWeek, onNextWeek,
+      hasDay: !!s.terminDatum, noDay: !s.terminDatum,
+      dayLabel, terminMissing: s.terminMissing, terminShort,
+
+      kundentyp: s.kundentyp,
+      privatCls: s.kundentyp === 'privat' ? 'on' : '', gewerbeCls: s.kundentyp === 'gewerbe' ? 'on' : '',
+      setPrivat: () => this.setState({ kundentyp: 'privat' }),
+      setGewerbe: () => this.setState({ kundentyp: 'gewerbe' }),
+
+      configCode: s.configCode, onConfigCode: txt('configCode'),
+      vorname: s.vorname, nachname: s.nachname, phone: s.phone, email: s.email, message: s.message, consent: s.consent,
+      onVorname: txt('vorname'), onNachname: txt('nachname'), onPhone: txt('phone'), onEmail: txt('email'), onMessage: txt('message'),
+      consentMissing: s.consentMissing,
+      onConsent: (e) => this.setState({ consent: e.target.checked, consentMissing: false }),
+
+      colorImg: this.colorImg(),
+      onNext: () => this.next(),
+      onBack: () => this.back(),
+      onSubmit: (e) => this.submit(e),
+    });
+  }
+}
+</script>
+</body>
+</html>
