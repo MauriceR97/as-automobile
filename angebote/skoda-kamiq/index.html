@@ -122,13 +122,15 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
   <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVC7BTS7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
 
+  <!-- Sticky-Kopf: Aktionsleiste + Header zusammen -->
+  <div style="position:sticky; top:0; z-index:50;">
   <!-- Announcement -->
   <div style="background:var(--sk-green-700); color:var(--sk-mint); font-size:13px; font-weight:600; letter-spacing:.03em; text-align:center; padding:9px 16px; line-height:1.4;">
     <i class="fa-solid fa-bolt" style="margin-right:8px"></i> ŠKODA Vorführwagen-Aktion · nur dieses Fahrzeug · <span style="color:#fff">jetzt Termin sichern</span>
   </div>
 
   <!-- Header -->
-  <header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.94); backdrop-filter:blur(10px); border-bottom:1px solid #E7ECE9;">
+  <header style="position:relative; z-index:50; background:rgba(255,255,255,0.96); backdrop-filter:blur(10px); border-bottom:1px solid #E7ECE9;">
     <div class="sk-container" style="height:66px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
       <div style="display:flex; align-items:center; gap:12px; min-width:0;">
         <img src="img/logo-as-dark.png" alt="AS Automobile" style="height:clamp(30px,5vw,40px); width:auto; display:block;" />
@@ -145,6 +147,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       </div>
     </div>
   </header>
+  </div>
 
   <!-- Hero -->
   <section style="position:relative; background:linear-gradient(160deg, var(--sk-green) 0%, var(--sk-green-700) 100%); color:#fff; overflow:hidden;">
