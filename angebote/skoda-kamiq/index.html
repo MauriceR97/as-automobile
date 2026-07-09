@@ -109,16 +109,15 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     .sk-map iframe { min-height: 300px; }
     .sk-navcta { display: none; }
   }
+  .sk-stickyhead { position:sticky; top:0; z-index:50; }
   @media (max-width: 600px) {
     .sk-facts   { grid-template-columns: repeat(2, 1fr); }
     .sk-equip   { grid-template-columns: 1fr; }
     .sk-gallery { grid-template-columns: repeat(3, 1fr); }
     .sk-colors  { grid-template-columns: repeat(3, 1fr); }
     .sk-haus3   { grid-template-columns: 1fr; }
-  .sk-stickyhead { position:sticky; top:0; z-index:50; }
-  @media (max-width: 600px) {
-    .sk-stickyhead { position: static; }
-    .sk-stickyhead .sk-annbar { position: sticky; top:0; z-index:51; }
+    .sk-stickyhead { display: contents; }
+    .sk-annbar { position: sticky; top:0; z-index:51; }
     .sk-hidesm  { display: none !important; }
     .sk-page    { padding-bottom: 74px; }
     .sk-mobilebar { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: #fff; border-top: 1px solid #E7ECE9; padding: 10px 14px; box-shadow: 0 -6px 20px rgba(0,0,0,0.10); }
@@ -406,7 +405,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
   <!-- Fahrzeugbeschreibung (Verknappung / Psychologie) -->
   <section class="sk-container sk-sect">
-    <details class="sk-acc" open="{{ descOpen }}" onToggle="{{ onDescToggle }}">
+    <details class="sk-acc" open="{{ descOpen }}">
       <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-align-left"></i></span> Fahrzeugbeschreibung</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
       <div class="sk-accbody">
     <div style="display:grid; grid-template-columns:1fr; gap:16px;">
@@ -761,9 +760,8 @@ class Component extends DCLogic {
     const lGesamt = lRate * s.laufzeit + s.anzahlung;
 
     return {
-      descOpen: this.state.descOpen !== false,
-      onDescToggle: (e) => { const o = e.target.open; if (o !== (this.state.descOpen !== false)) this.setState({ descOpen: o }); },
       // Details zum Leasing
+      descOpen: true,
       lRateFmt: this.fmt(lRate),
       lGesamtFmt: this.fmt(lGesamt),
       lKaufpreis: '29.090,00',
