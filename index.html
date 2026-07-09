@@ -237,8 +237,8 @@ fbq('init','1422851823195089');fbq('track','PageView');
           <div style="padding-bottom:4px; font-size:14px; color:#9A9A9A;">oder Kaufpreis 20.719,99&nbsp;€</div>
         </div>
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="angebote/skoda-fabia/index.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--as-red); color:#fff; font-weight:700; font-size:15px; padding:14px 24px; border-radius:6px;" style-hover="background:var(--as-red-600);">Zum Angebot <i class="fa-solid fa-arrow-right"></i></a>
-          <a href="angebote/skoda-fabia/anfrage.html" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:15px; padding:14px 22px; border-radius:6px;" style-hover="background:rgba(255,255,255,0.1);"><i class="fa-solid fa-calendar-check"></i> Termin</a>
+          <a href="angebote/skoda-fabia/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--as-red); color:#fff; font-weight:700; font-size:15px; padding:14px 24px; border-radius:6px;" style-hover="background:var(--as-red-600);">Zum Angebot <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="angebote/skoda-fabia/anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:15px; padding:14px 22px; border-radius:6px;" style-hover="background:rgba(255,255,255,0.1);"><i class="fa-solid fa-calendar-check"></i> Termin</a>
         </div>
       </div>
     </div>
@@ -318,7 +318,7 @@ fbq('init','1422851823195089');fbq('track','PageView');
         <div style="color:#fff; font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:14px;">Fahrzeuge</div>
         <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;">
           <li><a href="#angebote" style="color:#B9B9B9; text-decoration:none;">Aktuelle Angebote</a></li>
-          <li><a href="angebote/skoda-fabia/index.html" style="color:#B9B9B9; text-decoration:none;">Škoda Fabia</a></li>
+          <li><a href="angebote/skoda-fabia/" style="color:#B9B9B9; text-decoration:none;">Škoda Fabia</a></li>
           <li><a href="#" style="color:#B9B9B9; text-decoration:none;">Gebrauchtwagen</a></li>
           <li><a href="#" style="color:#B9B9B9; text-decoration:none;">Neuwagen</a></li>
         </ul>
@@ -359,7 +359,7 @@ class Component extends DCLogic {
   // Gesamter Fahrzeugpool (markenübergreifend). rateStd = mtl. Leasingrate bei 0 € Sonderzahlung.
   fleet() {
     return [
-      { brand: 'ŠKODA', title: 'Fabia Essence 1.0 MPI', cond: 'Vorführwagen',  rateStd: 154, href: 'angebote/skoda-fabia/index.html' },
+      { brand: 'ŠKODA', title: 'Fabia Essence 1.0 MPI', cond: 'Vorführwagen',  rateStd: 154, href: 'angebote/skoda-fabia/' },
       { brand: 'SEAT',  title: 'Ibiza Style 1.0 TSI',    cond: 'Gebrauchtwagen', rateStd: 159, href: '#angebote' },
       { brand: 'ŠKODA', title: 'Scala Essence',           cond: 'Gebrauchtwagen', rateStd: 169, href: '#angebote' },
       { brand: 'SEAT',  title: 'Arona Xcellence',         cond: 'Gebrauchtwagen', rateStd: 189, href: '#angebote' },
@@ -412,7 +412,7 @@ class Component extends DCLogic {
   renderVals() {
     const ICON = 'assets/img/placeholder-car.svg';
     const raw = [
-      { brand: 'ŠKODA', title: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen', km: '50 km', reg: '06/2026', ps: '80 PS', price: '20.720 €', badge: 'Vorführwagen', featured: true, img: 'angebote/skoda-fabia/img/car-rear2.jpg', href: 'angebote/skoda-fabia/index.html' },
+      { brand: 'ŠKODA', title: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen', km: '50 km', reg: '06/2026', ps: '80 PS', price: '20.720 €', badge: 'Vorführwagen', featured: true, img: 'angebote/skoda-fabia/img/car-rear2.jpg', href: 'angebote/skoda-fabia/' },
       { brand: 'SEAT', title: 'Seat Arona Xcellence Beats · Navi · Kamera', km: '4.500 km', reg: '01/2022', ps: '110 PS', price: '20.880 €', badge: 'Gebraucht', featured: false, img: ICON, href: '#' },
       { brand: 'ŠKODA', title: 'Škoda Scala Essence', km: '7.684 km', reg: '01/2025', ps: '95 PS', price: '18.880 €', badge: 'Gebraucht', featured: false, img: ICON, href: '#' },
       { brand: 'ŠKODA', title: 'Škoda Kamiq Monte Carlo · Panorama · Navi', km: '9.671 km', reg: '05/2024', ps: '110 PS', price: '23.880 €', badge: 'Gebraucht', featured: false, img: ICON, href: '#' },
