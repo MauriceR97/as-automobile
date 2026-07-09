@@ -115,6 +115,10 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     .sk-gallery { grid-template-columns: repeat(3, 1fr); }
     .sk-colors  { grid-template-columns: repeat(3, 1fr); }
     .sk-haus3   { grid-template-columns: 1fr; }
+  .sk-stickyhead { position:sticky; top:0; z-index:50; }
+  @media (max-width: 600px) {
+    .sk-stickyhead { position: static; }
+    .sk-stickyhead .sk-annbar { position: sticky; top:0; z-index:51; }
     .sk-hidesm  { display: none !important; }
     .sk-page    { padding-bottom: 74px; }
     .sk-mobilebar { display: grid; grid-template-columns: 1fr 1.4fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: #fff; border-top: 1px solid #E7ECE9; padding: 10px 14px; box-shadow: 0 -6px 20px rgba(0,0,0,0.10); }
@@ -171,9 +175,9 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVC7BTS7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
 
   <!-- Sticky-Kopf: Aktionsleiste + Header zusammen -->
-  <div style="position:sticky; top:0; z-index:50;">
+  <div class="sk-stickyhead">
   <!-- Announcement -->
-  <div style="background:var(--sk-green-700); color:var(--sk-mint); font-size:13px; font-weight:600; letter-spacing:.03em; text-align:center; padding:9px 16px; line-height:1.4;">
+  <div class="sk-annbar" style="background:var(--sk-green-700); color:var(--sk-mint); font-size:13px; font-weight:600; letter-spacing:.03em; text-align:center; padding:9px 16px; line-height:1.4;">
     <i class="fa-solid fa-bolt" style="margin-right:8px"></i> SEAT FR Aktion · SEAT Ibiza FR · <span style="color:#fff">jetzt Termin sichern</span>
   </div>
 
