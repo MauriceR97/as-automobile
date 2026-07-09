@@ -53,6 +53,23 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   },true);
 })();
 </script>
+<style>
+  .sk-anim section.sk-rev{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1);will-change:opacity,transform;}
+  .sk-anim section.sk-rev.sk-in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){.sk-anim section.sk-rev{opacity:1!important;transform:none!important;transition:none!important;}}
+</style>
+<script>
+(function(){try{
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.documentElement.classList.add('sk-anim');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('sk-in');io.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  function scan(){document.querySelectorAll('.sk-page > section').forEach(function(el,i){if(el.hasAttribute('data-obs'))return;el.setAttribute('data-obs','1');if(i===0)return;el.classList.add('sk-rev');if(el.getBoundingClientRect().top<window.innerHeight*0.92)el.classList.add('sk-in');io.observe(el);});}
+  var mo=new MutationObserver(scan);mo.observe(document.documentElement,{childList:true,subtree:true});
+  document.addEventListener('DOMContentLoaded',scan);
+  window.addEventListener('load',function(){scan();setTimeout(function(){try{mo.disconnect();}catch(e){}},2500);});
+  setTimeout(scan,400);
+}catch(e){}})();
+</script>
 <script src="../../assets/ds-base.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://elfsightcdn.com/platform.js" async></script>
@@ -154,9 +171,9 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:26px;">
-          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.18); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> inkl. 19% MwSt</span>
-          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.18); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> Leasing · Finanzierung · Kauf</span>
-          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.18); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> nur 50 km</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.24); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> inkl. 19% MwSt</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.24); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> Leasing · Finanzierung · Kauf</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.24); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> nur 50 km</span>
         </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap;">
