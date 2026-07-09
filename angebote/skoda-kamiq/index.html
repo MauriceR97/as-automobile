@@ -97,8 +97,10 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
   .sk-mobilebar { display: none; }
 
+  .sk-avail { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:800; letter-spacing:.03em; text-transform:uppercase; background:#F26419; color:#fff; padding:9px 16px; border-radius:999px; box-shadow:0 6px 18px rgba(242,100,25,0.42); }
   @media (max-width: 920px) {
     .sk-hero, .sk-showcase, .sk-calc, .sk-map, .sk-foot { grid-template-columns: 1fr; }
+    .sk-heroframe { margin-left: calc(-1*clamp(16px,4vw,24px)) !important; margin-right: calc(-1*clamp(16px,4vw,24px)) !important; border-radius:0 !important; aspect-ratio:16/11 !important; box-shadow:none !important; }
     .sk-advisor { grid-template-columns: 1fr; text-align: center; justify-items: center; }
     .sk-facts   { grid-template-columns: repeat(3, 1fr); }
     .sk-haus3   { grid-template-columns: 1fr 1fr; }
@@ -156,8 +158,11 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
       <!-- Copy -->
       <div style="animation:skRise .6s ease both;">
-        <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-mint); margin-bottom:16px;">
-          <span style="width:26px; height:2px; background:var(--sk-mint);"></span> Vorführwagen · sofort verfügbar
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
+          <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-mint);">
+            <span style="width:26px; height:2px; background:var(--sk-mint);"></span> Vorführwagen
+          </div>
+          <span class="sk-avail"><i class="fa-solid fa-bolt"></i> Sofort verfügbar</span>
         </div>
         <h1 style="margin:0; font-size:clamp(32px,6vw,52px); line-height:1.03; letter-spacing:-.02em; font-weight:800;">Škoda Kamiq<br>Selection 1.0 TSI</h1>
         <p style="margin:14px 0 0; font-size:clamp(15px,2.4vw,18px); color:rgba(255,255,255,0.82); font-weight:500;">70 kW (95 PS) · 5-Gang · EZ 06/2026 · in vielen Farben konfigurierbar</p>
@@ -174,7 +179,6 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         </div>
 
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:26px;">
-          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.24); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> inkl. 19% MwSt</span>
           <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.24); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> Leasing · Finanzierung · Kauf</span>
           <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:600; background:rgba(255,255,255,0.12); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.24); padding:7px 13px; border-radius:999px;"><i class="fa-solid fa-check" style="color:var(--sk-mint)"></i> nur 50 km</span>
         </div>
@@ -191,7 +195,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
       <!-- Photo gallery -->
       <div style="animation:skRise .7s ease both;">
-        <div style="position:relative; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:#0b241d; box-shadow:0 30px 60px rgba(0,0,0,0.35);">
+        <div style="position:relative; aspect-ratio:4/3; border-radius:16px; overflow:hidden; background:#0b241d; box-shadow:0 30px 60px rgba(0,0,0,0.35);" class="sk-heroframe">
           <img src="{{ activeImg }}" alt="Škoda Kamiq" style="width:100%; height:100%; object-fit:cover; display:block;" />
           <div style="position:absolute; top:14px; left:14px; background:var(--sk-mint); color:var(--sk-green); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:6px 12px; border-radius:999px;">Vorführwagen</div>
         </div>
