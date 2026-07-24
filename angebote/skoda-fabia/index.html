@@ -261,7 +261,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
     <div style="display:inline-flex; align-items:center; gap:8px; background:#FFF1EC; color:#C2410C; border:1px solid #F7C9A8; border-radius:999px; padding:8px 16px; font-size:13px; font-weight:800; margin-bottom:16px;"><i class="fa-solid fa-hourglass-half"></i> Begrenzte Aktion: nur 30x · bis 16.08.2026</div>
     <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:14px; font-weight:600; color:var(--sk-ink); margin-bottom:9px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-gas-pump" style="color:var(--sk-green);"></i> Benzin</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-gears" style="color:var(--sk-green);"></i> Schaltgetriebe</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-bolt" style="color:var(--sk-green);"></i> 80 PS</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-palette" style="color:var(--sk-green);"></i> Energy-Blau</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-snowflake" style="color:var(--sk-green);"></i> Klimaanlage</span></div>
-    <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:13px; color:#6B776F; padding-top:9px; border-top:1px solid #EDF1EF; max-width:640px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-user-group" style="color:#8A968F;"></i> Privat- &amp; Gewerbekunden</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-location-dot" style="color:#8A968F;"></i> Händler vor Ort in Essen</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-car" style="color:#8A968F;"></i> Neuwagen</span></div>
+    <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:13px; color:#6B776F; padding-top:9px; border-top:1px solid #EDF1EF; max-width:640px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-user-group" style="color:#8A968F;"></i> Privat- &amp; Gewerbekunden</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-car" style="color:#8A968F;"></i> Neuwagen</span></div>
+    <div style="display:flex; align-items:center; gap:10px; margin-top:14px; background:var(--sk-paper); border:1.5px solid var(--sk-green); border-radius:12px; padding:12px 18px; font-size:15px; font-weight:800; color:var(--sk-green); width:fit-content;"><i class="fa-solid fa-circle-check" style="font-size:18px;"></i> Offizieller ŠKODA Vertragspartner in Essen</div>
 
     <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;">
       <a href="anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; box-shadow:0 8px 22px rgba(0,0,0,0.22); font-size:16px; padding:15px 28px; border-radius:10px;" style-hover="background:var(--sk-mint-600);">
@@ -276,7 +277,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
   <!-- Basisdaten + Ausstattung (aufklappbar) -->
   <section class="sk-container" style="padding-top:20px; padding-bottom:6px;">
-    <details class="sk-acc" open>
+    <details class="sk-acc" open="{{ descOpen }}">
       <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-gauge-high"></i></span> Basisdaten</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
       <div class="sk-accbody">
         <div class="sk-datagrid">
@@ -399,7 +400,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       <div style="display:flex; gap:14px; align-items:flex-start; background:var(--sk-paper); border:1px solid #E1E8E4; border-radius:14px; padding:18px 20px;">
         <i class="fa-solid fa-location-dot" style="color:var(--sk-green); font-size:20px; margin-top:2px;"></i>
         <div>
-          <div style="font-weight:800; font-size:16px; margin-bottom:4px;">Ihr Händler vor Ort in Essen</div>
+          <div style="font-weight:800; font-size:16px; margin-bottom:4px;">Offizieller ŠKODA Vertragspartner in Essen</div>
           <p style="margin:0; font-size:15px; color:#4A564F; line-height:1.6;">AS-Automobile ist Ihr Autohaus an der Hövelstr. 151–153 in Essen — mit <strong>über 300 Fahrzeugen sofort verfügbar</strong>. Persönliche Beratung, Übergabe und Service, alles direkt vor Ort.</p>
         </div>
       </div>
