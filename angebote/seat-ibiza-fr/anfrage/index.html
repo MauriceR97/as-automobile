@@ -371,8 +371,8 @@ class Component extends DCLogic {
     };
     this.state = {
       mode: q('mode', 'leasing'),
-      anzahlung: Number(q('anzahlung', 990)) || 0,
-      laufzeit: Number(q('laufzeit', 36)) || 36,
+      anzahlung: Number(q('anzahlung', 2990)) || 0,
+      laufzeit: Number(q('laufzeit', 24)) || 24,
       km: Number(q('km', 10000)) || 10000,
       color: q('color', 'Fiord Blau'),
       configCode: '',
@@ -431,8 +431,8 @@ class Component extends DCLogic {
       const financed = Math.max(0, 29005.00 - anzahlung);
       return Math.max(0, Math.round(financed * (1 + 0.049 * (laufzeit / 12)) / laufzeit));
     }
-    let r = 179 + (990 - anzahlung) * 0.015 + (36 - laufzeit) * 3.5 + ((km - 10000) / 1000) * 5;
-    return Math.max(69, Math.round(r));
+    let r = 89 + (2990 - anzahlung) * 0.015 + (24 - laufzeit) * 3.0 + ((km - 10000) / 1000) * 5;
+    return Math.max(49, Math.round(r));
   }
 
   colorImg() {

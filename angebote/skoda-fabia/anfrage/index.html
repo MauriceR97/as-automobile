@@ -341,7 +341,7 @@ fbq('init','1422851823195089');fbq('track','PageView');
       </div>
       <div style="padding:20px;">
         <div style="font-weight:800; font-size:18px; margin-bottom:2px;">Škoda Fabia Essence</div>
-        <div style="font-size:13px; color:#6B776F; margin-bottom:16px;">Vorführwagen · 59 kW (80 PS)</div>
+        <div style="font-size:13px; color:#6B776F; margin-bottom:16px;">Neuwagen · 59 kW (80 PS)</div>
         <div style="display:flex; flex-direction:column; gap:10px; font-size:14px;">
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Erwerbsart</span><strong>{{ modeLabel }}</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschfarbe</span><strong>{{ color }}</strong></div>
@@ -371,10 +371,10 @@ class Component extends DCLogic {
     };
     this.state = {
       mode: q('mode', 'leasing'),
-      anzahlung: Number(q('anzahlung', 990)) || 0,
-      laufzeit: Number(q('laufzeit', 48)) || 48,
+      anzahlung: Number(q('anzahlung', 2500)) || 0,
+      laufzeit: Number(q('laufzeit', 24)) || 24,
       km: Number(q('km', 10000)) || 10000,
-      color: q('color', 'Race-Blau'),
+      color: q('color', 'Energy-Blau'),
       configCode: '',
       kundentyp: 'privat',
       probefahrt: 'ja',
@@ -431,13 +431,13 @@ class Component extends DCLogic {
       const financed = Math.max(0, 20719.99 - anzahlung);
       return Math.max(0, Math.round(financed * (1 + 0.049 * (laufzeit / 12)) / laufzeit));
     }
-    let r = 139 + (990 - anzahlung) * 0.015 + (48 - laufzeit) * 3.2 + ((km - 10000) / 1000) * 5;
-    return Math.max(69, Math.round(r));
+    let r = 69 + (2500 - anzahlung) * 0.015 + (24 - laufzeit) * 3.0 + ((km - 10000) / 1000) * 5;
+    return Math.max(49, Math.round(r));
   }
 
   colorImg() {
     const map = {
-      'Race-Blau': '../img/fabia-side.png', 'Velvet-Rot': '../img/color-rot.png',
+      'Energy-Blau': '../img/fabia-side.png', 'Velvet-Rot': '../img/color-rot.png',
       'Brillant-Grau': '../img/color-grau.png', 'Candy-Weiß': '../img/color-weiss.png',
       'Magic-Schwarz': '../img/color-schwarz.png',
     };
@@ -525,7 +525,7 @@ class Component extends DCLogic {
     try {
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
         window.fbq('track', 'Lead', {
-          content_name: 'Škoda Fabia Essence – Vorführwagen',
+          content_name: 'Škoda Fabia Essence – Neuwagen',
           content_category: modeLabel,
           value: rate, currency: 'EUR',
         }, { eventID: eventId });
@@ -537,9 +537,14 @@ class Component extends DCLogic {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'lead_submit', event_id: eventId,
+          user_data: {
+            email_address: (s.email || '').trim().toLowerCase(),
+            phone_number: (function(p){p=(p||'').replace(/[^0-9+]/g,'');if(!p)return '';if(p.charAt(0)==='+')return p;if(p.slice(0,2)==='00')return '+'+p.slice(2);if(p.charAt(0)==='0')return '+49'+p.slice(1);return '+49'+p;})(s.phone),
+            address: { first_name: (s.vorname || '').trim().toLowerCase(), last_name: (s.nachname || '').trim().toLowerCase() },
+          },
           lead: {
             marke: 'Škoda',
-            fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen',
+            fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Neuwagen',
             erwerbsart: modeLabel, kundentyp: s.kundentyp,
             berechnete_rate: rate, currency: 'EUR', value: rate,
             vorname: s.vorname, nachname: s.nachname, email: s.email, telefon: s.phone,
@@ -553,7 +558,7 @@ class Component extends DCLogic {
       event_name: 'Lead', event_id: eventId,
       event_source_url: (typeof window !== 'undefined' ? window.location.href : ''),
       marke: 'Škoda',
-      fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Vorführwagen',
+      fahrzeug: 'Škoda Fabia Essence 1.0 MPI · Neuwagen',
       erwerbsart: modeLabel, kundentyp: s.kundentyp,
       sonderzahlung: String(s.anzahlung), laufzeit_monate: String(s.laufzeit),
       fahrleistung_km: String(s.km), wunschfarbe: s.color,
