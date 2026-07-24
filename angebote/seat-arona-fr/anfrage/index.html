@@ -131,18 +131,6 @@ fbq('init','1422851823195089');fbq('track','PageView');
     </div>
   </header>
 
-  <!-- Fortschritt (Wizard) -->
-  <div style="background:#fff; border-bottom:1px solid #E7ECE9;">
-    <div class="sk-container" style="padding:16px 24px; display:flex; align-items:center; gap:8px; justify-content:center; font-size:13px; font-weight:700; flex-wrap:wrap;">
-      <span class="sk-pstep {{ p1 }}"><span class="sk-pnum">1</span> Erwerbsart</span>
-      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
-      <span class="sk-pstep {{ p2 }}"><span class="sk-pnum">2</span> Konditionen</span>
-      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
-      <span class="sk-pstep {{ p3 }}"><span class="sk-pnum">3</span> Termin</span>
-      <span style="width:20px; height:1px; background:#D5DDD9;"></span>
-      <span class="sk-pstep {{ p4 }}"><span class="sk-pnum">4</span> Kontakt</span>
-    </div>
-  </div>
 
   <div class="sk-container sk-main" style="padding-top:clamp(24px,5vw,40px); padding-bottom:clamp(40px,6vw,64px);">
 
@@ -150,145 +138,11 @@ fbq('init','1422851823195089');fbq('track','PageView');
     <div style="background:#fff; border:1px solid #E7ECE9; border-radius:18px; padding:clamp(22px,4vw,34px);">
       <form onSubmit="{{ onSubmit }}">
 
-        <!-- ===== SCHRITT 1: Erwerbsart ===== -->
-        <sc-if value="{{ step1 }}" hint-placeholder-val="{{ true }}">
+        <!-- Angebotsanfrage (einstufig) -->
+        <sc-if value="{{ step4 }}" hint-placeholder-val="{{ true }}">
         <div>
-          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Wie möchten Sie Ihren Arona FR?</h1>
-          <p style="margin:0 0 22px; font-size:15px; color:#5B6863;">Wählen Sie Ihre gewünschte Erwerbsart — die Konditionen stellen wir im nächsten Schritt ein.</p>
-          <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:26px;">
-            <button type="button" onClick="{{ setLeasing }}" class="sk-mode {{ leasingCls }}"><span class="ic"><i class="fa-solid fa-repeat"></i></span><span><b>Leasing</b><em>Kleine monatliche Rate, planbar, ideal für Privat &amp; Gewerbe.</em></span></button>
-            <button type="button" onClick="{{ setFin }}" class="sk-mode {{ finCls }}"><span class="ic"><i class="fa-solid fa-building-columns"></i></span><span><b>Finanzierung</b><em>In Raten kaufen — am Ende gehört das Fahrzeug Ihnen.</em></span></button>
-            <button type="button" onClick="{{ setKauf }}" class="sk-mode {{ kaufCls }}"><span class="ic"><i class="fa-solid fa-sack-euro"></i></span><span><b>Barkauf</b><em>Einmalig bezahlen, keine Laufzeit, bester Gesamtpreis.</em></span></button>
-          </div>
-          <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-        </sc-if>
-
-        <!-- ===== SCHRITT 2: Konditionen ===== -->
-        <sc-if value="{{ step2 }}" hint-placeholder-val="{{ false }}">
-        <div>
-          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihre Konditionen</h1>
-          <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">{{ modeLabel }} · passen Sie die Werte an — Ihre Rate rechnet live mit.</p>
-
-          <div style="background:var(--sk-paper); border:1px solid #E7ECE9; border-radius:14px; padding:clamp(16px,3vw,22px); margin-bottom:22px;">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:14px; border-bottom:1px solid #E1E8E4;">
-              <span style="font-size:13px; color:#6B776F; font-weight:700;">{{ rateLabel }}</span>
-              <span style="font-size:clamp(28px,5vw,34px); font-weight:800; color:var(--sk-green); letter-spacing:-.02em; line-height:1;">{{ rateFmt }} €<span style="font-size:14px; font-weight:700;"> {{ rateSuffix }}</span></span>
-            </div>
-
-            <sc-if value="{{ showFinance }}" hint-placeholder-val="{{ true }}">
-            <div>
-              <!-- Sonderzahlung: Slider -->
-              <div style="margin-top:18px;">
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;"><span class="sk-label" style="margin:0;">{{ anzLabel }}</span><span style="font-weight:800; color:var(--sk-green); font-size:15px;">{{ anzahlungFmt }} €</span></div>
-                <input type="range" min="0" max="6000" step="50" value="{{ anzahlung }}" onChange="{{ onAnz }}" />
-                <div style="display:flex; justify-content:space-between; font-size:11px; color:#9AA8A1; margin-top:4px;"><span>0 €</span><span>6.000 €</span></div>
-              </div>
-              <!-- Laufzeit: Dropdown -->
-              <div style="margin-top:18px;">
-                <span class="sk-label">Laufzeit</span>
-                <select value="{{ laufzeit }}" onChange="{{ onLaufzeit }}" class="sk-field">
-                  <option value="24">24 Monate</option>
-                  <option value="36">36 Monate</option>
-                  <option value="42">42 Monate</option>
-                  <option value="48">48 Monate</option>
-                  <option value="60">60 Monate</option>
-                </select>
-              </div>
-              <!-- Fahrleistung: Dropdown (nur Leasing) -->
-              <sc-if value="{{ isLeasing }}" hint-placeholder-val="{{ true }}">
-                <div style="margin-top:18px;">
-                  <span class="sk-label">Fahrleistung / Jahr</span>
-                  <select value="{{ km }}" onChange="{{ onKm }}" class="sk-field">
-                    <option value="5000">5.000 km</option>
-                    <option value="10000">10.000 km</option>
-                    <option value="15000">15.000 km</option>
-                    <option value="20000">20.000 km</option>
-                    <option value="25000">25.000 km</option>
-                  </select>
-                </div>
-              </sc-if>
-            </div>
-            </sc-if>
-            <sc-if value="{{ isKauf }}" hint-placeholder-val="{{ false }}">
-              <p style="margin:16px 0 0; font-size:14px; color:#6B776F; line-height:1.6;">Barkauf zum Fahrzeugpreis inkl. MwSt. Gerne besprechen wir Inzahlungnahme &amp; Sofort-Rabatte persönlich im Termin.</p>
-            </sc-if>
-          </div>
-
-          <div style="display:flex; gap:12px;">
-            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
-            <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
-        </div>
-        </sc-if>
-
-        <!-- ===== SCHRITT 3: Termin ===== -->
-        <sc-if value="{{ step3 }}" hint-placeholder-val="{{ false }}">
-        <div>
-          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihr Wunschtermin</h1>
-          <p style="margin:0 0 18px; font-size:15px; color:#5B6863;">Wählen Sie Tag und Uhrzeit — Ihr Berater bestätigt den Termin kurzfristig.</p>
-
-          <!-- Berater-Strip -->
-          <div style="display:flex; align-items:center; gap:13px; background:var(--sk-green); color:#fff; border-radius:12px; padding:13px 16px; margin-bottom:16px;">
-            <div style="width:48px; height:48px; border-radius:999px; overflow:hidden; flex:none; border:2px solid rgba(255,255,255,0.35);"><img src="../img/martin-braunheim.jpeg" alt="Martin Braunheim" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-            <div style="line-height:1.4;">
-              <div style="font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-mint);">Ihr Termin bei</div>
-              <div style="font-weight:800; font-size:15px;">Martin Braunheim</div>
-              <div style="font-size:12px; color:rgba(255,255,255,0.8);">SEAT · AS-Automobile Essen · ca. 45 Min.</div>
-            </div>
-          </div>
-
-          <!-- Kalender-Karte -->
-          <div style="border:1px solid #E7ECE9; border-radius:14px; padding:18px; margin-bottom:16px;">
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px;">
-              <span class="sk-label" style="margin:0;">1. Tag wählen</span>
-              <div style="display:flex; align-items:center; gap:8px;">
-                <button type="button" onClick="{{ onPrevWeek }}" class="sk-wk {{ prevOff }}" aria-label="Woche zurück"><i class="fa-solid fa-chevron-left"></i></button>
-                <span style="font-size:13px; font-weight:700; min-width:104px; text-align:center; color:var(--sk-ink);">{{ weekLabel }}</span>
-                <button type="button" onClick="{{ onNextWeek }}" class="sk-wk {{ nextOff }}" aria-label="Woche vor"><i class="fa-solid fa-chevron-right"></i></button>
-              </div>
-            </div>
-            <div class="sk-days">
-              <sc-for list="{{ days }}" as="d" hint-placeholder-count="6">
-                <button type="button" class="sk-day {{ d.cls }}" onClick="{{ d.onClick }}"><small>{{ d.wd }}</small><b>{{ d.day }}</b><em>{{ d.mo }}</em></button>
-              </sc-for>
-            </div>
-            <div style="height:1px; background:#EEF2F0; margin:16px 0;"></div>
-            <span class="sk-label">2. Uhrzeit wählen · <span style="color:var(--sk-green);">{{ dayLabel }}</span></span>
-            <div class="sk-slots">
-              <sc-for list="{{ slots }}" as="sl" hint-placeholder-count="8">
-                <button type="button" class="sk-slot {{ sl.cls }}" onClick="{{ sl.onClick }}">{{ sl.label }}</button>
-              </sc-for>
-            </div>
-            <sc-if value="{{ terminMissing }}" hint-placeholder-val="{{ false }}">
-              <div style="margin-top:14px; font-size:13px; font-weight:700; color:#B45309; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-exclamation"></i> Bitte wählen Sie eine Uhrzeit.</div>
-            </sc-if>
-          </div>
-
-          <!-- Probefahrt -->
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom:14px;">
-            <span style="font-weight:700; font-size:14px; color:var(--sk-ink);">Auch eine Probefahrt gewünscht?</span>
-            <div class="sk-seg" style="width:180px;">
-              <button type="button" onClick="{{ setProbeJa }}" class="sk-segbtn {{ probeJaCls }}">Ja</button>
-              <button type="button" onClick="{{ setProbeNein }}" class="sk-segbtn {{ probeNeinCls }}">Nein</button>
-            </div>
-          </div>
-          <sc-if value="{{ probeJa }}" hint-placeholder-val="{{ true }}">
-            <div style="margin-bottom:20px; font-size:13px; font-weight:600; color:var(--sk-green); background:rgba(235,92,55,0.16); border:1px solid rgba(14,58,47,0.15); border-radius:10px; padding:13px 15px; display:flex; align-items:flex-start; gap:9px;"><i class="fa-solid fa-id-card" style="margin-top:2px;"></i> <span>Bitte bringen Sie zu Ihrem Termin Ihren <strong>Führerschein</strong> mit — dann steht der Probefahrt nichts im Wege.</span></div>
-          </sc-if>
-
-          <div style="display:flex; gap:12px; margin-top:6px;">
-            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
-            <button type="button" onClick="{{ onNext }}" class="sk-primary">Weiter <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
-        </div>
-        </sc-if>
-
-        <!-- ===== SCHRITT 4: Kontakt ===== -->
-        <sc-if value="{{ step4 }}" hint-placeholder-val="{{ false }}">
-        <div>
-          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Ihre Kontaktdaten</h1>
-          <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">Fast geschafft — wir bestätigen Ihre Anfrage kurzfristig.</p>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Jetzt Angebot anfragen</h1>
+          <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">Hinterlassen Sie Ihre Daten — Sie erhalten Ihr unverbindliches Leasing-Angebot kurzfristig von uns.</p>
 
           <div style="margin-bottom:18px;">
             <span class="sk-label">Ich bin …</span>
@@ -307,7 +161,7 @@ fbq('init','1422851823195089');fbq('track','PageView');
             <div><span class="sk-label">E-Mail *</span><input value="{{ email }}" onChange="{{ onEmail }}" required type="email" class="sk-field" /></div>
           </div>
           <div style="margin-bottom:14px;">
-            <span class="sk-label">Konfigurations-Code (optional)</span>
+            <span class="sk-label">Konfigurations-Code</span>
             <input value="{{ configCode }}" onChange="{{ onConfigCode }}" placeholder="z. B. SC22RL2Y" class="sk-field" style="letter-spacing:.06em;" />
           </div>
           <div style="margin-bottom:20px;">
@@ -325,8 +179,7 @@ fbq('init','1422851823195089');fbq('track','PageView');
           <div style="margin-bottom:10px;"></div>
 
           <div style="display:flex; gap:12px;">
-            <button type="button" onClick="{{ onBack }}" class="sk-ghost"><i class="fa-solid fa-arrow-left"></i> Zurück</button>
-            <button type="submit" class="sk-primary"><i class="fa-solid fa-paper-plane"></i> Anfrage absenden</button>
+            <button type="submit" class="sk-primary"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</button>
           </div>
         </div>
         </sc-if>
@@ -346,7 +199,9 @@ fbq('init','1422851823195089');fbq('track','PageView');
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Erwerbsart</span><strong>{{ modeLabel }}</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschfarbe</span><strong>{{ color }}</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">{{ anzLabel }}</span><strong>{{ anzahlungFmt }} €</strong></div>
-          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschtermin</span><strong style="text-align:right;">{{ terminShort }}</strong></div>
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Laufzeit</span><strong>24 Monate</strong></div>
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Fahrleistung</span><strong>10.000 km/Jahr</strong></div>
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Konfig.-Code</span><strong style="letter-spacing:.04em;">SLWSB5DT</strong></div>
         </div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:baseline; justify-content:space-between;">
           <span style="font-size:13px; color:#6B776F;">{{ rateLabel }}</span>
@@ -375,12 +230,12 @@ class Component extends DCLogic {
       laufzeit: Number(q('laufzeit', 24)) || 24,
       km: Number(q('km', 10000)) || 10000,
       color: q('color', 'Fiord Blau'),
-      configCode: '',
+      configCode: q('code', 'SLWSB5DT'),
       kundentyp: 'privat',
-      probefahrt: 'ja',
+      probefahrt: 'nein',
       vorname: '', nachname: '', phone: '', email: '', message: '', consent: false,
-      formStep: 1,
-      terminDatum: this.firstDayIso(), terminUhrzeit: '', terminMissing: false,
+      formStep: 4,
+      terminDatum: '', terminUhrzeit: '', terminMissing: false,
       consentMissing: false,
       weekOffset: 0,
     };
@@ -424,16 +279,7 @@ class Component extends DCLogic {
 
   fmt(n) { return Math.round(n).toLocaleString('de-DE'); }
 
-  computeRate() {
-    const { mode, anzahlung, laufzeit, km } = this.state;
-    if (mode === 'kauf') return 32235;
-    if (mode === 'finanzierung') {
-      const financed = Math.max(0, 32235.00 - anzahlung);
-      return Math.max(0, Math.round(financed * (1 + 0.049 * (laufzeit / 12)) / laufzeit));
-    }
-    let r = 99 + (2990 - anzahlung) * 0.015 + (24 - laufzeit) * 3.0 + ((km - 10000) / 1000) * 5;
-    return Math.max(49, Math.round(r));
-  }
+  computeRate() { return 99; }
 
   colorImg() {
     const map = {
@@ -513,8 +359,8 @@ class Component extends DCLogic {
     const rate = this.computeRate();
     const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
     const probe = s.probefahrt === 'ja';
-    const terminText = (s.terminDatum && s.terminUhrzeit) ? (this.dayLabelFor(s.terminDatum) + ' · ' + s.terminUhrzeit + ' Uhr') : '';
-    const anliegen = probe ? 'Termin inkl. Probefahrt' : 'Termin (Besichtigung / Beratung)';
+    const terminText = '';
+    const anliegen = 'Angebotsanfrage';
     const probefahrtLabel = probe ? 'ja' : 'nein';
 
     let attr = {};
@@ -647,7 +493,7 @@ class Component extends DCLogic {
       onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
 
       rateFmt: this.fmt(rateNum),
-      rateLabel: isKauf ? 'Kaufpreis' : 'Rate ca.',
+      rateLabel: 'Leasingrate',
       rateSuffix: isKauf ? '' : 'mtl.',
 
       probeJa: probe, probeNein: !probe,
