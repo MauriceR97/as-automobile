@@ -7,7 +7,7 @@
 </head>
 <body>
 <x-dc>
-<!-- Rechtsseite (Datenschutz) der Angebots-Landingpages — Rechtsseite Datenschutz für AS Automobile — Verantwortlicher, Rechtsgrundlagen, Kontaktformular/Leads, Cookies, Tracking (Meta/Google), Betroffenenrechte. -->
+<!-- Rechtsseite (Datenschutz) der Angebots-Landingpages — Art. 13/14 DSGVO: Verantwortlicher, Rechtsgrundlagen, Angebotsanfrage, Hosting, Cookies/TDDDG, Tracking (Meta/Google), Google Maps, Elfsight, CDN, Empfänger, Drittland, Fristen, Betroffenenrechte. -->
 <helmet>
 <script src="../assets/ds-base.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -23,10 +23,16 @@
   .lg-p a:hover { color: #12463A; }
   .lg-ul { margin: 0 0 12px; padding-left: 20px; font-size: 15px; line-height: 1.7; color: #3C4A44; }
   .lg-ul li { margin-bottom: 5px; }
+  .lg-ul a { color: #0E3A2F; font-weight: 600; }
   .lg-card { background: #fff; border: 1px solid #E7ECE9; border-radius: 14px; padding: clamp(18px,3vw,24px); }
+  .lg-note { background: #fff; border: 1px solid #E7ECE9; border-left: 3px solid #0E3A2F; border-radius: 10px; padding: 16px 18px; font-size: 14px; line-height: 1.65; color: #3C4A44; margin: 0 0 12px; }
   .lg-toc { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
   .lg-toc a { font-size: 13px; font-weight: 600; text-decoration: none; color: #0E3A2F; background: #fff; border: 1px solid #E7ECE9; border-radius: 999px; padding: 7px 14px; }
   .lg-toc a:hover { border-color: #0E3A2F; }
+  .lg-tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .lg-tbl th, .lg-tbl td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #EDF1EF; vertical-align: top; line-height: 1.55; }
+  .lg-tbl th { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: #6B776F; }
+  .lg-scroll { overflow-x: auto; }
 </style>
 </helmet>
 <div style="--sk-green:#0E3A2F; --sk-ink:#0B1512; --sk-paper:#F4F7F5; font-family:var(--font-sans,'Inter',sans-serif); color:var(--sk-ink); background:var(--sk-paper); min-height:100vh; -webkit-font-smoothing:antialiased;">
@@ -38,74 +44,144 @@
   </header>
   <main class="lg-container" style="padding-top:clamp(28px,5vw,44px); padding-bottom:clamp(48px,7vw,72px);">
     <h1 style="margin:0 0 8px; font-size:clamp(26px,5vw,36px); font-weight:800; letter-spacing:-.02em;">Datenschutzerklärung</h1>
-    <p class="lg-p" style="margin-bottom:22px;">Wir freuen uns über Ihr Interesse an unseren Fahrzeugangeboten. Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir Sie gemäß Art. 13 und 14 DSGVO über die Verarbeitung Ihrer Daten auf dieser Website.</p>
+    <p class="lg-p" style="margin-bottom:22px;">Wir freuen uns über Ihr Interesse an unseren Fahrzeugangeboten. Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Nachfolgend informieren wir Sie gemäß Art. 13 und 14 der Datenschutz-Grundverordnung (DSGVO) darüber, welche Daten wir beim Besuch dieser Website und bei einer Angebotsanfrage verarbeiten, zu welchen Zwecken und auf welcher Rechtsgrundlage dies geschieht und welche Rechte Ihnen zustehen.</p>
     <nav class="lg-toc">
-      <a href="#verantwortlich">Verantwortlicher</a>
-      <a href="#anfrage">Angebotsanfrage</a>
-      <a href="#hosting">Hosting &amp; Logfiles</a>
-      <a href="#cookies">Cookies &amp; Consent</a>
-      <a href="#tracking">Reichweitenmessung</a>
-      <a href="#empfaenger">Empfänger</a>
-      <a href="#speicherdauer">Speicherdauer</a>
-      <a href="#rechte">Ihre Rechte</a>
+      <a href="#verantwortlich">1. Verantwortlicher</a>
+      <a href="#begriffe">2. Grundsätze</a>
+      <a href="#anfrage">3. Angebotsanfrage</a>
+      <a href="#kontakt">4. Kontaktaufnahme</a>
+      <a href="#hosting">5. Hosting &amp; Logfiles</a>
+      <a href="#cookies">6. Cookies &amp; Consent</a>
+      <a href="#tracking">7. Analyse &amp; Werbung</a>
+      <a href="#dienste">8. Eingebundene Dienste</a>
+      <a href="#empfaenger">9. Empfänger</a>
+      <a href="#drittland">10. Drittlandtransfers</a>
+      <a href="#speicherdauer">11. Speicherdauer</a>
+      <a href="#pflicht">12. Bereitstellungspflicht</a>
+      <a href="#sicherheit">13. Sicherheit</a>
+      <a href="#rechte">14. Ihre Rechte</a>
+      <a href="#aenderungen">15. Änderungen</a>
     </nav>
 
     <h2 class="lg-h2" id="verantwortlich">1. Verantwortlicher und Datenschutzbeauftragter</h2>
     <div class="lg-card">
-      <p class="lg-p" style="margin-bottom:10px;"><strong>Verantwortlicher im Sinne der DSGVO:</strong><br />AS Automobile GmbH, Geschäftsführer Martin Braunheim<br />Hövelstr. 151, 45326 Essen<br />Telefon <a href="tel:+4920183148300">0201-831483-0</a> · Telefax 0201-3162178 · <a href="mailto:mb@seat-as.de">mb@seat-as.de</a><br />AG Essen / 10809 · USt-IdNr. DE159936791</p>
-      <p class="lg-p" style="margin:0;"><strong>Datenschutzbeauftragter:</strong><br />Martin Kedzierski, Hövelstr. 151, 45326 Essen<br />Telefon <a href="tel:+4920183148300">0201-831483-0</a> · <a href="mailto:mk@skoda-as.de">mk@skoda-as.de</a></p>
+      <p class="lg-p" style="margin-bottom:10px;"><strong>Verantwortlicher im Sinne des Art. 4 Nr. 7 DSGVO:</strong><br />AS Automobile GmbH, vertreten durch den Geschäftsführer Martin Braunheim<br />Hövelstr. 151, 45326 Essen, Deutschland<br />Telefon <a href="tel:+4920183148300">0201-831483-0</a> · Telefax 0201-3162178 · <a href="mailto:mb@seat-as.de">mb@seat-as.de</a><br />Amtsgericht Essen, HRB 10809 · USt-IdNr. DE159936791</p>
+      <p class="lg-p" style="margin:0;"><strong>Unser Datenschutzbeauftragter:</strong><br />Martin Kedzierski, Hövelstr. 151, 45326 Essen<br />Telefon <a href="tel:+4920183148300">0201-831483-0</a> · <a href="mailto:mk@skoda-as.de">mk@skoda-as.de</a></p>
     </div>
 
-    <h2 class="lg-h2" id="anfrage">2. Angebotsanfrage über unser Formular</h2>
-    <p class="lg-p">Wenn Sie über eine unserer Angebotsseiten ein Leasing-Angebot anfragen, verarbeiten wir die von Ihnen eingegebenen Daten, um Ihre Anfrage zu bearbeiten und Ihnen ein individuelles Angebot zu erstellen.</p>
-    <h3 class="lg-h3">Verarbeitete Daten</h3>
+    <h2 class="lg-h2" id="begriffe">2. Grundsätze und Rechtsgrundlagen</h2>
+    <p class="lg-p">Wir verarbeiten personenbezogene Daten ausschließlich auf einer gesetzlichen Grundlage. In Betracht kommen:</p>
     <ul class="lg-ul">
-      <li>Vor- und Nachname, Telefonnummer, E-Mail-Adresse</li>
-      <li>Kundentyp (Privat oder Gewerbe)</li>
-      <li>Gewünschte Laufzeit und Fahrleistung pro Jahr, ggf. Konfigurations-Code und Wunschfarbe</li>
-      <li>Ihre optionale Nachricht sowie das angefragte Fahrzeug</li>
-      <li>Technische Daten des Absendens (Zeitstempel, IP-Adresse, Browserkennung) sowie Herkunftsangaben der Anfrage (z. B. Kampagnenparameter)</li>
+      <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> — Ihre Einwilligung, etwa für Cookies zu Statistik- und Marketingzwecken oder für eine Kontaktaufnahme zu Werbezwecken.</li>
+      <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> — Erfüllung eines Vertrags oder Durchführung vorvertraglicher Maßnahmen, insbesondere die Bearbeitung Ihrer Angebotsanfrage.</li>
+      <li><strong>Art. 6 Abs. 1 lit. c DSGVO</strong> — Erfüllung rechtlicher Verpflichtungen, z. B. handels- und steuerrechtlicher Aufbewahrungspflichten.</li>
+      <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> — Wahrung unserer berechtigten Interessen, etwa der sichere Betrieb dieser Website und die Abwehr von Missbrauch.</li>
     </ul>
-    <h3 class="lg-h3">Rechtsgrundlage</h3>
-    <p class="lg-p">Die Verarbeitung erfolgt zur Anbahnung eines Vertragsverhältnisses und auf Ihre Anfrage hin gemäß Art. 6 Abs. 1 lit. b DSGVO sowie auf Grundlage Ihrer Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie mit der Absendung des Formulars erteilen. Ihre Einwilligung können Sie jederzeit widerrufen; die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
-    <h3 class="lg-h3">Übermittlung an Leasinggeber und Hersteller</h3>
-    <p class="lg-p">Zur Erstellung eines verbindlichen Leasing-Angebots übermitteln wir die erforderlichen Daten an die jeweilige Leasinggesellschaft (Volkswagen Leasing GmbH, Gifhorner Straße 57, 38112 Braunschweig, für Škoda Leasing bzw. SEAT Leasing) sowie ggf. an den Importeur. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
+    <p class="lg-p">Soweit wir Cookies oder vergleichbare Technologien einsetzen, richtet sich die Zulässigkeit des Zugriffs auf Ihr Endgerät zusätzlich nach § 25 Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz (TDDDG).</p>
 
-    <h2 class="lg-h2" id="hosting">3. Hosting, Auslieferung und Server-Logfiles</h2>
-    <p class="lg-p">Beim Aufruf unserer Seiten werden durch den Webserver automatisch Zugriffsdaten protokolliert: aufgerufene Seite, Datum und Uhrzeit, übertragene Datenmenge, Meldung über erfolgreichen Abruf, Browsertyp und -version, Betriebssystem, Referrer-URL und die IP-Adresse. Diese Verarbeitung ist zum sicheren und stabilen Betrieb der Website erforderlich; Rechtsgrundlage ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO.</p>
-    <p class="lg-p">Bestimmte Inhalte werden über Content-Delivery-Netzwerke ausgeliefert (Schriften und Icon-Bibliothek). Dabei wird Ihre IP-Adresse technisch an den jeweiligen Anbieter übertragen.</p>
-
-    <h2 class="lg-h2" id="cookies">4. Cookies und Einwilligungsverwaltung</h2>
-    <p class="lg-p">Technisch notwendige Cookies setzen wir auf Grundlage von § 25 Abs. 2 TDDDG ohne Einwilligung ein. Alle darüber hinausgehenden Cookies und vergleichbaren Technologien — insbesondere für Statistik und Marketing — setzen wir nur mit Ihrer Einwilligung nach § 25 Abs. 1 TDDDG und Art. 6 Abs. 1 lit. a DSGVO.</p>
-    <p class="lg-p">Für die Einholung und Dokumentation Ihrer Einwilligung nutzen wir <strong>Cookiebot</strong> (Usercentrics A/S, Havnegade 39, 1058 Kopenhagen, Dänemark). Dabei werden Ihre Einwilligungsentscheidung, ein anonymisierter Kennwert und Ihre IP-Adresse gespeichert. Ihre Einwilligung können Sie jederzeit über das Cookie-Banner bzw. die Cookie-Einstellungen auf unserer Website anpassen oder widerrufen.</p>
-
-    <h2 class="lg-h2" id="tracking">5. Reichweitenmessung und Werbung</h2>
-    <p class="lg-p">Die folgenden Dienste werden ausschließlich nach Ihrer Einwilligung aktiviert.</p>
-    <h3 class="lg-h3">Google Analytics / Google Tag Manager</h3>
-    <p class="lg-p">Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Wir nutzen diese Dienste, um die Nutzung unserer Angebotsseiten auszuwerten und unsere Kampagnen zu optimieren. Dabei können pseudonyme Nutzungsprofile erstellt und Daten in die USA übermittelt werden; die Übermittlung erfolgt auf Grundlage des EU-US Data Privacy Framework bzw. der EU-Standardvertragsklauseln.</p>
-    <h3 class="lg-h3">Meta-Pixel (Facebook / Instagram)</h3>
-    <p class="lg-p">Anbieter: Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland. Mit dem Meta-Pixel messen wir den Erfolg unserer Werbeanzeigen (z. B. ob eine Angebotsanfrage abgesendet wurde) und können Ihnen interessengerechte Werbung anzeigen. Dabei können Daten — auch in gehashter Form aus dem Anfrageformular — an Meta übermittelt und mit Ihrem Nutzerkonto verknüpft werden. Für diese Verarbeitung sind wir gemeinsam mit Meta verantwortlich (Art. 26 DSGVO); die Übermittlung in die USA erfolgt auf Grundlage des EU-US Data Privacy Framework.</p>
-    <p class="lg-p">Die Rechtsgrundlage aller in diesem Abschnitt genannten Verarbeitungen ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG.</p>
-
-    <h2 class="lg-h2" id="empfaenger">6. Empfänger und Auftragsverarbeiter</h2>
-    <p class="lg-p">Ihre Daten geben wir nur weiter, soweit dies zur Bearbeitung Ihrer Anfrage erforderlich ist oder Sie eingewilligt haben. Empfänger können sein:</p>
+    <h2 class="lg-h2" id="anfrage">3. Angebotsanfrage über unser Formular</h2>
+    <p class="lg-p">Wenn Sie über eine unserer Angebotsseiten ein Leasing-Angebot anfragen, verarbeiten wir die von Ihnen eingegebenen Daten, um Ihre Anfrage zu bearbeiten und Ihnen ein individuelles, unverbindliches Angebot zu erstellen. In der Regel melden wir uns innerhalb von 24 Stunden (an Werktagen) bei Ihnen.</p>
+    <h3 class="lg-h3">Verarbeitete Datenkategorien</h3>
     <ul class="lg-ul">
-      <li>unser Hosting- und IT-Dienstleister,</li>
-      <li>der Dienstleister zur Weiterleitung von Formularanfragen an unser Postfach und CRM (Zapier Inc., 548 Market St, San Francisco, CA 94104, USA — auf Grundlage von Standardvertragsklauseln),</li>
-      <li>die Leasinggesellschaft und der Importeur des jeweiligen Fabrikats,</li>
-      <li>Steuerberater und Behörden im Rahmen gesetzlicher Pflichten.</li>
+      <li><strong>Pflichtangaben:</strong> Vorname, Nachname, Telefonnummer, E-Mail-Adresse, gewünschte Laufzeit und jährliche Fahrleistung, Kundentyp (privat oder gewerblich) sowie Ihre Einwilligung zur Kontaktaufnahme.</li>
+      <li><strong>Freiwillige Angaben:</strong> Konfigurations-Code, Wunschfarbe und Ihre Nachricht an uns.</li>
+      <li><strong>Automatisch erhobene Angaben:</strong> das angefragte Fahrzeug und die berechnete Beispielrate, Zeitstempel des Absendens, IP-Adresse, Browser- und Geräteangaben, Herkunft der Anfrage (Referrer, Kampagnen- und Klick-Parameter wie utm_source, gclid oder fbclid) sowie eine technische Ereignis-Kennung zur Zuordnung.</li>
     </ul>
+    <h3 class="lg-h3">Zwecke und Rechtsgrundlagen</h3>
+    <p class="lg-p">Die Bearbeitung Ihrer Anfrage und die Erstellung eines Angebots erfolgen zur Durchführung vorvertraglicher Maßnahmen nach Art. 6 Abs. 1 lit. b DSGVO. Die Kontaktaufnahme über die von Ihnen angegebenen Kanäle stützen wir zusätzlich auf Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie mit dem Absenden des Formulars erteilen. Die Erfassung der Herkunftsangaben dient der Erfolgsmessung unserer Werbung und beruht auf Ihrer Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25 Abs. 1 TDDDG bzw. — soweit keine Einwilligung erforderlich ist — auf unserem berechtigten Interesse nach Art. 6 Abs. 1 lit. f DSGVO an einer wirtschaftlichen Mittelverwendung.</p>
+    <p class="lg-p">Ihre Einwilligung können Sie jederzeit ohne Angabe von Gründen widerrufen, z. B. per E-Mail an <a href="mailto:mk@skoda-as.de">mk@skoda-as.de</a>. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
+    <h3 class="lg-h3">Weitergabe an Leasinggeber, Bank und Hersteller</h3>
+    <p class="lg-p">Zur Erstellung eines verbindlichen Leasing- oder Finanzierungsangebots übermitteln wir die erforderlichen Daten an die jeweilige Gesellschaft — insbesondere die Volkswagen Leasing GmbH bzw. die Volkswagen Bank GmbH, Gifhorner Straße 57, 38112 Braunschweig — sowie, soweit für Fahrzeugverfügbarkeit oder Bestellung erforderlich, an den Importeur (Škoda Auto Deutschland GmbH bzw. SEAT Deutschland GmbH). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Diese Unternehmen verarbeiten Ihre Daten als eigene Verantwortliche; für die dortige Verarbeitung — insbesondere eine Bonitätsprüfung — gelten deren eigene Datenschutzinformationen.</p>
+    <h3 class="lg-h3">Keine automatisierte Entscheidungsfindung</h3>
+    <p class="lg-p">Eine automatisierte Entscheidungsfindung einschließlich Profiling im Sinne des Art. 22 DSGVO findet bei uns nicht statt. Die auf den Angebotsseiten dargestellten Raten sind unverbindliche Beispielrechnungen und stellen keine Bonitätsprüfung dar.</p>
 
-    <h2 class="lg-h2" id="speicherdauer">7. Speicherdauer</h2>
-    <p class="lg-p">Anfragedaten löschen wir, sobald sie für die Bearbeitung nicht mehr erforderlich sind, spätestens nach Ablauf von sechs Monaten nach abschließender Bearbeitung — es sei denn, es besteht eine gesetzliche Aufbewahrungspflicht (insbesondere 6 bzw. 10 Jahre nach HGB und AO) oder es kommt zu einem Vertragsabschluss. Server-Logfiles löschen wir in der Regel nach 30 Tagen. Consent-Daten speichern wir zum Nachweis für die Dauer von bis zu 12 Monaten.</p>
+    <h2 class="lg-h2" id="kontakt">4. Kontaktaufnahme per Telefon, E-Mail oder Fax</h2>
+    <p class="lg-p">Wenn Sie uns direkt kontaktieren, verarbeiten wir die dabei anfallenden Daten (Name, Rufnummer bzw. E-Mail-Adresse, Inhalt und Zeitpunkt Ihrer Nachricht), um Ihr Anliegen zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO bei vertragsbezogenen Anliegen, ansonsten unser berechtigtes Interesse an der Beantwortung von Anfragen nach Art. 6 Abs. 1 lit. f DSGVO.</p>
+    <p class="lg-p">Bitte beachten Sie, dass eine unverschlüsselte E-Mail-Kommunikation nicht vollständig gegen Kenntnisnahme durch Dritte gesichert ist. Für vertrauliche Informationen nutzen Sie gerne den Telefonweg.</p>
 
-    <h2 class="lg-h2" id="rechte">8. Ihre Rechte</h2>
-    <p class="lg-p">Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie ein Widerspruchsrecht gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21 DSGVO). Erteilte Einwilligungen können Sie jederzeit widerrufen.</p>
-    <p class="lg-p">Wenden Sie sich hierfür an <a href="mailto:mk@skoda-as.de">mk@skoda-as.de</a> oder an die oben genannte Adresse.</p>
-    <p class="lg-p">Ihnen steht zudem ein Beschwerderecht bei einer Aufsichtsbehörde zu. Zuständig ist die Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2–4, 40213 Düsseldorf.</p>
+    <h2 class="lg-h2" id="hosting">5. Hosting, Auslieferung und Server-Logfiles</h2>
+    <p class="lg-p">Beim Aufruf unserer Seiten werden durch den Webserver automatisch Zugriffsdaten protokolliert: aufgerufene Seite, Datum und Uhrzeit des Abrufs, übertragene Datenmenge, Meldung über den erfolgreichen Abruf, Browsertyp und -version, verwendetes Betriebssystem, Referrer-URL und die IP-Adresse des anfragenden Rechners.</p>
+    <p class="lg-p">Diese Verarbeitung ist zur Auslieferung der Website sowie zur Gewährleistung von Stabilität und Sicherheit erforderlich. Rechtsgrundlage ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO. Eine Zusammenführung dieser Daten mit anderen Datenquellen oder eine Auswertung zu Marketingzwecken findet nicht statt. Unseren Hosting-Dienstleister haben wir als Auftragsverarbeiter nach Art. 28 DSGVO vertraglich gebunden.</p>
 
-    <h2 class="lg-h2">9. Keine automatisierte Entscheidungsfindung</h2>
-    <p class="lg-p">Eine automatisierte Entscheidungsfindung einschließlich Profiling nach Art. 22 DSGVO findet nicht statt. Die auf den Angebotsseiten dargestellten Raten sind unverbindliche Beispielrechnungen und keine Bonitätsprüfung.</p>
+    <h2 class="lg-h2" id="cookies">6. Cookies und Einwilligungsverwaltung</h2>
+    <p class="lg-p">Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Technisch notwendige Cookies — etwa zur Speicherung Ihrer Einwilligungsentscheidung — setzen wir nach § 25 Abs. 2 Nr. 2 TDDDG ohne Einwilligung ein; Rechtsgrundlage der anschließenden Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+    <p class="lg-p">Alle darüber hinausgehenden Cookies, Pixel und vergleichbaren Technologien — insbesondere für Statistik, Reichweitenmessung und Marketing — setzen wir ausschließlich nach Ihrer ausdrücklichen Einwilligung ein (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Zusätzlich speichern wir bestimmte Angaben Ihrer Anfrage im lokalen Speicher Ihres Browsers (Local Storage), um Kampagneninformationen über die Unterseiten hinweg verfügbar zu halten.</p>
+    <h3 class="lg-h3">Cookiebot (Usercentrics)</h3>
+    <p class="lg-p">Zur Einholung, Verwaltung und Dokumentation Ihrer Einwilligung nutzen wir Cookiebot, einen Dienst der Usercentrics A/S, Havnegade 39, 1058 Kopenhagen, Dänemark. Dabei werden Ihre Einwilligungsentscheidung, ein anonymisierter bzw. verkürzter Kennwert, Ihre IP-Adresse, Browser- und Geräteinformationen sowie Datum und Uhrzeit der Einwilligung protokolliert. Zweck ist die Erfüllung unserer Nachweispflicht nach Art. 7 Abs. 1 DSGVO; Rechtsgrundlage ist Art. 6 Abs. 1 lit. c und lit. f DSGVO.</p>
+    <p class="lg-p"><strong>Ihre Einwilligung können Sie jederzeit ändern oder widerrufen</strong> — über das Cookie-Banner bzw. die Cookie-Einstellungen auf unserer Website oder durch Löschen der Cookies in Ihrem Browser.</p>
+
+    <h2 class="lg-h2" id="tracking">7. Reichweitenmessung und Werbung</h2>
+    <p class="lg-p">Die in diesem Abschnitt genannten Dienste werden erst aktiviert, nachdem Sie im Cookie-Banner zugestimmt haben. Rechtsgrundlage ist jeweils Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO in Verbindung mit § 25 Abs. 1 TDDDG.</p>
+    <h3 class="lg-h3">Google Tag Manager, Google Analytics und Google Ads</h3>
+    <p class="lg-p">Anbieter ist die Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Der Google Tag Manager dient der technischen Verwaltung der eingesetzten Tags und setzt selbst keine Cookies zu Analysezwecken. Mit Google Analytics werten wir die Nutzung unserer Angebotsseiten aus (z. B. aufgerufene Seiten, Verweildauer, ungefährer Standort, Gerätetyp) und messen, ob eine Angebotsanfrage abgesendet wurde. Über Google Ads Conversion-Tracking messen wir den Erfolg unserer Anzeigen. Dabei werden pseudonyme Kennungen verwendet und Nutzungsprofile erstellt. Wir setzen den Google Consent Mode ein, sodass ohne Ihre Einwilligung keine einwilligungspflichtigen Cookies gesetzt werden.</p>
+    <h3 class="lg-h3">Meta-Pixel (Facebook und Instagram)</h3>
+    <p class="lg-p">Anbieter ist die Meta Platforms Ireland Limited, Merrion Road, Dublin 4, Irland. Mit dem Meta-Pixel messen wir die Wirksamkeit unserer Werbeanzeigen — insbesondere, ob eine Angebotsanfrage abgesendet wurde — und können Ihnen sowie ähnlichen Zielgruppen interessengerechte Werbung anzeigen (Custom und Lookalike Audiences). Dabei können auch Angaben aus dem Anfrageformular in gehashter, also nicht im Klartext lesbarer Form an Meta übermittelt und mit einem bestehenden Meta-Nutzerkonto verknüpft werden. Für die Erhebung und Übermittlung der Daten im Rahmen dieser Funktion sind wir gemeinsam mit Meta verantwortlich im Sinne des Art. 26 DSGVO; die Einzelheiten regelt die von Meta bereitgestellte Vereinbarung über gemeinsame Verantwortlichkeit. Für die weitere Verarbeitung durch Meta ist Meta allein verantwortlich. Nähere Informationen finden Sie in der Datenschutzrichtlinie von Meta unter <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a>.</p>
+    <p class="lg-p">Sie können Ihre Einwilligung jederzeit über unsere Cookie-Einstellungen widerrufen. Zusätzlich können Sie interessenbezogene Werbung in Ihren Konto- bzw. Geräteeinstellungen bei Google und Meta einschränken.</p>
+
+    <h2 class="lg-h2" id="dienste">8. Weitere eingebundene Dienste Dritter</h2>
+    <div class="lg-scroll">
+      <table class="lg-tbl">
+        <thead><tr><th>Dienst / Anbieter</th><th>Zweck</th><th>Rechtsgrundlage</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Google Maps</strong><br />Google Ireland Limited, Dublin, Irland</td><td>Darstellung unseres Standorts als eingebettete Karte. Beim Laden der Karte werden Ihre IP-Adresse und Nutzungsdaten an Google übertragen; die Karte wird erst nach Ihrer Zustimmung geladen.</td><td>Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG</td></tr>
+          <tr><td><strong>Elfsight</strong><br />Elfsight LLC, Nikosia, Zypern</td><td>Anzeige von Kundenbewertungen als Widget auf unseren Angebotsseiten.</td><td>Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG</td></tr>
+          <tr><td><strong>Cloudflare cdnjs</strong><br />Cloudflare, Inc., San Francisco, USA</td><td>Auslieferung der Icon-Bibliothek (Font Awesome) über ein Content-Delivery-Netzwerk zur schnellen und sicheren Darstellung.</td><td>Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO</td></tr>
+          <tr><td><strong>Bild-CDN</strong><br />OneCDN / eingesetzter Medien-Dienstleister</td><td>Auslieferung einzelner Bilddateien (z. B. Beraterfoto).</td><td>Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lg-p" style="margin-top:12px;">Beim Abruf von Inhalten über ein Content-Delivery-Netzwerk wird Ihre IP-Adresse technisch notwendig an den jeweiligen Anbieter übertragen, damit die Inhalte an Ihr Gerät ausgeliefert werden können.</p>
+
+    <h2 class="lg-h2" id="empfaenger">9. Empfänger und Auftragsverarbeiter</h2>
+    <p class="lg-p">Wir geben Ihre Daten nur weiter, soweit dies zur Bearbeitung Ihrer Anfrage erforderlich ist, Sie eingewilligt haben oder wir rechtlich dazu verpflichtet sind. Empfänger können sein:</p>
+    <ul class="lg-ul">
+      <li>unser Hosting- und IT-Dienstleister sowie Dienstleister für Wartung und Support (Auftragsverarbeiter nach Art. 28 DSGVO),</li>
+      <li><strong>Zapier Inc.</strong>, 548 Market St, San Francisco, CA 94104, USA — Weiterleitung der Formularanfragen an unser Postfach und unsere Kundenverwaltung (Auftragsverarbeiter, Standardvertragsklauseln),</li>
+      <li>die jeweilige Leasinggesellschaft bzw. Bank und der Importeur des Fabrikats (eigene Verantwortliche, siehe Abschnitt 3),</li>
+      <li>Anbieter der eingesetzten Analyse- und Werbedienste, soweit Sie eingewilligt haben (Abschnitte 7 und 8),</li>
+      <li>Steuerberater, Wirtschaftsprüfer, Rechtsberater sowie Behörden und Gerichte im Rahmen gesetzlicher Pflichten.</li>
+    </ul>
+    <p class="lg-p">Ein Verkauf Ihrer Daten findet nicht statt.</p>
+
+    <h2 class="lg-h2" id="drittland">10. Übermittlung in Drittländer</h2>
+    <p class="lg-p">Einige der genannten Anbieter verarbeiten Daten auch außerhalb der Europäischen Union, insbesondere in den USA. Soweit eine Übermittlung stattfindet, erfolgt diese auf Grundlage eines Angemessenheitsbeschlusses der Europäischen Kommission (EU-US Data Privacy Framework, Art. 45 DSGVO) oder auf Grundlage der Standardvertragsklauseln der Europäischen Kommission nach Art. 46 Abs. 2 lit. c DSGVO, ergänzt um zusätzliche Schutzmaßnahmen. Wir weisen darauf hin, dass in Drittländern nicht in jedem Fall ein Schutzniveau besteht, das dem der DSGVO entspricht, und dass insbesondere ein Zugriff staatlicher Stellen sowie eine eingeschränkte Durchsetzbarkeit von Betroffenenrechten nicht vollständig ausgeschlossen werden können. Soweit die Übermittlung auf Ihrer Einwilligung beruht, erfolgt sie zudem nach Art. 49 Abs. 1 lit. a DSGVO. Kopien der Garantien erhalten Sie auf Anfrage bei unserem Datenschutzbeauftragten.</p>
+
+    <h2 class="lg-h2" id="speicherdauer">11. Speicherdauer</h2>
+    <div class="lg-scroll">
+      <table class="lg-tbl">
+        <thead><tr><th>Daten</th><th>Löschung</th></tr></thead>
+        <tbody>
+          <tr><td>Server-Logfiles</td><td>in der Regel nach 30 Tagen</td></tr>
+          <tr><td>Anfragedaten ohne Vertragsabschluss</td><td>spätestens 6 Monate nach abschließender Bearbeitung</td></tr>
+          <tr><td>Daten mit Vertragsabschluss</td><td>nach Ablauf der handels- und steuerrechtlichen Aufbewahrungsfristen (6 bzw. 10 Jahre gemäß § 257 HGB, § 147 AO)</td></tr>
+          <tr><td>Nachweis der Cookie-Einwilligung</td><td>bis zu 12 Monate</td></tr>
+          <tr><td>Analyse- und Werbedaten</td><td>gemäß den Fristen des jeweiligen Anbieters, längstens bis zum Widerruf Ihrer Einwilligung</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lg-p" style="margin-top:12px;">Darüber hinaus speichern wir Daten, solange sie zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich sind (regelmäßige Verjährung: 3 Jahre, §§ 195, 199 BGB).</p>
+
+    <h2 class="lg-h2" id="pflicht">12. Erforderlichkeit der Bereitstellung</h2>
+    <p class="lg-p">Die Bereitstellung Ihrer Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Die im Formular als Pflichtfelder gekennzeichneten Angaben benötigen wir jedoch, um Ihre Anfrage bearbeiten und Ihnen ein Angebot erstellen zu können. Ohne diese Angaben können wir Ihre Anfrage nicht beantworten; nachteilige Folgen entstehen Ihnen darüber hinaus nicht.</p>
+
+    <h2 class="lg-h2" id="sicherheit">13. Datensicherheit</h2>
+    <p class="lg-p">Wir setzen technische und organisatorische Maßnahmen nach Art. 32 DSGVO ein, um Ihre Daten gegen Verlust, Zerstörung, Manipulation und unbefugten Zugriff zu schützen. Die Übertragung der Formulardaten erfolgt verschlüsselt über TLS (erkennbar am Schloss-Symbol bzw. „https://" in der Adresszeile Ihres Browsers). Unsere Maßnahmen werden regelmäßig überprüft und an den Stand der Technik angepasst.</p>
+
+    <h2 class="lg-h2" id="rechte">14. Ihre Rechte als betroffene Person</h2>
+    <ul class="lg-ul">
+      <li><strong>Auskunft</strong> über die zu Ihrer Person verarbeiteten Daten (Art. 15 DSGVO),</li>
+      <li><strong>Berichtigung</strong> unrichtiger oder unvollständiger Daten (Art. 16 DSGVO),</li>
+      <li><strong>Löschung</strong> Ihrer Daten, sofern keine Aufbewahrungspflicht entgegensteht (Art. 17 DSGVO),</li>
+      <li><strong>Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO),</li>
+      <li><strong>Datenübertragbarkeit</strong> in einem strukturierten, gängigen Format (Art. 20 DSGVO),</li>
+      <li><strong>Widerruf</strong> erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO).</li>
+    </ul>
+    <div class="lg-note"><strong>Widerspruchsrecht nach Art. 21 DSGVO:</strong> Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Ihrer Daten Widerspruch einzulegen, die auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO erfolgt. Werden Ihre Daten zum Zwecke der Direktwerbung verarbeitet, können Sie jederzeit und ohne Angabe von Gründen Widerspruch einlegen; wir verarbeiten Ihre Daten dann nicht mehr für diese Zwecke.</div>
+    <p class="lg-p">Zur Ausübung Ihrer Rechte genügt eine Nachricht an <a href="mailto:mk@skoda-as.de">mk@skoda-as.de</a> oder an die in Abschnitt 1 genannte Adresse. Wir beantworten Ihr Anliegen unverzüglich, spätestens innerhalb eines Monats.</p>
+    <p class="lg-p">Unbeschadet anderer Rechtsbehelfe steht Ihnen ein <strong>Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde</strong> zu (Art. 77 DSGVO). Für uns zuständig ist: Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2–4, 40213 Düsseldorf, <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a>.</p>
+
+    <h2 class="lg-h2" id="aenderungen">15. Änderungen dieser Datenschutzerklärung</h2>
+    <p class="lg-p">Wir passen diese Datenschutzerklärung an, wenn sich unsere Angebote, die eingesetzten Dienste oder die rechtlichen Vorgaben ändern. Es gilt jeweils die auf dieser Seite veröffentlichte Fassung. Bitte informieren Sie sich daher vor einer erneuten Anfrage über den aktuellen Stand.</p>
 
     <p class="lg-p" style="margin-top:30px; font-size:13px; color:#6B776F;">Stand dieser Datenschutzerklärung: Juli 2026. Anbieterangaben finden Sie im <a href="../impressum/">Impressum</a>.</p>
   </main>
