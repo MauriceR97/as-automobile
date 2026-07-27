@@ -160,8 +160,27 @@ fbq('init','1422851823195089');fbq('track','PageView');
             <div><span class="sk-label">Telefon *</span><input value="{{ phone }}" onChange="{{ onPhone }}" required type="tel" class="sk-field" /></div>
             <div><span class="sk-label">E-Mail *</span><input value="{{ email }}" onChange="{{ onEmail }}" required type="email" class="sk-field" /></div>
           </div>
+          <div class="sk-grid2" style="margin-bottom:14px;">
+            <div>
+              <span class="sk-label">Laufzeit *</span>
+              <select value="{{ laufzeit }}" onChange="{{ onLaufzeit }}" class="sk-field">
+                <option value="24">24 Monate</option>
+                <option value="36">36 Monate</option>
+                <option value="48">48 Monate</option>
+              </select>
+            </div>
+            <div>
+              <span class="sk-label">Fahrleistung pro Jahr *</span>
+              <select value="{{ km }}" onChange="{{ onKm }}" class="sk-field">
+                <option value="10000">10.000 km</option>
+                <option value="15000">15.000 km</option>
+                <option value="20000">20.000 km</option>
+                <option value="25000">25.000 km</option>
+              </select>
+            </div>
+          </div>
           <div style="margin-bottom:14px;">
-            <span class="sk-label">Konfigurations-Code</span>
+            <span class="sk-label">Konfigurations-Code (optional)</span>
             <input value="{{ configCode }}" onChange="{{ onConfigCode }}" placeholder="z. B. SDWGGNGH" class="sk-field" style="letter-spacing:.06em;" />
           </div>
           <div style="margin-bottom:20px;">
@@ -199,9 +218,8 @@ fbq('init','1422851823195089');fbq('track','PageView');
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Erwerbsart</span><strong>{{ modeLabel }}</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschfarbe</span><strong>{{ color }}</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">{{ anzLabel }}</span><strong>{{ anzahlungFmt }} €</strong></div>
-          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Laufzeit</span><strong>24 Monate</strong></div>
-          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Fahrleistung</span><strong>10.000 km/Jahr</strong></div>
-          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Konfig.-Code</span><strong style="letter-spacing:.04em;">S2PCJ9QT</strong></div>
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Laufzeit</span><strong>{{ laufzeit }} Monate</strong></div>
+          <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Fahrleistung</span><strong>{{ kmFmt }} km/Jahr</strong></div>
         </div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:baseline; justify-content:space-between;">
           <span style="font-size:13px; color:#6B776F;">{{ rateLabel }}</span>
@@ -280,7 +298,11 @@ class Component extends DCLogic {
 
   fmt(n) { return Math.round(n).toLocaleString('de-DE'); }
 
-  computeRate() { return 89; }
+  computeRate() {
+    const s = this.state;
+    const r = 89 + (24 - s.laufzeit) * 3.0 + ((s.km - 10000) / 1000) * 5;
+    return Math.max(49, Math.round(r));
+  }
 
   colorImg() {
     const map = {
@@ -490,11 +512,11 @@ class Component extends DCLogic {
       showFinance: !isKauf,
 
       anzahlung: s.anzahlung, anzahlungFmt: this.fmt(s.anzahlung),
-      laufzeit: s.laufzeit, km: s.km, color: s.color,
+      laufzeit: s.laufzeit, km: s.km, kmFmt: this.fmt(s.km), color: s.color,
       onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
 
       rateFmt: this.fmt(rateNum),
-      rateLabel: 'Leasingrate',
+      rateLabel: 'Leasingrate ca.',
       rateSuffix: isKauf ? '' : 'mtl.',
 
       probeJa: probe, probeNein: !probe,
