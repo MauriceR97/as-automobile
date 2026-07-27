@@ -190,7 +190,7 @@ fbq('init','1422851823195089');fbq('track','PageView');
 
           <label style="display:flex; gap:10px; align-items:flex-start; margin-bottom:10px; font-size:13px; color:#5B6863; line-height:1.5;">
             <input type="checkbox" checked="{{ consent }}" onChange="{{ onConsent }}" required style="margin-top:2px; width:16px; height:16px; accent-color:var(--sk-green);" />
-            <span>Ich stimme zu, dass AS-Automobile mich zur Bearbeitung meiner Anfrage kontaktiert (Pflichtfeld). Es gelten die <a href="#" style="color:var(--sk-green); font-weight:600;">Datenschutzhinweise</a>.</span>
+            <span>Ich stimme zu, dass AS-Automobile mich zur Bearbeitung meiner Anfrage kontaktiert (Pflichtfeld). Es gelten die <a href="../../../datenschutz/" target="_blank" rel="noopener" style="color:var(--sk-green); font-weight:600;">Datenschutzhinweise</a>.</span>
           </label>
           <sc-if value="{{ consentMissing }}" hint-placeholder-val="{{ false }}">
             <div style="margin-bottom:16px; font-size:13px; font-weight:700; color:#B45309; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-circle-exclamation"></i> Bitte stimmen Sie den Datenschutzhinweisen zu, um Ihre Anfrage abzusenden.</div>
@@ -233,6 +233,13 @@ fbq('init','1422851823195089');fbq('track','PageView');
       </div>
     </aside>
   </div>
+  <footer style="background:#0A2C24; color:#B9C4BF;">
+    <div class="sk-container" style="padding:20px 0; display:flex; gap:16px; flex-wrap:wrap; font-size:13px;">
+      <span>© 2026 AS Automobile GmbH</span>
+      <a href="../../../impressum/" style="color:#B9C4BF; text-decoration:none;" style-hover="color:#fff;">Impressum</a>
+      <a href="../../../datenschutz/" style="color:#B9C4BF; text-decoration:none;" style-hover="color:#fff;">Datenschutz</a>
+    </div>
+  </footer>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1020, &quot;height&quot;: 860}}">
@@ -300,8 +307,9 @@ class Component extends DCLogic {
 
   computeRate() {
     const s = this.state;
-    const r = 89 + (24 - s.laufzeit) * 3.0 + ((s.km - 10000) / 1000) * 5;
-    return Math.max(49, Math.round(r));
+    const lzUp = { 24: 0, 36: 9, 48: 15 }[s.laufzeit] || 0;
+    const kmUp = Math.max(0, (s.km - 10000) / 1000) * 4;
+    return Math.round(89 + lzUp + kmUp);
   }
 
   colorImg() {
