@@ -34,6 +34,7 @@
 </script>
 <!-- Meta Pixel -->
 <script>
+if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1422851823195089');fbq('track','PageView');
 </script>
@@ -121,6 +122,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   .sk-colors    { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
   .sk-gallery   { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
   .sk-haus3     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sk-haus2     { grid-template-columns: repeat(2, 1fr); }
 
   .sk-mobilebar { display: none; }
 
@@ -143,6 +145,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     .sk-gallery { grid-template-columns: repeat(3, 1fr); }
     .sk-colors  { grid-template-columns: repeat(3, 1fr); }
     .sk-haus3   { grid-template-columns: 1fr; }
+    .sk-haus2   { grid-template-columns: 1fr; }
     .sk-stickyhead { display: contents; }
     .sk-annbar { position: sticky; top:0; z-index:51; }
     .sk-hidesm  { display: none !important; }
@@ -568,8 +571,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         </div>
       </div>
 
-      <div class="sk-haus3" style="margin-top:16px;">
-        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-building.jpg" alt="AS-Automobile Essen" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+      <div class="sk-haus3 sk-haus2" style="margin-top:16px;">
         <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-showroom.jpg" alt="Showroom" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-lounge.jpg" alt="Kundenbereich" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
       </div>

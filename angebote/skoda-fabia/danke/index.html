@@ -34,6 +34,7 @@
 </script>
 <!-- Meta Pixel -->
 <script>
+if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1422851823195089');fbq('track','PageView');
 (function(){try{var q=new URLSearchParams(location.search);var eid=q.get('eid')||('lead-'+Date.now()+'-'+Math.random().toString(36).slice(2,10));var k='lead_sent_'+eid;if(sessionStorage.getItem(k))return;fbq('track','Lead',{content_name:'Škoda Fabia Essence – Neuwagen',value:Number(q.get('rate'))||0,currency:'EUR'},{eventID:eid});sessionStorage.setItem(k,'1');}catch(e){}})();

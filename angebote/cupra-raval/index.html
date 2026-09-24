@@ -34,6 +34,7 @@
 </script>
 <!-- Meta Pixel -->
 <script>
+if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1422851823195089');fbq('track','PageView');
 </script>
@@ -121,6 +122,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   .sk-colors    { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
   .sk-gallery   { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
   .sk-haus3     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sk-haus2     { grid-template-columns: repeat(2, 1fr); }
 
   .sk-mobilebar { display: none; }
 
@@ -143,6 +145,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     .sk-gallery { grid-template-columns: repeat(3, 1fr); }
     .sk-colors  { grid-template-columns: repeat(3, 1fr); }
     .sk-haus3   { grid-template-columns: 1fr; }
+    .sk-haus2   { grid-template-columns: 1fr; }
     .sk-stickyhead { display: contents; }
     .sk-annbar { position: sticky; top:0; z-index:51; }
     .sk-hidesm  { display: none !important; }
@@ -294,7 +297,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         </div>
         <div style="text-align:right;">
           <div style="font-size:13px; color:rgba(255,255,255,0.7);">zzgl. Überführung</div>
-          <div style="font-size:20px; font-weight:800;">1.595&nbsp;€</div>
+          <div style="font-size:20px; font-weight:800;">1.390&nbsp;€</div>
         </div>
       </div>
     </div>
@@ -473,7 +476,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Laufzeit</div><div style="font-weight:800; font-size:17px;">36 Monate</div></div>
         <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Fahrleistung</div><div style="font-weight:800; font-size:17px;">10.000 km/Jahr</div></div>
         <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Sonderzahlung</div><div style="font-weight:800; font-size:17px;">6.000 €</div><a href="#foerderung" style="display:block; margin-top:4px; font-size:12px; font-weight:800; color:var(--sk-mint); text-decoration:none;">als E-Auto-Förderung sichern³</a></div>
-        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Überführung</div><div style="font-weight:800; font-size:17px;">1.595 €</div></div>
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Überführung</div><div style="font-weight:800; font-size:17px;">1.390 €</div></div>
       </div>
       <a href="{{ anfrageHref }}" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:17px; padding:17px 36px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
       <p style="margin:16px auto 0; max-width:560px; font-size:11px; color:rgba(255,255,255,0.55); line-height:1.6;">Unverbindliches Privatleasing-Angebot¹, Bonität vorausgesetzt. Alle Details finden Sie im Preisteil am Seitenende.</p>
@@ -514,7 +517,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Preisübersicht</div>
         
         <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Leasing-Sonderzahlung<br><a href="#foerderung" style="font-size:12px; font-weight:700; color:#9F1E41; text-decoration:none;">als E-Auto-Förderung sichern³</a></span><strong>6.000 €</strong></div>
-        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Überführungskosten</span><strong>1.595 €</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Überführungskosten</span><strong>1.390 €</strong></div>
 
         <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Allgemeine Daten</div>
         <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Laufzeit</span><strong>36 Monate</strong></div>
@@ -610,8 +613,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         </div>
       </div>
 
-      <div class="sk-haus3" style="margin-top:16px;">
-        <div style="border-radius:14px; overflow:hidden; border:1px solid #E8E8E8; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-building.jpg" alt="AS-Automobile Essen" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+      <div class="sk-haus3 sk-haus2" style="margin-top:16px;">
         <div style="border-radius:14px; overflow:hidden; border:1px solid #E8E8E8; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-showroom.jpg" alt="Showroom" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <div style="border-radius:14px; overflow:hidden; border:1px solid #E8E8E8; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-lounge.jpg" alt="Kundenbereich" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
       </div>
@@ -718,10 +720,10 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <p style="margin:0 0 12px;">Abbildung zeigt Sonderausstattungen gegen Mehrpreis. Alle Angaben basieren auf den Merkmalen des deutschen Marktes. Irrtum, Änderung und Zwischenverkauf vorbehalten. Angebot gültig, nur solange der Vorrat reicht.</p>
 
         <p style="margin:0 0 4px; color:#BDBDBD; font-weight:700;">Fahrzeug</p>
-        <p style="margin:0 0 12px;">Der neue CUPRA Raval Plus 99 kW (135 PS) 37 kWh · Lackierung Fjord Blau. Alle Preise inkl. MwSt. zzgl. Überführungskosten in Höhe von 1.595,00 € und Zulassungskosten. Änderungen und Irrtümer vorbehalten.</p>
+        <p style="margin:0 0 12px;">Der neue CUPRA Raval Plus 99 kW (135 PS) 37 kWh · Lackierung Fjord Blau. Alle Preise inkl. MwSt. zzgl. Überführungskosten in Höhe von 1.390,00 € und Zulassungskosten. Änderungen und Irrtümer vorbehalten.</p>
 
         <p style="margin:0 0 4px; color:#BDBDBD; font-weight:700;">Leasingangebot</p>
-        <p style="margin:0 0 12px;">¹ Ein Angebot der SEAT Leasing, Zweigniederlassung der Volkswagen Leasing GmbH, Gifhorner Str. 57, 38112 Braunschweig, für die wir als ungebundener Vermittler gemeinsam mit dem Kunden die für den Abschluss des Leasing-Vertrags nötigen Vertragsunterlagen zusammenstellen. Privatkunden-Leasingangebot: Sonderzahlung 6.000,00 €, Vertragslaufzeit 36 Monate, jährliche Fahrleistung 10.000 km, 36 monatliche Raten à <strong style="color:#fff;">99,00 €</strong>, zzgl. Überführungskosten i. H. v. 1.595,00 €. Bonität vorausgesetzt. Angebot gültig, solange der Vorrat reicht. Alle Preise inkl. MwSt. zzgl. Überführungs- und Zulassungskosten. Änderungen und Irrtümer vorbehalten. Für Verbraucher besteht ein gesetzliches Widerrufsrecht.</p>
+        <p style="margin:0 0 12px;">¹ Ein Angebot der SEAT Leasing, Zweigniederlassung der Volkswagen Leasing GmbH, Gifhorner Str. 57, 38112 Braunschweig, für die wir als ungebundener Vermittler gemeinsam mit dem Kunden die für den Abschluss des Leasing-Vertrags nötigen Vertragsunterlagen zusammenstellen. Privatkunden-Leasingangebot: Sonderzahlung 6.000,00 €, Vertragslaufzeit 36 Monate, jährliche Fahrleistung 10.000 km, 36 monatliche Raten à <strong style="color:#fff;">99,00 €</strong>, zzgl. Überführungskosten i. H. v. 1.390,00 €. Bonität vorausgesetzt. Angebot gültig, solange der Vorrat reicht. Alle Preise inkl. MwSt. zzgl. Überführungs- und Zulassungskosten. Änderungen und Irrtümer vorbehalten. Für Verbraucher besteht ein gesetzliches Widerrufsrecht.</p>
         <p style="margin:0 0 12px;">² Die Steuerbefreiung wird bei erstmaliger Zulassung des Elektrofahrzeugs in der Zeit vom 18.05.2011 bis 31.12.2030 für zehn Jahre ab dem Tag der erstmaligen Zulassung gewährt, längstens jedoch bis zum 31.12.2035.</p>
         <p style="margin:0 0 12px;">³ Der als Sonderzahlung eingesetzte Betrag kann im Zuge des E-Auto-Förderprogramms des Bundesumweltministeriums in Höhe von bis zu 6.000,00 € rückerstattet werden. Die Höhe des Förderbetrags ist abhängig vom zu versteuernden Haushaltsjahreseinkommen und der im Haushalt lebenden Kinder unter 18 Jahren. Die Beantragung der Förderung, die Prüfung der Fördervoraussetzungen sowie die Auszahlung des Förderbetrags erfolgen eigenverantwortlich durch den Kunden. Weitere Informationen unter www.bundesumweltministerium.de.</p>
         <p style="margin:0 0 12px;">⁴ SEAT S.A. („Garantiegeber") gewährt allen Erstkäufern („Garantienehmer") kostenlos eine 5-jährige Herstellergarantie für sämtliche Neufahrzeuge der Marke CUPRA, die ab dem 21.12.2023 neu ab Werk in Deutschland bestellt werden, hinsichtlich aller Mängel in Werkstoff und Werkarbeit („CUPRA Neuwagengarantie"). Die Laufzeit der Garantie beträgt mindestens 2 Jahre ohne Kilometerbeschränkung und endet nach 5 Jahren oder einer maximalen Gesamtlaufleistung von 150.000 km, je nachdem, welches Ereignis zuerst eintritt. Die Garantie beginnt ab Übergabe des Fahrzeugs oder ab dem Datum der Erstzulassung, je nachdem, welches Ereignis zuerst eintritt. Unabhängig davon beginnt die Laufzeit der Garantie, wenn das Fahrzeug durch einen SEAT | CUPRA Partner im Gebiet des Europäischen Wirtschaftsraums (EWR) oder der Schweiz ausgeliefert, zugelassen oder genutzt wird. Im Garantiefall beauftragt die SEAT S.A. die SEAT Deutschland GmbH bzw. die SEAT | CUPRA Servicepartner mit der Beseitigung des Mangels (Nachbesserung). Wenden Sie sich im Garantiefall bitte an einen CUPRA Servicepartner.</p>
