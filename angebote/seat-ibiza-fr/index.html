@@ -191,6 +191,14 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   .sk-datarow { display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid #EEF2F0; font-size:14px; }
   .sk-datarow span { color:#6B776F; }
   .sk-datarow strong { color:var(--sk-ink); text-align:right; }
+.as-more { position:relative; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+  .as-more-track { display:flex; gap:16px; width:max-content; padding:6px 0 14px; animation:asMarquee 42s linear infinite; }
+  .as-more:hover .as-more-track, .as-more:focus-within .as-more-track { animation-play-state:paused; }
+  @keyframes asMarquee { from { transform:translateX(0); } to { transform:translateX(calc(-50% - 8px)); } }
+  .as-card { flex:0 0 clamp(250px,70vw,290px); background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:transform .2s ease, box-shadow .2s ease; }
+  .as-card:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(0,0,0,0.12); }
+  @media (prefers-reduced-motion: reduce) { .as-more { overflow-x:auto; } .as-more-track { animation:none; } }
+
 </style>
 </helmet>
 
@@ -202,7 +210,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <div class="sk-stickyhead">
   <!-- Announcement -->
   <div class="sk-annbar" style="background:var(--sk-green-700); color:var(--sk-mint); font-size:13px; font-weight:600; letter-spacing:.03em; text-align:center; padding:9px 16px; line-height:1.4;">
-    <i class="fa-solid fa-location-dot" style="margin-right:8px"></i> Begrenzte Aktion: 30x Leasing-Zulassungen · nur bis 30.09.2026 · <span style="color:#fff">jetzt Angebot anfragen</span>
+    <i class="fa-solid fa-location-dot" style="margin-right:8px"></i> Begrenzte Aktion: 30x Leasing-Zulassungen · nur bis 31.10.2026 · <span style="color:#fff">jetzt Angebot anfragen</span>
   </div>
 
   <!-- Header -->
@@ -252,7 +260,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       <span style="font-size:13px; color:#6B776F;">2.990&nbsp;€ Sonderzahlung · 24&nbsp;Mon. · 10.000&nbsp;km/Jahr</span>
     </div>
 
-    <div style="display:inline-flex; align-items:center; gap:8px; background:#FFF1EC; color:#C2410C; border:1px solid #F7C9A8; border-radius:999px; padding:8px 16px; font-size:13px; font-weight:800; margin-bottom:16px;"><i class="fa-solid fa-hourglass-half"></i> Begrenzte Aktion: nur 30x · bis 30.09.2026</div>
+    <div style="display:inline-flex; align-items:center; gap:8px; background:#FFF1EC; color:#C2410C; border:1px solid #F7C9A8; border-radius:999px; padding:8px 16px; font-size:13px; font-weight:800; margin-bottom:16px;"><i class="fa-solid fa-hourglass-half"></i> Begrenzte Aktion: nur 30x · bis 31.10.2026</div>
     <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:14px; font-weight:600; color:var(--sk-ink); margin-bottom:9px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-gas-pump" style="color:var(--sk-green);"></i> Benzin</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-gears" style="color:var(--sk-green);"></i> 6-Gang Schaltgetriebe</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-bolt" style="color:var(--sk-green);"></i> 116 PS</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-palette" style="color:var(--sk-green);"></i> Fiord Blau</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-snowflake" style="color:var(--sk-green);"></i> Klimaautomatik</span></div>
     <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:13px; color:#6B776F; padding-top:9px; border-top:1px solid #EDF1EF; max-width:640px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-user-group" style="color:#8A968F;"></i> Privat- &amp; Gewerbekunden</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-car" style="color:#8A968F;"></i> Neuwagen</span></div>
     <div style="display:flex; align-items:center; gap:10px; margin-top:14px; background:var(--sk-paper); border:1.5px solid var(--sk-green); border-radius:12px; padding:12px 18px; font-size:15px; font-weight:800; color:var(--sk-green); width:fit-content;"><i class="fa-solid fa-circle-check" style="font-size:18px;"></i> Offizieller SEAT Vertragspartner in Essen</div>
@@ -415,7 +423,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     <div class="sk-container sk-sect" style="text-align:center;">
       <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-mint); margin-bottom:12px;"><span style="width:26px; height:2px; background:var(--sk-mint);"></span> Ihr Leasing-Angebot <span style="width:26px; height:2px; background:var(--sk-mint);"></span></div>
       <h2 style="margin:0; font-size:clamp(24px,4vw,32px); font-weight:800; letter-spacing:-.02em;">SEAT Ibiza FR im Privat-Leasing</h2>
-      <div style="display:inline-flex; align-items:center; gap:8px; margin-top:14px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); border-radius:999px; padding:7px 16px; font-size:13px; font-weight:700;"><i class="fa-solid fa-hourglass-half" style="color:var(--sk-mint);"></i> Begrenzt auf 30 Leasing-Zulassungen · nur bis 30.09.2026</div>
+      <div style="display:inline-flex; align-items:center; gap:8px; margin-top:14px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); border-radius:999px; padding:7px 16px; font-size:13px; font-weight:700;"><i class="fa-solid fa-hourglass-half" style="color:var(--sk-mint);"></i> Begrenzt auf 30 Leasing-Zulassungen · nur bis 31.10.2026</div>
       <div style="display:flex; align-items:baseline; justify-content:center; gap:10px; margin:22px 0 8px;">
         <span style="font-size:clamp(58px,11vw,88px); font-weight:800; letter-spacing:-.03em; color:var(--sk-mint); line-height:1;">89&nbsp;€</span>
         <span style="font-size:clamp(17px,3vw,22px); font-weight:800; color:var(--sk-mint);">mtl.*</span>
@@ -550,11 +558,129 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     </div>
   </section>
 
+<!-- Weitere Angebote -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E7ECE9;">
+    <div class="sk-container" style="padding-top:clamp(44px,7vw,64px); padding-bottom:10px;">
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:22px;">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:10px;"><span style="width:26px; height:2px; background:var(--sk-green);"></span> Noch mehr Auswahl</div>
+          <h2 style="margin:0; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Weitere Angebote bei AS Automobile</h2>
+        </div>
+        <p style="margin:0; font-size:14px; color:#6B776F;">SEAT · CUPRA · ŠKODA — alle Leasing-Angebote in Essen</p>
+      </div>
+    </div>
+    <div class="as-more" style="padding-bottom:clamp(40px,6vw,60px);">
+      <div class="as-more-track">
+        <a class="as-card" href="../skoda-fabia/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-fabia/img/car-front.jpg" alt="Škoda Fabia Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Fabia Essence</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">69&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.500 € Sonderzahlung</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" href="../skoda-kamiq/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-kamiq/img/kamiq-life1.jpg" alt="Škoda Kamiq Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Kamiq Essence</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.990 € Sonderzahlung</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" href="../skoda-epiq/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-epiq/img/epiq-heck.jpg" alt="Škoda Epiq Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Epiq Essence</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">69&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">36 Mon. · 100 % elektrisch</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" href="../seat-arona-fr/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../seat-arona-fr/img/arona-hero.avif" alt="SEAT Arona FR" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">SEAT</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">SEAT Arona FR</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.990 € Sonderzahlung</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" href="../cupra-raval/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../cupra-raval/img/raval-nacht.jpg" alt="CUPRA Raval Plus" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">CUPRA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">CUPRA Raval Plus</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">36 Mon. · 100 % elektrisch</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" tabindex="-1" aria-hidden="true" href="../skoda-fabia/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-fabia/img/car-front.jpg" alt="Škoda Fabia Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Fabia Essence</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">69&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.500 € Sonderzahlung</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" tabindex="-1" aria-hidden="true" href="../skoda-kamiq/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-kamiq/img/kamiq-life1.jpg" alt="Škoda Kamiq Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Kamiq Essence</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.990 € Sonderzahlung</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" tabindex="-1" aria-hidden="true" href="../skoda-epiq/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-epiq/img/epiq-heck.jpg" alt="Škoda Epiq Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Epiq Essence</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">69&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">36 Mon. · 100 % elektrisch</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" tabindex="-1" aria-hidden="true" href="../seat-arona-fr/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../seat-arona-fr/img/arona-hero.avif" alt="SEAT Arona FR" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">SEAT</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">SEAT Arona FR</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.990 € Sonderzahlung</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+        <a class="as-card" tabindex="-1" aria-hidden="true" href="../cupra-raval/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../cupra-raval/img/raval-nacht.jpg" alt="CUPRA Raval Plus" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">CUPRA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">CUPRA Raval Plus</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">36 Mon. · 100 % elektrisch</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- /Weitere Angebote -->
+
   <!-- Final CTA -->
   <section style="background:var(--sk-green-700); color:#fff;">
     <div class="sk-container sk-sect" style="max-width:900px; text-align:center;">
       <h2 style="margin:0 0 14px; font-size:clamp(28px,5vw,38px); font-weight:800; letter-spacing:-.02em; line-height:1.1;">Sichern Sie sich diesen Ibiza FR — <span style="color:var(--sk-mint)">89 € mtl.</span></h2>
-      <p style="margin:0 0 30px; font-size:clamp(15px,2.4vw,17px); color:rgba(255,255,255,0.82);">Begrenzte Aktion: nur 30 Leasing-Zulassungen bis 30.09.2026. Fordern Sie jetzt Ihr unverbindliches Angebot an.</p>
+      <p style="margin:0 0 30px; font-size:clamp(15px,2.4vw,17px); color:rgba(255,255,255,0.82);">Begrenzte Aktion: nur 30 Leasing-Zulassungen bis 31.10.2026. Fordern Sie jetzt Ihr unverbindliches Angebot an.</p>
       <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
         <a href="anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:16px 32px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
         <a href="tel:+4920183148314" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:16px; padding:16px 28px; border-radius:10px;" style-hover="background:rgba(255,255,255,0.1);"><i class="fa-solid fa-phone"></i> 0201 83 14 83 14</a>
@@ -583,7 +709,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <p style="margin:0 0 12px;">SEAT Ibiza FR 1.0 TSI 85 kW (116 PS) 6-Gang Schaltgetriebe · Lackierung Fiord Blau · Ausstattung Stoff „Nuance". Fahrzeugpreis ab Werk (inkl. MwSt.): <strong style="color:#fff;">27.110,00 €</strong>. Konfigurations-ID S2PCJ9QT. Die Kosten für Überführung in Höhe von 990,00 € werden separat berechnet. Alle Preise inklusive der Mehrwertsteuer in Höhe von 19 %. Irrtum, Änderung und Zwischenverkauf vorbehalten.</p>
 
         <p style="margin:0 0 4px; color:#B9C4BF; font-weight:700;">Leasingangebot</p>
-        <p style="margin:0 0 12px;">¹ Ein unverbindliches Privatleasing-Angebot der SEAT Leasing, Zweigniederlassung der Volkswagen Leasing GmbH, Gifhorner Straße 57, 38112 Braunschweig, vermittelt durch die AS Automobile Essen GmbH als ungebundener Vermittler. Kalkulationsbasis 27.110,00 €. Einmalige Leasing-Sonderzahlung 2.990,00 € (11,03 %), monatliche Leasing-Rate ohne Dienstleistungen <strong style="color:#fff;">89,00 €</strong>, Laufzeit 24 Monate, jährliche Fahrleistung 10.000 km, ohne Gebrauchtwagenabrechnung. Mehrkilometer 7,02 ct, Minderkilometer 3,09 ct, jeweils 2.500 km berechnungsfrei. Alle Preise inklusive der Mehrwertsteuer in Höhe von 19 %. Bonität vorausgesetzt. Aktion begrenzt auf 30 Leasing-Zulassungen, gültig bis 30.09.2026. Für Verbraucher besteht ein gesetzliches Widerrufsrecht.</p>
+        <p style="margin:0 0 12px;">¹ Ein unverbindliches Privatleasing-Angebot der SEAT Leasing, Zweigniederlassung der Volkswagen Leasing GmbH, Gifhorner Straße 57, 38112 Braunschweig, vermittelt durch die AS Automobile Essen GmbH als ungebundener Vermittler. Kalkulationsbasis 27.110,00 €. Einmalige Leasing-Sonderzahlung 2.990,00 € (11,03 %), monatliche Leasing-Rate ohne Dienstleistungen <strong style="color:#fff;">89,00 €</strong>, Laufzeit 24 Monate, jährliche Fahrleistung 10.000 km, ohne Gebrauchtwagenabrechnung. Mehrkilometer 7,02 ct, Minderkilometer 3,09 ct, jeweils 2.500 km berechnungsfrei. Alle Preise inklusive der Mehrwertsteuer in Höhe von 19 %. Bonität vorausgesetzt. Aktion begrenzt auf 30 Leasing-Zulassungen, gültig bis 31.10.2026. Für Verbraucher besteht ein gesetzliches Widerrufsrecht.</p>
 
         <p style="margin:0 0 4px; color:#B9C4BF; font-weight:700;">Information zu Verbrauchswerten</p>
         <p style="margin:0 0 6px;">SEAT Ibiza FR 1.0 TSI — Kraftstoffverbrauch (WLTP): kombiniert 5,1 l/100 km · CO₂-Emissionen kombiniert 115 g/km · CO₂-Klasse D.</p>
