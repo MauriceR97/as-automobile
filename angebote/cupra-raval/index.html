@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../../assets/support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- Konkrete CUPRA-Raval-Angebotsseite (Privatleasing + E-Auto-Förderung) — generiert nach deploy/angebote/cupra-raval/. -->
+<helmet>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GT-5TJNN3H3"></script>
+<script data-cookieconsent="ignore">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GT-5TJNN3H3');
+</script>
+<!-- Attribution: UTM / Klick-IDs erfassen und über die Sub-Seiten hinweg speichern -->
+<script>
+(function(){try{
+  var qs=new URLSearchParams(location.search);
+  var keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid','gclid','ttclid','msclkid'];
+  var store={}; try{store=JSON.parse(localStorage.getItem('as_attribution')||'{}');}catch(e){}
+  var changed=false;
+  keys.forEach(function(k){var v=qs.get(k); if(v){store[k]=v; changed=true;}});
+  if(!store.landing_page){store.landing_page=location.href; changed=true;}
+  if(!store.first_referrer){store.first_referrer=document.referrer||''; changed=true;}
+  if(changed){store.updated=new Date().toISOString(); try{localStorage.setItem('as_attribution',JSON.stringify(store));}catch(e){}}
+}catch(e){}})();
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1422851823195089');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
+<!-- ViewContent: Angebotsseite geöffnet -->
+<script>
+try{fbq('track','ViewContent',{content_name:'CUPRA Raval Plus',content_category:'Neuwagen',content_type:'vehicle',value:99,currency:'EUR'});}catch(e){}
+try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_content',content_name:'CUPRA Raval Plus',value:99,currency:'EUR'});}catch(e){}
+</script>
+<!-- Interaktions-Events: Contact (Anruf/E-Mail) & Schedule (Termin-CTA) -->
+<script>
+(function(){
+  function genId(p){return p+'-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);}
+  function push(ev,id,extra){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:ev,event_id:id},extra||{}));}catch(e){}}
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var href=a.getAttribute('href')||'';
+    if(href.indexOf('tel:')===0||href.indexOf('mailto:')===0){
+      var m=href.indexOf('tel:')===0?'phone':'email', id=genId('contact');
+      try{fbq('track','Contact',{contact_method:m},{eventID:id});}catch(_){}
+      push('contact_click',id,{method:m});
+    }
+  },true);
+})();
+</script>
+<style>
+  .sk-anim section.sk-rev{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1);will-change:opacity,transform;}
+  .sk-anim section.sk-rev.sk-in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){.sk-anim section.sk-rev{opacity:1!important;transform:none!important;transition:none!important;}}
+  @media (max-width:600px){ #CookiebotWidget, #CybotCookiebotDialogBottomWidget { bottom:92px !important; } }
+</style>
+<script>
+(function(){try{
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  document.documentElement.classList.add('sk-anim');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('sk-in');io.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -5% 0px'});
+  function scan(){document.querySelectorAll('.sk-page > section').forEach(function(el,i){if(el.hasAttribute('data-obs'))return;el.setAttribute('data-obs','1');if(i===0)return;el.classList.add('sk-rev');if(el.getBoundingClientRect().top<window.innerHeight*0.92)el.classList.add('sk-in');io.observe(el);});}
+  var mo=new MutationObserver(scan);mo.observe(document.documentElement,{childList:true,subtree:true});
+  document.addEventListener('DOMContentLoaded',scan);
+  window.addEventListener('load',function(){scan();setTimeout(function(){try{mo.disconnect();}catch(e){}},2500);});
+  setTimeout(scan,400);
+}catch(e){}})();
+</script>
+<title>CUPRA Raval Plus · Elektro-Leasing 99 € — AS-Automobile Essen</title>
+<link rel="icon" href="../../assets/favicon-32.png" sizes="any">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Der neue CUPRA Raval Plus — vollelektrisch für 99 € mtl. Sonderzahlung bis zu 6.000 € über die E-Auto-Förderung zurück. Jetzt Angebot anfragen — Ihr Autohaus in Essen.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AS-Automobile Essen">
+<meta property="og:title" content="CUPRA Raval Plus · 99 € mtl. + E-Auto-Förderung">
+<meta property="og:description" content="Vollelektrisch · 99 kW (135 PS) · bis zu 6.000 € Förderung. Jetzt unverbindliches Angebot anfragen.">
+<meta property="og:url" content="https://www.as-automobile-essen.de/angebote/cupra-raval/">
+<meta property="og:image" content="https://www.as-automobile-essen.de/assets/og/cupra-raval.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CUPRA Raval Plus · 99 € mtl. + E-Auto-Förderung">
+<meta name="twitter:description" content="Vollelektrisch · 99 kW (135 PS) · bis zu 6.000 € Förderung.">
+<meta name="twitter:image" content="https://www.as-automobile-essen.de/assets/og/cupra-raval.jpg">
+<script src="../../assets/ds-base.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  * { box-sizing: border-box; }
+  input[type=range] { accent-color: #000; }
+  @keyframes skRise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+  .sk-container { max-width: 1140px; margin: 0 auto; padding-left: clamp(16px, 4vw, 24px); padding-right: clamp(16px, 4vw, 24px); }
+  .sk-sect { padding-top: clamp(44px, 7vw, 72px); padding-bottom: clamp(44px, 7vw, 72px); }
+
+  .sk-hero      { display: grid; gap: clamp(28px, 4vw, 48px); grid-template-columns: 1.05fr 0.95fr; align-items: center; }
+  .sk-showcase  { display: grid; gap: clamp(28px, 4vw, 48px); grid-template-columns: 1.1fr 0.9fr; align-items: center; }
+  .sk-calc      { display: grid; grid-template-columns: 1.25fr 0.75fr; }
+  .sk-advisor   { display: grid; gap: 32px; grid-template-columns: auto 1fr auto; align-items: center; }
+  .sk-map       { display: grid; grid-template-columns: 1fr 1fr; }
+  .sk-foot      { display: grid; gap: 36px; grid-template-columns: 1.4fr 1fr; }
+  .sk-facts     { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+  .sk-equip     { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
+  .sk-colors    { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sk-gallery   { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .sk-haus3     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+  .sk-mobilebar { display: none; }
+
+  .sk-avail { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; width:86px; height:86px; border-radius:999px; background:#FF2B62; color:#fff; font-size:11px; font-weight:800; letter-spacing:.02em; text-transform:uppercase; line-height:1.15; box-shadow:0 8px 20px rgba(255,43,98,0.45); }
+  .sk-avail i { font-size:16px; margin-bottom:4px; }
+  @media (max-width: 920px) {
+    .sk-hero, .sk-showcase, .sk-calc, .sk-map, .sk-foot { grid-template-columns: 1fr; }
+    .sk-heromedia { order: -1; }
+    .sk-heroframe { margin-left: calc(-1*clamp(16px,4vw,24px)) !important; margin-right: calc(-1*clamp(16px,4vw,24px)) !important; border-radius:0 !important; aspect-ratio:16/11 !important; box-shadow:none !important; }
+    .sk-advisor { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+    .sk-facts   { grid-template-columns: repeat(3, 1fr); }
+    .sk-haus3   { grid-template-columns: 1fr 1fr; }
+    .sk-map iframe { min-height: 300px; }
+    .sk-navcta { display: none; }
+  }
+  .sk-stickyhead { position:sticky; top:0; z-index:50; }
+  @media (max-width: 600px) {
+    .sk-facts   { grid-template-columns: repeat(2, 1fr); }
+    .sk-equip   { grid-template-columns: 1fr; }
+    .sk-gallery { grid-template-columns: repeat(3, 1fr); }
+    .sk-colors  { grid-template-columns: repeat(3, 1fr); }
+    .sk-haus3   { grid-template-columns: 1fr; }
+    .sk-stickyhead { display: contents; }
+    .sk-annbar { position: sticky; top:0; z-index:51; }
+    .sk-hidesm  { display: none !important; }
+    .sk-page    { padding-bottom: 74px; }
+    .sk-mobilebar { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: #fff; border-top: 1px solid #E8E8E8; padding: 10px 14px; box-shadow: 0 -6px 20px rgba(0,0,0,0.10); }
+  }
+  /* Accordion-Tabs */
+  .sk-acc { max-width:820px; border:1px solid #E8E8E8; border-radius:14px; background:#fff; overflow:hidden; }
+  .sk-acc + .sk-acc { margin-top:14px; }
+  .sk-acc > summary { cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px 20px; font-weight:800; font-size:clamp(16px,2.6vw,18px); color:var(--sk-ink); }
+  .sk-acc > summary::-webkit-details-marker { display:none; }
+  .sk-acc > summary:hover { background:var(--sk-paper); }
+  .sk-acc .sk-chev { transition:transform .25s ease; color:var(--sk-green); font-size:15px; }
+  .sk-acc[open] > summary .sk-chev { transform:rotate(180deg); }
+  .sk-accbody { padding:2px 20px 22px; }
+  /* Mobile: Hero bündig oben + Foto-Galerie horizontal wischbar */
+  @media (max-width: 920px) {
+    .sk-hero { padding-top: 0 !important; }
+    .sk-heroframe { display:none !important; }
+    .sk-swipehint { display:flex !important; }
+    .sk-gallery { display:flex !important; overflow-x:auto; gap:8px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; margin:0 calc(-1*clamp(16px,4vw,24px)); padding:0 clamp(16px,4vw,24px) 2px; scrollbar-width:none; }
+    .sk-gallery::-webkit-scrollbar { display:none; }
+    .sk-gallery > button { flex:0 0 86% !important; scroll-snap-align:center; aspect-ratio:4/3; border-radius:12px !important; }
+  }
+  .sk-swipehint { display:none; align-items:center; justify-content:center; gap:8px; margin-top:10px; font-size:12px; font-weight:600; color:rgba(255,255,255,0.75); }
+  .sk-cwrap { position:relative; width:100%; background:#000; }
+  .sk-carousel { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .sk-carousel::-webkit-scrollbar { display:none; }
+  .sk-carousel > img { flex:0 0 100%; width:100%; aspect-ratio:16/9; object-fit:cover; scroll-snap-align:center; display:block; }
+  @media (min-width:921px){ .sk-carousel > img { aspect-ratio:21/9; max-height:560px; } }
+  .sk-counter { position:absolute; top:16px; right:16px; background:rgba(11,21,18,0.72); color:#fff; font-size:13px; font-weight:700; padding:6px 12px; border-radius:999px; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); letter-spacing:.02em; }
+  .sk-vfbadge { position:absolute; top:16px; left:16px; background:var(--sk-mint); color:var(--sk-green); font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; padding:6px 13px; border-radius:999px; }
+  .sk-dots { position:absolute; bottom:14px; left:0; right:0; display:flex; justify-content:center; gap:7px; }
+  .sk-dots button { width:8px; height:8px; padding:0; border:none; border-radius:999px; background:rgba(255,255,255,0.5); cursor:pointer; transition:width .2s, background .2s; }
+  .sk-dots button.on { width:22px; background:#fff; }
+  @media (min-width:921px){
+    .sk-herowrap { display:grid; grid-template-columns:1.08fr 0.92fr; gap:36px; align-items:start; max-width:1180px; margin:0 auto; padding:36px clamp(16px,4vw,24px) 20px; }
+    .sk-herowrap .sk-cwrap { border-radius:20px; overflow:hidden; box-shadow:0 24px 60px rgba(32,31,30,0.18); position:sticky; top:130px; }
+    .sk-herowrap .sk-carousel > img { aspect-ratio:4/3; max-height:none; }
+    .sk-heroinfo { padding:0 !important; }
+  }
+  .sk-specbadges { display:flex; flex-wrap:wrap; gap:8px; }
+  .sk-sb { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:600; color:var(--sk-ink); background:var(--sk-paper); border:1px solid #E4E4E4; padding:8px 13px; border-radius:10px; }
+  .sk-sb i { color:var(--sk-green); font-size:13px; }
+  .sk-minibadge { display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.02em; padding:6px 12px; border-radius:999px; }
+  .sk-datagrid { display:grid; grid-template-columns:1fr 1fr; gap:0 28px; }
+  @media (max-width:560px){ .sk-datagrid { grid-template-columns:1fr; } }
+  .sk-datarow { display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid #EFEFEF; font-size:14px; }
+  .sk-datarow span { color:#6B6B6B; }
+  .sk-datarow strong { color:var(--sk-ink); text-align:right; }
+</style>
+</helmet>
+
+<div class="sk-page" style="--sk-green:#000000; --sk-green-600:#1A1A1A; --sk-green-700:#0A0A0A; --sk-mint:#FF2B62; --sk-mint-600:#9F1E41; --sk-ink:#0D0D0D; --sk-paper:#F5F4F3; font-family:var(--font-sans, 'Inter', sans-serif); color:var(--sk-ink); background:#fff; -webkit-font-smoothing:antialiased;">
+
+  
+
+  <!-- Sticky-Kopf: Aktionsleiste + Header zusammen -->
+  <div class="sk-stickyhead">
+  <!-- Announcement -->
+  <div class="sk-annbar" style="background:var(--sk-green-700); color:var(--sk-mint); font-size:13px; font-weight:600; letter-spacing:.03em; text-align:center; padding:9px 16px; line-height:1.4;">
+    <i class="fa-solid fa-bolt" style="margin-right:8px"></i> Der neue CUPRA Raval · 99 € mtl. · bis zu 6.000 € E-Auto-Förderung · <span style="color:#fff">nur solange der Vorrat reicht</span>
+  </div>
+
+  <!-- Header -->
+  <header style="position:relative; z-index:50; background:rgba(255,255,255,0.96); backdrop-filter:blur(10px); border-bottom:1px solid #E8E8E8;">
+    <div class="sk-container" style="height:66px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
+      <div style="display:flex; align-items:center; gap:12px; min-width:0;">
+        <img src="img/logo-as-quer.png" alt="AS Automobile · SEAT · CUPRA · Škoda" style="height:clamp(34px,6vw,46px); width:auto; display:block;" />
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <a href="tel:+4920183148314" class="sk-hidesm" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--sk-ink); font-weight:700; font-size:15px; white-space:nowrap;">
+          <i class="fa-solid fa-phone" style="color:var(--sk-green)"></i> 0201 83 14 83 14
+        </a>
+        <a href="anfrage/" class="sk-navcta" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:700; font-size:15px; padding:11px 18px; border-radius:8px; white-space:nowrap;" style-hover="background:var(--sk-mint-600);">
+          Jetzt Angebot anfragen
+        </a>
+      </div>
+    </div>
+  </header>
+  </div>
+
+  <!-- Hero -->
+  <div class="sk-herowrap">
+  <section class="sk-cwrap">
+    <div class="sk-carousel" onScroll="{{ onCarouselScroll }}">
+      <img src="img/raval-nacht.jpg" alt="CUPRA Raval Front" />
+      <img src="img/raval-seite.jpg" alt="CUPRA Raval Seitenansicht" />
+      <img src="img/raval-fahrt.jpg" alt="CUPRA Raval in Fahrt" />
+      <img src="img/raval-front.jpg" alt="CUPRA Raval Frontpartie" style="object-position:center 62%;" />
+      <img src="img/raval-top.jpg" alt="CUPRA Raval von oben" />
+    </div>
+    <sc-if value="{{ isFirstImg }}" hint-placeholder-val="{{ true }}">
+    <a href="#foerderung" style="position:absolute; top:18px; left:20px; display:flex; align-items:center; gap:12px; text-decoration:none; color:#fff; text-shadow:0 2px 14px rgba(0,0,0,0.7);">
+      <i class="fa-solid fa-plug-circle-bolt" style="font-size:clamp(30px,3.6vw,42px); color:#FF2B62; filter:drop-shadow(0 2px 10px rgba(0,0,0,0.6));"></i>
+      <span style="font-size:clamp(18px,2.4vw,26px); font-weight:800; letter-spacing:.06em; text-transform:uppercase;">E-Auto-Förderung</span>
+    </a>
+    </sc-if>
+    <div style="position:absolute; left:0; right:0; bottom:0; padding:48px 18px 36px; background:linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0)); pointer-events:none;">
+      <div style="display:inline-flex; align-items:center; gap:10px; color:#fff; font-size:clamp(13px,1.6vw,15px); font-weight:800; letter-spacing:.02em;"><span style="width:30px; height:30px; border-radius:999px; background:#FF2B62; color:#000; display:grid; place-items:center; font-size:14px; flex:none;"><i class="fa-solid fa-check"></i></span> Offizieller CUPRA Partner in Essen</div>
+    </div>
+    <div class="sk-counter">{{ imgCounter }}</div>
+    <div class="sk-dots">
+      <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
+        <button class="{{ d.cls }}" onClick="{{ d.onClick }}" aria-label="Foto"></button>
+      </sc-for>
+    </div>
+  </section>
+
+  <section class="sk-container sk-heroinfo" style="padding-top:clamp(22px,4vw,34px); padding-bottom:6px;">
+    <h1 style="margin:0; font-size:clamp(26px,5vw,40px); line-height:1.05; letter-spacing:-.02em; font-weight:800;">Der neue CUPRA Raval Plus</h1>
+    <p style="margin:10px 0 0; font-size:clamp(15px,2.4vw,18px); color:#5B5B5B; font-weight:500;">Vollelektrisch · 99 kW (135 PS) · 37 kWh Batterie · Fjord Blau.</p>
+
+    <div style="background:#000; color:#fff; border-radius:18px; padding:clamp(20px,3vw,26px); margin:20px 0 18px; box-shadow:0 18px 40px rgba(0,0,0,0.22);">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:6px;">
+        <span style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,0.7);">Monatliche Rate</span>
+        <span style="font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; background:#FF2B62; color:#000; padding:5px 11px; border-radius:999px;">Privat-Leasing</span>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:10px; line-height:1;">
+        <span style="font-size:clamp(64px,10vw,92px); font-weight:800; letter-spacing:-.04em; color:#FF2B62;">99&nbsp;€</span>
+        <span style="font-size:clamp(18px,2.6vw,22px); font-weight:800; color:#fff;">mtl.¹</span>
+      </div>
+      <div style="margin-top:8px; font-size:14px; color:rgba(255,255,255,0.75);">36 Monate · 10.000 km/Jahr · inkl. MwSt.</div>
+      <div style="margin-top:16px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.16); display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.7);">Sonderzahlung</div>
+          <div style="font-size:20px; font-weight:800;">6.000&nbsp;€</div>
+          <a href="#foerderung" style="display:inline-flex; align-items:center; gap:7px; margin-top:4px; font-size:14px; font-weight:800; color:#FF2B62; text-decoration:none;" style-hover="text-decoration:underline;"><i class="fa-solid fa-hand-holding-dollar"></i> Jetzt als E-Auto-Förderung sichern³</a>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:13px; color:rgba(255,255,255,0.7);">zzgl. Überführung</div>
+          <div style="font-size:20px; font-weight:800;">1.595&nbsp;€</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:14px; font-weight:600; color:var(--sk-ink); margin-bottom:9px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-plug" style="color:var(--sk-green);"></i> 100 % elektrisch</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-bolt" style="color:var(--sk-green);"></i> 135 PS</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-battery-three-quarters" style="color:var(--sk-green);"></i> 37 kWh</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-palette" style="color:var(--sk-green);"></i> Fjord Blau</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-shield-halved" style="color:var(--sk-green);"></i> 5 Jahre Garantie⁴</span></div>
+    <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:13px; color:#6B6B6B; padding-top:9px; border-top:1px solid #EEEEEE; max-width:640px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-user" style="color:#8A8A8A;"></i> Privatkunden-Angebot</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-car" style="color:#8A8A8A;"></i> Neuwagen · sofort verfügbar</span></div>
+    
+
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;">
+      <a href="anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; box-shadow:0 8px 22px rgba(0,0,0,0.22); font-size:16px; padding:15px 28px; border-radius:10px;" style-hover="background:var(--sk-mint-600);">
+        <i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen
+      </a>
+      <a href="tel:+4920183148314" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:16px; padding:15px 24px; border-radius:10px;" style-hover="background:var(--sk-paper);">
+        <i class="fa-solid fa-phone"></i> Anrufen
+      </a>
+    </div>
+  </section>
+  </div>
+
+  <!-- Basisdaten + Ausstattung (aufklappbar) -->
+  <section class="sk-container" style="padding-top:20px; padding-bottom:6px;">
+    <details class="sk-acc" open="{{ descOpen }}">
+      <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-gauge-high"></i></span> Basisdaten</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <div class="sk-accbody">
+        <div class="sk-datagrid">
+          <div class="sk-datarow"><span>Fahrzeugart</span><strong>Neuwagen</strong></div>
+          <div class="sk-datarow"><span>Antrieb</span><strong>Elektro</strong></div>
+          <div class="sk-datarow"><span>Leistung</span><strong>99 kW (135 PS)</strong></div>
+          <div class="sk-datarow"><span>Batterie</span><strong>37 kWh</strong></div>
+          <div class="sk-datarow"><span>Stromverbrauch komb.</span><strong>13,8 kWh/100km</strong></div>
+          <div class="sk-datarow"><span>CO₂ komb.</span><strong>0 g/km · Klasse A</strong></div>
+          <div class="sk-datarow"><span>Kfz-Steuer</span><strong>0,00 €/Jahr²</strong></div>
+          <div class="sk-datarow"><span>Außenfarbe</span><strong>Fjord Blau</strong></div>
+        </div>
+      </div>
+    </details>
+    <details class="sk-acc">
+      <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-list-check"></i></span> Ausstattung</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <div class="sk-accbody">
+        <div class="sk-equip">
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Lackierung Fjord Blau</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> FullLink (Apple CarPlay &amp; Android Auto)</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Climatronic</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Automatische Distanzregelung (ACC)</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Einparkhilfe hinten</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> LED-Hauptscheinwerfer</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Side Assist inkl. Totwinkel-, Auspark- &amp; Ausstiegswarnung</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Keyless Go</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Variabler Gepäckraumboden</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> u. v. m.</div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- Ausstattungs-Highlights (Bilder) -->
+  <section class="sk-container sk-sect">
+    <div style="text-align:center; max-width:660px; margin:0 auto 34px;">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:12px;">
+        <span style="width:26px; height:2px; background:var(--sk-green);"></span> Ausstattungs-Highlights <span style="width:26px; height:2px; background:var(--sk-green);"></span>
+      </div>
+      <h2 style="margin:0 0 8px; font-size:clamp(26px,4vw,34px); font-weight:800; letter-spacing:-.02em;">Der Raval — elektrisch, urban, unverwechselbar</h2>
+      <p style="margin:0; font-size:16px; color:#6B6B6B;">Kompakt für die Stadt, voll vernetzt und mit Assistenzsystemen, die sonst eine Klasse höher zu finden sind.</p>
+    </div>
+    <div class="sk-haus3">
+      <figure style="margin:0; background:#fff; border:1px solid #E8E8E8; border-radius:16px; overflow:hidden;">
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/raval-cockpit.jpg" alt="Cockpit" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">FullLink &amp; Digital Cockpit</div><p style="margin:4px 0 0; font-size:14px; color:#6B6B6B; line-height:1.55;">Smartphone-Integration mit Apple CarPlay und Android Auto — alles im Blick.</p></figcaption>
+      </figure>
+      <figure style="margin:0; background:#fff; border:1px solid #E8E8E8; border-radius:16px; overflow:hidden;">
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/raval-stadt.jpg" alt="Distanzregelung" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Automatische Distanzregelung</div><p style="margin:4px 0 0; font-size:14px; color:#6B6B6B; line-height:1.55;">Hält selbstständig Abstand zum Vordermann — entspannt durch den Verkehr.</p></figcaption>
+      </figure>
+      <figure style="margin:0; background:#fff; border:1px solid #E8E8E8; border-radius:16px; overflow:hidden;">
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/raval-urban.jpg" alt="Side Assist" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Side Assist</div><p style="margin:4px 0 0; font-size:14px; color:#6B6B6B; line-height:1.55;">Spurwechsel-, Totwinkel- und Ausparkassistent inkl. Ausstiegswarnung.</p></figcaption>
+      </figure>
+      <figure style="margin:0; background:#fff; border:1px solid #E8E8E8; border-radius:16px; overflow:hidden;">
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/raval-heck-led.jpg" alt="LED" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">LED-Hauptscheinwerfer</div><p style="margin:4px 0 0; font-size:14px; color:#6B6B6B; line-height:1.55;">Markante CUPRA-Lichtsignatur vorne und hinten.</p></figcaption>
+      </figure>
+      <figure style="margin:0; background:#fff; border:1px solid #E8E8E8; border-radius:16px; overflow:hidden;">
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/raval-garage.jpg" alt="Keyless Go" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Keyless Go &amp; Climatronic</div><p style="margin:4px 0 0; font-size:14px; color:#6B6B6B; line-height:1.55;">Schlüssellos einsteigen und starten, Klimaautomatik inklusive.</p></figcaption>
+      </figure>
+      <figure style="margin:0; background:#fff; border:1px solid #E8E8E8; border-radius:16px; overflow:hidden;">
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/raval-duo.jpg" alt="Alltag" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Variabler Gepäckraumboden</div><p style="margin:4px 0 0; font-size:14px; color:#6B6B6B; line-height:1.55;">Flexibel beladen — kompakt außen, clever innen.</p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Ausstattung + Effizienzklasse -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E8E8E8; border-bottom:1px solid #E8E8E8;">
+    <div class="sk-container sk-showcase sk-sect">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:14px;">
+          <span style="width:26px; height:2px; background:var(--sk-green);"></span> Ausstattung Raval Plus
+        </div>
+        <h2 style="margin:0 0 18px; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Raval Plus — elektrisch und komplett ausgestattet</h2>
+        <div class="sk-equip">
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Lackierung Fjord Blau</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> FullLink (Apple CarPlay &amp; Android Auto)</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Climatronic</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Automatische Distanzregelung (ACC)</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Einparkhilfe hinten</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> LED-Hauptscheinwerfer</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Side Assist inkl. Totwinkel-, Auspark- &amp; Ausstiegswarnung</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Keyless Go</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Variabler Gepäckraumboden</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> u. v. m.</div>
+        </div>
+        <p style="margin:22px 0 0; font-size:14px; color:#6B6B6B; line-height:1.65;">Kfz-Steuer <strong style="color:var(--sk-ink)">0,00 €/Jahr²</strong> · Energiekosten bei 15.000 km/Jahr <strong style="color:var(--sk-ink)">645,84 €/Jahr</strong> (Strompreis 31,20 ct/kWh, Ø 2024) · CO₂-Kosten über 10 Jahre: <strong style="color:var(--sk-ink)">0 €</strong>. Abbildungen zeigen Sonderausstattungen gegen Mehrpreis.</p>
+      </div>
+
+      <!-- Efficiency label -->
+      <div style="background:#fff; border:1px solid #E8E8E8; border-radius:18px; padding:24px 24px 22px; box-shadow:var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));" data-om-raster="true">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px;">
+          <div style="font-weight:800; font-size:16px;">CO₂-Effizienzklasse</div>
+          <div style="font-size:12px; color:#6B6B6B;">nach WLTP</div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div style="height:30px; width:52%; background:#009a44; color:#fff; font-weight:800; font-size:14px; display:flex; align-items:center; padding:0 12px; border-radius:3px; outline:2px solid var(--sk-ink); clip-path:polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);">A</div>
+            <div style="background:var(--sk-ink); color:#fff; font-weight:800; font-size:15px; padding:5px 14px; border-radius:6px; white-space:nowrap;">A</div>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:60%; background:#52ae32; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">B</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:68%; background:#c8d200; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">C</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:76%; background:#fff200; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">D</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:84%; background:#f9b000; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">E</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:92%; background:#e97100; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">F</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:100%; background:#e30613; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">G</div></div>
+        </div>
+        <p style="margin:16px 0 0; font-size:12px; color:#6B6B6B; line-height:1.6;">Dieses Fahrzeug: <strong style="color:var(--sk-ink)">Klasse A</strong> · CO₂ komb. 0 g/km · Stromverbrauch komb. 13,8 kWh/100 km. Auf Basis der WLTP-Werte.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fahrzeugbeschreibung (Verknappung / Psychologie) -->
+  <section class="sk-container sk-sect">
+    <details class="sk-acc" open="{{ descOpen }}">
+      <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-align-left"></i></span> Fahrzeugbeschreibung</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <div class="sk-accbody">
+    <div style="display:grid; grid-template-columns:1fr; gap:16px;">
+      <div style="display:flex; gap:14px; align-items:flex-start; background:var(--sk-paper); border:1px solid #E4E4E4; border-radius:14px; padding:18px 20px;">
+        <i class="fa-solid fa-location-dot" style="color:var(--sk-green); font-size:20px; margin-top:2px;"></i>
+        <div>
+          <div style="font-weight:800; font-size:16px; margin-bottom:4px;">Offizieller CUPRA Partner in Essen</div>
+          <p style="margin:0; font-size:15px; color:#4A4A4A; line-height:1.6;">AS-Automobile ist Ihr Autohaus an der Hövelstr. 151–153 in Essen — mit <strong>über 300 Fahrzeugen sofort verfügbar</strong>. Persönliche Beratung, Übergabe und Service, alles direkt vor Ort.</p>
+        </div>
+      </div>
+      <p style="margin:0; font-size:15px; color:#4A4A4A; line-height:1.75;">Der neue <strong>CUPRA Raval Plus</strong> ist CUPRAs vollelektrischer Kompaktwagen für die Stadt — mit 5 Jahren Herstellergarantie⁴ und komplett schlüsselfertig. Sie erhalten ihn im <strong>Privat-Leasing für 99 € mtl.</strong> — und können sich die Sonderzahlung über die E-Auto-Förderung des Bundes von bis zu 6.000 € zurückholen³. Fordern Sie jetzt Ihr unverbindliches Angebot bei Ihrem CUPRA-Berater Martin Braunheim an.</p>
+      <div style="display:flex; gap:22px; flex-wrap:wrap; font-size:14px; color:#4A4A4A;">
+        <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>Voll schlüsselfertig</span>
+        <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>5 Jahre Herstellergarantie⁴</span>
+        <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>Inzahlungnahme möglich</span>
+        <span><i class="fa-solid fa-check" style="color:var(--sk-green); margin-right:8px;"></i>Über 300 Fahrzeuge in Essen verfügbar</span>
+      </div>
+    </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- Leasing-Angebot (feste Konditionen) -->
+  <section style="background:linear-gradient(160deg, var(--sk-green) 0%, var(--sk-green-700) 100%); color:#fff;">
+    <div class="sk-container sk-sect" style="text-align:center;">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-mint); margin-bottom:12px;"><span style="width:26px; height:2px; background:var(--sk-mint);"></span> Ihr Leasing-Angebot <span style="width:26px; height:2px; background:var(--sk-mint);"></span></div>
+      <h2 style="margin:0; font-size:clamp(24px,4vw,32px); font-weight:800; letter-spacing:-.02em;">CUPRA Raval Plus im Privat-Leasing</h2>
+      <div style="display:inline-flex; align-items:center; gap:8px; margin-top:14px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); border-radius:999px; padding:7px 16px; font-size:13px; font-weight:700;"><i class="fa-solid fa-bolt" style="color:var(--sk-mint);"></i> 100 % elektrisch · Kfz-steuerbefreit²</div>
+      <div style="display:flex; align-items:baseline; justify-content:center; gap:10px; margin:22px 0 8px;">
+        <span style="font-size:clamp(58px,11vw,88px); font-weight:800; letter-spacing:-.03em; color:var(--sk-mint); line-height:1;">99&nbsp;€</span>
+        <span style="font-size:clamp(17px,3vw,22px); font-weight:800; color:var(--sk-mint);">mtl.*</span>
+      </div>
+      <p style="margin:0 0 28px; font-size:14px; color:rgba(255,255,255,0.72);">Sonderzahlung 6.000&nbsp;€ — <a href="#foerderung" style="color:var(--sk-mint); font-weight:700; text-decoration:none;">als E-Auto-Förderung sichern³</a> · 36 Monate · 10.000 km/Jahr</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; max-width:720px; margin:0 auto 30px;">
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Laufzeit</div><div style="font-weight:800; font-size:17px;">36 Monate</div></div>
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Fahrleistung</div><div style="font-weight:800; font-size:17px;">10.000 km/Jahr</div></div>
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Sonderzahlung</div><div style="font-weight:800; font-size:17px;">6.000 €</div><a href="#foerderung" style="display:block; margin-top:4px; font-size:12px; font-weight:800; color:var(--sk-mint); text-decoration:none;">als E-Auto-Förderung sichern³</a></div>
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Überführung</div><div style="font-weight:800; font-size:17px;">1.595 €</div></div>
+      </div>
+      <a href="{{ anfrageHref }}" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:17px; padding:17px 36px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
+      <p style="margin:16px auto 0; max-width:560px; font-size:11px; color:rgba(255,255,255,0.55); line-height:1.6;">Unverbindliches Privatleasing-Angebot¹, Bonität vorausgesetzt. Alle Details finden Sie im Preisteil am Seitenende.</p>
+    </div>
+  </section>
+  <!-- E-Auto-Förderung -->
+  <section id="foerderung" style="background:#FFF4F7; border-bottom:1px solid #F3D3DC;">
+    <div class="sk-container sk-sect">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:clamp(24px,4vw,44px); align-items:center;">
+        <div>
+          <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#9F1E41; margin-bottom:12px;"><span style="width:26px; height:2px; background:#9F1E41;"></span> E-Auto-Förderung 2026</div>
+          <h2 style="margin:0 0 12px; font-size:clamp(28px,4.5vw,40px); font-weight:800; letter-spacing:-.02em; line-height:1.08;">Bis zu <span style="color:#FF2B62;">6.000 €</span> Ihrer Sonderzahlung zurück</h2>
+          <p style="margin:0 0 18px; font-size:16px; color:#4A4A4A; line-height:1.65;">Mit dem E-Auto-Förderprogramm des Bundesumweltministeriums können Privatpersonen für die Neuzulassung eines Elektroautos einen Zuschuss erhalten. Beim Raval deckt die Förderung die Sonderzahlung von 6.000 € im besten Fall vollständig ab³.</p>
+          <div style="display:inline-flex; align-items:center; gap:10px; background:#000; color:#fff; border-radius:12px; padding:14px 18px; font-size:15px;"><span style="color:#FF2B62; font-weight:800; font-size:22px;">99 €</span><span>mtl. · 36 Monate · bei voller Förderung ohne eigene Anzahlung³</span></div>
+        </div>
+        <div style="display:grid; gap:12px;">
+          <div style="background:#fff; border:1px solid #F3D3DC; border-radius:16px; padding:22px; text-align:left;"><div style="width:40px; height:40px; border-radius:10px; background:#000; color:#FF2B62; display:grid; place-items:center; font-weight:800; font-size:17px; margin-bottom:12px;">1</div><div style="font-weight:800; font-size:17px; margin-bottom:6px;">Angebot sichern</div><p style="margin:0; font-size:14px; color:#5B5B5B; line-height:1.6;">Sie leasen den Raval Plus mit 6.000 € Sonderzahlung und 99 € Monatsrate.</p></div>
+          <div style="background:#fff; border:1px solid #F3D3DC; border-radius:16px; padding:22px; text-align:left;"><div style="width:40px; height:40px; border-radius:10px; background:#000; color:#FF2B62; display:grid; place-items:center; font-weight:800; font-size:17px; margin-bottom:12px;">2</div><div style="font-weight:800; font-size:17px; margin-bottom:6px;">Förderung beantragen</div><p style="margin:0; font-size:14px; color:#5B5B5B; line-height:1.6;">Sie stellen den Antrag auf die E-Auto-Förderung selbst — wir sagen Ihnen gern, was Sie brauchen.</p></div>
+          <div style="background:#fff; border:1px solid #F3D3DC; border-radius:16px; padding:22px; text-align:left;"><div style="width:40px; height:40px; border-radius:10px; background:#000; color:#FF2B62; display:grid; place-items:center; font-weight:800; font-size:17px; margin-bottom:12px;">3</div><div style="font-weight:800; font-size:17px; margin-bottom:6px;">Bis zu 6.000 € zurück</div><p style="margin:0; font-size:14px; color:#5B5B5B; line-height:1.6;">Der Zuschuss richtet sich nach Ihrem zu versteuernden Haushaltseinkommen und der Anzahl der Kinder unter 18 Jahren.</p></div>
+        </div>
+      </div>
+      <p style="margin:22px 0 0; font-size:12px; color:#6B6B6B; line-height:1.6;">³ Die Höhe der Förderung ist einkommensabhängig; Beantragung, Prüfung der Voraussetzungen und Auszahlung erfolgen eigenverantwortlich durch den Kunden. Infos: <a href="https://www.bundesumweltministerium.de/" target="_blank" rel="noopener" style="color:#9F1E41; font-weight:600;">bundesumweltministerium.de</a></p>
+    </div>
+  </section>
+
+  <!-- Details zum Leasing (Auflistung wie LeasingMarkt) -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E8E8E8; border-bottom:1px solid #E8E8E8;">
+    <div class="sk-container sk-sect" style="max-width:820px;">
+      <details class="sk-acc">
+      <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-file-invoice-dollar"></i></span> Details zum Leasing</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
+      <div class="sk-accbody">
+      <p style="margin:2px 0 22px; font-size:14px; color:#6B6B6B;">Alle Beträge inkl. MwSt.</p>
+
+      <div style="background:#fff; border:1px solid #E8E8E8; border-radius:16px; padding:clamp(18px,3vw,26px);">
+        <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin-bottom:10px;">Monatliche Kosten</div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:10px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Leasingrate</span><strong style="font-size:18px;">99 €</strong></div>
+
+        <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Preisübersicht</div>
+        
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Leasing-Sonderzahlung<br><a href="#foerderung" style="font-size:12px; font-weight:700; color:#9F1E41; text-decoration:none;">als E-Auto-Förderung sichern³</a></span><strong>6.000 €</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Überführungskosten</span><strong>1.595 €</strong></div>
+
+        <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Allgemeine Daten</div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Laufzeit</span><strong>36 Monate</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EFEFEF;"><span style="color:#4A4A4A;">Jährliche Fahrleistung</span><strong>10.000 km</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0;"><span style="color:#4A4A4A;">Leasing-Gesamtbetrag (36 Raten + Sonderzahlung)</span><strong>9.564 €</strong></div>
+
+        <a href="{{ anfrageHref }}" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; width:100%; box-sizing:border-box; margin-top:22px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; box-shadow:0 8px 22px rgba(0,0,0,0.22); font-size:15px; padding:15px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
+      </div>
+      <p style="margin:14px 0 0; font-size:11px; color:#8A8A8A; line-height:1.55;">Unverbindliches Privatleasing-Angebot¹ der SEAT Leasing. Zzgl. Überführungs- und Zulassungskosten. Bonität vorausgesetzt. Ihr verbindliches Angebot erhalten Sie von uns persönlich.</p>
+      </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Garantie -->
+  <section class="sk-container sk-sect">
+    <div style="text-align:center; max-width:640px; margin:0 auto 34px;">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:12px;">
+        <span style="width:26px; height:2px; background:var(--sk-green);"></span> CUPRA Garantie <span style="width:26px; height:2px; background:var(--sk-green);"></span>
+      </div>
+      <h2 style="margin:0 0 8px; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Elektrisch, sicher, sorgenfrei</h2>
+    </div>
+    <div class="sk-haus3">
+      <div style="background:#fff; border:1px solid #E8E8E8; border-radius:16px; padding:26px;">
+        <div style="width:52px; height:52px; border-radius:12px; background:#000; display:grid; place-items:center; color:#FF2B62; font-size:22px; margin-bottom:14px;"><i class="fa-solid fa-shield-halved"></i></div>
+        <div style="font-weight:800; font-size:18px; margin-bottom:6px;">5 Jahre Herstellergarantie⁴</div>
+        <p style="margin:0; font-size:14px; color:#6B6B6B; line-height:1.6;">CUPRA Neuwagengarantie bis 5 Jahre bzw. 150.000 km — mindestens 2 Jahre ohne Kilometerbegrenzung.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E8E8E8; border-radius:16px; padding:26px;">
+        <div style="width:52px; height:52px; border-radius:12px; background:#000; display:grid; place-items:center; color:#FF2B62; font-size:22px; margin-bottom:14px;"><i class="fa-solid fa-leaf"></i></div>
+        <div style="font-weight:800; font-size:18px; margin-bottom:6px;">Kfz-Steuer 0 €²</div>
+        <p style="margin:0; font-size:14px; color:#6B6B6B; line-height:1.6;">Elektrofahrzeuge sind bei Erstzulassung bis 31.12.2030 für bis zu zehn Jahre steuerbefreit.</p>
+      </div>
+      <div style="background:#fff; border:1px solid #E8E8E8; border-radius:16px; padding:26px;">
+        <div style="width:52px; height:52px; border-radius:12px; background:#000; display:grid; place-items:center; color:#FF2B62; font-size:22px; margin-bottom:14px;"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+        <div style="font-weight:800; font-size:18px; margin-bottom:6px;">Service vor Ort</div>
+        <p style="margin:0; font-size:14px; color:#6B6B6B; line-height:1.6;">Übergabe, Wartung und Garantiefälle direkt bei uns — Ihr CUPRA Servicepartner in Essen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advisor -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E8E8E8; border-bottom:1px solid #E8E8E8;">
+    <div class="sk-container sk-sect">
+      <div class="sk-advisor" style="background:#fff; border:1px solid #E8E8E8; border-radius:20px; padding:clamp(24px,4vw,36px);">
+        <div style="width:112px; height:112px; border-radius:999px; overflow:hidden; border:3px solid var(--sk-mint); flex:none;"><img src="img/martin-braunheim.jpeg" alt="Martin Braunheim" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div>
+          <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--sk-green); margin-bottom:6px;">Ihr Ansprechpartner · CUPRA</div>
+          <h3 style="margin:0 0 6px; font-size:clamp(22px,3.5vw,26px); font-weight:800; letter-spacing:-.01em;">Martin Braunheim</h3>
+          <p style="margin:0; font-size:15px; color:#5B5B5B;">Berät Sie persönlich zum Raval, zum Leasing-Angebot und zur E-Auto-Förderung.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; min-width:min(240px,100%);">
+          <a href="tel:+4920183148314" style="display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:700; font-size:15px; padding:13px 18px; border-radius:10px;" style-hover="background:var(--sk-green-700);"><i class="fa-solid fa-phone"></i> 0201 83 14 83 14</a>
+          <a href="mailto:mb@seat-as.de" style="display:inline-flex; align-items:center; justify-content:center; gap:10px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:15px; padding:13px 18px; border-radius:10px;" style-hover="background:var(--sk-mint);"><i class="fa-solid fa-envelope"></i> mb@seat-as.de</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="sk-container sk-sect">
+    <div style="text-align:center; margin-bottom:34px;">
+      <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:12px;">
+        <span style="width:26px; height:2px; background:var(--sk-green);"></span> Das sagen unsere Kunden <span style="width:26px; height:2px; background:var(--sk-green);"></span>
+      </div>
+      <h2 style="margin:0; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Bewertungen von AS-Automobile</h2>
+    </div>
+    <!-- Elfsight Google Reviews | Möbel H&w -->
+    <div class="elfsight-app-f2eeba31-ee96-4ccf-9a5a-16857c6ece15" data-elfsight-app-lazy></div>
+  </section>
+
+  <!-- Standort & Autohaus -->
+  <section style="background:var(--sk-paper); border-top:1px solid #E8E8E8;">
+    <div class="sk-container sk-sect">
+      <div style="text-align:center; max-width:640px; margin:0 auto 30px;">
+        <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-green); margin-bottom:12px;">
+          <span style="width:26px; height:2px; background:var(--sk-green);"></span> Standort &amp; Autohaus <span style="width:26px; height:2px; background:var(--sk-green);"></span>
+        </div>
+        <h2 style="margin:0; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">Besuchen Sie uns in Essen</h2>
+      </div>
+
+      <div class="sk-map" style="background:#fff; border:1px solid #E8E8E8; border-radius:18px; overflow:hidden;">
+        <iframe title="Standort AS-Automobile" src="https://www.google.com/maps?q=AS-Automobile+GmbH+H%C3%B6velstra%C3%9Fe+151-153+45326+Essen&output=embed" style="width:100%; height:100%; border:0; display:block; min-height:340px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div style="padding:clamp(24px,4vw,34px); display:flex; flex-direction:column; justify-content:center; gap:16px;">
+          <div>
+            <div style="font-weight:800; font-size:20px; margin-bottom:6px;">AS-Automobile GmbH</div>
+            <p style="margin:0; font-size:15px; color:#5B5B5B; line-height:1.7;"><i class="fa-solid fa-location-dot" style="color:var(--sk-green); width:18px;"></i> Hövelstr. 151–153, 45326 Essen<br><i class="fa-solid fa-phone" style="color:var(--sk-green); width:18px;"></i> 0201 83 14 83 14<br><i class="fa-solid fa-clock" style="color:var(--sk-green); width:18px;"></i> Mo–Fr 08:30–18:30 · Sa 10:00–14:00</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=AS-Automobile+GmbH+H%C3%B6velstra%C3%9Fe+151-153+45326+Essen" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:var(--sk-green); color:#fff; font-weight:700; font-size:14px; padding:11px 16px; border-radius:9px;" style-hover="background:var(--sk-green-700);"><i class="fa-solid fa-diamond-turn-right"></i> Route planen</a>
+            <a href="https://share.google/8i4HWJyCBXj3T6CCZ" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; background:#fff; color:var(--sk-green); border:1px solid var(--sk-green); font-weight:700; font-size:14px; padding:11px 16px; border-radius:9px;" style-hover="background:var(--sk-mint);"><i class="fa-brands fa-google"></i> Auf Google ansehen</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sk-haus3" style="margin-top:16px;">
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E8E8E8; aspect-ratio:16/10;"><img src="img/haus-building.jpg" alt="AS-Automobile Essen" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E8E8E8; aspect-ratio:16/10;"><img src="img/haus-showroom.jpg" alt="Showroom" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E8E8E8; aspect-ratio:16/10;"><img src="img/haus-lounge.jpg" alt="Kundenbereich" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section style="background:var(--sk-green-700); color:#fff;">
+    <div class="sk-container sk-sect" style="max-width:900px; text-align:center;">
+      <h2 style="margin:0 0 14px; font-size:clamp(28px,5vw,38px); font-weight:800; letter-spacing:-.02em; line-height:1.1;">Sichern Sie sich den neuen Raval — <span style="color:var(--sk-mint)">99 € mtl.</span></h2>
+      <p style="margin:0 0 30px; font-size:clamp(15px,2.4vw,17px); color:rgba(255,255,255,0.82);">Bis zu 6.000 € E-Auto-Förderung³ · nur solange der Vorrat reicht. Fordern Sie jetzt Ihr unverbindliches Angebot an — Rückmeldung innerhalb von 24 Stunden.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:16px 32px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
+        <a href="tel:+4920183148314" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:16px; padding:16px 28px; border-radius:10px;" style-hover="background:rgba(255,255,255,0.1);"><i class="fa-solid fa-phone"></i> 0201 83 14 83 14</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:var(--sk-ink); color:#A8A8A8; font-size:13px;">
+    <div class="sk-container sk-foot" style="padding-top:44px; padding-bottom:20px; align-items:start;">
+      <div>
+        <img src="img/logo-as-quer-white.png" alt="AS Automobile · SEAT · CUPRA · Škoda" style="height:44px; width:auto; display:block; margin-bottom:14px;" />
+        <p style="margin:0; line-height:1.7;">AS-Automobile GmbH · Hövelstr. 151–153 · 45326 Essen<br>Tel: 0201 83 14 83 14 · E-Mail: mb@seat-as.de</p>
+      </div>
+      <div style="line-height:1.7;">
+        <div style="color:#fff; font-weight:700; margin-bottom:8px;">CUPRA Partner</div>
+        Martin Braunheim · Verkauf SEAT &amp; CUPRA<br>Ihr Autohaus für SEAT, CUPRA &amp; Škoda in Essen.
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1);">
+      <div class="sk-container" style="padding-top:18px; padding-bottom:18px; font-size:11px; line-height:1.7; color:#858585;">
+        <p style="margin:0 0 4px; color:#BDBDBD; font-weight:700;">Allgemeine Informationen &amp; Hinweise</p>
+        <p style="margin:0 0 12px;">Abbildung zeigt Sonderausstattungen gegen Mehrpreis. Alle Angaben basieren auf den Merkmalen des deutschen Marktes. Irrtum, Änderung und Zwischenverkauf vorbehalten. Angebot gültig, nur solange der Vorrat reicht.</p>
+
+        <p style="margin:0 0 4px; color:#BDBDBD; font-weight:700;">Fahrzeug</p>
+        <p style="margin:0 0 12px;">Der neue CUPRA Raval Plus 99 kW (135 PS) 37 kWh · Lackierung Fjord Blau. Alle Preise inkl. MwSt. zzgl. Überführungskosten in Höhe von 1.595,00 € und Zulassungskosten. Änderungen und Irrtümer vorbehalten.</p>
+
+        <p style="margin:0 0 4px; color:#BDBDBD; font-weight:700;">Leasingangebot</p>
+        <p style="margin:0 0 12px;">¹ Ein Angebot der SEAT Leasing, Zweigniederlassung der Volkswagen Leasing GmbH, Gifhorner Str. 57, 38112 Braunschweig, für die wir als ungebundener Vermittler gemeinsam mit dem Kunden die für den Abschluss des Leasing-Vertrags nötigen Vertragsunterlagen zusammenstellen. Privatkunden-Leasingangebot: Sonderzahlung 6.000,00 €, Vertragslaufzeit 36 Monate, jährliche Fahrleistung 10.000 km, 36 monatliche Raten à <strong style="color:#fff;">99,00 €</strong>, zzgl. Überführungskosten i. H. v. 1.595,00 €. Bonität vorausgesetzt. Angebot gültig, solange der Vorrat reicht. Alle Preise inkl. MwSt. zzgl. Überführungs- und Zulassungskosten. Änderungen und Irrtümer vorbehalten. Für Verbraucher besteht ein gesetzliches Widerrufsrecht.</p>
+        <p style="margin:0 0 12px;">² Die Steuerbefreiung wird bei erstmaliger Zulassung des Elektrofahrzeugs in der Zeit vom 18.05.2011 bis 31.12.2030 für zehn Jahre ab dem Tag der erstmaligen Zulassung gewährt, längstens jedoch bis zum 31.12.2035.</p>
+        <p style="margin:0 0 12px;">³ Der als Sonderzahlung eingesetzte Betrag kann im Zuge des E-Auto-Förderprogramms des Bundesumweltministeriums in Höhe von bis zu 6.000,00 € rückerstattet werden. Die Höhe des Förderbetrags ist abhängig vom zu versteuernden Haushaltsjahreseinkommen und der im Haushalt lebenden Kinder unter 18 Jahren. Die Beantragung der Förderung, die Prüfung der Fördervoraussetzungen sowie die Auszahlung des Förderbetrags erfolgen eigenverantwortlich durch den Kunden. Weitere Informationen unter www.bundesumweltministerium.de.</p>
+        <p style="margin:0 0 12px;">⁴ SEAT S.A. („Garantiegeber") gewährt allen Erstkäufern („Garantienehmer") kostenlos eine 5-jährige Herstellergarantie für sämtliche Neufahrzeuge der Marke CUPRA, die ab dem 21.12.2023 neu ab Werk in Deutschland bestellt werden, hinsichtlich aller Mängel in Werkstoff und Werkarbeit („CUPRA Neuwagengarantie"). Die Laufzeit der Garantie beträgt mindestens 2 Jahre ohne Kilometerbeschränkung und endet nach 5 Jahren oder einer maximalen Gesamtlaufleistung von 150.000 km, je nachdem, welches Ereignis zuerst eintritt. Die Garantie beginnt ab Übergabe des Fahrzeugs oder ab dem Datum der Erstzulassung, je nachdem, welches Ereignis zuerst eintritt. Unabhängig davon beginnt die Laufzeit der Garantie, wenn das Fahrzeug durch einen SEAT | CUPRA Partner im Gebiet des Europäischen Wirtschaftsraums (EWR) oder der Schweiz ausgeliefert, zugelassen oder genutzt wird. Im Garantiefall beauftragt die SEAT S.A. die SEAT Deutschland GmbH bzw. die SEAT | CUPRA Servicepartner mit der Beseitigung des Mangels (Nachbesserung). Wenden Sie sich im Garantiefall bitte an einen CUPRA Servicepartner.</p>
+
+        <p style="margin:0 0 4px; color:#BDBDBD; font-weight:700;">Information zu Verbrauchswerten</p>
+        <p style="margin:0 0 6px;">CUPRA Raval Plus 99 kW (135 PS) 37 kWh — Stromverbrauch (WLTP*) kombiniert: 13,8 kWh/100 km; Innenstadt (langsam): 9,7 kWh/100 km; Stadtrand (mittel): 10,4 kWh/100 km; Landstraße (schnell): 12,4 kWh/100 km; Autobahn (sehr schnell): 18,4 kWh/100 km. CO₂-Emissionen kombiniert: 0,0 g/km**. CO₂-Klasse: A.</p>
+        <p style="margin:0 0 6px;">Informationen zu Kosten: Kraftfahrzeugsteuer 0,00 €/Jahr². Energiekosten bei 15.000 km Jahresfahrleistung: 645,84 €/Jahr (Jahresdurchschnitt 2024, Strompreis 31,20 ct/kWh). Mögliche CO₂-Kosten über die nächsten 10 Jahre (15.000 km/Jahr)***: bei einem mittleren durchschnittlichen CO₂-Preis von 127 €/t: 0 €; bei einem niedrigen durchschnittlichen CO₂-Preis von 60 €/t: 0 €; bei einem hohen durchschnittlichen CO₂-Preis von 200 €/t: 0 €.</p>
+        <p style="margin:0 0 6px;">* Die Informationen erfolgen gemäß der Pkw-Energieverbrauchskennzeichnungsverordnung. Die angegebenen Werte wurden nach dem vorgeschriebenen Messverfahren WLTP (Worldwide harmonised Light-duty vehicles Test Procedure) ermittelt. Der Energieverbrauch und der CO₂-Ausstoß eines Pkw sind nicht nur von der effizienten Ausnutzung der Energie durch den Pkw, sondern auch vom Fahrstil und anderen nichttechnischen Faktoren abhängig. CO₂ ist das für die Erderwärmung hauptsächlich verantwortliche Treibhausgas.</p>
+        <p style="margin:0 0 6px;">** Es werden nur die CO₂-Emissionen angegeben, die durch den Betrieb des Pkw entstehen. CO₂-Emissionen, die durch die Produktion und Bereitstellung des Pkw sowie der Energieträger entstehen oder vermieden werden, werden bei der Ermittlung der CO₂-Emissionen gemäß WLTP nicht berücksichtigt.</p>
+        <p style="margin:0 0 12px;">*** Aufgrund der CO₂-Bepreisung sind künftig Erhöhungen der Kraftstoffkosten möglich. Die künftige CO₂-Preisentwicklung ist unsicher, daher werden die möglichen CO₂-Kosten anhand von drei angenommenen CO₂-Preisen für den Zeitraum 2025 bis 2034 berechnet. Die tatsächlichen CO₂-Preise können sowohl höher als auch niedriger ausfallen. Weitere Informationen unter www.alternativ-mobil.info.</p>
+
+        <p style="margin:12px 0 0; display:flex; gap:16px; flex-wrap:wrap;"><span>© 2026 AS Automobile</span><a href="../../impressum/" style="color:#BDBDBD; text-decoration:none;" style-hover="color:#fff;">Impressum</a><a href="../../datenschutz/" style="color:#BDBDBD; text-decoration:none;" style-hover="color:#fff;">Datenschutz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky action bar -->
+  <div class="sk-mobilebar">
+    <div style="display:flex; flex-direction:column; line-height:1.2; min-width:0;">
+      <span style="font-size:11px; color:#6B6B6B;">Leasing</span>
+      <span style="font-size:24px; font-weight:800; color:#FF2B62; letter-spacing:-.03em;">99&nbsp;€<span style="font-size:11px; font-weight:700; color:#6B6B6B;"> mtl.</span></span>
+      <span style="font-size:10px; color:#8A8A8A; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">6.000 € SZ = E-Förderung³</span>
+    </div>
+    <a href="anfrage/" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; box-shadow:0 -2px 14px rgba(0,0,0,0.18); font-size:15px; padding:13px 18px; border-radius:10px; white-space:nowrap;"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1140, &quot;height&quot;: 900}}">
+class Component extends DCLogic {
+  state = {
+    anzahlung: 6000, laufzeit: 36, km: 10000,
+    mode: 'leasing',                 // 'leasing' | 'finanzierung' | 'kauf'
+    activeImg: 'img/raval-nacht.jpg',
+    color: 'Fjord Blau',
+  };
+
+  fmt(n) { return Math.round(n).toLocaleString('de-DE'); }
+
+  computeLeasing() {
+    const { anzahlung, laufzeit, km } = this.state;
+    let r = 99 + ((km - 10000) / 1000) * 4;
+    return Math.max(49, Math.round(r));
+  }
+
+  computeFinanzierung() {
+    const { anzahlung, laufzeit } = this.state;
+    const price = 0;
+    const financed = Math.max(0, price - anzahlung);
+    // simple nominal-interest amortisation approximation (~4.9% p.a.)
+    const r = financed * (1 + 0.049 * (laufzeit / 12)) / laufzeit;
+    return Math.max(0, Math.round(r));
+  }
+
+  renderVals() {
+    const s = this.state;
+    const num = (k) => (e) => this.setState({ [k]: Number(e.target.value) });
+    const pickImg = (src) => () => this.setState({ activeImg: src });
+
+    const total = 5;
+    const idx = Math.max(0, Math.min(total - 1, this.state.imgIdx || 0));
+    const dots = [];
+    for (let k = 0; k < total; k++) {
+      dots.push({ cls: k === idx ? 'on' : '', onClick: () => { const el = document.querySelector('.sk-carousel'); if (el) el.scrollTo({ left: el.clientWidth * k, behavior: 'smooth' }); this.setState({ imgIdx: k }); } });
+    }
+    const onCarouselScroll = (e) => { const el = e.target; const k = Math.round(el.scrollLeft / el.clientWidth); if (k !== (this.state.imgIdx || 0)) this.setState({ imgIdx: k }); };
+
+    const isLeasing = s.mode === 'leasing';
+    const isFin = s.mode === 'finanzierung';
+    const isKauf = s.mode === 'kauf';
+
+    // Rate / price shown in the result panel
+    let rateNum, rateLabel, rateUnit;
+    if (isKauf) {
+      rateNum = 0; rateLabel = 'Kaufpreis'; rateUnit = 'einmalig, inkl. MwSt';
+    } else if (isFin) {
+      rateNum = this.computeFinanzierung(); rateLabel = 'Finanzierungsrate ca.'; rateUnit = '€ / Monat*';
+    } else {
+      rateNum = this.computeLeasing(); rateLabel = 'Leasingrate ca.'; rateUnit = '€ / Monat*';
+    }
+
+    // Colour configurator
+    const imgMap = {
+      'Graphite-Grau': 'img/kamiq-graphit.avif',
+      'Magic-Schwarz': 'img/kamiq-schwarz.avif',
+      'Steel-Grau': 'img/kamiq-grey.avif',
+      'Race-Blau': 'img/kamiq-hellblau.avif',
+      'Energy-Blau': 'img/kamiq-dunkelblau.avif',
+      'Velvet-Rot': 'img/kamiq-rot.avif',
+      'Phoenix-Orange': 'img/kamiq-orange.avif',
+      'Candy-Weiß': 'img/kamiq-candy-weiss.avif',
+      'Moon-Weiß': 'img/kamiq-weiss.avif',
+    };
+    const setColor = (name) => () => this.setState({ color: name });
+
+    const anfrageHref = 'anfrage/?mode=' + s.mode +
+      '&anzahlung=' + s.anzahlung + '&laufzeit=' + s.laufzeit + '&km=' + s.km +
+      '&rate=' + rateNum + '&color=' + encodeURIComponent(s.color);
+
+    const lRate = this.computeLeasing();
+    const lGesamt = lRate * s.laufzeit + s.anzahlung;
+
+    return {
+      // Details zum Leasing
+      descOpen: true,
+      lRateFmt: this.fmt(lRate),
+      lGesamtFmt: this.fmt(lGesamt),
+      lKaufpreis: '',
+
+      // gallery
+      imgCounter: (idx + 1) + '/' + total,
+      isFirstImg: idx === 0,
+      dots,
+      onCarouselScroll,
+      activeImg: s.activeImg,
+      setImg0: pickImg('img/raval-nacht.jpg'),
+      setImg1: pickImg('img/raval-seite.jpg'),
+      setImg2: pickImg('img/raval-fahrt.jpg'),
+      setImg3: pickImg('img/raval-front.jpg'),
+      setImg4: pickImg('img/raval-top.jpg'),
+
+      // configurator
+      colorName: s.color,
+      colorImg: imgMap[s.color] || 'img/kamiq-graphit.avif',
+      sel_c0: s.color === 'Graphite-Grau', not_c0: s.color !== 'Graphite-Grau',
+      sel_c1: s.color === 'Magic-Schwarz', not_c1: s.color !== 'Magic-Schwarz',
+      sel_c2: s.color === 'Steel-Grau', not_c2: s.color !== 'Steel-Grau',
+      sel_c3: s.color === 'Race-Blau', not_c3: s.color !== 'Race-Blau',
+      sel_c4: s.color === 'Energy-Blau', not_c4: s.color !== 'Energy-Blau',
+      sel_c5: s.color === 'Velvet-Rot', not_c5: s.color !== 'Velvet-Rot',
+      sel_c6: s.color === 'Phoenix-Orange', not_c6: s.color !== 'Phoenix-Orange',
+      sel_c7: s.color === 'Candy-Weiß', not_c7: s.color !== 'Candy-Weiß',
+      sel_c8: s.color === 'Moon-Weiß', not_c8: s.color !== 'Moon-Weiß',
+      setColor_c0: setColor('Graphite-Grau'),
+      setColor_c1: setColor('Magic-Schwarz'),
+      setColor_c2: setColor('Steel-Grau'),
+      setColor_c3: setColor('Race-Blau'),
+      setColor_c4: setColor('Energy-Blau'),
+      setColor_c5: setColor('Velvet-Rot'),
+      setColor_c6: setColor('Phoenix-Orange'),
+      setColor_c7: setColor('Candy-Weiß'),
+      setColor_c8: setColor('Moon-Weiß'),
+
+      // calculator
+      mode: s.mode,
+      isLeasing, isFin, isKauf,
+      notLeasing: !isLeasing, notFin: !isFin, notKauf: !isKauf,
+      setLeasing: () => this.setState({ mode: 'leasing' }),
+      setFin: () => this.setState({ mode: 'finanzierung' }),
+      setKauf: () => this.setState({ mode: 'kauf' }),
+      anzahlung: s.anzahlung, laufzeit: s.laufzeit, km: s.km,
+      anzahlungFmt: this.fmt(s.anzahlung), kmFmt: this.fmt(s.km),
+      anzLabel: isKauf ? 'Anzahlung' : (isFin ? 'Anzahlung' : 'Sonderzahlung'),
+      onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
+      rateFmt: this.fmt(rateNum), rateLabel, rateUnit,
+      anfrageHref,
+    };
+  }
+}
+</script>
+</body>
+</html>
