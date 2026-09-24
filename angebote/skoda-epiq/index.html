@@ -95,6 +95,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 <meta name="twitter:title" content="Škoda Epiq Essence · 69 € mtl. + E-Auto-Förderung">
 <meta name="twitter:description" content="Vollelektrisch · 99 kW (135 PS) · bis zu 6.000 € Förderung.">
 <meta name="twitter:image" content="https://www.as-automobile-essen.de/assets/og/skoda-epiq.jpg">
+<link rel="preload" as="image" href="img/epiq-heck.webp" fetchpriority="high">
 <script src="../../assets/ds-base.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script src="https://elfsightcdn.com/platform.js" async></script>
@@ -217,7 +218,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <header style="position:relative; z-index:50; background:rgba(255,255,255,0.96); backdrop-filter:blur(10px); border-bottom:1px solid #E7ECE9;">
     <div class="sk-container" style="height:66px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
       <div style="display:flex; align-items:center; gap:12px; min-width:0;">
-        <img src="img/logo-as-quer.png" alt="AS Automobile · SEAT · CUPRA · Škoda" style="height:clamp(34px,6vw,46px); width:auto; display:block;" />
+        <img loading="lazy" decoding="async" src="img/logo-as-quer.png" alt="AS Automobile · SEAT · CUPRA · Škoda" style="height:clamp(34px,6vw,46px); width:auto; display:block;" />
       </div>
       <div style="display:flex; align-items:center; gap:16px;">
         <a href="tel:+4920183148324" class="sk-hidesm" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--sk-ink); font-weight:700; font-size:15px; white-space:nowrap;">
@@ -235,11 +236,11 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <div class="sk-herowrap">
   <section class="sk-cwrap">
     <div class="sk-carousel" onScroll="{{ onCarouselScroll }}">
-      <img src="img/epiq-heck.jpg" alt="Škoda Epiq Heckansicht" />
-      <img src="img/epiq-studio.jpg" alt="Škoda Epiq Front" />
-      <img src="img/epiq-fahrt.jpg" alt="Škoda Epiq in Fahrt" />
-      <img src="img/epiq-front.jpg" alt="Škoda Epiq Frontpartie" />
-      <img src="img/epiq-innen.jpg" alt="Škoda Epiq Innenraum" />
+      <img fetchpriority="high" decoding="async" src="img/epiq-heck.webp" alt="Škoda Epiq Heckansicht" />
+      <img loading="lazy" decoding="async" src="img/epiq-studio.webp" alt="Škoda Epiq Front" />
+      <img loading="lazy" decoding="async" src="img/epiq-fahrt.webp" alt="Škoda Epiq in Fahrt" />
+      <img loading="lazy" decoding="async" src="img/epiq-front.webp" alt="Škoda Epiq Frontpartie" />
+      <img loading="lazy" decoding="async" src="img/epiq-innen.webp" alt="Škoda Epiq Innenraum" />
     </div>
     <sc-if value="{{ isFirstImg }}" hint-placeholder-val="{{ true }}">
     <a href="#foerderung" style="position:absolute; top:18px; left:20px; display:flex; align-items:center; gap:12px; text-decoration:none; color:#fff; text-shadow:0 2px 14px rgba(0,0,0,0.7);">
@@ -346,27 +347,27 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     </div>
     <div class="sk-haus3">
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/epiq-cockpit.jpg" alt="Cockpit" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/epiq-cockpit.webp" alt="Cockpit" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">13"-Infotainmentdisplay</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Großer Touchscreen mit Wireless SmartLink für Apple CarPlay und Android Auto.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/epiq-batterie.jpg" alt="Batterie" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/epiq-batterie.webp" alt="Batterie" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">38,5 kWh Batterie</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Elektromotor mit 99 kW, Onboard-Ladegerät mit 11 kW für schnelles AC-Laden.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/epiq-led.jpg" alt="LED" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/epiq-led.webp" alt="LED" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">LED-Hauptscheinwerfer</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Markante Lichtsignatur im neuen Škoda-Design.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/epiq-innen.jpg" alt="Innenraum" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/epiq-innen.webp" alt="Innenraum" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Climatronic &amp; ACC</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Klimaautomatik und adaptiver Abstandsassistent für entspanntes Fahren.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/epiq-fond.jpg" alt="Fond" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/epiq-fond.webp" alt="Fond" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Viel Platz im Fond</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Rücksitzlehne 60:40 umlegbar, mit Mittelarmlehne.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img src="img/epiq-ladeboden.jpg" alt="Ladeboden" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/epiq-ladeboden.webp" alt="Ladeboden" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Variabler Ladeboden</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Clevere Aufteilung im Kofferraum — typisch Simply Clever.</p></figcaption>
       </figure>
     </div>
@@ -546,7 +547,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <section style="background:var(--sk-paper); border-top:1px solid #E7ECE9; border-bottom:1px solid #E7ECE9;">
     <div class="sk-container sk-sect">
       <div class="sk-advisor" style="background:#fff; border:1px solid #E7ECE9; border-radius:20px; padding:clamp(24px,4vw,36px);">
-        <div style="width:112px; height:112px; border-radius:999px; overflow:hidden; border:3px solid var(--sk-mint); flex:none;"><img src="https://onecdn.io/media/039648d0-bf62-46ea-b1d7-6424bc868767/full" alt="Martin Kedzierski" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="width:112px; height:112px; border-radius:999px; overflow:hidden; border:3px solid var(--sk-mint); flex:none;"><img loading="lazy" decoding="async" src="https://onecdn.io/media/039648d0-bf62-46ea-b1d7-6424bc868767/full" alt="Martin Kedzierski" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <div>
           <div style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--sk-green); margin-bottom:6px;">Ihr Ansprechpartner · ŠKODA</div>
           <h3 style="margin:0 0 6px; font-size:clamp(22px,3.5vw,26px); font-weight:800; letter-spacing:-.01em;">Martin Kedzierski</h3>
@@ -597,9 +598,9 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       </div>
 
       <div class="sk-haus3" style="margin-top:16px;">
-        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img src="img/haus-building.jpg" alt="AS-Automobile Essen" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img src="img/haus-showroom.jpg" alt="Showroom" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img src="img/haus-lounge.jpg" alt="Kundenbereich" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-building.jpg" alt="AS-Automobile Essen" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-showroom.jpg" alt="Showroom" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-lounge.jpg" alt="Kundenbereich" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
       </div>
     </div>
   </section>
@@ -658,7 +659,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           </div>
         </a>
         <a class="as-card" href="../cupra-raval/">
-          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../cupra-raval/img/raval-nacht.jpg" alt="CUPRA Raval Plus" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../cupra-raval/img/raval-nacht.webp" alt="CUPRA Raval Plus" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
           <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
             <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">CUPRA</span>
             <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">CUPRA Raval Plus</span>
@@ -708,7 +709,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           </div>
         </a>
         <a class="as-card" tabindex="-1" aria-hidden="true" href="../cupra-raval/">
-          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../cupra-raval/img/raval-nacht.jpg" alt="CUPRA Raval Plus" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../cupra-raval/img/raval-nacht.webp" alt="CUPRA Raval Plus" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
           <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
             <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">CUPRA</span>
             <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">CUPRA Raval Plus</span>
@@ -738,7 +739,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <footer style="background:var(--sk-ink); color:#9FB0A8; font-size:13px;">
     <div class="sk-container sk-foot" style="padding-top:44px; padding-bottom:20px; align-items:start;">
       <div>
-        <img src="img/logo-as-quer-white.png" alt="AS Automobile · SEAT · CUPRA · Škoda" style="height:44px; width:auto; display:block; margin-bottom:14px;" />
+        <img loading="lazy" decoding="async" src="img/logo-as-quer-white.png" alt="AS Automobile · SEAT · CUPRA · Škoda" style="height:44px; width:auto; display:block; margin-bottom:14px;" />
         <p style="margin:0; line-height:1.7;">AS-Automobile GmbH · Hövelstr. 151–153 · 45326 Essen<br>Tel: 0201 83 14 83 24 · E-Mail: mk@skoda-as.de</p>
       </div>
       <div style="line-height:1.7;">
@@ -788,7 +789,7 @@ class Component extends DCLogic {
   state = {
     anzahlung: 6000, laufzeit: 36, km: 10000,
     mode: 'leasing',                 // 'leasing' | 'finanzierung' | 'kauf'
-    activeImg: 'img/epiq-heck.jpg',
+    activeImg: 'img/epiq-heck.webp',
     color: 'Marble-Grau',
   };
 
@@ -870,11 +871,11 @@ class Component extends DCLogic {
       dots,
       onCarouselScroll,
       activeImg: s.activeImg,
-      setImg0: pickImg('img/epiq-heck.jpg'),
-      setImg1: pickImg('img/epiq-studio.jpg'),
-      setImg2: pickImg('img/epiq-fahrt.jpg'),
-      setImg3: pickImg('img/epiq-front.jpg'),
-      setImg4: pickImg('img/epiq-innen.jpg'),
+      setImg0: pickImg('img/epiq-heck.webp'),
+      setImg1: pickImg('img/epiq-studio.webp'),
+      setImg2: pickImg('img/epiq-fahrt.webp'),
+      setImg3: pickImg('img/epiq-front.webp'),
+      setImg4: pickImg('img/epiq-innen.webp'),
 
       // configurator
       colorName: s.color,
