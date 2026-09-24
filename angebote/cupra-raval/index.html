@@ -192,15 +192,27 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   .sk-datarow { display:flex; justify-content:space-between; gap:12px; padding:11px 0; border-bottom:1px solid #EFEFEF; font-size:14px; }
   .sk-datarow span { color:#6B6B6B; }
   .sk-datarow strong { color:var(--sk-ink); text-align:right; }
-.as-more { position:relative; overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
-  .as-more-track { display:flex; gap:16px; width:max-content; padding:6px 0 14px; animation:asMarquee 42s linear infinite; }
-  .as-more:hover .as-more-track, .as-more:focus-within .as-more-track { animation-play-state:paused; }
-  @keyframes asMarquee { from { transform:translateX(0); } to { transform:translateX(calc(-50% - 8px)); } }
-  .as-card { flex:0 0 clamp(250px,70vw,290px); background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; display:flex; flex-direction:column; transition:transform .2s ease, box-shadow .2s ease; }
-  .as-card:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(0,0,0,0.12); }
-  @media (prefers-reduced-motion: reduce) { .as-more { overflow-x:auto; } .as-more-track { animation:none; } }
+.as-more { position:relative; --cw:clamp(250px,72vw,290px); }
+  .as-more-track { display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding:18px calc(50% - var(--cw) / 2) 22px; }
+  .as-more-track::-webkit-scrollbar { display:none; }
+  .as-card { flex:0 0 var(--cw); scroll-snap-align:center; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; display:flex; flex-direction:column; transform:scale(.92); opacity:.6; transition:transform .35s cubic-bezier(.2,.7,.3,1), opacity .35s ease, box-shadow .35s ease; }
+  .as-card.is-center { transform:scale(1.04); opacity:1; box-shadow:0 18px 40px rgba(0,0,0,0.16); border-color:var(--sk-green); }
+  .as-nav { position:absolute; top:50%; transform:translateY(-50%); z-index:2; width:46px; height:46px; border-radius:999px; border:none; cursor:pointer; background:var(--sk-green); color:#fff; font-size:16px; display:grid; place-items:center; box-shadow:0 8px 20px rgba(0,0,0,0.2); }
+  .as-nav:hover { background:var(--sk-green-700); }
+  .as-nav[data-dir="prev"] { left:max(10px, calc(50% - var(--cw) / 2 - 64px)); }
+  .as-nav[data-dir="next"] { right:max(10px, calc(50% - var(--cw) / 2 - 64px)); }
+  @media (prefers-reduced-motion: reduce) { .as-card { transition:none; } }
 
 </style>
+<script>
+(function(){
+  function upd(tr){var r=tr.getBoundingClientRect(),c=r.left+r.width/2,best=null,bd=1e9,cs=tr.querySelectorAll('.as-card');cs.forEach(function(el){var b=el.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-c);if(d<bd){bd=d;best=el;}});cs.forEach(function(el){el.classList.toggle('is-center',el===best);});}
+  var raf=0;document.addEventListener('scroll',function(e){var t=e.target;if(t&&t.classList&&t.classList.contains('as-more-track')){cancelAnimationFrame(raf);raf=requestAnimationFrame(function(){upd(t);});}},true);
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.as-nav');if(!b)return;e.preventDefault();var tr=b.closest('.as-more').querySelector('.as-more-track');var cd=tr.querySelector('.as-card');var step=cd?cd.getBoundingClientRect().width+16:300;var dir=b.getAttribute('data-dir')==='prev'?-1:1;var max=tr.scrollWidth-tr.clientWidth;if(dir>0&&tr.scrollLeft>=max-4)tr.scrollTo({left:0,behavior:'smooth'});else if(dir<0&&tr.scrollLeft<=4)tr.scrollTo({left:max,behavior:'smooth'});else tr.scrollBy({left:dir*step,behavior:'smooth'});});
+  function init(){document.querySelectorAll('.as-more-track').forEach(function(tr){upd(tr);});}
+  window.addEventListener('resize',init);var n=0,iv=setInterval(function(){init();if(++n>10)clearInterval(iv);},500);
+})();
+</script>
 </helmet>
 
 <div class="sk-page" style="--sk-green:#000000; --sk-green-600:#1A1A1A; --sk-green-700:#0A0A0A; --sk-mint:#FF2B62; --sk-mint-600:#9F1E41; --sk-ink:#0D0D0D; --sk-paper:#F5F4F3; font-family:var(--font-sans, 'Inter', sans-serif); color:var(--sk-ink); background:#fff; -webkit-font-smoothing:antialiased;">
@@ -616,6 +628,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       </div>
     </div>
     <div class="as-more" style="padding-bottom:clamp(40px,6vw,60px);">
+      <button type="button" class="as-nav" data-dir="prev" aria-label="Vorheriges Angebot"><i class="fa-solid fa-chevron-left"></i></button>
+      <button type="button" class="as-nav" data-dir="next" aria-label="Nächstes Angebot"><i class="fa-solid fa-chevron-right"></i></button>
       <div class="as-more-track">
         <a class="as-card" href="../skoda-fabia/">
           <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-fabia/img/car-front.jpg" alt="Škoda Fabia Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
@@ -658,56 +672,6 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           </div>
         </a>
         <a class="as-card" href="../seat-ibiza-fr/">
-          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../seat-ibiza-fr/img/ibiza-rot-front.webp" alt="SEAT Ibiza FR" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
-            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">SEAT</span>
-            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">SEAT Ibiza FR</span>
-            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">89&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
-            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.990 € Sonderzahlung</span>
-            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-        <a class="as-card" tabindex="-1" aria-hidden="true" href="../skoda-fabia/">
-          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-fabia/img/car-front.jpg" alt="Škoda Fabia Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
-            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
-            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Fabia Essence</span>
-            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">69&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
-            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.500 € Sonderzahlung</span>
-            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-        <a class="as-card" tabindex="-1" aria-hidden="true" href="../skoda-kamiq/">
-          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-kamiq/img/kamiq-life1.jpg" alt="Škoda Kamiq Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
-            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
-            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Kamiq Essence</span>
-            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
-            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.990 € Sonderzahlung</span>
-            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-        <a class="as-card" tabindex="-1" aria-hidden="true" href="../skoda-epiq/">
-          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-epiq/img/epiq-heck.webp" alt="Škoda Epiq Essence" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
-          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
-            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
-            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Epiq Essence</span>
-            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">69&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
-            <span style="font-size:12px; color:#6B776F;">36 Mon. · 100 % elektrisch</span>
-            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-        <a class="as-card" tabindex="-1" aria-hidden="true" href="../seat-arona-fr/">
-          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../seat-arona-fr/img/arona-hero.avif" alt="SEAT Arona FR" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
-            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">SEAT</span>
-            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">SEAT Arona FR</span>
-            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
-            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.990 € Sonderzahlung</span>
-            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
-          </div>
-        </a>
-        <a class="as-card" tabindex="-1" aria-hidden="true" href="../seat-ibiza-fr/">
           <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../seat-ibiza-fr/img/ibiza-rot-front.webp" alt="SEAT Ibiza FR" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
           <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
             <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">SEAT</span>
