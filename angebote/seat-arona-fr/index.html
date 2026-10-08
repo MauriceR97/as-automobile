@@ -227,7 +227,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <div class="sk-stickyhead">
   <!-- Announcement -->
   <div class="sk-annbar" style="background:var(--sk-green-700); color:var(--sk-mint); font-size:13px; font-weight:600; letter-spacing:.03em; text-align:center; padding:9px 16px; line-height:1.4;">
-    <i class="fa-solid fa-location-dot" style="margin-right:8px"></i> Begrenzte Aktion: 30x Leasing-Zulassungen · nur bis 31.10.2026 · <span style="color:#fff">jetzt Angebot anfragen</span>
+    <i class="fa-solid fa-location-dot" style="margin-right:8px"></i> SEAT Arona FR · 99 € mtl. · Ihr SEAT Partner in Essen · <span style="color:#fff">nur solange der Vorrat reicht</span>
   </div>
 
   <!-- Header -->
@@ -258,7 +258,9 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       <img loading="lazy" decoding="async" src="img/arona-led.avif" alt="SEAT Arona FR LED" />
       <img loading="lazy" decoding="async" src="img/arona-felgen.avif" alt="SEAT Arona FR Felgen" />
     </div>
-    <div class="sk-vfbadge">Neuwagen</div>
+    <div style="position:absolute; left:0; right:0; bottom:0; padding:48px 18px 36px; background:linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0)); pointer-events:none;">
+      <div style="display:inline-flex; align-items:center; gap:10px; color:#fff; font-size:clamp(13px,1.6vw,15px); font-weight:800; letter-spacing:.02em;"><span style="width:30px; height:30px; border-radius:999px; background:#EB5C37; color:#fff; display:grid; place-items:center; font-size:14px; flex:none;"><i class="fa-solid fa-check"></i></span> Offizieller SEAT Partner in Essen</div>
+    </div>
     <div class="sk-counter">{{ imgCounter }}</div>
     <div class="sk-dots">
       <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
@@ -271,17 +273,30 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     <h1 style="margin:0; font-size:clamp(26px,5vw,40px); line-height:1.05; letter-spacing:-.02em; font-weight:800;">SEAT Arona FR 1.0 TSI</h1>
     <p style="margin:10px 0 0; font-size:clamp(15px,2.4vw,18px); color:#5B6863; font-weight:500;">Sofort verfügbarer Neuwagen · 116 PS · 6-Gang Schaltgetriebe · Fiord Blau.</p>
 
-    <div style="display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin:18px 0 16px;">
-      <span style="font-size:14px; color:#6B776F;">Leasing</span>
-      <span style="font-size:clamp(28px,5vw,38px); font-weight:800; color:var(--sk-green); letter-spacing:-.02em; line-height:1;">99&nbsp;€<span style="font-size:15px; font-weight:700;"> mtl.*</span></span>
-      <span style="font-size:13px; color:#6B776F;">2.990&nbsp;€ Sonderzahlung · 24&nbsp;Mon. · 10.000&nbsp;km/Jahr</span>
+    <div style="background:var(--sk-green); color:#fff; border-radius:18px; padding:clamp(20px,3vw,26px); margin:20px 0 18px; box-shadow:0 18px 40px rgba(0,0,0,0.22);">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:6px;">
+        <span style="font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,0.7);">Monatliche Rate</span>
+        <span style="font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; background:var(--sk-mint); color:#1A1A1C; padding:5px 11px; border-radius:999px;">Privat-Leasing</span>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:10px; line-height:1;">
+        <span style="font-size:clamp(64px,10vw,92px); font-weight:800; letter-spacing:-.04em; color:var(--sk-mint);">99&nbsp;€</span>
+        <span style="font-size:clamp(18px,2.6vw,22px); font-weight:800; color:#fff;">mtl.¹</span>
+      </div>
+      <div style="margin-top:8px; font-size:14px; color:rgba(255,255,255,0.75);">24 Monate · 10.000 km/Jahr · inkl. MwSt.</div>
+      <div style="margin-top:16px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.16); display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;">
+        <div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.7);">Sonderzahlung</div>
+          <div style="font-size:20px; font-weight:800;">2.500&nbsp;€</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:13px; color:rgba(255,255,255,0.7);">zzgl. Überführung</div>
+          <div style="font-size:20px; font-weight:800;">990&nbsp;€</div>
+        </div>
+      </div>
     </div>
-
-    <div style="display:inline-flex; align-items:center; gap:8px; background:#FFF1EC; color:#C2410C; border:1px solid #F7C9A8; border-radius:999px; padding:8px 16px; font-size:13px; font-weight:800; margin-bottom:16px;"><i class="fa-solid fa-hourglass-half"></i> Begrenzte Aktion: nur 30x · bis 31.10.2026</div>
     <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:14px; font-weight:600; color:var(--sk-ink); margin-bottom:9px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-gas-pump" style="color:var(--sk-green);"></i> Benzin</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-gears" style="color:var(--sk-green);"></i> 6-Gang Schaltgetriebe</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-bolt" style="color:var(--sk-green);"></i> 116 PS</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-palette" style="color:var(--sk-green);"></i> Fiord Blau</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-snowflake" style="color:var(--sk-green);"></i> Klimaautomatik</span></div>
-    <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:13px; color:#6B776F; padding-top:9px; border-top:1px solid #EDF1EF; max-width:640px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-user-group" style="color:#8A968F;"></i> Privat- &amp; Gewerbekunden</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-car" style="color:#8A968F;"></i> Neuwagen</span></div>
-    <div style="display:flex; align-items:center; gap:10px; margin-top:14px; background:var(--sk-paper); border:1.5px solid var(--sk-green); border-radius:12px; padding:12px 18px; font-size:15px; font-weight:800; color:var(--sk-green); width:fit-content;"><i class="fa-solid fa-circle-check" style="font-size:18px;"></i> Offizieller SEAT Vertragspartner in Essen</div>
-
+    <div style="display:flex; flex-wrap:wrap; gap:9px 18px; font-size:13px; color:#6B6B6B; padding-top:9px; border-top:1px solid #EEEEEE; max-width:640px;"><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-user" style="color:#8A8A8A;"></i> Privatkunden-Angebot</span><span style="display:inline-flex; align-items:center; gap:7px;"><i class="fa-solid fa-car" style="color:#8A8A8A;"></i> Neuwagen · sofort verfügbar</span></div>
+    
     <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:22px;">
       <a href="anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; box-shadow:0 8px 22px rgba(0,0,0,0.22); font-size:16px; padding:15px 28px; border-radius:10px;" style-hover="background:var(--sk-mint-600);">
         <i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen
@@ -384,7 +399,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Spurhalteassistent</div>
           <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> FR-Sportpaket &amp; 18″-Alufelgen</div>
         </div>
-        <p style="margin:22px 0 0; font-size:14px; color:#6B776F; line-height:1.65;">Fahrzeugpreis ab Werk (inkl. MwSt): <strong style="color:var(--sk-ink)">30.040,00 €</strong>. Lackierung Fiord Blau · Stoff „Nuance" · Konfigurations-ID SLWSB5DT.</p>
+        <p style="margin:22px 0 0; font-size:14px; color:#6B776F; line-height:1.65;">Fahrzeugpreis ab Werk (inkl. MwSt): <strong style="color:var(--sk-ink)">30.040,00 €</strong>. Lackierung Fiord Blau · Stoff „Nuance" · Konfigurations-ID STD6W6JD.</p>
       </div>
 
       <!-- Efficiency label -->
@@ -440,17 +455,17 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     <div class="sk-container sk-sect" style="text-align:center;">
       <div style="display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sk-mint); margin-bottom:12px;"><span style="width:26px; height:2px; background:var(--sk-mint);"></span> Ihr Leasing-Angebot <span style="width:26px; height:2px; background:var(--sk-mint);"></span></div>
       <h2 style="margin:0; font-size:clamp(24px,4vw,32px); font-weight:800; letter-spacing:-.02em;">SEAT Arona FR im Privat-Leasing</h2>
-      <div style="display:inline-flex; align-items:center; gap:8px; margin-top:14px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); border-radius:999px; padding:7px 16px; font-size:13px; font-weight:700;"><i class="fa-solid fa-hourglass-half" style="color:var(--sk-mint);"></i> Begrenzt auf 30 Leasing-Zulassungen · nur bis 31.10.2026</div>
+      <div style="display:inline-flex; align-items:center; gap:8px; margin-top:14px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.22); border-radius:999px; padding:7px 16px; font-size:13px; font-weight:700;"><i class="fa-solid fa-hourglass-half" style="color:var(--sk-mint);"></i> Privat-Leasing · nur solange der Vorrat reicht</div>
       <div style="display:flex; align-items:baseline; justify-content:center; gap:10px; margin:22px 0 8px;">
         <span style="font-size:clamp(58px,11vw,88px); font-weight:800; letter-spacing:-.03em; color:var(--sk-mint); line-height:1;">99&nbsp;€</span>
         <span style="font-size:clamp(17px,3vw,22px); font-weight:800; color:var(--sk-mint);">mtl.*</span>
       </div>
-      <p style="margin:0 0 28px; font-size:14px; color:rgba(255,255,255,0.72);">einmalige Sonderzahlung 2.990&nbsp;€ · 24 Monate · 10.000 km/Jahr</p>
+      <p style="margin:0 0 28px; font-size:14px; color:rgba(255,255,255,0.72);">einmalige Sonderzahlung 2.500&nbsp;€ · 24 Monate · 10.000 km/Jahr</p>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; max-width:720px; margin:0 auto 30px;">
         <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Laufzeit</div><div style="font-weight:800; font-size:17px;">24 Monate</div></div>
         <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Fahrleistung</div><div style="font-weight:800; font-size:17px;">10.000 km/Jahr</div></div>
-        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Sonderzahlung</div><div style="font-weight:800; font-size:17px;">2.990 €</div></div>
-        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Gesamtbetrag</div><div style="font-weight:800; font-size:17px;">5.366 €</div></div>
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Sonderzahlung</div><div style="font-weight:800; font-size:17px;">2.500 €</div></div>
+        <div style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.14); border-radius:12px; padding:14px 10px;"><div style="font-size:12px; color:rgba(255,255,255,0.65); margin-bottom:4px;">Gesamtbetrag</div><div style="font-weight:800; font-size:17px;">4.876 €</div></div>
       </div>
       <a href="{{ anfrageHref }}" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:17px; padding:17px 36px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
       <p style="margin:16px auto 0; max-width:560px; font-size:11px; color:rgba(255,255,255,0.55); line-height:1.6;">Unverbindliches Privatleasing-Angebot¹, Bonität vorausgesetzt. Alle Details finden Sie im Preisteil am Seitenende.</p>
@@ -470,12 +485,12 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 
         <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Preisübersicht</div>
         <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Bruttolistenpreis</span><strong>30.040,00 €</strong></div>
-        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Leasing-Sonderzahlung</span><strong>2.990 €</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Leasing-Sonderzahlung</span><strong>2.500 €</strong></div>
 
         <div style="font-weight:800; font-size:14px; letter-spacing:.06em; text-transform:uppercase; color:var(--sk-green); margin:22px 0 10px;">Allgemeine Daten</div>
         <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Laufzeit</span><strong>24 Monate</strong></div>
         <div style="display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #EEF2F0;"><span style="color:#4A564F;">Jährliche Fahrleistung</span><strong>10.000 km</strong></div>
-        <div style="display:flex; justify-content:space-between; padding:9px 0;"><span style="color:#4A564F;">Leasing-Gesamtbetrag</span><strong>5.366 €</strong></div>
+        <div style="display:flex; justify-content:space-between; padding:9px 0;"><span style="color:#4A564F;">Leasing-Gesamtbetrag</span><strong>4.876 €</strong></div>
 
         <a href="{{ anfrageHref }}" style="display:inline-flex; align-items:center; justify-content:center; gap:9px; width:100%; box-sizing:border-box; margin-top:22px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; box-shadow:0 8px 22px rgba(0,0,0,0.22); font-size:15px; padding:15px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
       </div>
@@ -624,8 +639,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
             <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">SEAT</span>
             <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">SEAT Ibiza FR</span>
-            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">89&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
-            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.990 € Sonderzahlung</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">99&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">24 Mon. · 1.990 € Sonderzahlung</span>
             <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
@@ -648,7 +663,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   <section style="background:var(--sk-green-700); color:#fff;">
     <div class="sk-container sk-sect" style="max-width:900px; text-align:center;">
       <h2 style="margin:0 0 14px; font-size:clamp(28px,5vw,38px); font-weight:800; letter-spacing:-.02em; line-height:1.1;">Sichern Sie sich diesen Arona FR — <span style="color:var(--sk-mint)">99 € mtl.</span></h2>
-      <p style="margin:0 0 30px; font-size:clamp(15px,2.4vw,17px); color:rgba(255,255,255,0.82);">Begrenzte Aktion: nur 30 Leasing-Zulassungen bis 31.10.2026. Fordern Sie jetzt Ihr unverbindliches Angebot an.</p>
+      <p style="margin:0 0 30px; font-size:clamp(15px,2.4vw,17px); color:rgba(255,255,255,0.82);">Nur solange der Vorrat reicht. Fordern Sie jetzt Ihr unverbindliches Angebot an.</p>
       <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
         <a href="anfrage/" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; font-size:16px; padding:16px 32px; border-radius:10px;" style-hover="background:var(--sk-mint-600);"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
         <a href="tel:+4920183148314" style="display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.5); font-weight:700; font-size:16px; padding:16px 28px; border-radius:10px;" style-hover="background:rgba(255,255,255,0.1);"><i class="fa-solid fa-phone"></i> 0201 83 14 83 14</a>
@@ -674,10 +689,10 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <p style="margin:0 0 12px;">Abgebildete Sonderausstattungen sind im Angebot nicht unbedingt berücksichtigt. Alle Angaben basieren auf den Merkmalen des deutschen Marktes. Irrtum, Änderung und Zwischenverkauf vorbehalten. Angebot gültig, nur solange der Vorrat reicht.</p>
 
         <p style="margin:0 0 4px; color:#B9C4BF; font-weight:700;">Fahrzeugpreis</p>
-        <p style="margin:0 0 12px;">SEAT Arona FR 1.0 TSI 85 kW (116 PS) 6-Gang Schaltgetriebe · Lackierung Fiord Blau · Ausstattung Stoff „Nuance". Fahrzeugpreis ab Werk (inkl. MwSt.): <strong style="color:#fff;">30.040,00 €</strong>. Konfigurations-ID SLWSB5DT. Die Kosten für Überführung in Höhe von 990,00 € sowie die Kosten für Zulassung werden separat berechnet. Alle Preise inklusive der Mehrwertsteuer in Höhe von 19 %. Irrtum, Änderung und Zwischenverkauf vorbehalten.</p>
+        <p style="margin:0 0 12px;">SEAT Arona FR 1.0 TSI 85 kW (116 PS) 6-Gang Schaltgetriebe · Lackierung Fiord Blau · Ausstattung Stoff „Nuance". Fahrzeugpreis ab Werk (inkl. MwSt.): <strong style="color:#fff;">30.040,00 €</strong>. Konfigurations-ID STD6W6JD. Die Kosten für Überführung in Höhe von 990,00 € sowie die Kosten für Zulassung werden separat berechnet. Alle Preise inklusive der Mehrwertsteuer in Höhe von 19 %. Irrtum, Änderung und Zwischenverkauf vorbehalten.</p>
 
         <p style="margin:0 0 4px; color:#B9C4BF; font-weight:700;">Leasingangebot</p>
-        <p style="margin:0 0 12px;">¹ Ein unverbindliches Privatleasing-Angebot der SEAT Leasing, Zweigniederlassung der Volkswagen Leasing GmbH, Gifhorner Straße 57, 38112 Braunschweig, vermittelt durch die AS Automobile Essen GmbH als ungebundener Vermittler. Kalkulationsbasis 30.040,00 €. Einmalige Leasing-Sonderzahlung 2.990,00 € (9,95 %), monatliche Leasing-Rate ohne Dienstleistungen <strong style="color:#fff;">99,00 €</strong>, Laufzeit 24 Monate, jährliche Fahrleistung 10.000 km, ohne Gebrauchtwagenabrechnung. Mehrkilometer 7,62 ct, Minderkilometer 2,74 ct, jeweils 2.500 km berechnungsfrei. Alle Preise inklusive der Mehrwertsteuer in Höhe von 19 %. Bonität vorausgesetzt. Aktion begrenzt auf 30 Leasing-Zulassungen, gültig bis 31.10.2026. Für Verbraucher besteht ein gesetzliches Widerrufsrecht.</p>
+        <p style="margin:0 0 12px;">¹ Ein unverbindliches Privatleasing-Angebot der SEAT Leasing, Zweigniederlassung der Volkswagen Leasing GmbH, Gifhorner Straße 57, 38112 Braunschweig, vermittelt durch die AS Automobile Essen GmbH als ungebundener Vermittler. Kalkulationsbasis 30.040,00 €. Einmalige Leasing-Sonderzahlung 2.500,00 € (8,32 %), monatliche Leasing-Rate ohne Dienstleistungen <strong style="color:#fff;">99,00 €</strong>, Laufzeit 24 Monate, jährliche Fahrleistung 10.000 km, ohne Gebrauchtwagenabrechnung. Mehrkilometer 20,83 ct, Minderkilometer 2,38 ct, jeweils 2.500 km berechnungsfrei. Alle Preise inklusive der Mehrwertsteuer in Höhe von 19 %. Bonität vorausgesetzt. Angebot gültig, solange der Vorrat reicht. Für Verbraucher besteht ein gesetzliches Widerrufsrecht.</p>
 
         <p style="margin:0 0 4px; color:#B9C4BF; font-weight:700;">Information zu Verbrauchswerten</p>
         <p style="margin:0 0 6px;">SEAT Arona FR 1.0 TSI — Kraftstoffverbrauch (WLTP): kombiniert 5,3 l/100 km · CO₂-Emissionen kombiniert 120 g/km · CO₂-Klasse D.</p>
@@ -693,7 +708,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
     <div style="display:flex; flex-direction:column; line-height:1.2; min-width:0;">
       <span style="font-size:11px; color:#6B776F;">Leasing</span>
       <span style="font-size:19px; font-weight:800; color:var(--sk-green); letter-spacing:-.02em;">99&nbsp;€<span style="font-size:11px; font-weight:700; color:#6B776F;"> mtl.</span></span>
-      <span style="font-size:10px; color:#8A968F; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">2.990 € Sonderz. · 24 Mon.</span>
+      <span style="font-size:10px; color:#8A968F; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">2.500 € Sonderz. · 24 Mon.</span>
     </div>
     <a href="anfrage/" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; background:var(--sk-mint); color:var(--sk-green); font-weight:800; box-shadow:0 -2px 14px rgba(0,0,0,0.18); font-size:15px; padding:13px 18px; border-radius:10px; white-space:nowrap;"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</a>
   </div>
@@ -703,7 +718,7 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1140, &quot;height&quot;: 900}}">
 class Component extends DCLogic {
   state = {
-    anzahlung: 2990, laufzeit: 24, km: 10000,
+    anzahlung: 2500, laufzeit: 24, km: 10000,
     mode: 'leasing',                 // 'leasing' | 'finanzierung' | 'kauf'
     activeImg: 'img/arona-hero.avif',
     color: 'Fiord Blau',
@@ -713,7 +728,7 @@ class Component extends DCLogic {
 
   computeLeasing() {
     const { anzahlung, laufzeit, km } = this.state;
-    let r = 99 + (2990 - anzahlung) * 0.015 + (24 - laufzeit) * 3.0 + ((km - 10000) / 1000) * 5;
+    let r = 99 + (2500 - anzahlung) * 0.015 + (24 - laufzeit) * 3.0 + ((km - 10000) / 1000) * 5;
     return Math.max(49, Math.round(r));
   }
 
