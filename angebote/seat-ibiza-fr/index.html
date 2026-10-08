@@ -182,8 +182,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
   .sk-dots button { width:8px; height:8px; padding:0; border:none; border-radius:999px; background:rgba(255,255,255,0.5); cursor:pointer; transition:width .2s, background .2s; }
   .sk-dots button.on { width:22px; background:#fff; }
   @media (min-width:921px){
-    .sk-herowrap { display:grid; grid-template-columns:1.08fr 0.92fr; gap:36px; align-items:center; max-width:1180px; margin:0 auto; padding:36px clamp(16px,4vw,24px) 20px; }
-    .sk-herowrap .sk-cwrap { border-radius:20px; overflow:hidden; box-shadow:0 24px 60px rgba(32,31,30,0.18); }
+    .sk-herowrap { display:grid; grid-template-columns:1.08fr 0.92fr; gap:36px; align-items:start; max-width:1180px; margin:0 auto; padding:36px clamp(16px,4vw,24px) 20px; }
+    .sk-herowrap .sk-cwrap { border-radius:20px; overflow:hidden; box-shadow:0 24px 60px rgba(32,31,30,0.18); position:sticky; top:130px; }
     .sk-herowrap .sk-carousel > img { aspect-ratio:4/3; max-height:none; }
     .sk-heroinfo { padding:0 !important; }
   }
@@ -321,6 +321,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           <div class="sk-datarow"><span>Verbrauch komb.</span><strong>5,1 l/100km</strong></div>
           <div class="sk-datarow"><span>CO₂ komb.</span><strong>115 g/km · Klasse D</strong></div>
           <div class="sk-datarow"><span>Außenfarbe</span><strong>Fiord Blau</strong></div>
+          <div class="sk-datarow"><span>Polster</span><strong>Stoff „Nuance"</strong></div>
+          <div class="sk-datarow"><span>Räder</span><strong>16″ LM-Räder · 195/55 R16</strong></div>
           <div class="sk-datarow"><span>Türen / Sitze</span><strong>5 / 5</strong></div>
         </div>
       </div>
@@ -329,16 +331,16 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       <summary><span class="sk-sumhead"><span class="sk-summicon"><i class="fa-solid fa-list-check"></i></span> Ausstattung</span> <i class="fa-solid fa-chevron-down sk-chev"></i></summary>
       <div class="sk-accbody">
         <div class="sk-equip">
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> BeatsAudio Soundsystem</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Navigationssystem</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Voll-LED-Scheinwerfer</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Digital Cockpit</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> FR-Sportsitze</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Klimaautomatik</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Front Assist</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Spurhalteassistent</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Parksensoren</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> 18&quot; Leichtmetallfelgen</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> LED-Hauptscheinwerfer &amp; LED-Heckleuchten</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Volldigitales Kombiinstrument 8″</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Infotainmentsystem 8,25″ &amp; SEAT CONNECT</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Climatronic</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Automatische Distanzregelung (ACC)</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Front Assist mit Fußgängererkennung</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Spurhalteassistent plus Stauassistent</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Side Assist inkl. Totwinkel- &amp; Ausstiegswarnung</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Einparkhilfe vorn &amp; hinten + Rückfahrkamera</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> 16″ Leichtmetallräder</div>
         </div>
       </div>
     </details>
@@ -351,32 +353,32 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         <span style="width:26px; height:2px; background:var(--sk-green);"></span> Ausstattungs-Highlights <span style="width:26px; height:2px; background:var(--sk-green);"></span>
       </div>
       <h2 style="margin:0 0 8px; font-size:clamp(26px,4vw,34px); font-weight:800; letter-spacing:-.02em;">Alles an Bord — im FR serienmäßig sportlich</h2>
-      <p style="margin:0; font-size:16px; color:#6B776F;">Digitales Cockpit, BeatsAudio, Navigation und Assistenz — hier die Highlights aus der FR-Ausstattung.</p>
+      <p style="margin:0; font-size:16px; color:#6B776F;">Digital-Cockpit, Climatronic und starke Assistenz — die Highlights der Serienausstattung.</p>
     </div>
     <div class="sk-haus3">
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/feat-sound.avif" alt="BeatsAudio Soundsystem" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">BeatsAudio Soundsystem</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Kraftvoller Sound mit Subwoofer und individuellem Equalizer.</p></figcaption>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/feat-assistenz.webp" alt="Assistenzsysteme" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">ACC &amp; Side Assist</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Abstandsregelung, Totwinkel- und Ausstiegswarnung serienmäßig.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/feat-navi.webp" alt="Navigationssystem" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Navigation &amp; Connectivity</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Full-Link mit kabellosem Apple CarPlay &amp; Android Auto.</p></figcaption>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/feat-navi.webp" alt="Infotainment" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Infotainment 8,25″</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Infotainmentsystem mit SEAT CONNECT, Bluetooth &amp; DAB+.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
         <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/feat-cockpit.webp" alt="Digital Cockpit" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Digital Cockpit</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Voll digitales Kombiinstrument, individuell konfigurierbar.</p></figcaption>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Digital Cockpit</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Volldigitales Kombiinstrument mit 8″-TFT-Display.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/ibiza-innen.jpeg" alt="FR-Sportinnenraum" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">FR-Sportinnenraum</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Sportsitze, FR-Lenkrad und dunkler Dachhimmel.</p></figcaption>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/ibiza-innen.jpeg" alt="Innenraum" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Climatronic &amp; Lederlenkrad</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Klimaautomatik, Leder-Sportmultifunktionslenkrad und Stoffsitze „Nuance".</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/feat-assistenz.webp" alt="Assistenzsysteme" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Assistenzsysteme</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Front Assist, Spurhalte- und Abstandsassistent serienmäßig.</p></figcaption>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/ibiza-front.avif" alt="LED-Scheinwerfer" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">LED-Scheinwerfer</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">LED-Hauptscheinwerfer mit Fernlichtassistent und LED-Heckleuchten.</p></figcaption>
       </figure>
       <figure style="margin:0; background:#fff; border:1px solid #E7ECE9; border-radius:16px; overflow:hidden;">
-        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/feat-winter.webp" alt="Winterpaket" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Sitzheizung &amp; Winterpaket</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Beheizbare Sportsitze und Lenkrad für kalte Tage.</p></figcaption>
+        <div style="aspect-ratio:16/10; overflow:hidden;"><img loading="lazy" decoding="async" src="img/ibiza-heck.avif" alt="Ibiza FR" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <figcaption style="padding:16px 18px;"><div style="font-weight:800; font-size:16px;">Rückfahrkamera &amp; 16″-Räder</div><p style="margin:4px 0 0; font-size:14px; color:#6B776F; line-height:1.55;">Einparkhilfe vorn und hinten, Rückfahrkamera und 16″ Leichtmetallräder.</p></figcaption>
       </figure>
     </div>
   </section>
@@ -390,14 +392,14 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
         </div>
         <h2 style="margin:0 0 18px; font-size:clamp(26px,4vw,32px); font-weight:800; letter-spacing:-.02em;">FR — sportlich und komplett ausgestattet</h2>
         <div class="sk-equip">
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> LED-Scheinwerfer</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Digital Cockpit</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Klimaautomatik</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> BeatsAudio Sound</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Tempomat mit ACC</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Front Assist</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Spurhalteassistent</div>
-          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> FR-Sportpaket &amp; 17″-Alufelgen</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> LED-Hauptscheinwerfer</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Volldigitales Kombiinstrument 8″</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Climatronic</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Infotainment 8,25″</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> ACC &amp; Front Assist</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Side Assist &amp; Spurhalteassistent</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> Rückfahrkamera &amp; Einparkhilfe v+h</div>
+          <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px;"><i class="fa-solid fa-check" style="color:var(--sk-green); margin-top:3px;"></i> 16″ Leichtmetallräder</div>
         </div>
         <p style="margin:22px 0 0; font-size:14px; color:#6B776F; line-height:1.65;">Fahrzeugpreis ab Werk (inkl. MwSt): <strong style="color:var(--sk-ink)">27.110,00 €</strong>. Lackierung Fiord Blau · Stoff „Nuance" · Konfigurations-ID SQQ8G9XD.</p>
       </div>
@@ -406,19 +408,19 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       <div style="background:#fff; border:1px solid #E7ECE9; border-radius:18px; padding:24px 24px 22px; box-shadow:var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.08));" data-om-raster="true">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px;">
           <div style="font-weight:800; font-size:16px;">CO₂-Effizienzklasse</div>
-          <div style="font-size:12px; color:#6B776F;">nach WLTP</div>
+          <div style="font-size:12px; color:#6B776F;">CO₂-Emissionen komb. (WLTP)</div>
         </div>
         <div style="display:flex; flex-direction:column; gap:6px;">
-          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:52%; background:#009a44; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">A</div></div>
-          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:60%; background:#52ae32; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">B</div></div>
-          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:68%; background:#c8d200; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">C</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:52%; background:#009a44; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">A<span style="margin-left:auto; padding-right:16px; font-size:11px; font-weight:700; white-space:nowrap;">0 g/km</span></div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:60%; background:#52ae32; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">B<span style="margin-left:auto; padding-right:16px; font-size:11px; font-weight:700; white-space:nowrap;">1–95 g/km</span></div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:68%; background:#c8d200; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">C<span style="margin-left:auto; padding-right:16px; font-size:11px; font-weight:700; white-space:nowrap;">96–115 g/km</span></div></div>
           <div style="display:flex; align-items:center; gap:10px;">
-            <div style="height:30px; width:76%; background:#fff200; color:#1a1a1a; font-weight:800; font-size:14px; display:flex; align-items:center; padding:0 12px; border-radius:3px; outline:2px solid var(--sk-ink); clip-path:polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);">D</div>
+            <div style="height:30px; width:76%; background:#fff200; color:#1a1a1a; font-weight:800; font-size:14px; display:flex; align-items:center; padding:0 12px; border-radius:3px; outline:2px solid var(--sk-ink); clip-path:polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%);">D<span style="margin-left:auto; padding-right:16px; font-size:11px; font-weight:700; white-space:nowrap;">116–135 g/km</span></div>
             <div style="background:var(--sk-ink); color:#fff; font-weight:800; font-size:15px; padding:5px 14px; border-radius:6px; white-space:nowrap;">D</div>
           </div>
-          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:84%; background:#f9b000; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">E</div></div>
-          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:92%; background:#e97100; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">F</div></div>
-          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:100%; background:#e30613; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">G</div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:84%; background:#f9b000; color:#1a1a1a; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">E<span style="margin-left:auto; padding-right:16px; font-size:11px; font-weight:700; white-space:nowrap;">136–155 g/km</span></div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:92%; background:#e97100; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">F<span style="margin-left:auto; padding-right:16px; font-size:11px; font-weight:700; white-space:nowrap;">156–175 g/km</span></div></div>
+          <div style="display:flex; align-items:center; gap:10px;"><div style="height:26px; width:100%; background:#e30613; color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; padding:0 12px; border-radius:3px; clip-path:polygon(0 0, calc(100% - 13px) 0, 100% 50%, calc(100% - 13px) 100%, 0 100%);">G<span style="margin-left:auto; padding-right:16px; font-size:11px; font-weight:700; white-space:nowrap;">ab 176 g/km</span></div></div>
         </div>
         <p style="margin:16px 0 0; font-size:12px; color:#6B776F; line-height:1.6;">Dieses Fahrzeug: <strong style="color:var(--sk-ink)">Klasse D</strong> · CO₂ komb. 115 g/km. Auf Basis der WLTP-Werte.</p>
       </div>
