@@ -213,7 +213,7 @@ fbq('init','1422851823195089');fbq('track','PageView');
           <div style="margin-bottom:16px; background:#fff; border:2px solid #000; border-radius:14px; padding:16px;">
             <div style="display:flex; gap:12px; align-items:flex-start; margin-bottom:12px;">
               <span style="width:44px; height:44px; border-radius:11px; background:#000; color:#FF2B62; display:grid; place-items:center; font-size:19px; flex:none;"><i class="fa-solid fa-heart"></i></span>
-              <span style="line-height:1.4; min-width:0;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#9F1E41;">Loyalitätsrate 99 € statt 139 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B5B5B; margin-top:2px;">Das Fahrzeug muss sich seit mind. 6 Monaten in Ihrem Besitz befinden.</span></span>
+              <span style="line-height:1.4; min-width:0;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#9F1E41;">Loyalitätsrate 99 € mtl. statt 139 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B5B5B; margin-top:2px;">Das Fahrzeug muss sich seit mind. 6 Monaten in Ihrem Besitz befinden.</span></span>
             </div>
             <div class="sk-seg">
               <button type="button" onClick="{{ setLoyalJa }}" class="sk-segbtn {{ loyalJaCls }}">Ja</button>
@@ -307,7 +307,7 @@ class Component extends DCLogic {
       anzahlung: Number(q('anzahlung', 6000)) || 0,
       laufzeit: Number(q('laufzeit', 36)) || 36,
       km: Number(q('km', 10000)) || 10000,
-      color: q('color', 'Fjord Blau'),
+      color: q('color', 'Fiord Blue'),
       configCode: '',
       kundentyp: 'privat',
       probefahrt: 'nein',
