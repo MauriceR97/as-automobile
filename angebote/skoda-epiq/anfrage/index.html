@@ -349,7 +349,7 @@ class Component extends DCLogic {
     const s = this.state;
     const lzUp = { 24: 14, 36: 0, 48: 6 }[s.laufzeit] || 0;
     const kmUp = Math.max(0, (s.km - 10000) / 1000) * 4;
-    return Math.round(69 + lzUp + kmUp);
+    return Math.round(129 + lzUp + kmUp);
   }
 
   colorImg() { return '../img/epiq-studio.webp'; }
