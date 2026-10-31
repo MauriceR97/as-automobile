@@ -209,6 +209,17 @@ fbq('init','1422851823195089');fbq('track','PageView');
             <span class="sk-label">Konfigurations-Code (optional)</span>
             <input value="{{ configCode }}" onChange="{{ onConfigCode }}" placeholder="falls vorhanden" class="sk-field" style="letter-spacing:.06em;" />
           </div>
+          <div style="margin-bottom:16px; background:#fff; border:2px solid #000; border-radius:14px; padding:16px;">
+            <div style="display:flex; gap:12px; align-items:flex-start; margin-bottom:12px;">
+              <span style="width:44px; height:44px; border-radius:11px; background:#000; color:#FF2B62; display:grid; place-items:center; font-size:19px; flex:none;"><i class="fa-solid fa-heart"></i></span>
+              <span style="line-height:1.4; min-width:0;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#9F1E41;">Loyalitätsrate 255 € mtl. statt 269 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B5B5B; margin-top:2px;">Das Fahrzeug muss sich seit mind. 6 Monaten in Ihrem Besitz befinden.</span></span>
+            </div>
+            <div class="sk-seg">
+              <button type="button" onClick="{{ setLoyalJa }}" class="sk-segbtn {{ loyalJaCls }}">Ja</button>
+              <button type="button" onClick="{{ setLoyalNein }}" class="sk-segbtn {{ loyalNeinCls }}">Nein</button>
+            </div>
+            <sc-if value="{{ loyalMissing }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px; font-size:13px; font-weight:700; color:#9F1E41;"><i class="fa-solid fa-circle-exclamation"></i> Bitte wählen Sie Ja oder Nein.</div></sc-if>
+          </div>
           <label style="display:flex; gap:14px; align-items:center; margin-bottom:16px; background:#FFF4F7; border:1.5px solid #FFC2D2; border-radius:14px; padding:14px 16px; cursor:pointer;">
             <span style="width:44px; height:44px; border-radius:11px; background:#000; color:#FF2B62; display:grid; place-items:center; font-size:20px; flex:none;"><i class="fa-solid fa-plug-circle-bolt"></i></span>
             <span style="flex:1; min-width:0; line-height:1.4;">
@@ -264,6 +275,7 @@ fbq('init','1422851823195089');fbq('track','PageView');
           <span style="font-size:13px; color:#6B6B6B;">{{ rateLabel }}</span>
           <span style="font-size:30px; font-weight:800; color:#FF2B62; letter-spacing:-.03em;">{{ rateFmt }} €</span>
         </div>
+        <div style="margin-top:8px; font-size:12px; color:#000; font-weight:800;"><i class="fa-solid fa-heart" style="color:#FF2B62;"></i> {{ loyalHint }}</div>
         <div style="margin-top:6px; font-size:12px; color:#9F1E41; font-weight:700;"><i class="fa-solid fa-hand-holding-dollar"></i> Sonderzahlung als E-Auto-Förderung sichern³</div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E8E8E8; display:flex; align-items:center; gap:12px;">
           <div style="width:44px; height:44px; border-radius:999px; overflow:hidden; flex:none;"><img src="../img/martin-braunheim.jpeg" alt="Martin Braunheim" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
@@ -348,7 +360,7 @@ class Component extends DCLogic {
     const s = this.state;
     const lzUp = { 24: 14, 36: 0, 48: 6 }[s.laufzeit] || 0;
     const kmUp = Math.max(0, (s.km - 10000) / 1000) * 4;
-    return Math.round(269 + lzUp + kmUp);
+    return Math.round((s.loyal === 'ja' ? 255 : 269) + lzUp + kmUp);
   }
 
   colorImg() { return '../img/born-hero.webp'; }
@@ -416,6 +428,7 @@ class Component extends DCLogic {
   submit(e) {
     e.preventDefault();
     const s = this.state;
+    if (!s.loyal) { this.setState({ loyalMissing: true }); return; }
     if (!s.consent) { this.setState({ consentMissing: true }); return; }
     const rate = this.computeRate();
     const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
@@ -471,7 +484,7 @@ class Component extends DCLogic {
       erwerbsart: modeLabel, kundentyp: s.kundentyp,
       sonderzahlung: String(s.anzahlung), laufzeit_monate: String(s.laufzeit),
       fahrleistung_km: String(s.km), wunschfarbe: s.color,
-      konfigurationscode: s.configCode, berechnete_rate: String(rate), waehrung: 'EUR', e_auto_foerderung: s.foerderung ? 'ja' : 'nein',
+      konfigurationscode: s.configCode, berechnete_rate: String(rate), waehrung: 'EUR', e_auto_foerderung: s.foerderung ? 'ja' : 'nein', loyalitaetskunde: s.loyal || 'nein',
       vorname: s.vorname, nachname: s.nachname, telefon: s.phone, email: s.email,
       anliegen: anliegen, probefahrt: probefahrtLabel, nachricht: s.message, einwilligung: s.consent ? 'ja' : 'nein',
       termin: terminText, termin_datum: (probe ? s.terminDatum : ''), termin_uhrzeit: (probe ? s.terminUhrzeit : ''), termin_dauer_min: '45',
@@ -577,7 +590,7 @@ class Component extends DCLogic {
       onVorname: txt('vorname'), onNachname: txt('nachname'), onPhone: txt('phone'), onEmail: txt('email'), onMessage: txt('message'),
       consentMissing: s.consentMissing,
       onConsent: (e) => this.setState({ consent: e.target.checked, consentMissing: false }),
-      foerderung: s.foerderung, onFoerderung: (e) => this.setState({ foerderung: e.target.checked }),
+      loyalJaCls: s.loyal === 'ja' ? 'on' : '', loyalNeinCls: s.loyal === 'nein' ? 'on' : '', setLoyalJa: () => this.setState({ loyal: 'ja', loyalMissing: false }), setLoyalNein: () => this.setState({ loyal: 'nein', loyalMissing: false }), loyalMissing: s.loyalMissing, loyalHint: s.loyal === 'ja' ? 'Loyalitätsrate für CUPRA- & SEAT-Fahrer' : 'Als CUPRA- oder SEAT-Fahrer nur 255 € mtl.', foerderung: s.foerderung, onFoerderung: (e) => this.setState({ foerderung: e.target.checked }),
 
       colorImg: this.colorImg(),
       onNext: () => this.next(),
