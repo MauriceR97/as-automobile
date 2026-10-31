@@ -2,6 +2,16 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Meta Pixel (statisch, Consent über Cookiebot: Events werden bis zur Marketing-Zustimmung zurückgehalten) -->
+<script data-cookieconsent="ignore">
+if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('consent','revoke');
+fbq('init','1422851823195089');fbq('track','PageView');
+function asFbConsent(){try{if(window.Cookiebot&&Cookiebot.consent&&Cookiebot.consent.marketing){fbq('consent','grant');}}catch(e){}}
+window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventListener('CookiebotOnAccept',asFbConsent);
+</script>
 <script>(function(){var p=location.pathname;if(p.slice(-1)!=="/"&&!/\.[a-z0-9]+$/i.test(p)){location.replace(p+"/"+location.search+location.hash);}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../../../assets/support.js"></script>
@@ -10,7 +20,6 @@
 <x-dc>
 <!-- Sub-page of the "Škoda Angebots-Landingpage" template CUPRA Raval Plus — Anfrage-Wizard. -->
 <helmet>
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GT-5TJNN3H3"></script>
 <script data-cookieconsent="ignore">
@@ -37,13 +46,6 @@ document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&
   if(changed){store.updated=new Date().toISOString(); try{localStorage.setItem('as_attribution',JSON.stringify(store));}catch(e){}}
 }catch(e){}})();
 </script>
-<!-- Meta Pixel -->
-<script>
-if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1422851823195089');fbq('track','PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
 <!-- Interaktions-Event: Contact (Anruf/E-Mail) -->
 <script>
 (function(){
