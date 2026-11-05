@@ -2,16 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Meta Pixel (statisch, Consent über Cookiebot: Events werden bis zur Marketing-Zustimmung zurückgehalten) -->
-<script data-cookieconsent="ignore">
-if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('consent','revoke');
-fbq('init','1422851823195089');fbq('track','PageView');
-function asFbConsent(){try{if(window.Cookiebot&&Cookiebot.consent&&Cookiebot.consent.marketing){fbq('consent','grant');}}catch(e){}}
-window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventListener('CookiebotOnAccept',asFbConsent);
-</script>
 <script>(function(){var p=location.pathname;if(p.slice(-1)!=="/"&&!/\.[a-z0-9]+$/i.test(p)){location.replace(p+"/"+location.search+location.hash);}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../../../assets/support.js"></script>
@@ -20,6 +10,7 @@ window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventLi
 <x-dc>
 <!-- Sub-page of the "Škoda Angebots-Landingpage" template (entry: ../). Anfrage/lead form — 4-Schritt-Wizard, reached from the landing-page CTAs, submits to ../danke/. -->
 <helmet>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GT-5TJNN3H3"></script>
 <script data-cookieconsent="ignore">
@@ -41,6 +32,13 @@ window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventLi
   if(changed){store.updated=new Date().toISOString(); try{localStorage.setItem('as_attribution',JSON.stringify(store));}catch(e){}}
 }catch(e){}})();
 </script>
+<!-- Meta Pixel -->
+<script>
+if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1422851823195089');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
 <!-- Interaktions-Event: Contact (Anruf/E-Mail) -->
 <script>
 (function(){
@@ -173,7 +171,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
             <div>
               <span class="sk-label">Laufzeit *</span>
               <select value="{{ laufzeit }}" onChange="{{ onLaufzeit }}" class="sk-field">
-                <option value="24">24 Monate</option>
+                <option value="24">36 Monate</option>
                 <option value="36">36 Monate</option>
                 <option value="48">48 Monate</option>
               </select>
@@ -234,7 +232,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
           <span style="font-size:13px; color:#6B776F;">{{ rateLabel }}</span>
           <span style="font-size:26px; font-weight:800; color:var(--sk-green); letter-spacing:-.02em;">{{ rateFmt }} €</span>
         </div>
-        <div style="margin-top:8px; font-size:12px; color:#C2410C; font-weight:700;"><i class="fa-solid fa-hourglass-half"></i> Begrenzte Aktion: 30x · nur bis 31.10.2026</div>
+        <div style="margin-top:8px; font-size:12px; color:#C2410C; font-weight:700;"><i class="fa-solid fa-hourglass-half"></i> November-Aktion · sofort lieferbar · geringe Stückzahl</div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:center; gap:12px;">
           <img src="https://onecdn.io/media/039648d0-bf62-46ea-b1d7-6424bc868767/full" alt="Martin Kedzierski" style="width:44px; height:44px; border-radius:999px; object-fit:cover;" />
           <div style="font-size:13px; line-height:1.4;"><strong>Martin Kedzierski</strong><br><span style="color:#6B776F;">Ihr ŠKODA Berater</span></div>
@@ -261,10 +259,10 @@ class Component extends DCLogic {
     };
     this.state = {
       mode: q('mode', 'leasing'),
-      anzahlung: Number(q('anzahlung', 2500)) || 0,
-      laufzeit: Number(q('laufzeit', 24)) || 24,
+      anzahlung: Number(q('anzahlung', 4000)) || 0,
+      laufzeit: Number(q('laufzeit', 36)) || 36,
       km: Number(q('km', 10000)) || 10000,
-      color: q('color', 'Energy-Blau'),
+      color: q('color', 'Race-Blau Metallic'),
       configCode: '',
       kundentyp: 'privat',
       probefahrt: 'nein',
@@ -316,18 +314,18 @@ class Component extends DCLogic {
 
   computeRate() {
     const s = this.state;
-    const lzUp = { 24: 0, 36: 9, 48: 15 }[s.laufzeit] || 0;
+    const lzUp = { 24: 9, 36: 0, 48: 6 }[s.laufzeit] || 0;
     const kmUp = Math.max(0, (s.km - 10000) / 1000) * 4;
-    return Math.round(69 + lzUp + kmUp);
+    return Math.round(59 + lzUp + kmUp);
   }
 
   colorImg() {
     const map = {
-      'Energy-Blau': '../img/fabia-side.png', 'Velvet-Rot': '../img/color-rot.png',
-      'Brillant-Grau': '../img/color-grau.png', 'Candy-Weiß': '../img/color-weiss.png',
-      'Magic-Schwarz': '../img/color-schwarz.png',
+      'Race-Blau Metallic': '../img/fabia-side.webp', 'Velvet-Rot': '../img/color-rot.webp',
+      'Brillant-Grau': '../img/color-grau.webp', 'Candy-Weiß': '../img/color-weiss.webp',
+      'Magic-Schwarz': '../img/color-schwarz.webp',
     };
-    return map[this.state.color] || '../img/fabia-side.png';
+    return map[this.state.color] || '../img/fabia-side.webp';
   }
 
   getCookie(name) {

@@ -587,8 +587,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       </div>
 
       <div class="sk-haus3 sk-haus2" style="margin-top:16px;">
-        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-showroom.jpg" alt="Showroom" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
-        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-lounge.jpg" alt="Kundenbereich" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-showroom.webp" alt="Showroom" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
+        <div style="border-radius:14px; overflow:hidden; border:1px solid #E7ECE9; aspect-ratio:16/10;"><img loading="lazy" decoding="async" src="img/haus-lounge.webp" alt="Kundenbereich" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
       </div>
     </div>
   </section>
@@ -804,9 +804,9 @@ class Component extends DCLogic {
 
     // Colour configurator
     const imgMap = {
-      'Race-Blau Metallic': 'img/fabia-side.png', 'Velvet-Rot': 'img/color-rot.png',
-      'Brillant-Grau': 'img/color-grau.png', 'Candy-Weiß': 'img/color-weiss.png',
-      'Magic-Schwarz': 'img/color-schwarz.png',
+      'Race-Blau Metallic': 'img/fabia-side.webp', 'Velvet-Rot': 'img/color-rot.webp',
+      'Brillant-Grau': 'img/color-grau.webp', 'Candy-Weiß': 'img/color-weiss.webp',
+      'Magic-Schwarz': 'img/color-schwarz.webp',
     };
     const setColor = (name) => () => this.setState({ color: name });
 
@@ -832,7 +832,7 @@ class Component extends DCLogic {
 
       // configurator
       colorName: s.color,
-      colorImg: imgMap[s.color] || 'img/fabia-side.png',
+      colorImg: imgMap[s.color] || 'img/fabia-side.webp',
       selBlau: s.color === 'Race-Blau Metallic',       notBlau: s.color !== 'Race-Blau Metallic',
       selRot: s.color === 'Velvet-Rot',       notRot: s.color !== 'Velvet-Rot',
       selGrau: s.color === 'Brillant-Grau',   notGrau: s.color !== 'Brillant-Grau',
