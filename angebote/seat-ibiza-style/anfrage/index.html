@@ -113,7 +113,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
   .sk-slot { cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; padding:11px 8px; border:1px solid #D5DDD9; border-radius:9px; background:#fff; color:var(--sk-ink); transition:border-color .15s; }
   .sk-slot:hover { border-color:var(--sk-green); }
   .sk-slot.on { background:var(--sk-green); border-color:var(--sk-green); color:#fff; }
-  .sk-primary { width:100%; font-family:inherit; cursor:pointer; background:var(--sk-mint); color:var(--sk-green); box-shadow:0 6px 18px rgba(0,0,0,0.16); font-weight:800; font-size:16px; padding:16px; border:none; border-radius:11px; display:inline-flex; align-items:center; justify-content:center; gap:10px; }
+  .sk-primary { width:100%; font-family:inherit; cursor:pointer; background:var(--sk-mint); color:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.16); font-weight:800; font-size:16px; padding:16px; border:none; border-radius:11px; display:inline-flex; align-items:center; justify-content:center; gap:10px; }
   .sk-primary:hover { background:var(--sk-mint-600); }
   .sk-ghost { flex:0 0 auto; font-family:inherit; cursor:pointer; background:#fff; color:var(--sk-green); font-weight:700; font-size:15px; padding:16px 20px; border:1px solid var(--sk-green); border-radius:11px; display:inline-flex; align-items:center; gap:8px; }
   .sk-ghost:hover { background:var(--sk-paper); }
@@ -126,7 +126,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
 </style>
 </helmet>
 
-<div style="--sk-green:#2E2E30; --sk-green-600:#3A3A3D; --sk-green-700:#232325; --sk-mint:#EB5C37; --sk-mint-600:#D34E2C; --sk-ink:#1A1A1C; --sk-paper:#F5F4F3; font-family:var(--font-sans,'Inter',sans-serif); color:var(--sk-ink); background:var(--sk-paper); min-height:100vh; -webkit-font-smoothing:antialiased;">
+<div style="--sk-green:#2E2E30; --sk-green-600:#3A3A3D; --sk-green-700:#232325; --sk-mint:#E1302A; --sk-mint-600:#C0241F; --sk-ink:#1A1A1C; --sk-paper:#F5F4F3; font-family:var(--font-sans,'Inter',sans-serif); color:var(--sk-ink); background:var(--sk-paper); min-height:100vh; -webkit-font-smoothing:antialiased;">
 
   
 
@@ -134,7 +134,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
   <header style="background:#fff; border-bottom:1px solid #E7ECE9;">
     <div class="sk-container" style="height:64px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
       <a href="../" style="display:inline-flex; align-items:center; gap:9px; text-decoration:none; color:#5B6863; font-weight:600; font-size:14px;" style-hover="color:var(--sk-green);"><i class="fa-solid fa-arrow-left"></i> Zurück zum Angebot</a>
-      <div data-partner-line style="display:flex; flex-direction:column; align-items:flex-end; gap:2px; min-width:0;"><img src="../img/logo-as-quer.webp" alt="AS Automobile · SEAT · CUPRA · Škoda" style="height:clamp(28px,5vw,38px); width:auto; display:block;" /><span style="display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:500; letter-spacing:.02em; color:#6B6B6B; white-space:nowrap;"><i class="fa-solid fa-circle-check" style="color:#EB5C37; font-size:11px;"></i>Offizieller SEAT Partner in Essen</span></div>
+      <div data-partner-line style="display:flex; flex-direction:column; align-items:flex-end; gap:2px; min-width:0;"><img src="../img/logo-as-quer.webp" alt="AS Automobile · SEAT · CUPRA · Škoda" style="height:clamp(28px,5vw,38px); width:auto; display:block;" /><span style="display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:500; letter-spacing:.02em; color:#6B6B6B; white-space:nowrap;"><i class="fa-solid fa-circle-check" style="color:#E1302A; font-size:11px;"></i>Offizieller SEAT Partner in Essen</span></div>
     </div>
   </header>
 
@@ -148,7 +148,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
         <!-- Angebotsanfrage (einstufig) -->
         <sc-if value="{{ step4 }}" hint-placeholder-val="{{ true }}">
         <div>
-          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Jetzt Angebot anfragen</h1>
+          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Jetzt Angebot sichern</h1>
           <p style="margin:0 0 20px; font-size:15px; color:#5B6863;">Hinterlassen Sie Ihre Daten — Sie erhalten Ihr unverbindliches Leasing-Angebot kurzfristig von uns.</p>
 
           <div style="margin-bottom:18px;">
@@ -191,7 +191,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
             <input value="{{ configCode }}" onChange="{{ onConfigCode }}" placeholder="z. B. SDWGGNGH" class="sk-field" style="letter-spacing:.06em;" />
           </div>
           <div style="margin-bottom:16px; background:#fff; border:2px solid var(--sk-green); border-radius:14px; padding:16px;">
-              <div style="line-height:1.4; margin-bottom:12px;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-mint-600);">29 € mtl. statt 69 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B6863;">Seit mind. 6 Monaten in Ihrem Besitz.</span></div>
+              <div style="line-height:1.4; margin-bottom:12px;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-mint-600);">165 € mtl. statt 179 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B6863;">Seit mind. 6 Monaten in Ihrem Besitz.</span></div>
               <div class="sk-seg sk-yn">
                 <button type="button" onClick="{{ setLoyalJa }}" class="sk-segbtn {{ loyalJaCls }}">Ja</button>
                 <button type="button" onClick="{{ setLoyalNein }}" class="sk-segbtn {{ loyalNeinCls }}">Nein</button>
@@ -213,7 +213,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
           <div style="margin-bottom:10px;"></div>
 
           <div style="display:flex; gap:12px;">
-            <button type="submit" class="sk-primary"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot anfragen</button>
+            <button type="submit" class="sk-primary"><i class="fa-solid fa-paper-plane"></i> Jetzt Angebot sichern</button>
           </div>
         </div>
         </sc-if>
@@ -268,8 +268,8 @@ class Component extends DCLogic {
     };
     this.state = {
       mode: q('mode', 'leasing'),
-      anzahlung: Number(q('anzahlung', 4000)) || 0,
-      laufzeit: Number(q('laufzeit', 24)) || 24,
+      anzahlung: Number(q('anzahlung', 0)) || 0,
+      laufzeit: Number(q('laufzeit', 48)) || 48,
       km: Number(q('km', 10000)) || 10000,
       color: q('color', 'Weiß'),
       configCode: '',
@@ -323,9 +323,9 @@ class Component extends DCLogic {
 
   computeRate() {
     const s = this.state;
-    const lzUp = { 24: 0, 36: 9, 48: 15 }[s.laufzeit] || 0;
+    const lzUp = 0;
     const kmUp = Math.max(0, (s.km - 10000) / 1000) * 4;
-    return Math.round((this.state.loyal === 'ja' ? 29 : 69) + lzUp + kmUp);
+    return Math.round((this.state.loyal === 'ja' ? 165 : 179) + lzUp + kmUp);
   }
 
   colorImg() {
@@ -558,7 +558,7 @@ class Component extends DCLogic {
       privatCls: s.kundentyp === 'privat' ? 'on' : '', gewerbeCls: s.kundentyp === 'gewerbe' ? 'on' : '',
       setPrivat: () => this.setState({ kundentyp: 'privat' }),
       setGewerbe: () => this.setState({ kundentyp: 'gewerbe' }),
-      loyalJaCls: s.loyal === 'ja' ? 'on' : '', loyalNeinCls: s.loyal === 'nein' ? 'on' : '', setLoyalJa: () => this.setState({ loyal: 'ja', loyalMissing: false }), setLoyalNein: () => this.setState({ loyal: 'nein', loyalMissing: false }), loyalMissing: s.loyalMissing, loyalLabel: s.loyal === 'ja' ? 'Ja · 29 € mtl.' : (s.loyal === 'nein' ? 'Nein' : '—'),
+      loyalJaCls: s.loyal === 'ja' ? 'on' : '', loyalNeinCls: s.loyal === 'nein' ? 'on' : '', setLoyalJa: () => this.setState({ loyal: 'ja', loyalMissing: false }), setLoyalNein: () => this.setState({ loyal: 'nein', loyalMissing: false }), loyalMissing: s.loyalMissing, loyalLabel: s.loyal === 'ja' ? 'Ja · 165 € mtl.' : (s.loyal === 'nein' ? 'Nein' : '—'),
 
       configCode: s.configCode, onConfigCode: txt('configCode'),
       vorname: s.vorname, nachname: s.nachname, phone: s.phone, email: s.email, message: s.message, consent: s.consent,
