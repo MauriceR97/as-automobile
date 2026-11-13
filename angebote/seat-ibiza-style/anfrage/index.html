@@ -228,7 +228,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
       </div>
       <div style="padding:20px;">
         <div style="font-weight:800; font-size:18px; margin-bottom:2px;">SEAT Ibiza Style</div>
-        <div style="font-size:13px; color:#6B776F; margin-bottom:16px;">Neuwagen · 85 kW (116 PS)</div>
+        <div style="font-size:13px; color:#6B776F; margin-bottom:16px;">Neuwagen · 59 kW (80 PS)</div>
         <div style="display:flex; flex-direction:column; gap:10px; font-size:14px;">
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Erwerbsart</span><strong>{{ modeLabel }}</strong></div>
           <div style="display:flex; justify-content:space-between; gap:10px;"><span style="color:#6B776F;">Wunschfarbe</span><strong>{{ color }}</strong></div>
@@ -421,7 +421,7 @@ class Component extends DCLogic {
     try {
       if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
         window.fbq('track', 'Lead', {
-          content_name: 'SEAT Ibiza Style 1.0 TSI',
+          content_name: 'SEAT Ibiza Style 1.0 MPI',
           content_category: modeLabel,
           value: rate, currency: 'EUR',
         }, { eventID: eventId });
@@ -440,7 +440,7 @@ class Component extends DCLogic {
           },
           lead: {
             marke: 'SEAT',
-            fahrzeug: 'SEAT Ibiza Style 1.0 TSI',
+            fahrzeug: 'SEAT Ibiza Style 1.0 MPI',
             erwerbsart: modeLabel, kundentyp: s.kundentyp,
             berechnete_rate: rate, currency: 'EUR', value: rate,
             vorname: s.vorname, nachname: s.nachname, email: s.email, telefon: s.phone,
@@ -454,7 +454,7 @@ class Component extends DCLogic {
       event_name: 'Lead', event_id: eventId,
       event_source_url: (typeof window !== 'undefined' ? window.location.href : ''),
       marke: 'SEAT',
-      fahrzeug: 'SEAT Ibiza Style 1.0 TSI', fahrzeug_bild: 'https://www.as-automobile-essen.de/assets/img/mail/seat-ibiza-style.jpg',
+      fahrzeug: 'SEAT Ibiza Style 1.0 MPI', fahrzeug_bild: 'https://www.as-automobile-essen.de/assets/img/mail/seat-ibiza-style.jpg',
       erwerbsart: modeLabel, kundentyp: s.kundentyp,
       sonderzahlung: String(s.anzahlung), laufzeit_monate: String(s.laufzeit),
       fahrleistung_km: String(s.km), wunschfarbe: s.color,
