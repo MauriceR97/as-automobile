@@ -2,16 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Meta Pixel (statisch, Consent über Cookiebot: Events werden bis zur Marketing-Zustimmung zurückgehalten) -->
-<script data-cookieconsent="ignore">
-if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('consent','revoke');
-fbq('init','1422851823195089');fbq('track','PageView');
-function asFbConsent(){try{if(window.Cookiebot&&Cookiebot.consent&&Cookiebot.consent.marketing){fbq('consent','grant');}}catch(e){}}
-window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventListener('CookiebotOnAccept',asFbConsent);
-</script>
 <script>(function(){var p=location.pathname;if(p.slice(-1)!=="/"&&!/\.[a-z0-9]+$/i.test(p)){location.replace(p+"/"+location.search+location.hash);}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../../assets/support.js"></script>
@@ -20,6 +10,7 @@ window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventLi
 <x-dc>
 <!-- Konkrete SEAT-Ibiza-FR-Angebotsseite (Instanz der Angebots-Landingpage) — generiert nach deploy/angebote/seat-ibiza-fr/. -->
 <helmet>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GT-5TJNN3H3"></script>
 <script data-cookieconsent="ignore">
@@ -41,8 +32,15 @@ window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventLi
   if(changed){store.updated=new Date().toISOString(); try{localStorage.setItem('as_attribution',JSON.stringify(store));}catch(e){}}
 }catch(e){}})();
 </script>
+<!-- Meta Pixel -->
+<script>
+if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1422851823195089');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
 <!-- ViewContent: Angebotsseite geöffnet -->
-<script data-cookieconsent="ignore">
+<script>
 try{fbq('track','ViewContent',{content_name:'SEAT Ibiza FR 1.0 TSI',content_category:'Neuwagen',content_type:'vehicle',value:99,currency:'EUR'});}catch(e){}
 try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_content',content_name:'SEAT Ibiza FR 1.0 TSI',value:99,currency:'EUR'});}catch(e){}
 </script>
@@ -608,6 +606,16 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
       <button type="button" class="as-nav" data-dir="prev" aria-label="Vorheriges Angebot"><i class="fa-solid fa-chevron-left"></i></button>
       <button type="button" class="as-nav" data-dir="next" aria-label="Nächstes Angebot"><i class="fa-solid fa-chevron-right"></i></button>
       <div class="as-more-track">
+        <a class="as-card" href="../skoda-elroq/">
+          <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../skoda-elroq/img/thumb-skoda-elroq.webp" alt="Škoda Elroq" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
+          <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
+            <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
+            <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Elroq</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">199&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">36 Mon. · 100 % elektrisch</span>
+            <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
         <a class="as-card" href="../cupra-born/">
           <div style="position:relative; aspect-ratio:16/10; overflow:hidden; background:#eee;"><img src="../cupra-born/img/thumb-cupra-born.webp" alt="CUPRA Born" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" /><span style="position:absolute; top:10px; left:10px; display:inline-flex; align-items:center; gap:6px; background:var(--sk-green); color:var(--sk-mint); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; padding:5px 10px; border-radius:999px;"><i class="fa-solid fa-plug-circle-bolt"></i> E-Auto-Förderung</span></div>
           <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
@@ -633,8 +641,8 @@ try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'view_con
           <div style="padding:16px 18px 18px; display:flex; flex-direction:column; gap:4px; flex:1;">
             <span style="font-size:11px; font-weight:800; letter-spacing:.12em; color:#8A968F;">ŠKODA</span>
             <span style="font-size:17px; font-weight:800; color:var(--sk-ink);">Škoda Fabia Essence</span>
-            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">69&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
-            <span style="font-size:12px; color:#6B776F;">24 Mon. · 2.500 € Sonderzahlung</span>
+            <span style="display:flex; align-items:baseline; gap:6px; margin-top:6px;"><span style="font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--sk-green); line-height:1;">59&nbsp;€</span><span style="font-size:13px; font-weight:700; color:#6B776F;">mtl.</span></span>
+            <span style="font-size:12px; color:#6B776F;">36 Mon. · 4.000 € Sonderzahlung</span>
             <span style="margin-top:auto; padding-top:12px; font-size:14px; font-weight:800; color:var(--sk-green); display:inline-flex; align-items:center; gap:7px;">Zum Angebot <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </a>
