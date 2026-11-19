@@ -230,7 +230,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
         </div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:baseline; justify-content:space-between;">
           <span style="font-size:13px; color:#6B776F;">{{ rateLabel }}</span>
-          <span style="font-size:26px; font-weight:800; color:var(--sk-green); letter-spacing:-.02em;">{{ rateFmt }} €</span>
+          <span style="font-size:{{ rateFs26 }}; font-weight:800; color:var(--sk-green); letter-spacing:-.02em;">{{ rateFmt }}{{ rateEur }}</span>
         </div>
         <div style="margin-top:8px; font-size:12px; color:#C2410C; font-weight:700;"><i class="fa-solid fa-hourglass-half"></i> Begrenztes Angebot · nur bis 31.10.2026</div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:center; gap:12px;">
@@ -314,9 +314,12 @@ class Component extends DCLogic {
 
   computeRate() {
     const s = this.state;
-    const lzUp = { 24: 0, 36: 9, 48: 15 }[s.laufzeit] || 0;
-    const kmUp = Math.max(0, (s.km - 10000) / 1000) * 4;
-    return Math.round(99 + lzUp + kmUp);
+    return 99;
+  }
+
+  rateDeviates() {
+    const s = this.state;
+    return Number(s.laufzeit) !== 24 || Number(s.km) !== 10000;
   }
 
   colorImg() {
@@ -394,7 +397,7 @@ class Component extends DCLogic {
     e.preventDefault();
     const s = this.state;
     if (!s.consent) { this.setState({ consentMissing: true }); return; }
-    const rate = this.computeRate();
+    const rate = this.rateDeviates() ? 'Preis abweichend – folgt mit dem Angebot' : this.computeRate();
     const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
     const probe = s.probefahrt === 'ja';
     const terminText = '';
@@ -483,7 +486,7 @@ class Component extends DCLogic {
     const num = (k) => (e) => this.setState({ [k]: Number(e.target.value) });
     const isLeasing = s.mode === 'leasing', isFin = s.mode === 'finanzierung', isKauf = s.mode === 'kauf';
     const modeLabel = isKauf ? 'Kauf' : (isFin ? 'Finanzierung' : 'Leasing');
-    const rateNum = this.computeRate();
+    const rateNum = this.computeRate(); const rateDev = this.rateDeviates();
     const step = s.formStep;
 
     // Fortschritts-Indikator: Schritte bis zum aktuellen sind grün
@@ -530,9 +533,11 @@ class Component extends DCLogic {
       laufzeit: s.laufzeit, km: s.km, kmFmt: this.fmt(s.km), color: s.color,
       onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
 
-      rateFmt: this.fmt(rateNum),
-      rateLabel: 'Leasingrate ca.',
-      rateSuffix: isKauf ? '' : 'mtl.',
+      rateFmt: rateDev ? 'Preis abweichend' : this.fmt(rateNum),
+      rateEur: rateDev ? '' : '\u00a0€', rateMtl: rateDev ? '' : 'mtl.',
+      rateFs26: rateDev ? '16px' : '26px',
+      rateLabel: rateDev ? 'Rate erhalten Sie mit dem Angebot' : 'Leasingrate ca.',
+      rateSuffix: rateDev ? '' : (isKauf ? '' : 'mtl.'),
 
       probeJa: probe, probeNein: !probe,
       probeJaCls: probe ? 'on' : '', probeNeinCls: !probe ? 'on' : '',

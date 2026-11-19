@@ -162,7 +162,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
         <div style="width:92px; height:64px; border-radius:10px; overflow:hidden; flex:none;"><img src="../img/tavascan-hero.webp" alt="CUPRA Tavascan" style="width:100%; height:100%; object-fit:cover; display:block;" /></div>
         <div style="min-width:0; flex:1;">
           <div style="font-weight:800; font-size:15px;">CUPRA Tavascan</div>
-          <div style="display:flex; align-items:baseline; gap:6px; line-height:1.1; margin-top:2px;"><span style="font-size:28px; font-weight:800; color:#FF2B62; letter-spacing:-.03em;">{{ rateFmt }}&nbsp;€</span><span style="font-size:12px; font-weight:700;">mtl.</span></div>
+          <div style="display:flex; align-items:baseline; gap:6px; line-height:1.1; margin-top:2px;"><span style="font-size:{{ rateFs28 }}; font-weight:800; color:#FF2B62; letter-spacing:-.03em;">{{ rateFmt }}{{ rateEur }}</span><span style="font-size:12px; font-weight:700;">{{ rateMtl }}</span></div>
           <div style="font-size:11px; color:rgba(255,255,255,0.72); margin-top:2px;">{{ laufzeit }} Mon. · {{ kmFmt }} km · 6.000 € SZ = E-Förderung³</div>
         </div>
       </div>
@@ -171,7 +171,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
         <!-- Angebotsanfrage (einstufig) -->
         <sc-if value="{{ step4 }}" hint-placeholder-val="{{ true }}">
         <div>
-          <h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Jetzt Angebot sichern</h1>
+          <div style="display:inline-flex; align-items:center; gap:8px; background:#000; color:#fff; border-radius:999px; padding:7px 14px; font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin:0 0 12px;"><i class="fa-solid fa-hourglass-half" style="color:var(--sk-mint);"></i> Black Week Deal · nur bis 23.11.2026</div><h1 style="margin:0 0 6px; font-size:clamp(22px,4vw,28px); font-weight:800; letter-spacing:-.02em;">Jetzt Angebot sichern</h1>
           <p style="margin:0 0 20px; font-size:15px; color:#5B5B5B;">Hinterlassen Sie Ihre Daten — Sie erhalten Ihr unverbindliches Leasing-Angebot kurzfristig von uns.</p>
 
           <div style="margin-bottom:18px;">
@@ -216,7 +216,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
           <div style="margin-bottom:16px; background:#fff; border:2px solid #000; border-radius:14px; padding:16px;">
             <div style="display:flex; gap:12px; align-items:flex-start; margin-bottom:12px;">
               <span style="width:44px; height:44px; border-radius:11px; background:#000; color:#FF2B62; display:grid; place-items:center; font-size:19px; flex:none;"><i class="fa-solid fa-heart"></i></span>
-              <span style="line-height:1.4; min-width:0;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#9F1E41;">Loyalitätsrate 225 € mtl. statt 239 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B5B5B; margin-top:2px;">Das Fahrzeug muss sich seit mind. 6 Monaten in Ihrem Besitz befinden.</span></span>
+              <span style="line-height:1.4; min-width:0;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#9F1E41;">Loyalitätsrate 188 € mtl. statt 199 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B5B5B; margin-top:2px;">Das Fahrzeug muss sich seit mind. 6 Monaten in Ihrem Besitz befinden.</span></span>
             </div>
             <div class="sk-seg sk-yn">
               <button type="button" onClick="{{ setLoyalJa }}" class="sk-segbtn {{ loyalJaCls }}">Ja</button>
@@ -277,7 +277,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
         </div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E8E8E8; display:flex; align-items:baseline; justify-content:space-between;">
           <span style="font-size:13px; color:#6B6B6B;">{{ rateLabel }}</span>
-          <span style="font-size:30px; font-weight:800; color:#FF2B62; letter-spacing:-.03em;">{{ rateFmt }} €</span>
+          <span style="font-size:{{ rateFs30 }}; font-weight:800; color:#FF2B62; letter-spacing:-.03em;">{{ rateFmt }}{{ rateEur }}</span>
         </div>
         <div style="margin-top:8px; font-size:12px; color:#000; font-weight:800;"><i class="fa-solid fa-heart" style="color:#FF2B62;"></i> {{ loyalHint }}</div>
         <div style="margin-top:6px; font-size:12px; color:#9F1E41; font-weight:700;"><i class="fa-solid fa-hand-holding-dollar"></i> Sonderzahlung als E-Auto-Förderung sichern³</div>
@@ -362,9 +362,12 @@ class Component extends DCLogic {
 
   computeRate() {
     const s = this.state;
-    const lzUp = { 24: 14, 36: 0, 48: 6 }[s.laufzeit] || 0;
-    const kmUp = Math.max(0, (s.km - 10000) / 1000) * 4;
-    return Math.round((s.loyal === 'ja' ? 225 : 239) + lzUp + kmUp);
+    return (s.loyal === 'ja' ? 188 : 199);
+  }
+
+  rateDeviates() {
+    const s = this.state;
+    return Number(s.laufzeit) !== 36 || Number(s.km) !== 10000;
   }
 
   colorImg() { return '../img/tavascan-hero.webp'; }
@@ -434,7 +437,7 @@ class Component extends DCLogic {
     const s = this.state;
     if (!s.loyal) { this.setState({ loyalMissing: true }); return; }
     if (!s.consent) { this.setState({ consentMissing: true }); return; }
-    const rate = this.computeRate();
+    const rate = this.rateDeviates() ? 'Preis abweichend – folgt mit dem Angebot' : this.computeRate();
     const modeLabel = s.mode === 'kauf' ? 'Kauf' : (s.mode === 'finanzierung' ? 'Finanzierung' : 'Leasing');
     const probe = s.probefahrt === 'ja';
     const terminText = '';
@@ -523,7 +526,7 @@ class Component extends DCLogic {
     const num = (k) => (e) => this.setState({ [k]: Number(e.target.value) });
     const isLeasing = s.mode === 'leasing', isFin = s.mode === 'finanzierung', isKauf = s.mode === 'kauf';
     const modeLabel = isKauf ? 'Kauf' : (isFin ? 'Finanzierung' : 'Leasing');
-    const rateNum = this.computeRate();
+    const rateNum = this.computeRate(); const rateDev = this.rateDeviates();
     const step = s.formStep;
 
     // Fortschritts-Indikator: Schritte bis zum aktuellen sind grün
@@ -570,9 +573,11 @@ class Component extends DCLogic {
       laufzeit: s.laufzeit, km: s.km, kmFmt: this.fmt(s.km), color: s.color,
       onAnz: num('anzahlung'), onLaufzeit: num('laufzeit'), onKm: num('km'),
 
-      rateFmt: this.fmt(rateNum),
-      rateLabel: 'Leasingrate ca.',
-      rateSuffix: isKauf ? '' : 'mtl.',
+      rateFmt: rateDev ? 'Preis abweichend' : this.fmt(rateNum),
+      rateEur: rateDev ? '' : '\u00a0€', rateMtl: rateDev ? '' : 'mtl.',
+      rateFs28: rateDev ? '17px' : '28px', rateFs30: rateDev ? '18px' : '30px',
+      rateLabel: rateDev ? 'Rate erhalten Sie mit dem Angebot' : 'Leasingrate ca.',
+      rateSuffix: rateDev ? '' : (isKauf ? '' : 'mtl.'),
 
       probeJa: probe, probeNein: !probe,
       probeJaCls: probe ? 'on' : '', probeNeinCls: !probe ? 'on' : '',
@@ -594,7 +599,7 @@ class Component extends DCLogic {
       onVorname: txt('vorname'), onNachname: txt('nachname'), onPhone: txt('phone'), onEmail: txt('email'), onMessage: txt('message'),
       consentMissing: s.consentMissing,
       onConsent: (e) => this.setState({ consent: e.target.checked, consentMissing: false }),
-      loyalJaCls: s.loyal === 'ja' ? 'on' : '', loyalNeinCls: s.loyal === 'nein' ? 'on' : '', setLoyalJa: () => this.setState({ loyal: 'ja', loyalMissing: false }), setLoyalNein: () => this.setState({ loyal: 'nein', loyalMissing: false }), loyalMissing: s.loyalMissing, loyalHint: s.loyal === 'ja' ? 'Loyalitätsrate für CUPRA- & SEAT-Fahrer' : 'Als CUPRA- oder SEAT-Fahrer nur 225 € mtl.', foerderung: s.foerderung, onFoerderung: (e) => this.setState({ foerderung: e.target.checked }),
+      loyalJaCls: s.loyal === 'ja' ? 'on' : '', loyalNeinCls: s.loyal === 'nein' ? 'on' : '', setLoyalJa: () => this.setState({ loyal: 'ja', loyalMissing: false }), setLoyalNein: () => this.setState({ loyal: 'nein', loyalMissing: false }), loyalMissing: s.loyalMissing, loyalHint: s.loyal === 'ja' ? 'Loyalitätsrate für CUPRA- & SEAT-Fahrer' : 'Als CUPRA- oder SEAT-Fahrer nur 188 € mtl.', foerderung: s.foerderung, onFoerderung: (e) => this.setState({ foerderung: e.target.checked }),
 
       colorImg: this.colorImg(),
       onNext: () => this.next(),
