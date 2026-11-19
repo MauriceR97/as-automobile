@@ -230,8 +230,9 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
         </div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:baseline; justify-content:space-between;">
           <span style="font-size:13px; color:#6B776F;">{{ rateLabel }}</span>
-          <span style="font-size:{{ rateFs26 }}; font-weight:800; color:var(--sk-green); letter-spacing:-.02em;">{{ rateFmt }}{{ rateEur }}</span>
+          <span style="font-size:26px; white-space:nowrap; font-weight:800; color:var(--sk-green); letter-spacing:-.02em;">{{ rateFmt }}{{ rateEur }}</span>
         </div>
+          <div data-ueberf="1" style="margin-top:6px; font-size:12px; color:#5B5B5B; display:flex; justify-content:space-between; gap:8px;"><span>zzgl. Überführung</span><span style="font-weight:800; color:#0D0D0D;">990&nbsp;€</span></div>
         <div style="margin-top:8px; font-size:12px; color:#C2410C; font-weight:700;"><i class="fa-solid fa-hourglass-half"></i> November-Aktion · sofort lieferbar · geringe Stückzahl</div>
         <div style="margin-top:16px; padding-top:16px; border-top:1px solid #E7ECE9; display:flex; align-items:center; gap:12px;">
           <img src="https://onecdn.io/media/039648d0-bf62-46ea-b1d7-6424bc868767/full" alt="Martin Kedzierski" style="width:44px; height:44px; border-radius:999px; object-fit:cover;" />
@@ -533,7 +534,6 @@ class Component extends DCLogic {
 
       rateFmt: rateDev ? 'Preis abweichend' : this.fmt(rateNum),
       rateEur: rateDev ? '' : '\u00a0€', rateMtl: rateDev ? '' : 'mtl.',
-      rateFs26: rateDev ? '16px' : '26px',
       rateLabel: rateDev ? 'Rate erhalten Sie mit dem Angebot' : 'Leasingrate ca.',
       rateSuffix: rateDev ? '' : (isKauf ? '' : 'mtl.'),
 
