@@ -2,17 +2,6 @@
 <html>
 <head>
 <meta charset="utf-8">
-<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
-<!-- Meta Pixel (statisch, Consent über Cookiebot: Events werden bis zur Marketing-Zustimmung zurückgehalten) -->
-<script data-cookieconsent="ignore">
-if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('consent','revoke');
-fbq('init','1422851823195089');fbq('track','PageView');
-(function(){try{var q=new URLSearchParams(location.search);var eid=q.get('eid')||('lead-'+Date.now()+'-'+Math.random().toString(36).slice(2,10));var k='lead_sent_'+eid;if(sessionStorage.getItem(k))return;fbq('track','Lead',{content_name:'CUPRA Tavascan',value:Number(q.get('rate'))||0,currency:'EUR'},{eventID:eid});sessionStorage.setItem(k,'1');}catch(e){}})();
-function asFbConsent(){try{if(window.Cookiebot&&Cookiebot.consent&&Cookiebot.consent.marketing){fbq('consent','grant');}}catch(e){}}
-window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventListener('CookiebotOnAccept',asFbConsent);
-</script>
 <script>(function(){var p=location.pathname;if(p.slice(-1)!=="/"&&!/\.[a-z0-9]+$/i.test(p)){location.replace(p+"/"+location.search+location.hash);}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../../../assets/support.js"></script>
@@ -21,6 +10,7 @@ window.addEventListener('CookiebotOnConsentReady',asFbConsent);window.addEventLi
 <x-dc>
 <!-- Sub-page of the "Škoda Angebots-Landingpage" template CUPRA Tavascan — Danke-Seite. -->
 <helmet>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="814c3e68-4376-41fa-aac8-fcf731b7dfed" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=GT-5TJNN3H3"></script>
 <script data-cookieconsent="ignore">
@@ -46,6 +36,14 @@ gtag('config','AW-18215594977');
   if(changed){store.updated=new Date().toISOString(); try{localStorage.setItem('as_attribution',JSON.stringify(store));}catch(e){}}
 }catch(e){}})();
 </script>
+<!-- Meta Pixel -->
+<script>
+if(!/(^|\.)as-automobile-essen\.de$/i.test(location.hostname)){window.fbq=function(){};window._fbq=window.fbq;}
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1422851823195089');fbq('track','PageView');
+(function(){try{var q=new URLSearchParams(location.search);var eid=q.get('eid')||('lead-'+Date.now()+'-'+Math.random().toString(36).slice(2,10));var k='lead_sent_'+eid;if(sessionStorage.getItem(k))return;fbq('track','Lead',{content_name:'CUPRA Tavascan',value:Number(q.get('rate'))||0,currency:'EUR'},{eventID:eid});sessionStorage.setItem(k,'1');}catch(e){}})();
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1422851823195089&ev=PageView&noscript=1"/></noscript>
 <!-- Interaktions-Events: Contact (Anruf/E-Mail) & Schedule (Termin-CTA) -->
 <script>
 (function(){
@@ -89,7 +87,7 @@ gtag('config','AW-18215594977');
         <div style="width:88px; height:88px; margin:0 auto 22px; border-radius:999px; background:var(--sk-mint); display:grid; place-items:center; color:var(--sk-green); font-size:40px; animation:skPop .6s ease both;">
           <i class="fa-solid fa-check"></i>
         </div>
-        <h1 style="margin:0 0 10px; font-size:clamp(26px,5vw,34px); font-weight:800; letter-spacing:-.02em;">Vielen Dank{{ nameSuffix }}!</h1>
+        <div style="display:inline-flex; align-items:center; gap:8px; background:#000; color:#fff; border-radius:999px; padding:7px 14px; font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin:0 0 12px;"><i class="fa-solid fa-hourglass-half" style="color:var(--sk-mint);"></i> Black Week Deal · nur bis 23.11.2026</div><h1 style="margin:0 0 10px; font-size:clamp(26px,5vw,34px); font-weight:800; letter-spacing:-.02em;">Vielen Dank{{ nameSuffix }}!</h1>
         <p style="margin:0 auto 8px; font-size:clamp(15px,2.5vw,17px); color:#5B5B5B; line-height:1.6; max-width:440px;">Ihre Anfrage für den <strong style="color:var(--sk-ink)">CUPRA Tavascan</strong> ({{ modeLabel }}{{ colorSuffix }}) ist bei uns eingegangen.</p>
         <p style="margin:0 auto 26px; font-size:15px; color:#5B5B5B; line-height:1.6; max-width:440px;">Ihr persönlicher Berater <strong style="color:var(--sk-ink)">Martin Braunheim</strong> meldet sich kurzfristig mit Ihrem unverbindlichen Angebot bei Ihnen.</p>
 
