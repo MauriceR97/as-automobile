@@ -191,7 +191,7 @@ select.sk-field { -webkit-appearance:none; appearance:none; background:#fff url(
             <input value="{{ configCode }}" onChange="{{ onConfigCode }}" placeholder="z. B. SDWGGNGH" class="sk-field" style="letter-spacing:.06em;" />
           </div>
           <div style="margin-bottom:16px; background:#fff; border:2px solid var(--sk-green); border-radius:14px; padding:16px;">
-              <div style="line-height:1.4; margin-bottom:12px;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-mint-600);">165 € mtl. statt 179 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B6863;">Seit mind. 6 Monaten in Ihrem Besitz.</span></div>
+              <div style="line-height:1.4; margin-bottom:12px;"><span style="display:block; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--sk-mint-600);">85 € mtl. statt 99 €</span><span style="display:block; font-size:15px; font-weight:800; color:#0D0D0D;">Ist bereits ein CUPRA oder SEAT auf Sie zugelassen? *</span><span style="display:block; font-size:12px; color:#5B6863;">Seit mind. 6 Monaten in Ihrem Besitz.</span></div>
               <div class="sk-seg sk-yn">
                 <button type="button" onClick="{{ setLoyalJa }}" class="sk-segbtn {{ loyalJaCls }}">Ja</button>
                 <button type="button" onClick="{{ setLoyalNein }}" class="sk-segbtn {{ loyalNeinCls }}">Nein</button>
@@ -324,7 +324,7 @@ class Component extends DCLogic {
 
   computeRate() {
     const s = this.state;
-    return (s.loyal === 'ja' ? 165 : 179);
+    return (s.loyal === 'ja' ? 85 : 99);
   }
 
   rateDeviates() {
@@ -563,7 +563,7 @@ class Component extends DCLogic {
       privatCls: s.kundentyp === 'privat' ? 'on' : '', gewerbeCls: s.kundentyp === 'gewerbe' ? 'on' : '',
       setPrivat: () => this.setState({ kundentyp: 'privat' }),
       setGewerbe: () => this.setState({ kundentyp: 'gewerbe' }),
-      loyalJaCls: s.loyal === 'ja' ? 'on' : '', loyalNeinCls: s.loyal === 'nein' ? 'on' : '', setLoyalJa: () => this.setState({ loyal: 'ja', loyalMissing: false }), setLoyalNein: () => this.setState({ loyal: 'nein', loyalMissing: false }), loyalMissing: s.loyalMissing, loyalLabel: s.loyal === 'ja' ? 'Ja · 165 € mtl.' : (s.loyal === 'nein' ? 'Nein' : '—'),
+      loyalJaCls: s.loyal === 'ja' ? 'on' : '', loyalNeinCls: s.loyal === 'nein' ? 'on' : '', setLoyalJa: () => this.setState({ loyal: 'ja', loyalMissing: false }), setLoyalNein: () => this.setState({ loyal: 'nein', loyalMissing: false }), loyalMissing: s.loyalMissing, loyalLabel: s.loyal === 'ja' ? 'Ja · 85 € mtl.' : (s.loyal === 'nein' ? 'Nein' : '—'),
 
       configCode: s.configCode, onConfigCode: txt('configCode'),
       vorname: s.vorname, nachname: s.nachname, phone: s.phone, email: s.email, message: s.message, consent: s.consent,
